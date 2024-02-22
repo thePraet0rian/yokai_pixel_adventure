@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://byw2vrqxq0slp"]
+
+[ext_resource type="Texture2D" uid="uid://dx540idfv7f3m" path="res://characters/player/player_assets/female_player_sprite.png" id="1_onj6w"]
+[ext_resource type="Script" path="res://characters/player/player.gd" id="1_v1i0g"]
+[ext_resource type="Texture2D" uid="uid://dkljmhd55cuf7" path="res://ui/assets/yokai_watch/watch_background.png" id="3_odi5c"]
+[ext_resource type="Texture2D" uid="uid://du8uv32dgooga" path="res://ui/assets/objective/objective_background.png" id="4_3pe0d"]
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_v1i0g")
+
+[node name="player_sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_onj6w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(216, 16)
+texture = ExtResource("3_odi5c")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(120, 127)
+texture = ExtResource("4_3pe0d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
