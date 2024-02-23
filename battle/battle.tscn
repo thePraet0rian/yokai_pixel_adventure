@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqixelu104c0r"]
+
+[ext_resource type="Script" path="res://battle/battle.gd" id="1_28vn4"]
+[ext_resource type="Texture2D" uid="uid://cbbo3a07wu45y" path="res://yokai/peckpocket/peckpocket.png" id="2_dl272"]
+[ext_resource type="Texture2D" uid="uid://d2nd6vq2n28fo" path="res://yokai/cadin/cadin.png" id="3_av7rb"]
+
+[node name="battle" type="CanvasLayer"]
+script = ExtResource("1_28vn4")
+
+[node name="background" type="ColorRect" parent="."]
+visible = false
+offset_right = 240.0
+offset_bottom = 135.0
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="enemies"]
+position = Vector2(120, 32)
+texture = ExtResource("2_dl272")
+
+[node name="Sprite2D2" type="Sprite2D" parent="enemies"]
+position = Vector2(192, 32)
+texture = ExtResource("3_av7rb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="enemies"]
+position = Vector2(120, 32)
+texture = ExtResource("2_dl272")

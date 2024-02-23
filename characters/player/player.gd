@@ -1,8 +1,19 @@
+class_name player
 extends CharacterBody2D
-
 
 var input_vec: Vector2 = Vector2.ZERO
 var speed: int = 70
+
+
+const debug_scn: PackedScene = preload("res://characters/player/debug.tscn")
+
+
+func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("esc"): 
+		
+		get_parent().add_child(debug_scn.instantiate())
+		get_tree().paused = false
 
 
 func _process(delta: float) -> void:

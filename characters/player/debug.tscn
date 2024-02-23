@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bahktshv1k4pg"]
+
+[ext_resource type="Script" path="res://characters/player/debug.gd" id="1_fg11l"]
+
+[node name="debug" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_fg11l")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.392157)
