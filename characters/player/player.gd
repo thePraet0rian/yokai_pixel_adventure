@@ -6,6 +6,7 @@ var speed: int = 70
 
 
 const debug_scn: PackedScene = preload("res://characters/player/debug.tscn")
+const inventory_scn: PackedScene = preload("res://characters/player/inventory.tscn")
 
 
 func _input(event: InputEvent) -> void:
@@ -13,7 +14,12 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"): 
 		
 		get_parent().add_child(debug_scn.instantiate())
+		get_tree().paused = true
+		
+	if event.is_action_pressed("inventory"):
+		
 		get_tree().paused = false
+		get_parent().add_child(inventory_scn.instantiate())
 
 
 func _process(delta: float) -> void:

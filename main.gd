@@ -14,3 +14,11 @@ func _on_battle_started() -> void:
 	
 	var BattleInstance: battle = Battle.instantiate()
 	add_child(Battle.instantiate())
+
+
+func _on_area_2d_mouse_entered() -> void:
+	print("fuck")
+
+
+func _on_area_2d_mouse_shape_entered(shape_idx: int) -> void:
+	print("wahta")

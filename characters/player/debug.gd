@@ -8,3 +8,4 @@ func _input(event: InputEvent) -> void:
 		
 		global.battle_start.emit()
 		print("start battle")
+		queue_free()
