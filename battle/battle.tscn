@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=23 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://cbbo3a07wu45y" path="res://yokai/peckpocket/peckpocket.png" id="2_dl272"]
@@ -16,32 +16,58 @@
 [ext_resource type="Texture2D" uid="uid://d1e7nrdftl8pc" path="res://battle/battle_assets/ui/q_sign.png" id="14_hoddt"]
 [ext_resource type="Texture2D" uid="uid://bdoxxvscku02" path="res://battle/battle_assets/ui/e_sign.png" id="15_co87e"]
 
-[sub_resource type="Animation" id="Animation_qfu8t"]
-resource_name = "q_e_anim"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_kdyfp"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("q_sign:position")
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_is6x3"]
+resource_name = "button_down"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(10, 86), Vector2(8, 86)]
+"values": [Vector2(0, 0), Vector2(0, 14)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("e_sign:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+
+[sub_resource type="Animation" id="Animation_dwq1w"]
+resource_name = "button_up"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(230, 86), Vector2(232, 86)]
+"values": [Vector2(0, 14), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l10kg"]
+_data = {
+"RESET": SubResource("Animation_kdyfp"),
+"button_down": SubResource("Animation_is6x3"),
+"button_up": SubResource("Animation_dwq1w")
 }
 
 [sub_resource type="Animation" id="Animation_qigjb"]
@@ -69,6 +95,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(230, 86)]
+}
+
+[sub_resource type="Animation" id="Animation_qfu8t"]
+resource_name = "q_e_anim"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("q_sign:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(10, 86), Vector2(8, 86)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("e_sign:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(230, 86), Vector2(232, 86)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7eoag"]
@@ -176,7 +230,10 @@ metadata/_edit_group_ = true
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="buttons/purify/purify_button"]
 polygon = PackedVector2Array(-27, -4, -27, -3, -28, -3, -28, 3, -27, 3, -27, 4, 26, 4, 26, 3, 27, 3, 27, -3, 26, -3, 26, -4)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="buttons"]
+[node name="buttons_anim_player" type="AnimationPlayer" parent="buttons"]
+libraries = {
+"": SubResource("AnimationLibrary_l10kg")
+}
 
 [node name="ui" type="Node2D" parent="."]
 
@@ -197,16 +254,35 @@ autoplay = "q_e_anim"
 [node name="Node" type="Node" parent="."]
 
 [node name="items" type="Node2D" parent="Node"]
+visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Node/items"]
+[node name="background" type="ColorRect" parent="Node/items"]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="target" type="Node2D" parent="Node"]
+visible = false
+
+[node name="background" type="ColorRect" parent="Node/target"]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.392157)
 
 [node name="soulimate" type="Node2D" parent="Node"]
+visible = false
+
+[node name="background" type="ColorRect" parent="Node/soulimate"]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.392157)
 
 [node name="purify" type="Node2D" parent="Node"]
+visible = false
+
+[node name="background" type="ColorRect" parent="Node/purify"]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.392157)
 
 [connection signal="mouse_entered" from="buttons/item/item_button" to="." method="_on_area_2d_mouse_entered"]

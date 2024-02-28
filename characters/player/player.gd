@@ -22,7 +22,7 @@ func _input(event: InputEvent) -> void:
 		get_parent().add_child(inventory_scn.instantiate())
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("shift"):
 		speed = 120
