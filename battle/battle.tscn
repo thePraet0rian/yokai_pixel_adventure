@@ -136,8 +136,7 @@ process_mode = 3
 script = ExtResource("1_28vn4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(120, 67.75)
-scale = Vector2(1, 0.996296)
+position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
 
 [node name="enemies" type="Node2D" parent="."]
@@ -285,4 +284,14 @@ offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
 
+[node name="tick_timer" type="Timer" parent="."]
+
+[connection signal="mouse_entered" from="buttons/item/item_button" to="." method="_on_item_button_mouse_entered"]
 [connection signal="mouse_entered" from="buttons/item/item_button" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="buttons/item/item_button" to="." method="_on_item_button_mouse_exited"]
+[connection signal="mouse_entered" from="buttons/target/target_button" to="." method="_on_target_button_mouse_entered"]
+[connection signal="mouse_exited" from="buttons/target/target_button" to="." method="_on_target_button_mouse_exited"]
+[connection signal="mouse_entered" from="buttons/soulimate/soulimate_button" to="." method="_on_soulimate_button_mouse_entered"]
+[connection signal="mouse_exited" from="buttons/soulimate/soulimate_button" to="." method="_on_soulimate_button_mouse_exited"]
+[connection signal="mouse_entered" from="buttons/purify/purify_button" to="." method="_on_purify_button_mouse_entered"]
+[connection signal="mouse_exited" from="buttons/purify/purify_button" to="." method="_on_purify_button_mouse_exited"]

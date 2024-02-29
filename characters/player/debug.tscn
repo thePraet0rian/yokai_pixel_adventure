@@ -5,3 +5,8 @@
 [node name="debug" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_fg11l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.392157)
