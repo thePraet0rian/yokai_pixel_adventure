@@ -2,9 +2,6 @@ class_name battle
 extends CanvasLayer
 
 
-enum YOKAI_STATES {}
-
-
 ###############################################################################
 
 
@@ -23,6 +20,9 @@ func setup_battle() -> void:
 
 
 ###############################################################################
+
+
+@onready var buttons_anim: AnimationPlayer = $buttons/buttons_anim_player
 
 
 enum GAME_STATES {MENUE= 0, TARGET = 1, SOULIMATE = 2, ITEM = 3, PURIFY = 4, NONE = 5}
@@ -48,62 +48,129 @@ func _input(event: InputEvent) -> void:
 @onready var players: Node2D = $players
 
 
-var is_moving: bool = false
 var input_direction: Vector2 = Vector2.ZERO
 
+
 func menue_input(event: InputEvent) -> void:
+	
+	
+	if event.is_action_pressed("1"):
+		current_game_state = GAME_STATES.PURIFY
+	elif event.is_action_pressed("2"):
+		current_game_state = GAME_STATES.SOULIMATE
+	elif event.is_action_pressed("3"):
+		current_game_state = GAME_STATES.TARGET
+	elif event.is_action_pressed("4"):
+		current_game_state = GAME_STATES.ITEM
 	
 	if event.is_action_pressed("left"):
 		if item_button_entered: 
 			current_game_state = GAME_STATES.ITEM
+			print("item")
 			
 		elif target_button_entered:
 			current_game_state = GAME_STATES.TARGET
+			print("target")
 			
 		elif soulimate_button_entered:
 			current_game_state = GAME_STATES.SOULIMATE
+			print("soulimate")
 			
 		elif purify_button_entered:
 			current_game_state = GAME_STATES.PURIFY
-	
-	input_direction.x = Input.get_axis("move_left", "move_right")
+			print("purify")
 
 
-var progress: float = 0.0
-var last_position: Vector2 = Vector2(0, -12)
 
 
-func _physics_process(delta: float) -> void:
-	
-	if input_direction != Vector2.ZERO:
-		
-		progress += .05
-		players.position = last_position + Vector2(72, 0) * input_direction * progress
-		
-		if progress >= 1.0:
-			print("as")
 
 func target_input(event: InputEvent) -> void:
 	
 	print("target")
+	
+	if event.is_action_pressed("shift"):
+		current_game_state = GAME_STATES.MENUE
 
 
 func soulimate_input(event: InputEvent) -> void:
 	
 	print("soulimate")
+	
+	if event.is_action_pressed("shift"):
+		current_game_state = GAME_STATES.MENUE
 
 
 func item_input(event: InputEvent) -> void:
 	
-	print("input")
+	print("item")
+	
+	if event.is_action_pressed("shift"):
+		current_game_state = GAME_STATES.MENUE
 
 
 func purify_input(event: InputEvent) ->  void:
 	
 	print("purify")
+	
+	if event.is_action_pressed("shift"):
+		current_game_state = GAME_STATES.MENUE
 
 
 ###############################################################################
+
+
+const TILE_SIZE: Vector2 = Vector2(72, 0)
+
+var progress: float = 0.0
+var last_position: Vector2 = Vector2(0, -12)
+var walk_speed: float = 6.0
+var is_moving: bool = false
+
+
+func _physics_process(delta: float) -> void:
+	
+	if not is_moving:
+		player_input()
+	elif input_direction != Vector2.ZERO and is_moving:
+		move(delta)
+	else:
+		is_moving = false
+
+
+var is_hidden: bool = false
+
+
+func player_input() -> void:
+	
+	input_direction.x = Input.get_axis("move_left", "move_right")
+	
+	if input_direction != Vector2.ZERO:
+		
+		last_position = players.position
+		is_moving = true
+		
+		if not is_hidden:
+			buttons_anim.play("buttons_hide")
+			is_hidden = true
+
+
+func move(delta: float) -> void:
+	
+	progress += delta * walk_speed 
+	
+	if input_direction != Vector2.ZERO:
+		
+		if progress >= 1.0:
+			players.position = last_position + (TILE_SIZE * input_direction)
+			progress = 0.0
+			is_moving = false
+			
+		else:
+			players.position = last_position + (TILE_SIZE * input_direction * progress)
+
+
+###############################################################################
+
 
 var item_button_entered: bool = false
 var target_button_entered: bool = false
@@ -114,30 +181,30 @@ var purify_button_entered: bool = false
 func _on_item_button_mouse_entered() -> void:
 	item_button_entered = true
 
-
 func _on_item_button_mouse_exited() -> void:
 	item_button_entered = false
-
 
 func _on_target_button_mouse_entered() -> void:
 	target_button_entered = true
 
-
 func _on_target_button_mouse_exited() -> void:
 	target_button_entered = false
-
 
 func _on_soulimate_button_mouse_entered() -> void:
 	soulimate_button_entered = true
 
-
 func _on_soulimate_button_mouse_exited() -> void:
 	soulimate_button_entered = false
-
 
 func _on_purify_button_mouse_entered() -> void:
 	purify_button_entered = true
 
-
 func _on_purify_button_mouse_exited() -> void:
 	purify_button_entered = false
+
+
+###############################################################################
+
+
+func _on_tick_timer_timeout() -> void:
+	pass # Replace with function body.

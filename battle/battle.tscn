@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=24 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://cbbo3a07wu45y" path="res://yokai/peckpocket/peckpocket.png" id="2_dl272"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://xwp6084y0l66" path="res://battle/battle_assets/ui/purify_button.png" id="13_r3le3"]
 [ext_resource type="Texture2D" uid="uid://d1e7nrdftl8pc" path="res://battle/battle_assets/ui/q_sign.png" id="14_hoddt"]
 [ext_resource type="Texture2D" uid="uid://bdoxxvscku02" path="res://battle/battle_assets/ui/e_sign.png" id="15_co87e"]
+[ext_resource type="Texture2D" uid="uid://cryqic7d88ff4" path="res://battle/battle_assets/ui/wheel.png" id="16_uj23c"]
 
 [sub_resource type="Animation" id="Animation_kdyfp"]
 length = 0.001
@@ -31,8 +32,8 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_is6x3"]
-resource_name = "button_down"
+[sub_resource type="Animation" id="Animation_sk2o5"]
+resource_name = "button_show"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -44,11 +45,11 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 14)]
+"values": [Vector2(0, 16), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_dwq1w"]
-resource_name = "button_up"
+[sub_resource type="Animation" id="Animation_3n7bn"]
+resource_name = "buttons_hide"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -60,14 +61,14 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 14), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, 16)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l10kg"]
 _data = {
 "RESET": SubResource("Animation_kdyfp"),
-"button_down": SubResource("Animation_is6x3"),
-"button_up": SubResource("Animation_dwq1w")
+"button_show": SubResource("Animation_sk2o5"),
+"buttons_hide": SubResource("Animation_3n7bn")
 }
 
 [sub_resource type="Animation" id="Animation_qigjb"]
@@ -156,7 +157,7 @@ texture = ExtResource("5_wlm6s")
 [node name="enemy_yokai_anim_player" type="AnimationPlayer" parent="enemies"]
 
 [node name="players" type="Node2D" parent="."]
-position = Vector2(0, -12)
+position = Vector2(0, -17)
 
 [node name="Sprite2D" type="Sprite2D" parent="players"]
 position = Vector2(120, 92)
@@ -235,6 +236,7 @@ libraries = {
 }
 
 [node name="ui" type="Node2D" parent="."]
+position = Vector2(0, -7)
 
 [node name="q_sign" type="Sprite2D" parent="ui"]
 position = Vector2(10, 86)
@@ -249,6 +251,10 @@ libraries = {
 "": SubResource("AnimationLibrary_7eoag")
 }
 autoplay = "q_e_anim"
+
+[node name="Sprite2D" type="Sprite2D" parent="ui"]
+position = Vector2(120, 122)
+texture = ExtResource("16_uj23c")
 
 [node name="Node" type="Node" parent="."]
 
@@ -285,9 +291,9 @@ offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
 
 [node name="tick_timer" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="mouse_entered" from="buttons/item/item_button" to="." method="_on_item_button_mouse_entered"]
-[connection signal="mouse_entered" from="buttons/item/item_button" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="buttons/item/item_button" to="." method="_on_item_button_mouse_exited"]
 [connection signal="mouse_entered" from="buttons/target/target_button" to="." method="_on_target_button_mouse_entered"]
 [connection signal="mouse_exited" from="buttons/target/target_button" to="." method="_on_target_button_mouse_exited"]
@@ -295,3 +301,4 @@ color = Color(0, 0, 0, 0.392157)
 [connection signal="mouse_exited" from="buttons/soulimate/soulimate_button" to="." method="_on_soulimate_button_mouse_exited"]
 [connection signal="mouse_entered" from="buttons/purify/purify_button" to="." method="_on_purify_button_mouse_entered"]
 [connection signal="mouse_exited" from="buttons/purify/purify_button" to="." method="_on_purify_button_mouse_exited"]
+[connection signal="timeout" from="tick_timer" to="." method="_on_tick_timer_timeout"]
