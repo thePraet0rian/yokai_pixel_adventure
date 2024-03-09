@@ -5,6 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://dkljmhd55cuf7" path="res://ui/assets/yokai_watch/watch_background.png" id="3_odi5c"]
 [ext_resource type="Texture2D" uid="uid://du8uv32dgooga" path="res://ui/assets/objective/objective_background.png" id="4_3pe0d"]
 
+[sub_resource type="Animation" id="Animation_1ulla"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 127)]
+}
+
 [sub_resource type="Animation" id="Animation_3w5pr"]
 resource_name = "hide_objective"
 length = 0.5
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(120, 127), Vector2(120, 143)]
-}
-
-[sub_resource type="Animation" id="Animation_1ulla"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(120, 127)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7c0ks"]

@@ -2,6 +2,16 @@ class_name battle
 extends CanvasLayer
 
 
+var player_team: Array = ["Dragon Lord", "Someguy", "Jibanyan", "Jibanyan", "Jibanyan", "Jibanyan"]
+@onready var player_team_inst: Array = [$players/yokai, $players/yokai2, $players/yokai3]
+
+var enemy_team: Array = ["Jibanyan", "Weird Bird", "Cadin", "", "", ""]
+var enemy_team_inst: Array = []
+
+var current_player_team_index: int = 0
+var current_enemy_team_index: int = 0
+
+
 ###############################################################################
 
 
@@ -81,9 +91,6 @@ func menue_input(event: InputEvent) -> void:
 			print("purify")
 
 
-
-
-
 func target_input(event: InputEvent) -> void:
 	
 	print("target")
@@ -139,6 +146,8 @@ func _physics_process(delta: float) -> void:
 
 var is_hidden: bool = false
 
+const player_yokai: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
+
 
 func player_input() -> void:
 	
@@ -148,6 +157,36 @@ func player_input() -> void:
 		
 		last_position = players.position
 		is_moving = true
+		
+		if input_direction == Vector2.LEFT:
+			
+			var player_yokai_inst: Node2D = player_yokai.instantiate()
+			player_yokai_inst.position = Vector2(248, 92) + Vector2(72, 0) * current_player_team_index
+			players.add_child(player_yokai_inst)
+			
+			player_team_inst.append(player_yokai_inst)
+			player_team_inst[0].queue_free()
+			player_team_inst.remove_at(0)
+			
+			current_player_team_index -= 1
+			
+			print(player_team_inst)
+			
+		elif input_direction == Vector2.RIGHT:
+			
+			var player_yokai_inst: Node2D = player_yokai.instantiate()
+			player_yokai_inst.position = Vector2(-24, 92) + Vector2(-72, 0) * current_player_team_index
+			players.add_child(player_yokai_inst)
+			
+			player_team_inst.insert(0, player_yokai_inst)
+			player_team_inst[3].queue_free()
+			player_team_inst.remove_at(player_team_inst.size() - 1)
+			
+			current_player_team_index += 1
+			
+			print(player_team_inst)
+		
+		
 		
 		if not is_hidden:
 			buttons_anim.play("buttons_hide")

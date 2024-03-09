@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ayn2rjngydy"]
+
+[ext_resource type="Texture2D" uid="uid://dharqao4olxnt" path="res://yokai/jibanyan/jibanyan_back.png" id="1_jjc12"]
+[ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://battle/battle_assets/ui/health_bar.png" id="2_d57jh"]
+
+[node name="yokai" type="Sprite2D"]
+texture = ExtResource("1_jjc12")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 27)
+texture = ExtResource("2_d57jh")
