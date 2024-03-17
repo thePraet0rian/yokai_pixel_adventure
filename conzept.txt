@@ -1,0 +1,22 @@
+The index is supposed to by the left most yokai.
+
+The yokai index gets raised by one every time d is pressed.
+The yokai index gets lowerd by one every time a is pressed.
+
+if a:
+  index -= 1
+
+if d:
+  index += 1
+
+Index:
+
+--------------------
+| 0  1  2  3  4  5 |
+          /\
+          ||
+
+When the texture is given the left new instance can just use the index as the 
+texture array index.
+But when the texture is given to the right new instance then you have to use
+x

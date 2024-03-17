@@ -29,22 +29,6 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_sk2o5"]
-resource_name = "button_show"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 16), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_3n7bn"]
 resource_name = "buttons_hide"
 length = 0.5
@@ -61,11 +45,27 @@ tracks/0/keys = {
 "values": [Vector2(0, 0), Vector2(0, 16)]
 }
 
+[sub_resource type="Animation" id="Animation_sk2o5"]
+resource_name = "buttons_show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 16), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l10kg"]
 _data = {
 "RESET": SubResource("Animation_kdyfp"),
-"button_show": SubResource("Animation_sk2o5"),
-"buttons_hide": SubResource("Animation_3n7bn")
+"buttons_hide": SubResource("Animation_3n7bn"),
+"buttons_show": SubResource("Animation_sk2o5")
 }
 
 [sub_resource type="Animation" id="Animation_qigjb"]
@@ -159,7 +159,7 @@ position = Vector2(0, -17)
 [node name="player_yokai_anim_player" type="AnimationPlayer" parent="players"]
 
 [node name="yokai" parent="players" instance=ExtResource("6_yhexp")]
-position = Vector2(48, 92)
+position = Vector2(48, 91)
 
 [node name="yokai2" parent="players" instance=ExtResource("6_yhexp")]
 position = Vector2(120, 91)
@@ -274,6 +274,7 @@ color = Color(0, 0, 0, 0.392157)
 
 [node name="tick_timer" type="Timer" parent="."]
 wait_time = 2.0
+autostart = true
 
 [connection signal="mouse_entered" from="buttons/item/item_button" to="." method="_on_item_button_mouse_entered"]
 [connection signal="mouse_exited" from="buttons/item/item_button" to="." method="_on_item_button_mouse_exited"]

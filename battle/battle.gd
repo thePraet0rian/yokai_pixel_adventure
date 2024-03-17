@@ -12,6 +12,17 @@ var current_player_team_index: int = 0
 var current_enemy_team_index: int = 0
 
 
+func set_player(yokai : Array[global.Yokai]) -> void:
+	
+	print(yokai)
+	print(yokai[0])
+	print(yokai[0].health)
+
+
+func set_enemy() -> void:
+	pass
+
+
 ###############################################################################
 
 
@@ -20,7 +31,6 @@ var current_enemy_team_index: int = 0
 
 func _ready() -> void:
 	
-	print("wasdf")
 	setup_battle()
 
 
@@ -36,10 +46,13 @@ func setup_battle() -> void:
 
 
 enum GAME_STATES {MENUE= 0, TARGET = 1, SOULIMATE = 2, ITEM = 3, PURIFY = 4, NONE = 5}
+
+
 var current_game_state: GAME_STATES =  GAME_STATES.MENUE
 
 
 func _input(event: InputEvent) -> void:
+	
 	
 	match current_game_state:
 		
@@ -93,15 +106,11 @@ func menue_input(event: InputEvent) -> void:
 
 func target_input(event: InputEvent) -> void:
 	
-	print("target")
-	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
 
 
 func soulimate_input(event: InputEvent) -> void:
-	
-	print("soulimate")
 	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
@@ -109,15 +118,11 @@ func soulimate_input(event: InputEvent) -> void:
 
 func item_input(event: InputEvent) -> void:
 	
-	print("item")
-	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
 
 
 func purify_input(event: InputEvent) ->  void:
-	
-	print("purify")
 	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
@@ -126,27 +131,8 @@ func purify_input(event: InputEvent) ->  void:
 ###############################################################################
 
 
-const TILE_SIZE: Vector2 = Vector2(72, 0)
-
-var progress: float = 0.0
-var last_position: Vector2 = Vector2(0, -12)
-var walk_speed: float = 6.0
 var is_moving: bool = false
-
-
-func _physics_process(delta: float) -> void:
-	
-	if not is_moving:
-		player_input()
-	elif input_direction != Vector2.ZERO and is_moving:
-		move(delta)
-	else:
-		is_moving = false
-
-
-var is_hidden: bool = false
-
-const player_yokai: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
+#var is_hidden: bool = false TODO: implement UI hiding
 
 
 func player_input() -> void:
@@ -155,57 +141,104 @@ func player_input() -> void:
 	
 	if input_direction != Vector2.ZERO:
 		
-		last_position = players.position
 		is_moving = true
 		
 		if input_direction == Vector2.LEFT:
 			
-			var player_yokai_inst: Node2D = player_yokai.instantiate()
-			player_yokai_inst.position = Vector2(248, 92) + Vector2(72, 0) * current_player_team_index
-			players.add_child(player_yokai_inst)
-			
-			player_team_inst.append(player_yokai_inst)
-			player_team_inst[0].queue_free()
-			player_team_inst.remove_at(0)
-			
-			current_player_team_index -= 1
-			
-			print(player_team_inst)
+			move_yokai(MOVE.LEFT)
 			
 		elif input_direction == Vector2.RIGHT:
 			
-			var player_yokai_inst: Node2D = player_yokai.instantiate()
-			player_yokai_inst.position = Vector2(-24, 92) + Vector2(-72, 0) * current_player_team_index
-			players.add_child(player_yokai_inst)
-			
-			player_team_inst.insert(0, player_yokai_inst)
-			player_team_inst[3].queue_free()
-			player_team_inst.remove_at(player_team_inst.size() - 1)
-			
-			current_player_team_index += 1
-			
-			print(player_team_inst)
-		
-		
-		
-		if not is_hidden:
-			buttons_anim.play("buttons_hide")
-			is_hidden = true
+			move_yokai(MOVE.RIGHT)
 
 
-func move(delta: float) -> void:
+const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
+const player_yokai_sprite: Array[Resource] = [preload("res://yokai/zerberker/zerberker_back.png"), preload("res://yokai/jibanyan/jibanyan.png"), preload("res://yokai/jibanyan/jibanyan_back.png"), preload("res://yokai/dargon_lord/dargon_lord_back.png"), preload("res://yokai/jibanyan/jibanyan_back.png"), preload("res://yokai/jibanyan/jibanyan_back.png")]
+
+
+enum MOVE {LEFT = 0, RIGHT = 1}
+
+
+var direction_move: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
+var player_yokai_index: int = 0
+
+
+func move_yokai(direction: MOVE) -> void: 
 	
-	progress += delta * walk_speed 
 	
-	if input_direction != Vector2.ZERO:
+	var player_yokai_inst: Node2D = player_yokai_scn.instantiate()
+	players.add_child(player_yokai_inst)
+	
+	if direction == MOVE.LEFT:
 		
-		if progress >= 1.0:
-			players.position = last_position + (TILE_SIZE * input_direction)
-			progress = 0.0
-			is_moving = false
-			
+		player_yokai_inst.position = Vector2(264, 91)
+		player_team_inst.append(player_yokai_inst)
+		
+		var tmp_index: int = (player_yokai_index + 3) % 6
+		
+		player_yokai_inst.texture = player_yokai_sprite[tmp_index]
+		
+		
+		if player_yokai_index != 0:
+			player_yokai_index -= 1
 		else:
-			players.position = last_position + (TILE_SIZE * input_direction * progress)
+			player_yokai_index = 5
+		
+		
+	elif direction == MOVE.RIGHT:
+		
+		player_yokai_inst.position = Vector2(-24, 91)
+		player_team_inst.insert(0, player_yokai_inst)
+		player_yokai_inst.texture = player_yokai_sprite[player_yokai_index]
+		
+		if player_yokai_index != 5:
+			player_yokai_index += 1
+		else:
+			player_yokai_index = 0
+	
+	
+	for i in range(4):
+		
+		player_team_inst[i].move_direction(direction_move[direction])
+	
+	if direction == MOVE.LEFT:
+		
+		remove_yokai(0)
+	elif direction == MOVE.RIGHT:
+		
+		remove_yokai(3)
+
+
+func remove_yokai(yokai: int) -> void:
+	
+	player_team_inst[yokai].remove()
+	player_team_inst.remove_at(yokai)
+
+
+func _physics_process(_delta: float) -> void:
+	
+	if player_team_inst[2].progress == 0.0:
+		
+		player_input()
+		show_ui()
+
+
+var test_2: bool = false
+
+
+func show_ui() -> void:
+	
+	await get_tree().create_timer(.1).timeout
+	
+	if player_team_inst[2].progress != 0.0:
+		return
+	
+	if not test_2: 
+		buttons_anim.play("buttons_show")
+		#is_hidden = true
+		test_2 = true
+	
+	is_moving = false
 
 
 ###############################################################################
@@ -246,4 +279,23 @@ func _on_purify_button_mouse_exited() -> void:
 
 
 func _on_tick_timer_timeout() -> void:
-	pass # Replace with function body.
+	
+	player_tick()
+	enemy_tick()
+
+
+func player_tick() -> void:
+	
+	print(is_moving)
+	
+	if not is_moving:
+		
+		print("yes")
+
+
+func enemy_tick() -> void:
+	
+	if not is_moving:
+		
+		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, -18), .5).finished
+		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, 18), .5).finished
