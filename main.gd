@@ -1,4 +1,4 @@
-class_name main
+class_name Main
 extends Node2D
 
 
@@ -12,9 +12,7 @@ const Battle: PackedScene = preload("res://battle/battle.tscn")
 
 func _on_battle_started() -> void:
 	
-	var BattleInstance: battle = Battle.instantiate()
+	var BattleInstance: Battle = Battle.instantiate()
 	add_child(BattleInstance)
 	
-	var yokai_one: global.Yokai = global.Yokai.new(10.0)
-	
-	BattleInstance.set_player([yokai_one])
+	BattleInstance.set_player(global.player_yokai)

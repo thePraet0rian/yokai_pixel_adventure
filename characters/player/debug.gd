@@ -1,4 +1,4 @@
-class_name debug
+class_name Debug
 extends CanvasLayer
 
 

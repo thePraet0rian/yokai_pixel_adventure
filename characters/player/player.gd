@@ -1,4 +1,4 @@
-class_name player
+class_name Player
 extends CharacterBody2D
 
 var input_vec: Vector2 = Vector2.ZERO

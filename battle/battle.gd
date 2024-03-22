@@ -1,22 +1,17 @@
-class_name battle
+class_name Battle
 extends CanvasLayer
 
 
-var player_team: Array = ["Dragon Lord", "Someguy", "Jibanyan", "Jibanyan", "Jibanyan", "Jibanyan"]
 @onready var player_team_inst: Array = [$players/yokai, $players/yokai2, $players/yokai3]
+
+var player_yokai_arr: Array[global.Yokai]
 
 var enemy_team: Array = ["Jibanyan", "Weird Bird", "Cadin", "", "", ""]
 var enemy_team_inst: Array = []
 
-var current_player_team_index: int = 0
-var current_enemy_team_index: int = 0
 
-
-func set_player(yokai : Array[global.Yokai]) -> void:
-	
-	print(yokai)
-	print(yokai[0])
-	print(yokai[0].health)
+func set_player(_yokai_arr : Array[global.Yokai]) -> void:
+	player_yokai_arr = _yokai_arr
 
 
 func set_enemy() -> void:
@@ -36,16 +31,16 @@ func _ready() -> void:
 
 func setup_battle() -> void:
 	
-	pass
+	print("setup_battle")
 
 
 ###############################################################################
 
 
+enum GAME_STATES {MENUE = 0, TARGET = 1, SOULIMATE = 2, ITEM = 3, PURIFY = 4, NONE = 5}
+
+
 @onready var buttons_anim: AnimationPlayer = $buttons/buttons_anim_player
-
-
-enum GAME_STATES {MENUE= 0, TARGET = 1, SOULIMATE = 2, ITEM = 3, PURIFY = 4, NONE = 5}
 
 
 var current_game_state: GAME_STATES =  GAME_STATES.MENUE
@@ -53,22 +48,31 @@ var current_game_state: GAME_STATES =  GAME_STATES.MENUE
 
 func _input(event: InputEvent) -> void:
 	
-	
 	match current_game_state:
 		
-		0:
+		GAME_STATES.MENUE:
 			menue_input(event)
-		1:
+		
+		GAME_STATES.TARGET:
 			target_input(event)
-		2:
+		
+		GAME_STATES.SOULIMATE:
 			soulimate_input(event)
-		3:
+		
+		GAME_STATES.ITEM:
 			item_input(event)
-		4:
+		
+		GAME_STATES.PURIFY:
 			purify_input(event)
 
 
-@onready var players: Node2D = $players
+###############################################################################
+
+
+@onready var items: Node2D = $Node/items
+@onready var target: Node2D = $Node/target
+@onready var soulimate: Node2D = $Node/soulimate
+@onready var purify: Node2D = $Node/purify
 
 
 var input_direction: Vector2 = Vector2.ZERO
@@ -89,18 +93,22 @@ func menue_input(event: InputEvent) -> void:
 	if event.is_action_pressed("left"):
 		if item_button_entered: 
 			current_game_state = GAME_STATES.ITEM
+			items.visible = true
 			print("item")
-			
+		
 		elif target_button_entered:
 			current_game_state = GAME_STATES.TARGET
+			target.visible = true
 			print("target")
-			
+		
 		elif soulimate_button_entered:
 			current_game_state = GAME_STATES.SOULIMATE
+			soulimate.visible = true
 			print("soulimate")
 			
 		elif purify_button_entered:
 			current_game_state = GAME_STATES.PURIFY
+			purify.visible = true
 			print("purify")
 
 
@@ -108,24 +116,28 @@ func target_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
+		target.visible = false
 
 
 func soulimate_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
+		soulimate.visible = false
 
 
 func item_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
+		items.visible = false
 
 
 func purify_input(event: InputEvent) ->  void:
 	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.MENUE
+		purify.visible = false
 
 
 ###############################################################################
@@ -153,10 +165,12 @@ func player_input() -> void:
 
 
 const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
-const player_yokai_sprite: Array[Resource] = [preload("res://yokai/zerberker/zerberker_back.png"), preload("res://yokai/jibanyan/jibanyan.png"), preload("res://yokai/jibanyan/jibanyan_back.png"), preload("res://yokai/dargon_lord/dargon_lord_back.png"), preload("res://yokai/jibanyan/jibanyan_back.png"), preload("res://yokai/jibanyan/jibanyan_back.png")]
 
 
 enum MOVE {LEFT = 0, RIGHT = 1}
+
+
+@onready var players: Node2D = $players
 
 
 var direction_move: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
@@ -169,32 +183,26 @@ func move_yokai(direction: MOVE) -> void:
 	var player_yokai_inst: Node2D = player_yokai_scn.instantiate()
 	players.add_child(player_yokai_inst)
 	
+	
 	if direction == MOVE.LEFT:
 		
 		player_yokai_inst.position = Vector2(264, 91)
 		player_team_inst.append(player_yokai_inst)
 		
-		var tmp_index: int = (player_yokai_index + 3) % 6
+		player_yokai_arr.append(player_yokai_arr[0])
+		player_yokai_arr.remove_at(0)
 		
-		player_yokai_inst.texture = player_yokai_sprite[tmp_index]
-		
-		
-		if player_yokai_index != 0:
-			player_yokai_index -= 1
-		else:
-			player_yokai_index = 5
-		
-		
+		player_yokai_inst.texture = player_yokai_arr[2].front_sprite
+	
 	elif direction == MOVE.RIGHT:
 		
 		player_yokai_inst.position = Vector2(-24, 91)
 		player_team_inst.insert(0, player_yokai_inst)
-		player_yokai_inst.texture = player_yokai_sprite[player_yokai_index]
 		
-		if player_yokai_index != 5:
-			player_yokai_index += 1
-		else:
-			player_yokai_index = 0
+		player_yokai_arr.insert(0, player_yokai_arr[5])
+		player_yokai_arr.remove_at(6)
+		
+		player_yokai_inst.texture = player_yokai_arr[0].front_sprite
 	
 	
 	for i in range(4):
@@ -286,11 +294,12 @@ func _on_tick_timer_timeout() -> void:
 
 func player_tick() -> void:
 	
-	print(is_moving)
+	#print(is_moving)
 	
 	if not is_moving:
 		
-		print("yes")
+		#print("yes")
+		pass
 
 
 func enemy_tick() -> void:
