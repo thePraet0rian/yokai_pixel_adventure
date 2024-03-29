@@ -4,6 +4,8 @@ extends Node
 signal _on_battle_start()
 signal _on_battle_end()
 
+signal _on_room_changing()
+
 
 var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jibanyan.png")), 
 	Yokai.new(0, preload("res://yokai/zerberker/zerberker_back.png")), 
@@ -15,16 +17,31 @@ var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jib
 
 class Yokai: 
 	
-	enum PERSONALITIES {a, b, c , d}
+	var name: String
+	var level: int
+	var xp: int
+	var rank: String = ""
+	var league: String = ""
 	
-	var health: float = 0.0
-	var speed: float = 0.0
-	var personality: PERSONALITIES = PERSONALITIES.a
+	var hp: int
+	var strength: int
+	var spirit: int
+	var defence: int
+	var speed: int
 	
-	var back_sprite: Resource
-	var front_sprite: Resource
+	var front_sprite: Texture
+	var back_sprite: Texture
 	
-	func _init(_health: float, _front_sprite: Resource) -> void:
+	
+	func _init(_hp: int, _front_sprite: Resource) -> void:
 		
-		health = _health
+		hp = _hp
 		front_sprite = _front_sprite
+
+
+class Item: 
+	
+	var name_str: String = ""
+	var description: String = ""
+	
+	var sprite: Texture

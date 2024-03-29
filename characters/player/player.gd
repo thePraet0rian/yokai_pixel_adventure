@@ -20,6 +20,11 @@ func _input(event: InputEvent) -> void:
 		
 		get_tree().paused = false
 		get_parent().add_child(inventory_scn.instantiate())
+	
+	if confirm_button.visible == true:
+		
+		if Input.is_action_just_pressed("space"):
+			global._on_room_changing.emit(0)
 
 
 @onready var hurtbox: Area2D = $hurtbox
@@ -27,6 +32,8 @@ func _input(event: InputEvent) -> void:
 
 var is_moving: bool = false
 var state_change: bool = false
+var previous_input_vec: Vector2 = Vector2.ZERO
+var is_hidden: bool = false
 
 
 func _process(_delta: float) -> void:
@@ -36,23 +43,23 @@ func _process(_delta: float) -> void:
 	else:
 		speed = 70
 	
+	previous_input_vec = input_vec
+	
 	input_vec.x = Input.get_axis("move_left", "move_right")
 	input_vec.y = Input.get_axis("move_up", "move_down")
 	
-	if input_vec != Vector2.ZERO:
+	if previous_input_vec == Vector2.ZERO and input_vec != Vector2.ZERO:
 		
-		if not is_moving:
-			state_change = true
-			
-		is_moving = true
-	else:
-		is_moving = false
-	
-	if state_change:
-		if is_moving:
-			
+		if input_vec != Vector2.ZERO:
 			ui_anim_player.play("hide_objective")
-			state_change = false
+			is_hidden = true
+	
+	if previous_input_vec != Vector2.ZERO and input_vec == Vector2.ZERO:
+		
+		if input_vec == Vector2.ZERO:
+			if is_hidden:
+				ui_anim_player.play("show_objective")
+				is_hidden = false
 	
 	if input_vec == Vector2.LEFT:
 		hurtbox.rotation = PI/2
@@ -65,3 +72,16 @@ func _process(_delta: float) -> void:
 	
 	velocity = input_vec.normalized() * speed
 	move_and_slide()
+
+
+@onready var confirm_button: Sprite2D = $Sprite2D
+
+
+func _on_hurtbox_area_entered(_area: Area2D) -> void:
+	print("yes")
+	confirm_button.visible = true
+
+
+func _on_hurtbox_area_exited(_area: Area2D) -> void:
+	print("exited")
+	confirm_button.visible = false

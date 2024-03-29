@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cl1e5ma8nw0up"]
+
+[node name="door" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-8, -9, 8, -9, 8, 9, -8, 9)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-8, -9, -8, 9, 8, 9, 8, -9)
