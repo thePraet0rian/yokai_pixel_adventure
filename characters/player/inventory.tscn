@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://b58q5n1hvqs43"]
+[gd_scene load_steps=5 format=3 uid="uid://b58q5n1hvqs43"]
 
 [ext_resource type="Script" path="res://characters/player/inventory.gd" id="1_q2b6n"]
+[ext_resource type="Texture2D" uid="uid://cf1wnkj3xgxo2" path="res://ui/assets/inventory/money_bar.png" id="2_j41n5"]
+[ext_resource type="Texture2D" uid="uid://dkivbpq4kmpv6" path="res://ui/assets/inventory/medal.png" id="3_xuwxs"]
+[ext_resource type="Texture2D" uid="uid://bq5vc6fv0skyw" path="res://ui/assets/inventory/button.png" id="4_una4n"]
 
 [node name="inventory" type="CanvasLayer"]
 script = ExtResource("1_q2b6n")
@@ -8,4 +11,62 @@ script = ExtResource("1_q2b6n")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 240.0
 offset_bottom = 135.0
-color = Color(1, 0, 1, 1)
+color = Color(0, 0.298039, 0.729412, 1)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 8)
+texture = ExtResource("2_j41n5")
+metadata/_edit_lock_ = true
+
+[node name="medals" type="Node2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="medals"]
+position = Vector2(16, 32)
+texture = ExtResource("3_xuwxs")
+
+[node name="Sprite2D3" type="Sprite2D" parent="medals"]
+position = Vector2(40, 32)
+texture = ExtResource("3_xuwxs")
+
+[node name="Sprite2D4" type="Sprite2D" parent="medals"]
+position = Vector2(64, 32)
+texture = ExtResource("3_xuwxs")
+
+[node name="Sprite2D5" type="Sprite2D" parent="medals"]
+position = Vector2(88, 32)
+texture = ExtResource("3_xuwxs")
+
+[node name="Sprite2D6" type="Sprite2D" parent="medals"]
+position = Vector2(112, 32)
+texture = ExtResource("3_xuwxs")
+
+[node name="Sprite2D7" type="Sprite2D" parent="medals"]
+position = Vector2(136, 32)
+texture = ExtResource("3_xuwxs")
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="button_0" type="Sprite2D" parent="buttons"]
+position = Vector2(32, 64)
+texture = ExtResource("4_una4n")
+
+[node name="button_1" type="Sprite2D" parent="buttons"]
+position = Vector2(80, 64)
+texture = ExtResource("4_una4n")
+
+[node name="button_2" type="Sprite2D" parent="buttons"]
+position = Vector2(128, 64)
+texture = ExtResource("4_una4n")
+
+[node name="button_3" type="Sprite2D" parent="buttons"]
+position = Vector2(32, 104)
+texture = ExtResource("4_una4n")
+
+[node name="button_4" type="Sprite2D" parent="buttons"]
+position = Vector2(80, 104)
+texture = ExtResource("4_una4n")
+
+[node name="button_5" type="Sprite2D" parent="buttons"]
+position = Vector2(128, 104)
+texture = ExtResource("4_una4n")

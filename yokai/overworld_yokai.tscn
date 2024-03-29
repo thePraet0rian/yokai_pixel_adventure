@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://8dv6erki1q75"]
+
+[ext_resource type="Script" path="res://yokai/overworld_yokai.gd" id="1_ulryl"]
+[ext_resource type="Texture2D" uid="uid://cs6xrtkd02hgm" path="res://yokai/mirapo/overworld_mirapo.png" id="2_i38dg"]
+
+[node name="overworld_yokai" type="StaticBody2D"]
+script = ExtResource("1_ulryl")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+y_sort_enabled = true
+polygon = PackedVector2Array(-15, 24, 15, 24, 15, 7, -15, 7)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-15, 7, -15, 24, 15, 24, 15, 0, -15, 0)
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_i38dg")

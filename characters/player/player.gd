@@ -11,7 +11,7 @@ const inventory_scn: PackedScene = preload("res://characters/player/inventory.ts
 
 func _input(event: InputEvent) -> void:
 	
-	if event.is_action_pressed("esc"): 
+	if event.is_action_pressed("esc"): 	
 		
 		get_parent().add_child(debug_scn.instantiate())
 		get_tree().paused = true
@@ -51,15 +51,13 @@ func _process(_delta: float) -> void:
 	if previous_input_vec == Vector2.ZERO and input_vec != Vector2.ZERO:
 		
 		if input_vec != Vector2.ZERO:
-			ui_anim_player.play("hide_objective")
-			is_hidden = true
+			if not is_hidden:
+				ui_anim_player.play("hide_objective")
+				is_hidden = true
 	
 	if previous_input_vec != Vector2.ZERO and input_vec == Vector2.ZERO:
 		
-		if input_vec == Vector2.ZERO:
-			if is_hidden:
-				ui_anim_player.play("show_objective")
-				is_hidden = false
+		show_objective()
 	
 	if input_vec == Vector2.LEFT:
 		hurtbox.rotation = PI/2
@@ -72,6 +70,16 @@ func _process(_delta: float) -> void:
 	
 	velocity = input_vec.normalized() * speed
 	move_and_slide()
+
+
+func show_objective() -> void:
+	
+	await get_tree().create_timer(2).timeout
+	
+	if input_vec == Vector2.ZERO:
+		if is_hidden:
+			ui_anim_player.play("show_objective")
+			is_hidden = false
 
 
 @onready var confirm_button: Sprite2D = $Sprite2D

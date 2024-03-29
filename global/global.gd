@@ -6,6 +6,8 @@ signal _on_battle_end()
 
 signal _on_room_changing()
 
+signal _on_warp()
+
 
 var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jibanyan.png")), 
 	Yokai.new(0, preload("res://yokai/zerberker/zerberker_back.png")), 
