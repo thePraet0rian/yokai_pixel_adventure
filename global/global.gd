@@ -8,6 +8,9 @@ signal _on_room_changing()
 
 signal _on_warp()
 
+signal _on_save
+signal _on_load()
+
 
 var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jibanyan.png")), 
 	Yokai.new(0, preload("res://yokai/zerberker/zerberker_back.png")), 
@@ -15,6 +18,9 @@ var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jib
 	Yokai.new(0, preload("res://yokai/cadin/cadin.png")), 
 	Yokai.new(0, preload("res://yokai/peckpocket/peckpocket.png")),
 	Yokai.new(0, preload("res://yokai/jibanyan/jibanyan_back.png"))]
+
+
+var player_inventory: Array[Item] = [Item.new()]
 
 
 class Yokai: 
@@ -43,7 +49,11 @@ class Yokai:
 
 class Item: 
 	
-	var name_str: String = ""
-	var description: String = ""
+	var name_str: String = "Name"
+	var description: String = "Descwiption"
 	
-	var sprite: Texture
+	var sprite: Texture = load("res://yokai/zerberker/zerberker_back.png")
+	
+	func _init() -> void:
+		
+		pass
