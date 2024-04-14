@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfdl8pokk8rk7"]
+
+[ext_resource type="Texture2D" uid="uid://cp5h4cetl0ngl" path="res://icon.svg" id="1_al8in"]
+[ext_resource type="Script" path="res://npc/npc.gd" id="2_7lkj6"]
+
+[node name="npc" type="CharacterBody2D"]
+script = ExtResource("2_7lkj6")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_al8in")
+
+[node name="hitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-16, -15, -16, 17, 16, 17, 16, -15)
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hurtbox"]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]

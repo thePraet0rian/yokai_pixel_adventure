@@ -77,6 +77,10 @@ func _on_save() -> void:
 		save_file.store_var(global.player_inventory[i].description)
 		save_file.store_var(global.player_inventory[i].sprite)
 	
-	
 	save_file.close()
+
+
+func _on_main_timer_timeout() -> void:
 	
+	global.current_time += 1
+

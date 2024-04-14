@@ -12,6 +12,9 @@ signal _on_save
 signal _on_load()
 
 
+var current_time: int = 0
+
+
 var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jibanyan.png")), 
 	Yokai.new(0, preload("res://yokai/zerberker/zerberker_back.png")), 
 	Yokai.new(0, preload("res://yokai/dargon_lord/dargon_lord_back.png")), 

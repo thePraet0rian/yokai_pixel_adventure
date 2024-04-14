@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bq5vc6fv0skyw" path="res://ui/assets/inventory/button.png" id="4_una4n"]
 
 [node name="inventory" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_q2b6n")
 
 [node name="ColorRect" type="ColorRect" parent="."]

@@ -1,6 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
+
 var input_vec: Vector2 = Vector2.ZERO
 var speed: int = 70
 
@@ -11,14 +12,14 @@ const inventory_scn: PackedScene = preload("res://characters/player/inventory.ts
 
 func _input(event: InputEvent) -> void:
 	
-	if event.is_action_pressed("esc"): 	
+	if event.is_action_pressed("esc"): 
 		
 		get_parent().add_child(debug_scn.instantiate())
 		get_tree().paused = true
 		
 	if event.is_action_pressed("inventory"):
 		
-		get_tree().paused = false
+		get_tree().paused = true
 		get_parent().add_child(inventory_scn.instantiate())
 	
 	if confirm_button.visible == true:
