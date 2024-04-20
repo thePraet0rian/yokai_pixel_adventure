@@ -9,7 +9,7 @@ func _ready() -> void:
 	global._on_warp.connect(_on_warp)
 	global._on_save.connect(_on_save)
 	global._on_load.connect(_on_load)
-	
+	global._on_dialogue.connect(_on_dialogue)
 
 
 const BattleScene: PackedScene = preload("res://battle/battle.tscn")
@@ -57,13 +57,12 @@ func _on_load(_save_file: int) -> void:
 	
 	var load_file = FileAccess.open(save_file_arr[save_file], FileAccess.READ)
 	
-	var inventory_length: int = load_file.get_8()
+	var _inventory_length: int = load_file.get_8()
 	
 	for i in range(3):
 		print(load_file.get_var())
 	
 	load_file.close()
-
 
 
 func _on_save() -> void:
@@ -83,4 +82,15 @@ func _on_save() -> void:
 func _on_main_timer_timeout() -> void:
 	
 	global.current_time += 1
+
+
+const dialogue_scn: PackedScene = preload("res://dialogue/dialogue.tscn")
+
+
+func _on_dialogue(npc_name: String, dialogue_int: int) -> void:
+	
+	get_tree().paused = true
+	var DialogueInstance: Dialogue = dialogue_scn.instantiate()
+	add_child(DialogueInstance)
+	DialogueInstance.get_dialogue()
 

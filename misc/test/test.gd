@@ -7,7 +7,14 @@ func _ready() -> void:
 	tween.tween_property($RichTextLabel, "visible_ratio", 1, 1)
 	
 	var regex = RegEx.new()
-	regex.compile("([^\\[color\\=a-z\\]]+[a-zA-Z0-9 ]+[^\\[color\\]])")
+	regex.compile("[^\\[color\\=a-z\\]]+[a-zA-Z0-9 ]+[^\\[\\/color\\]]")
 	var result = regex.search_all($RichTextLabel.text)
+	
+	var str_result: String
+	
 	for i in range(len(result)):
-		print(result[i].get_string())
+		str_result += result[i].get_string()
+	
+	print(str_result)
+	print(len(str_result))
+	

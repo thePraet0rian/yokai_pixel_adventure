@@ -39,6 +39,14 @@ func move() -> void:
 		else:
 			create_tween().tween_property(self, "position", points[i], (distance/velocities[i].x))
 		
-		await npc_manager.emit_signal(name_signal)
+		pass
 		print("npc_yes")
 
+
+@export var npc_name: String = "0"
+@export var npc_int: int = 0
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	
+	global._on_dialogue.emit(npc_name, npc_int)

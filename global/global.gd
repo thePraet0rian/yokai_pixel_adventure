@@ -11,6 +11,8 @@ signal _on_warp()
 signal _on_save
 signal _on_load()
 
+signal _on_dialogue()
+
 
 var current_time: int = 0
 

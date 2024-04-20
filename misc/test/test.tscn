@@ -9,7 +9,7 @@ script = ExtResource("1_m2b1v")
 offset_right = 140.0
 offset_bottom = 105.0
 bbcode_enabled = true
-text = "[color=blue]This[/color] is a test"
+text = "This is a test"
 scroll_active = false
 visible_characters = 0
 visible_ratio = 0.0
