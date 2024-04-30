@@ -28,8 +28,6 @@ func _ready() -> void:
 
 func move() -> void:
 	
-	print(position)
-	
 	for i in range(len(points)):
 		
 		var distance: float = position.distance_to(points[i])
@@ -40,13 +38,14 @@ func move() -> void:
 			create_tween().tween_property(self, "position", points[i], (distance/velocities[i].x))
 		
 		pass
-		print("npc_yes")
 
 
 @export var npc_name: String = "0"
 @export var npc_int: int = 0
 
 
-func _on_hurtbox_area_entered(area: Area2D) -> void:
+func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	
 	global._on_dialogue.emit(npc_name, npc_int)
+	
+	get_tree().paused = true

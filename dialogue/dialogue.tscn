@@ -1,23 +1,43 @@
-[gd_scene load_steps=2 format=3 uid="uid://sw7vj0dvb1ge"]
+[gd_scene load_steps=4 format=3 uid="uid://sw7vj0dvb1ge"]
 
 [ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_dp4kh"]
+[ext_resource type="Texture2D" uid="uid://c7w7aowkxwfmw" path="res://dialogue/dialogue_assets/background.png" id="2_uqhs5"]
+[ext_resource type="FontFile" uid="uid://dr2fylr683c1" path="res://dialogue/dialogue_assets/new_font.ttf" id="3_wqf1j"]
 
 [node name="dialogue" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_dp4kh")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 8.0
-offset_top = 98.0
-offset_right = 232.0
-offset_bottom = 133.0
-color = Color(0.223529, 0.223529, 0.223529, 1)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 117)
+texture = ExtResource("2_uqhs5")
 
-[node name="text" type="RichTextLabel" parent="."]
-offset_left = 8.0
-offset_top = 98.0
-offset_right = 232.0
-offset_bottom = 133.0
-text = "This is a test "
-visible_characters = 0
-visible_ratio = 0.0
+[node name="Label" type="Label" parent="."]
+offset_left = 11.0
+offset_top = 20.0
+offset_right = 101.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("3_wqf1j")
+theme_override_font_sizes/font_size = 8
+text = "this a test"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="text" type="RichTextLabel" parent="Control"]
+layout_mode = 1
+offset_left = 33.0
+offset_top = 34.0
+offset_right = 257.0
+offset_bottom = 79.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = ExtResource("3_wqf1j")
+theme_override_font_sizes/normal_font_size = 8
+text = "this is a  first test
+asdf asdf
+"
+shortcut_keys_enabled = false

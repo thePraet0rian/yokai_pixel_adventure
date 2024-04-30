@@ -12,6 +12,7 @@ signal _on_save
 signal _on_load()
 
 signal _on_dialogue()
+signal _on_dialogue_end
 
 
 var current_time: int = 0

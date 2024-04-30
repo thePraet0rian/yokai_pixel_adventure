@@ -14,7 +14,3 @@ func _ready() -> void:
 	
 	for i in range(len(result)):
 		str_result += result[i].get_string()
-	
-	print(str_result)
-	print(len(str_result))
-	

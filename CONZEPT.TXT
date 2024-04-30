@@ -30,4 +30,6 @@ They are serialised in the 'main.gd' script, which saves them in the godot binar
 NpcManager: 
 
 
-
+{
+  000: {"text": [""], "character": "" ,"expresion": ""}
+}

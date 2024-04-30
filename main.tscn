@@ -342,6 +342,7 @@ position = Vector2(64, 72)
 points = Array[Vector2]([Vector2(64, 72), Vector2(500, 72)])
 times = Array[int]([0])
 velocities = Array[Vector2]([Vector2(10, 0), Vector2(10, 0)])
+name_signal = "NPC_01"
 
 [node name="overworld_yokai" parent="rooms/ysort" instance=ExtResource("6_k76cu")]
 position = Vector2(-67, 68)

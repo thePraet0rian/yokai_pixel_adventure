@@ -44,4 +44,4 @@ func move(delta: float) -> void:
 func remove() -> void:
 	
 	await get_tree().create_timer(.5).timeout
-	queue_free()
+	#queue_free()

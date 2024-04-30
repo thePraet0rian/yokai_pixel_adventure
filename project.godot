@@ -25,8 +25,8 @@ npc_manager="*res://npc/npc_manager.gd"
 
 window/size/viewport_width=240
 window/size/viewport_height=135
-window/size/window_width_override=480
-window/size/window_height_override=270
+window/size/window_width_override=960
+window/size/window_height_override=540
 window/stretch/mode="canvas_items"
 
 [editor_plugins]

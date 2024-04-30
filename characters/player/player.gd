@@ -25,7 +25,8 @@ func _input(event: InputEvent) -> void:
 	if confirm_button.visible == true:
 		
 		if Input.is_action_just_pressed("space"):
-			global._on_room_changing.emit(0)
+			#global._on_room_changing.emit(0)
+			pass
 
 
 @onready var hurtbox: Area2D = $hurtbox
@@ -87,10 +88,10 @@ func show_objective() -> void:
 
 
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
-	print("yes")
-	confirm_button.visible = true
+	
+	pass
 
 
 func _on_hurtbox_area_exited(_area: Area2D) -> void:
-	print("exited")
+	print("hurtbox exited")
 	confirm_button.visible = false

@@ -6,28 +6,40 @@ extends CanvasLayer
 
 
 var writing: bool = false
+var text: Array
+var dialouge_line: int = 0
 
-var test = preload("res://dialogue/dialogue.Hello, Bob!.translation")
 
 func get_dialogue() -> void:
 	
-	print(test.get_as_text())
+	var file = FileAccess.open("res://dialogue/test.json", FileAccess.READ)
+	var data = JSON.parse_string(file.get_as_text())
+	text = data["NPC_01"]["0"]
+	file.close()
 
 
 func _ready() -> void:
 	
+	get_dialogue()
 	write_text()
 
 
 func write_text() -> void: 
 	
-	text_label.visible_ratio = 0
-	writing = true
-	create_tween().tween_property(text_label, "visible_ratio", 1, 1)
+	if len(text) != dialouge_line:
+		text_label.visible_ratio = 0
+		text_label.text = text[dialouge_line]["text"]
+		dialouge_line += 1
+		writing = true
+		await create_tween().tween_property(text_label, "visible_ratio", 1, 1).finished
+		writing = false
+	else:
+		global._on_dialogue_end.emit()
+		queue_free()
 
 
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):
-		if writing:
+		if not writing:
 			write_text()

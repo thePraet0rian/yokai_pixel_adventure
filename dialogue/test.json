@@ -1,0 +1,8 @@
+{
+  "NPC_01": {"0": [
+	{"npc": "MainCharacter", "text": "\n This is a test", "expresion": "Angy", },
+	{"npc": "MainCharacter", "text": "This is a second test", "expresion": "Angy"},
+  {"npc": "MainCharacter", "text": "this is a third test", "expression": "Angy"}]
+  }
+}
+
