@@ -1,38 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://sw7vj0dvb1ge"]
+[gd_scene load_steps=8 format=3 uid="uid://sw7vj0dvb1ge"]
 
 [ext_resource type="Script" path="res://dialogue/dialogue.gd" id="1_dp4kh"]
 [ext_resource type="Texture2D" uid="uid://c7w7aowkxwfmw" path="res://dialogue/dialogue_assets/background.png" id="2_uqhs5"]
+[ext_resource type="Texture2D" uid="uid://do2bpyyli3idp" path="res://dialogue/dialogue_assets/continue.png" id="3_64615"]
 [ext_resource type="FontFile" uid="uid://dr2fylr683c1" path="res://dialogue/dialogue_assets/new_font.ttf" id="3_wqf1j"]
+
+[sub_resource type="Animation" id="Animation_3jwhv"]
+resource_name = "constant"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_22hqe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_khrwt"]
+_data = {
+"RESET": SubResource("Animation_22hqe"),
+"constant": SubResource("Animation_3jwhv")
+}
 
 [node name="dialogue" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_dp4kh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(120, 117)
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(120, 113)
 texture = ExtResource("2_uqhs5")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 11.0
-offset_top = 20.0
-offset_right = 101.0
-offset_bottom = 43.0
-theme_override_fonts/font = ExtResource("3_wqf1j")
-theme_override_font_sizes/font_size = 8
-text = "this a test"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(228, 126)
+texture = ExtResource("3_64615")
+hframes = 3
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="text" type="RichTextLabel" parent="Control"]
-layout_mode = 1
-offset_left = 33.0
-offset_top = 34.0
-offset_right = 257.0
-offset_bottom = 79.0
+[node name="text" type="RichTextLabel" parent="."]
+clip_contents = false
+offset_left = 15.0
+offset_top = 108.0
+offset_right = 239.0
+offset_bottom = 153.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 0
 theme_override_fonts/normal_font = ExtResource("3_wqf1j")
@@ -41,3 +70,9 @@ text = "this is a  first test
 asdf asdf
 "
 shortcut_keys_enabled = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_khrwt")
+}
+autoplay = "constant"

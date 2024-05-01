@@ -14,6 +14,5 @@ func _ready() -> void:
 			sprite.texture = load("res://yokai/mirapo/overworld_mirapo.png")
 		
 		_:
-			
 			print("YOKAI NAME NOT FOUND")
 			return

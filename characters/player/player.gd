@@ -1,4 +1,4 @@
-class_name Player
+class_name Player_
 extends CharacterBody2D
 
 
@@ -21,12 +21,17 @@ func _input(event: InputEvent) -> void:
 		
 		get_tree().paused = true
 		get_parent().add_child(inventory_scn.instantiate())
-	
-	if confirm_button.visible == true:
+	if event.is_action_pressed("space"):
 		
-		if Input.is_action_just_pressed("space"):
-			#global._on_room_changing.emit(0)
-			pass
+		if npc_met:
+			npc_dialogue()
+	
+	#if confirm_button.visible == true:
+		#
+		#if Input.is_action_just_pressed("space"):
+			##global._on_room_changing.emit(0)
+			#pass
+
 
 
 @onready var hurtbox: Area2D = $hurtbox
@@ -84,14 +89,28 @@ func show_objective() -> void:
 			is_hidden = false
 
 
+func npc_dialogue() -> void:
+	
+	global._on_dialogue.emit(npc.npc_name, npc.npc_int)
+	npc_met = false
+	get_tree().paused = true
+
+
 @onready var confirm_button: Sprite2D = $Sprite2D
 
 
-func _on_hurtbox_area_entered(_area: Area2D) -> void:
+var npc_met: bool = false
+var npc: CharacterBody2D
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
-	pass
+	if "npc" in area.get_parent().name:
+		npc = area.get_parent()
+		npc_met = true
 
 
-func _on_hurtbox_area_exited(_area: Area2D) -> void:
-	print("hurtbox exited")
-	confirm_button.visible = false
+func _on_hurtbox_area_exited(area: Area2D) -> void:
+	
+	if "npc" in area.get_parent().name:
+		npc_met = false

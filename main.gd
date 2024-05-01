@@ -51,15 +51,15 @@ func _on_warp(warp: int) -> void:
 const save_file_arr: Array[String] = ["user://savefile_one.save", "user://savefile_two.save", "user://savefile_three.save"]
 
 
-var save_file: int 
+var save_file_int: int 
 
 
 func _on_load(_save_file: int) -> void:
 	
 	
-	save_file = _save_file
+	save_file_int = _save_file
 	
-	var load_file = FileAccess.open(save_file_arr[save_file], FileAccess.READ)
+	var load_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.READ)
 	
 	var _inventory_length: int = load_file.get_8()
 	
@@ -71,7 +71,7 @@ func _on_load(_save_file: int) -> void:
 
 func _on_save() -> void:
 	
-	var save_file = FileAccess.open(save_file_arr[save_file], FileAccess.WRITE)
+	var save_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.WRITE)
 	
 	save_file.store_8(3)
 	

@@ -46,6 +46,7 @@ func move() -> void:
 
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	
-	global._on_dialogue.emit(npc_name, npc_int)
-	
-	get_tree().paused = true
+	#global._on_dialogue.emit(npc_name, npc_int)
+	#get_tree().paused = true
+	pass
+ 
