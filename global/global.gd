@@ -15,6 +15,9 @@ signal _on_dialogue()
 signal _on_dialogue_end
 
 
+###############################################################################
+
+
 var current_time: int = 0
 
 
@@ -27,6 +30,9 @@ var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jib
 
 
 var player_inventory: Array[Item] = [Item.new()]
+
+
+###############################################################################
 
 
 class Yokai: 

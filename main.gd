@@ -2,6 +2,9 @@ class_name Main
 extends Node2D
 
 
+###############################################################################
+
+
 func _ready() -> void:
 	
 	global._on_battle_start.connect(_on_battle_started)
@@ -12,6 +15,9 @@ func _ready() -> void:
 	
 	global._on_dialogue.connect(_on_dialogue)
 	global._on_dialogue_end.connect(_on_dialogue_end)
+
+
+###############################################################################
 
 
 const BattleScene: PackedScene = preload("res://battle/battle.tscn")

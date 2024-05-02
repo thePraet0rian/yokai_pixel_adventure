@@ -22,3 +22,4 @@ polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

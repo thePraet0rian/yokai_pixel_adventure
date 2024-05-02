@@ -2,6 +2,8 @@ class_name Npc
 extends CharacterBody2D
 
 
+enum behavior {walking = 0, standing = 1}
+
 
 @export var points: Array[Vector2] = []
 @export var times: Array[int] = []
@@ -11,6 +13,7 @@ extends CharacterBody2D
 
 
 var current_index: int = 0
+var current_behavior: behavior = behavior.walking
 
 
 func _ready() -> void:
@@ -26,6 +29,9 @@ func _ready() -> void:
 	move()
 
 
+@onready var tween: Tween = create_tween()
+
+
 func move() -> void:
 	
 	for i in range(len(points)):
@@ -33,11 +39,9 @@ func move() -> void:
 		var distance: float = position.distance_to(points[i])
 		
 		if velocities[i].x == 0:
-			create_tween().tween_property(self, "position", points[i], (distance/velocities[i].y))
+			tween.tween_property(self, "position", points[i], (distance/velocities[i].y))
 		else:
-			create_tween().tween_property(self, "position", points[i], (distance/velocities[i].x))
-		
-		pass
+			tween.tween_property(self, "position", points[i], (distance/velocities[i].x))
 
 
 @export var npc_name: String = "0"
@@ -46,7 +50,12 @@ func move() -> void:
 
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	
-	#global._on_dialogue.emit(npc_name, npc_int)
-	#get_tree().paused = true
-	pass
+	current_behavior = behavior.standing
+	tween.pause()
  
+
+
+func _on_hurtbox_area_exited(area: Area2D) -> void:
+	
+	current_behavior = behavior.walking
+	tween.play()
