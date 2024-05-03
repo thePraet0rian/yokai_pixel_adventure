@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://byw2vrqxq0slp"]
+[gd_scene load_steps=11 format=3 uid="uid://byw2vrqxq0slp"]
 
 [ext_resource type="Texture2D" uid="uid://dx540idfv7f3m" path="res://characters/player/player_assets/female_player_sprite.png" id="1_onj6w"]
 [ext_resource type="Script" path="res://characters/player/player.gd" id="1_v1i0g"]
 [ext_resource type="Texture2D" uid="uid://dkljmhd55cuf7" path="res://ui/assets/yokai_watch/watch_background.png" id="3_odi5c"]
 [ext_resource type="Texture2D" uid="uid://du8uv32dgooga" path="res://ui/assets/objective/objective_background.png" id="4_3pe0d"]
 [ext_resource type="Texture2D" uid="uid://lub0ohg3px0j" path="res://characters/player/player_assets/ui_button.png" id="5_mwuta"]
+[ext_resource type="Texture2D" uid="uid://bcfi1oo3fw0ps" path="res://characters/player/player_assets/sprint_bar.png" id="6_flss0"]
 
 [sub_resource type="Animation" id="Animation_1ulla"]
 length = 0.001
@@ -63,6 +64,8 @@ _data = {
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_v1i0g")
 
+[node name="camera" type="Camera2D" parent="."]
+
 [node name="player_sprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_onj6w")
 
@@ -82,19 +85,24 @@ libraries = {
 }
 
 [node name="hitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1, 6)
 polygon = PackedVector2Array(-7, 6, -7, 10, 7, 10, 7, 6)
-
-[node name="camera" type="Camera2D" parent="."]
 
 [node name="hurtbox" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hurtbox"]
+position = Vector2(-1, 6)
 polygon = PackedVector2Array(-2, 10, -2, 14, 2, 14, 2, 10)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="accept_button" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(16, -12)
 texture = ExtResource("5_mwuta")
+
+[node name="sprint_bar" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(14, -14)
+texture = ExtResource("6_flss0")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

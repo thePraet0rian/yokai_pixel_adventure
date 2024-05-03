@@ -10,11 +10,11 @@ var text: Array
 var dialouge_line: int = 0
 
 
-func get_dialogue() -> void:
+func get_dialogue(npc_name: String, npc: String) -> void:
 	
 	var file = FileAccess.open("res://dialogue/test.json", FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
-	text = data["NPC_01"]["0"]
+	text = data[npc_name][npc]
 	file.close()
 
 
@@ -23,7 +23,6 @@ func get_dialogue() -> void:
 
 func _ready() -> void:
 	
-	get_dialogue()
 	write_text()
 
 

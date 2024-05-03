@@ -1,19 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://b58q5n1hvqs43"]
+[gd_scene load_steps=14 format=3 uid="uid://b58q5n1hvqs43"]
 
 [ext_resource type="Script" path="res://characters/player/inventory.gd" id="1_q2b6n"]
 [ext_resource type="Texture2D" uid="uid://645r0vjm7hvj" path="res://ui/assets/menue/top_bar.png" id="2_idn6n"]
 [ext_resource type="Shader" path="res://characters/player/background.gdshader" id="2_kouq0"]
-[ext_resource type="Texture2D" uid="uid://dsqcd3j5y65g6" path="res://ui/assets/menue/background.png" id="2_nrpja"]
 [ext_resource type="Texture2D" uid="uid://dovux82540yw" path="res://ui/assets/menue/back_background.png" id="3_b1eim"]
 [ext_resource type="Texture2D" uid="uid://dkivbpq4kmpv6" path="res://ui/assets/inventory/medal.png" id="3_xuwxs"]
 [ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://ui/assets/menue/button_back.png" id="4_0x44w"]
+[ext_resource type="Texture2D" uid="uid://wl6ehr1mjtd0" path="res://ui/assets/save_select_screen/overlay.png" id="4_3iyjv"]
+[ext_resource type="Shader" path="res://titlescreen/overlay.gdshader" id="4_nrm7q"]
 [ext_resource type="Texture2D" uid="uid://bq5vc6fv0skyw" path="res://ui/assets/inventory/button.png" id="4_una4n"]
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://ui/assets/menue/button_select.png" id="7_51f4f"]
-[ext_resource type="Texture2D" uid="uid://cqmh7on64qmdj" path="res://ui/assets/menue/medal.png" id="8_1tdxo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bkul1"]
 shader = ExtResource("2_kouq0")
 shader_parameter/speed = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7rn4t"]
+shader = ExtResource("4_nrm7q")
+shader_parameter/color = Vector4(0, 0, 1, 0.05)
+shader_parameter/mx = 0.3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v022q"]
 
@@ -24,17 +29,17 @@ script = ExtResource("1_q2b6n")
 [node name="back_background" type="Sprite2D" parent="."]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_bkul1")
-position = Vector2(120.06, 70.7662)
-scale = Vector2(2.12496, 1.83525)
+position = Vector2(120, 67.5)
+scale = Vector2(2, 2)
 texture = ExtResource("3_b1eim")
 region_enabled = true
-region_rect = Rect2(0, 0, 113, 70)
+region_rect = Rect2(0, 0, 240, 135)
 
-[node name="background" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.658824)
-position = Vector2(120, 67.75)
-scale = Vector2(1, 0.996296)
-texture = ExtResource("2_nrpja")
+[node name="overlay" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.27451)
+material = SubResource("ShaderMaterial_7rn4t")
+position = Vector2(120, 67.5)
+texture = ExtResource("4_3iyjv")
 
 [node name="top_bar" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_v022q")
@@ -46,15 +51,10 @@ position = Vector2(36, 127)
 texture = ExtResource("4_0x44w")
 
 [node name="top_bar3" type="Sprite2D" parent="."]
-position = Vector2(144, 128)
+position = Vector2(204, 127)
 texture = ExtResource("7_51f4f")
 
 [node name="medals" type="Node2D" parent="."]
-
-[node name="Sprite2D2" type="Sprite2D" parent="medals"]
-position = Vector2(40, 48)
-scale = Vector2(2, 2)
-texture = ExtResource("8_1tdxo")
 
 [node name="Sprite2D3" type="Sprite2D" parent="medals"]
 visible = false

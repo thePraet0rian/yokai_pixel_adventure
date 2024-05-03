@@ -54,8 +54,8 @@ func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	tween.pause()
  
 
-
-func _on_hurtbox_area_exited(area: Area2D) -> void:
+func _on_hurtbox_area_exited(_area: Area2D) -> void:
 	
 	current_behavior = behavior.walking
-	tween.play()
+	if tween.is_valid():
+		tween.play()

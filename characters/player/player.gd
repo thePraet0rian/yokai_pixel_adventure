@@ -35,7 +35,8 @@ func _input(event: InputEvent) -> void:
 
 
 @onready var hurtbox: Area2D = $hurtbox
-@onready var ui_anim_player: AnimationPlayer = $player_ui/ui_anim_player 
+@onready var ui_anim_player: AnimationPlayer = $player_ui/ui_anim_player
+@onready var sprint_bar: Sprite2D = $sprint_bar
 
 var is_moving: bool = false
 var state_change: bool = false
@@ -46,9 +47,11 @@ var is_hidden: bool = false
 func _process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("shift"):
-		speed = 120
+		speed = 200
+		sprint_bar.visible = true
 	else:
 		speed = 70
+		sprint_bar.visible = false
 	
 	previous_input_vec = input_vec
 	
@@ -96,7 +99,7 @@ func npc_dialogue() -> void:
 	get_tree().paused = true
 
 
-@onready var confirm_button: Sprite2D = $Sprite2D
+@onready var confirm_button: Sprite2D = $accept_button
 
 
 var npc_met: bool = false

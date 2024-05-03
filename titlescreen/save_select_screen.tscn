@@ -1,11 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt3haerqovogc"]
+[gd_scene load_steps=11 format=3 uid="uid://bt3haerqovogc"]
 
 [ext_resource type="Script" path="res://titlescreen/save_select_screen.gd" id="1_f8tgk"]
+[ext_resource type="Shader" path="res://characters/player/background.gdshader" id="2_fb2vd"]
+[ext_resource type="Texture2D" uid="uid://wl6ehr1mjtd0" path="res://ui/assets/save_select_screen/overlay.png" id="2_p8h6n"]
+[ext_resource type="Texture2D" uid="uid://dovux82540yw" path="res://ui/assets/menue/back_background.png" id="3_jdlkr"]
+[ext_resource type="Shader" path="res://titlescreen/overlay.gdshader" id="4_nyx7s"]
+[ext_resource type="Texture2D" uid="uid://7ptjarqcjc1" path="res://ui/assets/save_select_screen/top_bar.png" id="5_xarpd"]
+[ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://ui/assets/menue/button_back.png" id="6_6fd2n"]
+[ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://ui/assets/menue/button_select.png" id="7_cfi1u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wudcp"]
+shader = ExtResource("2_fb2vd")
+shader_parameter/speed = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_omhts"]
+shader = ExtResource("4_nyx7s")
+shader_parameter/color = Vector4(1, 0, 1, 0.05)
+shader_parameter/mx = 0.3
 
 [node name="save_select_screen" type="Node2D"]
 script = ExtResource("1_f8tgk")
 
-[node name="background" type="ColorRect" parent="."]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+[node name="background" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_wudcp")
+position = Vector2(120, 67.5)
+scale = Vector2(2, 2)
+texture = ExtResource("3_jdlkr")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 135)
+
+[node name="overlay" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_omhts")
+position = Vector2(120, 67.5)
+scale = Vector2(1, 1)
+texture = ExtResource("2_p8h6n")
+metadata/_edit_lock_ = true
+
+[node name="top_bar" type="Sprite2D" parent="."]
+position = Vector2(120, 8)
+texture = ExtResource("5_xarpd")
+metadata/_edit_lock_ = true
+
+[node name="buttons" type="Node2D" parent="."]
+
+[node name="back_button" type="Sprite2D" parent="buttons"]
+position = Vector2(36, 127)
+texture = ExtResource("6_6fd2n")
+
+[node name="enter_button" type="Sprite2D" parent="buttons"]
+position = Vector2(204, 127)
+texture = ExtResource("7_cfi1u")
