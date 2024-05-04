@@ -2,7 +2,7 @@ extends Node2D
 
 
 const room_scn: PackedScene = preload("res://main.tscn")
-const title_screen_scn: PackedScene = preload("res://titlescreen/titlescreen.tscn")
+#const title_screen_scn: PackedScene = preload("res://titlescreen/titlescreen.tscn")
  
 
 func _input(event: InputEvent) -> void:

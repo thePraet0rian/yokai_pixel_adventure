@@ -33,7 +33,6 @@ region_rect = Rect2(0, 0, 240, 135)
 [node name="overlay" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_omhts")
 position = Vector2(120, 67.5)
-scale = Vector2(1, 1)
 texture = ExtResource("2_p8h6n")
 metadata/_edit_lock_ = true
 
