@@ -56,6 +56,8 @@ func _on_hurtbox_area_entered(_area: Area2D) -> void:
 
 func _on_hurtbox_area_exited(_area: Area2D) -> void:
 	
+	await get_tree().create_timer(1).timeout
+	
 	current_behavior = behavior.walking
 	if tween.is_valid():
 		tween.play()

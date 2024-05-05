@@ -8,4 +8,5 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):
 		
-		get_tree().change_scene_to_packed(save_select_scn)
+		get_parent().add_child(save_select_scn.instantiate())
+		queue_free()

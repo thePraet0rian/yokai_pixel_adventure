@@ -46,7 +46,9 @@ metadata/_edit_lock_ = true
 [node name="back_button" type="Sprite2D" parent="buttons"]
 position = Vector2(36, 127)
 texture = ExtResource("6_6fd2n")
+hframes = 2
 
 [node name="enter_button" type="Sprite2D" parent="buttons"]
 position = Vector2(204, 127)
 texture = ExtResource("7_cfi1u")
+hframes = 2

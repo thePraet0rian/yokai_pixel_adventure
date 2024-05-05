@@ -1,15 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://b58q5n1hvqs43"]
+[gd_scene load_steps=18 format=3 uid="uid://b58q5n1hvqs43"]
 
 [ext_resource type="Script" path="res://characters/player/inventory.gd" id="1_q2b6n"]
 [ext_resource type="Texture2D" uid="uid://645r0vjm7hvj" path="res://ui/assets/menue/top_bar.png" id="2_idn6n"]
 [ext_resource type="Shader" path="res://characters/player/background.gdshader" id="2_kouq0"]
 [ext_resource type="Texture2D" uid="uid://dovux82540yw" path="res://ui/assets/menue/back_background.png" id="3_b1eim"]
-[ext_resource type="Texture2D" uid="uid://dkivbpq4kmpv6" path="res://ui/assets/inventory/medal.png" id="3_xuwxs"]
 [ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://ui/assets/menue/button_back.png" id="4_0x44w"]
 [ext_resource type="Texture2D" uid="uid://wl6ehr1mjtd0" path="res://ui/assets/save_select_screen/overlay.png" id="4_3iyjv"]
 [ext_resource type="Shader" path="res://titlescreen/overlay.gdshader" id="4_nrm7q"]
-[ext_resource type="Texture2D" uid="uid://bq5vc6fv0skyw" path="res://ui/assets/inventory/button.png" id="4_una4n"]
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://ui/assets/menue/button_select.png" id="7_51f4f"]
+[ext_resource type="Texture2D" uid="uid://mhhjalft6ppc" path="res://ui/assets/menue/settings_wheel.png" id="10_0t2jj"]
+[ext_resource type="Texture2D" uid="uid://ba6wumu6plc1y" path="res://ui/assets/menue/team_button.png" id="10_oe38n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bkul1"]
 shader = ExtResource("2_kouq0")
@@ -21,6 +21,88 @@ shader_parameter/color = Vector4(0, 0, 1, 0.05)
 shader_parameter/mx = 0.3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v022q"]
+
+[sub_resource type="Animation" id="Animation_63d2d"]
+resource_name = "end"
+length = 0.35
+step = 0.05
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.35),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("top_bar2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_5kbak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("top_bar2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("top_bar3:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_siyqd"]
+resource_name = "enter"
+length = 0.35
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("top_bar3:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5nvia"]
+_data = {
+"RESET": SubResource("Animation_5kbak"),
+"end": SubResource("Animation_63d2d"),
+"enter": SubResource("Animation_siyqd")
+}
 
 [node name="inventory" type="CanvasLayer"]
 process_mode = 3
@@ -49,61 +131,56 @@ texture = ExtResource("2_idn6n")
 [node name="top_bar2" type="Sprite2D" parent="."]
 position = Vector2(36, 127)
 texture = ExtResource("4_0x44w")
+hframes = 2
 
 [node name="top_bar3" type="Sprite2D" parent="."]
 position = Vector2(204, 127)
 texture = ExtResource("7_51f4f")
+hframes = 2
 
 [node name="medals" type="Node2D" parent="."]
 
-[node name="Sprite2D3" type="Sprite2D" parent="medals"]
-visible = false
-position = Vector2(40, 32)
-texture = ExtResource("3_xuwxs")
-
-[node name="Sprite2D4" type="Sprite2D" parent="medals"]
-visible = false
-position = Vector2(64, 32)
-texture = ExtResource("3_xuwxs")
-
-[node name="Sprite2D5" type="Sprite2D" parent="medals"]
-visible = false
-position = Vector2(88, 32)
-texture = ExtResource("3_xuwxs")
-
-[node name="Sprite2D6" type="Sprite2D" parent="medals"]
-visible = false
-position = Vector2(112, 32)
-texture = ExtResource("3_xuwxs")
-
-[node name="Sprite2D7" type="Sprite2D" parent="medals"]
-visible = false
-position = Vector2(136, 32)
-texture = ExtResource("3_xuwxs")
-
 [node name="buttons" type="Node2D" parent="."]
-visible = false
+position = Vector2(11, 0)
+metadata/_edit_lock_ = true
 
 [node name="button_0" type="Sprite2D" parent="buttons"]
-position = Vector2(32, 64)
-texture = ExtResource("4_una4n")
+position = Vector2(32, 48)
+texture = ExtResource("10_0t2jj")
+hframes = 2
+frame = 1
 
 [node name="button_1" type="Sprite2D" parent="buttons"]
-position = Vector2(80, 64)
-texture = ExtResource("4_una4n")
+position = Vector2(80, 48)
+texture = ExtResource("10_0t2jj")
+hframes = 2
 
 [node name="button_2" type="Sprite2D" parent="buttons"]
-position = Vector2(128, 64)
-texture = ExtResource("4_una4n")
+position = Vector2(128, 48)
+texture = ExtResource("10_0t2jj")
+hframes = 2
 
 [node name="button_3" type="Sprite2D" parent="buttons"]
-position = Vector2(32, 104)
-texture = ExtResource("4_una4n")
+position = Vector2(32, 88)
+texture = ExtResource("10_0t2jj")
+hframes = 2
 
 [node name="button_4" type="Sprite2D" parent="buttons"]
-position = Vector2(80, 104)
-texture = ExtResource("4_una4n")
+position = Vector2(80, 88)
+texture = ExtResource("10_0t2jj")
+hframes = 2
 
 [node name="button_5" type="Sprite2D" parent="buttons"]
-position = Vector2(128, 104)
-texture = ExtResource("4_una4n")
+position = Vector2(128, 88)
+texture = ExtResource("10_0t2jj")
+hframes = 2
+
+[node name="button_06" type="Sprite2D" parent="buttons"]
+position = Vector2(182, 68)
+texture = ExtResource("10_oe38n")
+hframes = 2
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5nvia")
+}
