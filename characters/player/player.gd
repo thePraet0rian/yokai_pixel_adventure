@@ -48,7 +48,8 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_pressed("shift"):
 		speed = 200
-		sprint_bar.visible = true
+		if input_vec != Vector2.ZERO:
+			sprint_bar.visible = true
 	else:
 		speed = 70
 		sprint_bar.visible = false
@@ -66,7 +67,6 @@ func _process(_delta: float) -> void:
 				is_hidden = true
 	
 	if previous_input_vec != Vector2.ZERO and input_vec == Vector2.ZERO:
-		
 		show_objective()
 	
 	if input_vec == Vector2.LEFT:
@@ -96,7 +96,7 @@ func npc_dialogue() -> void:
 	
 	global._on_dialogue.emit(npc.npc_name, npc.npc_int)
 	npc_met = false
-	get_tree().paused = true
+	get_tree().paused = true 
 
 
 @onready var confirm_button: Sprite2D = $accept_button

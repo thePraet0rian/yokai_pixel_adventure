@@ -1,6 +1,12 @@
 extends CanvasLayer
 
 
+@onready var money_label: Label = $top_bar/money
+
+func _ready() -> void:
+	
+	money_label.text = str(global.current_money)
+
 var cur_pos: Vector2 = Vector2.ZERO
 
 @onready var buttons: Array = [[$buttons/button_0, $buttons/button_3], [$buttons/button_1, $buttons/button_4], [$buttons/button_2, $buttons/button_5], [$buttons/button_06, $buttons/button_06]]

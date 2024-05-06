@@ -1,5 +1,6 @@
 extends Node
 
+############################################################################### Signals
 
 signal _on_battle_start()
 signal _on_battle_end()
@@ -14,12 +15,11 @@ signal _on_load()
 signal _on_dialogue()
 signal _on_dialogue_end
 
-
-###############################################################################
-
+############################################################################### Variables
 
 var current_time: int = 0
-
+var current_money: int = 1240
+var player_inventory: Array[Item] = [Item.new()]
 
 var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jibanyan.png")), 
 	Yokai.new(0, preload("res://yokai/zerberker/zerberker_back.png")), 
@@ -28,12 +28,7 @@ var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jib
 	Yokai.new(0, preload("res://yokai/peckpocket/peckpocket.png")),
 	Yokai.new(0, preload("res://yokai/jibanyan/jibanyan_back.png"))]
 
-
-var player_inventory: Array[Item] = [Item.new()]
-
-
-###############################################################################
-
+############################################################################### Classes
 
 class Yokai: 
 	
@@ -52,12 +47,10 @@ class Yokai:
 	var front_sprite: Texture
 	var back_sprite: Texture
 	
-	
 	func _init(_hp: int, _front_sprite: Resource) -> void:
 		
 		hp = _hp
 		front_sprite = _front_sprite
-
 
 class Item: 
 	

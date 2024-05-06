@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b58q5n1hvqs43"]
+[gd_scene load_steps=19 format=3 uid="uid://b58q5n1hvqs43"]
 
 [ext_resource type="Script" path="res://characters/player/inventory.gd" id="1_q2b6n"]
 [ext_resource type="Texture2D" uid="uid://645r0vjm7hvj" path="res://ui/assets/menue/top_bar.png" id="2_idn6n"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://wl6ehr1mjtd0" path="res://ui/assets/save_select_screen/overlay.png" id="4_3iyjv"]
 [ext_resource type="Shader" path="res://titlescreen/overlay.gdshader" id="4_nrm7q"]
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://ui/assets/menue/button_select.png" id="7_51f4f"]
+[ext_resource type="FontFile" uid="uid://dr2fylr683c1" path="res://dialogue/dialogue_assets/new_font.ttf" id="7_ag7fq"]
 [ext_resource type="Texture2D" uid="uid://mhhjalft6ppc" path="res://ui/assets/menue/settings_wheel.png" id="10_0t2jj"]
 [ext_resource type="Texture2D" uid="uid://ba6wumu6plc1y" path="res://ui/assets/menue/team_button.png" id="10_oe38n"]
 
@@ -21,6 +22,33 @@ shader_parameter/color = Vector4(0, 0, 1, 0.05)
 shader_parameter/mx = 0.3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v022q"]
+
+[sub_resource type="Animation" id="Animation_5kbak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("top_bar2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("top_bar3:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_63d2d"]
 resource_name = "end"
@@ -51,33 +79,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_5kbak"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("top_bar2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("top_bar3:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_siyqd"]
@@ -116,17 +117,32 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_b1eim")
 region_enabled = true
 region_rect = Rect2(0, 0, 240, 135)
+metadata/_edit_lock_ = true
 
 [node name="overlay" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.27451)
 material = SubResource("ShaderMaterial_7rn4t")
 position = Vector2(120, 67.5)
 texture = ExtResource("4_3iyjv")
+metadata/_edit_lock_ = true
 
 [node name="top_bar" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_v022q")
 position = Vector2(120, 8)
 texture = ExtResource("2_idn6n")
+metadata/_edit_lock_ = true
+
+[node name="money" type="Label" parent="top_bar"]
+offset_left = 49.0
+offset_top = -2.0
+offset_right = 118.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0.972549, 0.772549, 0.227451, 1)
+theme_override_fonts/font = ExtResource("7_ag7fq")
+theme_override_font_sizes/font_size = 8
+text = "500"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="top_bar2" type="Sprite2D" parent="."]
 position = Vector2(36, 127)
