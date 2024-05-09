@@ -47,7 +47,6 @@ func _input(event: InputEvent) -> void:
 			cur_pos.x += 1
 	
 	
-	
 	for i in range(len(buttons)):
 		for j in range(len(buttons[i])):
 			

@@ -1,15 +1,16 @@
-Yokai Watch Pixel Adventure:
+Yokai Pixel Adventure:
 
 
 - Moving yokai in battle ----------------------------------------------------------
+
 
 The yokai themselefs have a movement script which is called by a signal from the battle scene.
 If a yokai moves to the leftmost/rightmost screen edge it gets free from memory.
 
 [...]
 
-
 - Save system ---------------------------------------------------------------------
+
 
 Things to be saved are:
 
@@ -24,12 +25,45 @@ Things to be saved are:
 
 They are serialised in the 'main.gd' script, which saves them in the godot binary format. 
 
-
 - NPC -----------------------------------------------------------------------------
 
 NpcManager: 
 
-
 {
   000: {"text": [""], "character": "" ,"expresion": ""}
 }
+
+- Story Line ----------------------------------------------------------------------
+
+
+(...) → "Team Rocket"
+[friends] → "Two", "Names"
+
+
+- Player starts in a small farm house in a rural japanese City.
+- You and your [friends] go into the woods because you are in a yokai club.
+- Both your friends get abducted by a yokai organisation (...).
+- You get the ability to see yokai, call upon them and befriend them. (And fight them...)
+- You now have the mission to save your friends and protect the world from a yokai invasion.
+- You, after having leveled up can now enter the big city by summoning a yokai train. 
+  -> I don't know how leveling and the yokai train should work tbh.
+- Probably have to fight a boss before you get to use the yokai train.
+- You go to the city and you get shrine exposition, by a monk
+- To enter the underworld you have to find 
+- You enter the underworld to fight the (...) boss.
+- Final boss battle
+- You finish the game
+
+
+- Characters ----------------------------------------------------------------------
+
+- Mom
+- Dad
+- FriendOne
+- FriendTwo
+- Frostie Two, because Copyright Infringement
+- 
+
+
+- !MAYBE! After Story -------------------------------------------------------------
+
