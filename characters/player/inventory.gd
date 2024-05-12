@@ -1,5 +1,5 @@
+class_name Inventory 
 extends CanvasLayer
-
 
 @onready var money_label: Label = $top_bar/money
 
@@ -9,7 +9,11 @@ func _ready() -> void:
 
 var cur_pos: Vector2 = Vector2.ZERO
 
-@onready var buttons: Array = [[$buttons/button_0, $buttons/button_3], [$buttons/button_1, $buttons/button_4], [$buttons/button_2, $buttons/button_5], [$buttons/button_06, $buttons/button_06]]
+@onready var buttons: Array[Array] = [
+	[$buttons/button_0, $buttons/button_3], 
+	[$buttons/button_1, $buttons/button_4], 
+	[$buttons/button_2, $buttons/button_5], 
+	[$buttons/button_06, $buttons/button_06]]
 @onready var anim_player: AnimationPlayer = $anim_player
 
 
@@ -46,7 +50,6 @@ func _input(event: InputEvent) -> void:
 		else:
 			cur_pos.x += 1
 	
-	
 	for i in range(len(buttons)):
 		for j in range(len(buttons[i])):
 			
@@ -54,7 +57,6 @@ func _input(event: InputEvent) -> void:
 				buttons[i][j].frame = 0
 	
 	buttons[cur_pos.x][cur_pos.y].frame = 1
-
 
 func end() -> void:
 	

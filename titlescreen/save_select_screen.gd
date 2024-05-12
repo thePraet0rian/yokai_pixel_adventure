@@ -1,10 +1,10 @@
+class_name SaveSelectScreen 
 extends Node2D
 
-
 const room_scn: PackedScene = preload("res://main.tscn")
+
 @onready var title_screen_scn: PackedScene = load("res://titlescreen/titlescreen.tscn")
  
-
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):

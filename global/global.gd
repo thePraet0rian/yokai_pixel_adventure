@@ -1,6 +1,7 @@
+class_name Global 
 extends Node
 
-############################################################################### Signals
+# Signals #####################################################################
 
 signal _on_battle_start()
 signal _on_battle_end()
@@ -15,7 +16,7 @@ signal _on_load()
 signal _on_dialogue()
 signal _on_dialogue_end
 
-############################################################################### Variables
+# Variables ###################################################################
 
 var current_time: int = 0
 var current_money: int = 1240
@@ -28,7 +29,7 @@ var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jib
 	Yokai.new(0, preload("res://yokai/peckpocket/peckpocket.png")),
 	Yokai.new(0, preload("res://yokai/jibanyan/jibanyan_back.png"))]
 
-############################################################################### Classes
+# Classes #####################################################################
 
 class Yokai: 
 	
@@ -62,3 +63,5 @@ class Item:
 	func _init() -> void:
 		
 		pass
+
+# #############################################################################
