@@ -16,6 +16,8 @@ signal _on_load()
 signal _on_dialogue()
 signal _on_dialogue_end
 
+signal _on_menue_close
+
 # Variables ###################################################################
 
 var current_time: int = 0

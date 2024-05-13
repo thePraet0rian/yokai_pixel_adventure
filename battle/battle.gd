@@ -1,188 +1,176 @@
-class_name Battle
-extends CanvasLayer
+class_name Battle extends CanvasLayer
 
+# #############################################################################
 
+var player_yokai_arr: Array[global.Yokai] = global.player_yokai
+
+var enemy_team_arr: Array[global.Yokai] = [null]:
+	set(value): _set_enemy(value)
+
+func _set_enemy(value: Array) -> void:
+	enemy_team_arr = value
+
+# ############################################################################# 
+ 
 @onready var player_team_inst: Array = [$players/yokai, $players/yokai2, $players/yokai3]
 
-var player_yokai_arr: Array[global.Yokai]
-
-var enemy_team: Array = ["Jibanyan", "Weird Bird", "Cadin", "", "", ""]
-var enemy_team_inst: Array = []
-
-
-func set_player(_yokai_arr : Array[global.Yokai]) -> void:
-	player_yokai_arr = _yokai_arr
-
-
-func set_enemy() -> void:
-	pass
-
-
-###############################################################################
-
-
-@onready var ui_anim_player: AnimationPlayer = $ui/ui_anim_player
-
+@onready var anim_player: AnimationPlayer = $anim_player
+@onready var ui_anim_player: AnimationPlayer = $ui/main_ui/ui_anim_player
+@onready var buttons_anim_player: AnimationPlayer = $buttons/buttons_anim_player
 
 func _ready() -> void:
-	
 	setup_battle()
 
-
 func setup_battle() -> void:
-	
-	print("setup_battle")
+	anim_player.play("start")
 
+# #############################################################################
 
-###############################################################################
+enum GAME_STATES {MENUE = 0, SELECTING = 1, ACTION = 2}
+enum SUB_GAME_STATES {TARGET = 0, SOULIMATE = 1, ITEM = 2, PURIFY = 3, NONE = 4}
 
-
-enum GAME_STATES {MENUE = 0, TARGET = 1, SOULIMATE = 2, ITEM = 3, PURIFY = 4, NONE = 5}
-
-
-@onready var buttons_anim: AnimationPlayer = $buttons/buttons_anim_player
-
-
-var current_game_state: GAME_STATES =  GAME_STATES.MENUE
-
+var current_game_state: GAME_STATES = GAME_STATES.MENUE
+var current_sub_game_state: SUB_GAME_STATES = SUB_GAME_STATES.TARGET
 
 func _input(event: InputEvent) -> void:
 	
-	match current_game_state:
+	if current_game_state == GAME_STATES.MENUE:
+		_menue_input(event)
+	elif current_game_state == GAME_STATES.SELECTING:
+		_selecting_input(event)
+	elif current_game_state == GAME_STATES.ACTION:
+		_action_input(event)
+
+# #############################################################################
+
+func _menue_input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("tab"):
+		current_game_state = GAME_STATES.SELECTING
+
+@onready var buttons: Array[Sprite2D] = [$buttons/purify, $buttons/soulimate, $buttons/target, $buttons/item]
+
+var buttons_index: int = 0
+
+func _selecting_input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("move_left"):
 		
-		GAME_STATES.MENUE:
-			menue_input(event)
+		if buttons_index != 0:
+			buttons_index -= 1
+		else:
+			buttons_index = 3
 		
-		GAME_STATES.TARGET:
-			target_input(event)
+	elif event.is_action_pressed("move_right"):
 		
-		GAME_STATES.SOULIMATE:
-			soulimate_input(event)
+		if buttons_index != 3:
+			buttons_index += 1
+		else:
+			buttons_index = 0
+	
+	for i in range(len(buttons)):
+		if i == buttons_index:
+			buttons[i].frame = 1
+		else: 
+			buttons[i].frame = 0
+	
+	if event.is_action_pressed("tab"):
+		current_game_state = GAME_STATES.MENUE
 		
-		GAME_STATES.ITEM:
-			item_input(event)
+		for i in range(len(buttons)):
+			buttons[i].frame = 0
+	
+	if event.is_action_pressed("space"):
 		
-		GAME_STATES.PURIFY:
+		current_game_state = GAME_STATES.ACTION
+		current_sub_game_state = buttons_index as SUB_GAME_STATES
+		_change_sub_game_state()
+
+func _change_sub_game_state() -> void:
+	
+	match current_sub_game_state:
+		
+		SUB_GAME_STATES.PURIFY:
+			purify.visible = true
+		SUB_GAME_STATES.SOULIMATE:
+			soulimate.visible = true
+		SUB_GAME_STATES.ITEM:
+			items.visible = true
+		SUB_GAME_STATES.TARGET:
+			target.visible = true
+
+func _action_input(event: InputEvent) -> void:
+	
+	match current_sub_game_state:
+		
+		SUB_GAME_STATES.PURIFY:
 			purify_input(event)
+		SUB_GAME_STATES.SOULIMATE:
+			soulimate_input(event)
+		SUB_GAME_STATES.ITEM:
+			item_input(event)
+		SUB_GAME_STATES.TARGET:
+			target_input(event)
 
-
-###############################################################################
-
-
-@onready var items: Node2D = $Node/items
-@onready var target: Node2D = $Node/target
-@onready var soulimate: Node2D = $Node/soulimate
-@onready var purify: Node2D = $Node/purify
-
+@onready var items: Node2D = $ui/sub_ui/items
+@onready var target: Node2D = $ui/sub_ui/target
+@onready var soulimate: Node2D = $ui/sub_ui/soulimate
+@onready var purify: Node2D = $ui/sub_ui/purify
 
 var input_direction: Vector2 = Vector2.ZERO
-
-
-func menue_input(event: InputEvent) -> void:
-	
-	
-	if event.is_action_pressed("1"):
-		current_game_state = GAME_STATES.PURIFY
-	elif event.is_action_pressed("2"):
-		current_game_state = GAME_STATES.SOULIMATE
-	elif event.is_action_pressed("3"):
-		current_game_state = GAME_STATES.TARGET
-	elif event.is_action_pressed("4"):
-		current_game_state = GAME_STATES.ITEM
-	
-	if event.is_action_pressed("left"):
-		if item_button_entered: 
-			current_game_state = GAME_STATES.ITEM
-			items.visible = true
-			print("item")
-		
-		elif target_button_entered:
-			current_game_state = GAME_STATES.TARGET
-			target.visible = true
-			print("target")
-		
-		elif soulimate_button_entered:
-			current_game_state = GAME_STATES.SOULIMATE
-			soulimate.visible = true
-			print("soulimate")
-			
-		elif purify_button_entered:
-			current_game_state = GAME_STATES.PURIFY
-			purify.visible = true
-			print("purify")
-
 
 func target_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.MENUE
+		current_game_state = GAME_STATES.SELECTING
 		target.visible = false
-
 
 func soulimate_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.MENUE
 		soulimate.visible = false
-
+		current_game_state = GAME_STATES.SELECTING
 
 func item_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.MENUE
+		current_game_state = GAME_STATES.SELECTING
 		items.visible = false
-
 
 func purify_input(event: InputEvent) ->  void:
 	
 	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.MENUE
+		current_game_state = GAME_STATES.SELECTING
 		purify.visible = false
 
-
-###############################################################################
-
-
-var is_moving: bool = false
-#var is_hidden: bool = false TODO: implement UI hiding
-
-
-func player_input() -> void:
-	
-	input_direction.x = Input.get_axis("move_left", "move_right")
-	
-	if input_direction != Vector2.ZERO:
-		
-		is_moving = true
-		
-		if input_direction == Vector2.LEFT:
-			
-			move_yokai(MOVE.LEFT)
-			
-		elif input_direction == Vector2.RIGHT:
-			
-			move_yokai(MOVE.RIGHT)
-
-
-const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
-
+# #############################################################################
 
 enum MOVE {LEFT = 0, RIGHT = 1}
 
+var is_moving: bool = false
+var direction_move: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
+
+func player_input() -> void:
+	
+	input_direction.x = Input.get_axis("move_wheel_left", "move_wheel_right")
+	
+	if input_direction != Vector2.ZERO:
+		is_moving = true
+		
+		if input_direction == Vector2.LEFT:
+			move_yokai(MOVE.LEFT)
+			
+		elif input_direction == Vector2.RIGHT:
+			move_yokai(MOVE.RIGHT)
+
+const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
 
 @onready var players: Node2D = $players
 
-
-var direction_move: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
-var player_yokai_index: int = 0
-
-
 func move_yokai(direction: MOVE) -> void: 
-	
 	
 	var player_yokai_inst: Node2D = player_yokai_scn.instantiate()
 	players.add_child(player_yokai_inst)
-	
 	
 	if direction == MOVE.LEFT:
 		
@@ -193,7 +181,6 @@ func move_yokai(direction: MOVE) -> void:
 		player_yokai_arr.remove_at(0)
 		
 		player_yokai_inst.texture = player_yokai_arr[2].front_sprite
-	
 	elif direction == MOVE.RIGHT:
 		
 		player_yokai_inst.position = Vector2(-24, 91)
@@ -203,7 +190,6 @@ func move_yokai(direction: MOVE) -> void:
 		player_yokai_arr.remove_at(6)
 		
 		player_yokai_inst.texture = player_yokai_arr[0].front_sprite
-	
 	
 	for i in range(4):
 		
@@ -216,23 +202,18 @@ func move_yokai(direction: MOVE) -> void:
 		
 		remove_yokai(3)
 
-
 func remove_yokai(yokai: int) -> void:
 	
 	player_team_inst[yokai].remove()
 	player_team_inst.remove_at(yokai)
 
-
 func _physics_process(_delta: float) -> void:
 	
 	if player_team_inst[2].progress == 0.0:
-		
 		player_input()
 		show_ui()
 
-
 var test_2: bool = false
-
 
 func show_ui() -> void:
 	
@@ -242,48 +223,13 @@ func show_ui() -> void:
 		return
 	
 	if not test_2: 
-		buttons_anim.play("buttons_show")
+		buttons_anim_player.play("buttons_show")
 		#is_hidden = true
 		test_2 = true
 	
 	is_moving = false
 
-
-###############################################################################
-
-
-var item_button_entered: bool = false
-var target_button_entered: bool = false
-var soulimate_button_entered: bool = false
-var purify_button_entered: bool = false
-
-
-func _on_item_button_mouse_entered() -> void:
-	item_button_entered = true
-
-func _on_item_button_mouse_exited() -> void:
-	item_button_entered = false
-
-func _on_target_button_mouse_entered() -> void:
-	target_button_entered = true
-
-func _on_target_button_mouse_exited() -> void:
-	target_button_entered = false
-
-func _on_soulimate_button_mouse_entered() -> void:
-	soulimate_button_entered = true
-
-func _on_soulimate_button_mouse_exited() -> void:
-	soulimate_button_entered = false
-
-func _on_purify_button_mouse_entered() -> void:
-	purify_button_entered = true
-
-func _on_purify_button_mouse_exited() -> void:
-	purify_button_entered = false
-
-
-###############################################################################
+# #############################################################################
 
 
 func _on_tick_timer_timeout() -> void:
@@ -291,20 +237,17 @@ func _on_tick_timer_timeout() -> void:
 	player_tick()
 	enemy_tick()
 
-
 func player_tick() -> void:
 	
-	#print(is_moving)
-	
 	if not is_moving:
-		
-		#print("yes")
 		pass
-
 
 func enemy_tick() -> void:
 	
 	if not is_moving:
-		
 		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, -18), .5).finished
 		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, 18), .5).finished
+
+
+
+

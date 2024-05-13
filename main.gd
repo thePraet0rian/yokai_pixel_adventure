@@ -1,9 +1,7 @@
 class_name Main
 extends Node2D
 
-
-###############################################################################
-
+# #############################################################################
 
 func _ready() -> void:
 	
@@ -15,28 +13,22 @@ func _ready() -> void:
 	
 	global._on_dialogue.connect(_on_dialogue)
 	global._on_dialogue_end.connect(_on_dialogue_end)
+	global._on_menue_close.connect(_on_menue_close)
 
-
-###############################################################################
-
+# #############################################################################
 
 const BattleScene: PackedScene = preload("res://battle/battle.tscn")
-
 
 func _on_battle_started() -> void:
 	
 	var BattleInstance: Battle = BattleScene.instantiate()
 	add_child(BattleInstance)
-	
-	BattleInstance.set_player(global.player_yokai)
-
+	#BattleInstance.set_player(global.player_yokai)
 
 const room_02: PackedScene = preload("res://rooms/room_02.scn")
 
-
 func _on_room_changing(room: int) -> void:
 	
-	print("why is this getting called")
 	
 	match room:
 		
@@ -45,7 +37,6 @@ func _on_room_changing(room: int) -> void:
 			queue_free()
 			#TODO: FIX THIS SHIT THANK YOU VERY MUCH
 
-
 func _on_warp(warp: int) -> void:
 	
 	match warp: 
@@ -53,12 +44,11 @@ func _on_warp(warp: int) -> void:
 		0:
 			pass
 
-
-const save_file_arr: Array[String] = ["user://savefile_one.save", "user://savefile_two.save", "user://savefile_three.save"]
-
+const save_file_arr: Array[String] = ["user://savefile_one.save", 
+	"user://savefile_two.save", 
+	"user://savefile_three.save"]
 
 var save_file_int: int 
-
 
 func _on_load(_save_file: int) -> void:
 	
@@ -88,14 +78,11 @@ func _on_save() -> void:
 	
 	save_file.close()
 
-
 func _on_main_timer_timeout() -> void:
 	
 	global.current_time += 1
 
-
 const dialogue_scn: PackedScene = preload("res://dialogue/dialogue.tscn")
-
 
 func _on_dialogue(npc_name: String, dialogue_int: int) -> void:
 	
@@ -105,7 +92,17 @@ func _on_dialogue(npc_name: String, dialogue_int: int) -> void:
 	print(npc_name)
 	print("dialogue instanced")
 
-
 func _on_dialogue_end() -> void:
 	print("dialogue freed")
 	get_tree().paused = false
+
+@onready var ui_anim_player: AnimationPlayer = $ui/anim_player
+@onready var ui_overlay: ColorRect = $ui/ColorRect
+
+func _on_menue_close() -> void:
+	
+	ui_overlay.visible = true
+	ui_anim_player.play("fade_in")
+	await ui_anim_player.animation_finished
+	ui_overlay.visible = false
+	ui_anim_player.play("RESET")

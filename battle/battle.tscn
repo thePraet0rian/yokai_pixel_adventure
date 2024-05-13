@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=24 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://cbbo3a07wu45y" path="res://yokai/peckpocket/peckpocket.png" id="2_dl272"]
@@ -73,7 +73,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("q_sign:position")
+tracks/0/path = NodePath("main_ui/left_sign:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -85,7 +85,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("e_sign:position")
+tracks/1/path = NodePath("main_ui/right_sign:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -101,7 +101,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("q_sign:position")
+tracks/0/path = NodePath("main_ui/left_sign:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -113,7 +113,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("e_sign:position")
+tracks/1/path = NodePath("main_ui/right_sign:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -129,11 +129,72 @@ _data = {
 "q_e_anim": SubResource("Animation_qfu8t")
 }
 
+[sub_resource type="Animation" id="Animation_w77cg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temp/ColorRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temp/ColorRect2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_nj4c5"]
+resource_name = "start"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("temp/ColorRect:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("temp/ColorRect2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, -1), Vector2(1, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6w7eq"]
+_data = {
+"RESET": SubResource("Animation_w77cg"),
+"start": SubResource("Animation_nj4c5")
+}
+
 [node name="battle" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_28vn4")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
 
@@ -156,8 +217,6 @@ texture = ExtResource("5_wlm6s")
 [node name="players" type="Node2D" parent="."]
 position = Vector2(0, -17)
 
-[node name="player_yokai_anim_player" type="AnimationPlayer" parent="players"]
-
 [node name="yokai" parent="players" instance=ExtResource("6_yhexp")]
 position = Vector2(48, 91)
 
@@ -167,50 +226,29 @@ position = Vector2(120, 91)
 [node name="yokai3" parent="players" instance=ExtResource("6_yhexp")]
 position = Vector2(192, 91)
 
+[node name="player_yokai_anim_player" type="AnimationPlayer" parent="players"]
+
 [node name="buttons" type="Node2D" parent="."]
 
 [node name="item" type="Sprite2D" parent="buttons"]
 position = Vector2(211, 127)
 texture = ExtResource("10_a00b0")
-metadata/_edit_group_ = true
-
-[node name="item_button" type="Area2D" parent="buttons/item"]
-z_index = 1
-position = Vector2(0, 0.800003)
-scale = Vector2(1, 0.8)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="buttons/item/item_button"]
-polygon = PackedVector2Array(-28, -4.75, -28, 2.75, -27, 2.75, -27, 4, 26, 4, 26, 2.75, 27, 2.75, 27, -4.75, 26, -4.75, 26, -6, -27, -6, -27, -4.75)
+hframes = 2
 
 [node name="target" type="Sprite2D" parent="buttons"]
 position = Vector2(151, 127)
 texture = ExtResource("11_kq0va")
-metadata/_edit_group_ = true
-
-[node name="target_button" type="Area2D" parent="buttons/target"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="buttons/target/target_button"]
-polygon = PackedVector2Array(-28, -3, -28, 3, -27, 3, -27, 4, 26, 4, 26, 3, 27, 3, 27, -3, 26, -3, 26, -4, -27, -4, -27, -3)
+hframes = 2
 
 [node name="soulimate" type="Sprite2D" parent="buttons"]
 position = Vector2(90, 127)
 texture = ExtResource("12_u58v2")
-metadata/_edit_group_ = true
-
-[node name="soulimate_button" type="Area2D" parent="buttons/soulimate"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="buttons/soulimate/soulimate_button"]
-polygon = PackedVector2Array(-28, -3, -28, 3, -27, 3, -27, 4, 26, 4, 26, 3, 27, 3, 27, -3, 26, -3, 26, -4, -27, -4, -27, -3)
+hframes = 2
 
 [node name="purify" type="Sprite2D" parent="buttons"]
 position = Vector2(30, 127)
 texture = ExtResource("13_r3le3")
-metadata/_edit_group_ = true
-
-[node name="purify_button" type="Area2D" parent="buttons/purify"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="buttons/purify/purify_button"]
-polygon = PackedVector2Array(-27, -4, -27, -3, -28, -3, -28, 3, -27, 3, -27, 4, 26, 4, 26, 3, 27, 3, 27, -3, 26, -3, 26, -4)
+hframes = 2
 
 [node name="buttons_anim_player" type="AnimationPlayer" parent="buttons"]
 libraries = {
@@ -220,54 +258,57 @@ libraries = {
 [node name="ui" type="Node2D" parent="."]
 position = Vector2(0, -7)
 
-[node name="q_sign" type="Sprite2D" parent="ui"]
+[node name="main_ui" type="Node2D" parent="ui"]
+
+[node name="left_sign" type="Sprite2D" parent="ui/main_ui"]
 position = Vector2(10, 86)
 texture = ExtResource("14_hoddt")
 
-[node name="e_sign" type="Sprite2D" parent="ui"]
+[node name="right_sign" type="Sprite2D" parent="ui/main_ui"]
 position = Vector2(230, 86)
 texture = ExtResource("15_co87e")
 
-[node name="ui_anim_player" type="AnimationPlayer" parent="ui"]
+[node name="ui_anim_player" type="AnimationPlayer" parent="ui/main_ui"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_7eoag")
 }
 autoplay = "q_e_anim"
 
-[node name="Sprite2D" type="Sprite2D" parent="ui"]
+[node name="wheel" type="Sprite2D" parent="ui/main_ui"]
 position = Vector2(120, 122)
 texture = ExtResource("16_uj23c")
 
-[node name="Node" type="Node" parent="."]
+[node name="sub_ui" type="Node" parent="ui"]
 
-[node name="items" type="Node2D" parent="Node"]
+[node name="items" type="Node2D" parent="ui/sub_ui"]
 visible = false
 
-[node name="background" type="ColorRect" parent="Node/items"]
+[node name="background" type="ColorRect" parent="ui/sub_ui/items"]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
 
-[node name="target" type="Node2D" parent="Node"]
+[node name="target" type="Node2D" parent="ui/sub_ui"]
 visible = false
 
-[node name="background" type="ColorRect" parent="Node/target"]
+[node name="background" type="ColorRect" parent="ui/sub_ui/target"]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
 
-[node name="soulimate" type="Node2D" parent="Node"]
+[node name="soulimate" type="Node2D" parent="ui/sub_ui"]
 visible = false
 
-[node name="background" type="ColorRect" parent="Node/soulimate"]
+[node name="background" type="ColorRect" parent="ui/sub_ui/soulimate"]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
 
-[node name="purify" type="Node2D" parent="Node"]
+[node name="purify" type="Node2D" parent="ui/sub_ui"]
 visible = false
 
-[node name="background" type="ColorRect" parent="Node/purify"]
+[node name="background" type="ColorRect" parent="ui/sub_ui/purify"]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
@@ -276,12 +317,23 @@ color = Color(0, 0, 0, 0.392157)
 wait_time = 2.0
 autostart = true
 
-[connection signal="mouse_entered" from="buttons/item/item_button" to="." method="_on_item_button_mouse_entered"]
-[connection signal="mouse_exited" from="buttons/item/item_button" to="." method="_on_item_button_mouse_exited"]
-[connection signal="mouse_entered" from="buttons/target/target_button" to="." method="_on_target_button_mouse_entered"]
-[connection signal="mouse_exited" from="buttons/target/target_button" to="." method="_on_target_button_mouse_exited"]
-[connection signal="mouse_entered" from="buttons/soulimate/soulimate_button" to="." method="_on_soulimate_button_mouse_entered"]
-[connection signal="mouse_exited" from="buttons/soulimate/soulimate_button" to="." method="_on_soulimate_button_mouse_exited"]
-[connection signal="mouse_entered" from="buttons/purify/purify_button" to="." method="_on_purify_button_mouse_entered"]
-[connection signal="mouse_exited" from="buttons/purify/purify_button" to="." method="_on_purify_button_mouse_exited"]
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6w7eq")
+}
+
+[node name="temp" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="temp"]
+offset_right = 240.0
+offset_bottom = 67.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="temp"]
+offset_top = 135.0
+offset_right = 240.0
+offset_bottom = 203.0
+scale = Vector2(1, -1)
+color = Color(0, 0, 0, 1)
+
 [connection signal="timeout" from="tick_timer" to="." method="_on_tick_timer_timeout"]
