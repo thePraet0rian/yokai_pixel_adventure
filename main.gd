@@ -22,6 +22,8 @@ const BattleScene: PackedScene = preload("res://battle/battle.tscn")
 func _on_battle_started() -> void:
 	
 	var BattleInstance: Battle = BattleScene.instantiate()
+	BattleInstance.player_yokai_arr = global.player_yokai
+	BattleInstance.enemy_yokai_arr = [global.Yokai.new(100, preload("res://yokai/peckpocket/peckpocket.png")), global.Yokai.new(100, preload("res://yokai/zerberker/zerberker_back.png")), global.Yokai.new(100, preload("res://yokai/jibanyan/jibanyan.png"))]
 	add_child(BattleInstance)
 
 const room_02: PackedScene = preload("res://rooms/room_02.scn")

@@ -1,8 +1,6 @@
-class_name Global 
-extends Node
+class_name Global extends Node
 
-# Signals #####################################################################
-
+#region Signals #####################################################################
 signal _on_battle_start()
 signal _on_battle_end()
 
@@ -17,8 +15,9 @@ signal _on_dialogue()
 signal _on_dialogue_end
 
 signal _on_menue_close
+#endregion
 
-# Variables ###################################################################
+#region Variables ###################################################################
 
 var current_time: int = 0
 var current_money: int = 1240
@@ -31,29 +30,37 @@ var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jib
 	Yokai.new(0, preload("res://yokai/peckpocket/peckpocket.png")),
 	Yokai.new(0, preload("res://yokai/jibanyan/jibanyan_back.png"))]
 
-# Classes #####################################################################
+#endregion
+
+#region Classes #####################################################################
 
 class Yokai: 
 	
-	var name: String
-	var level: int
-	var xp: int
-	var rank: String = ""
-	var league: String = ""
+	enum BEHAVIORS {SERIOUS = 0, ROUGH = 1, GROUCHY = 2, HELPFUL = 3}
 	
-	var hp: int
-	var strength: int
-	var spirit: int
-	var defence: int
-	var speed: int
+	var yokai_name: String
+	var yokia_level: int
+	var yokai_xp: int
+	var rank: String = ""
+	
+	var yokai_hp: int
+	var yokai_str: int
+	var yokai_spr: int
+	var yokai_def: int
+	var yokai_spd: int
+	
+	var loafer: bool = true
 	
 	var front_sprite: Texture
 	var back_sprite: Texture
 	
+	var behavior: BEHAVIORS = BEHAVIORS.GROUCHY
+	
 	func _init(_hp: int, _front_sprite: Resource) -> void:
 		
-		hp = _hp
+		yokai_hp = _hp
 		front_sprite = _front_sprite
+
 
 class Item: 
 	
@@ -66,4 +73,4 @@ class Item:
 		
 		pass
 
-# #############################################################################
+#endregion

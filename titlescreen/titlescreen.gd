@@ -1,5 +1,4 @@
-class_name TitleScreen 
-extends Node2D
+class_name TitleScreen extends Node2D
 
 var save_select_scn: PackedScene = preload("res://titlescreen/save_select_screen.tscn")
 
