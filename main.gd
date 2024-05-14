@@ -23,7 +23,6 @@ func _on_battle_started() -> void:
 	
 	var BattleInstance: Battle = BattleScene.instantiate()
 	add_child(BattleInstance)
-	#BattleInstance.set_player(global.player_yokai)
 
 const room_02: PackedScene = preload("res://rooms/room_02.scn")
 

@@ -4,10 +4,9 @@ class_name Battle extends CanvasLayer
 
 var player_yokai_arr: Array[global.Yokai] = global.player_yokai
 
-var enemy_team_arr: Array[global.Yokai] = [null]:
-	set(value): _set_enemy(value)
+var enemy_team_arr: Array[global.Yokai]
 
-func _set_enemy(value: Array) -> void:
+func _set_enemy(value: Array[global.Yokai]) -> void:
 	enemy_team_arr = value
 
 # ############################################################################# 
@@ -19,6 +18,8 @@ func _set_enemy(value: Array) -> void:
 @onready var buttons_anim_player: AnimationPlayer = $buttons/buttons_anim_player
 
 func _ready() -> void:
+	
+	print(enemy_team_arr)
 	setup_battle()
 
 func setup_battle() -> void:
@@ -147,8 +148,8 @@ func purify_input(event: InputEvent) ->  void:
 
 enum MOVE {LEFT = 0, RIGHT = 1}
 
-var is_moving: bool = false
 var direction_move: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
+var is_moving: bool = false
 
 func player_input() -> void:
 	
@@ -163,44 +164,59 @@ func player_input() -> void:
 		elif input_direction == Vector2.RIGHT:
 			move_yokai(MOVE.RIGHT)
 
+# #############################################################################
+
 const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
 
 @onready var players: Node2D = $players
 
 func move_yokai(direction: MOVE) -> void: 
 	
-	var player_yokai_inst: Node2D = player_yokai_scn.instantiate()
-	players.add_child(player_yokai_inst)
-	
 	if direction == MOVE.LEFT:
-		
-		player_yokai_inst.position = Vector2(264, 91)
-		player_team_inst.append(player_yokai_inst)
-		
-		player_yokai_arr.append(player_yokai_arr[0])
-		player_yokai_arr.remove_at(0)
-		
-		player_yokai_inst.texture = player_yokai_arr[2].front_sprite
+		move_left()
 	elif direction == MOVE.RIGHT:
-		
-		player_yokai_inst.position = Vector2(-24, 91)
-		player_team_inst.insert(0, player_yokai_inst)
-		
-		player_yokai_arr.insert(0, player_yokai_arr[5])
-		player_yokai_arr.remove_at(6)
-		
-		player_yokai_inst.texture = player_yokai_arr[0].front_sprite
+		move_right()
 	
 	for i in range(4):
-		
 		player_team_inst[i].move_direction(direction_move[direction])
 	
 	if direction == MOVE.LEFT:
-		
 		remove_yokai(0)
 	elif direction == MOVE.RIGHT:
-		
 		remove_yokai(3)
+
+func inst_yokai() -> Node2D:
+	
+	var player_yokai_inst: Node2D = player_yokai_scn.instantiate()
+	players.add_child(player_yokai_inst)
+	
+	return player_yokai_inst
+
+func move_left() -> void:
+	
+	var player_yokai_inst: Node2D = inst_yokai()
+	
+	player_yokai_inst.position = Vector2(264, 91)
+	player_team_inst.append(player_yokai_inst)
+	
+	player_yokai_arr.append(player_yokai_arr[0])
+	player_yokai_arr.remove_at(0)
+	
+	player_yokai_inst.texture = player_yokai_arr[2].front_sprite
+
+func move_right() -> void:
+	
+	var player_yokai_inst: Node2D = inst_yokai()
+	
+	player_yokai_inst.position = Vector2(-24, 91)
+	player_team_inst.insert(0, player_yokai_inst)
+	
+	player_yokai_arr.insert(0, player_yokai_arr[5])
+	player_yokai_arr.remove_at(6)
+	
+	player_yokai_inst.texture = player_yokai_arr[0].front_sprite
+
+# #############################################################################
 
 func remove_yokai(yokai: int) -> void:
 	
@@ -211,26 +227,8 @@ func _physics_process(_delta: float) -> void:
 	
 	if player_team_inst[2].progress == 0.0:
 		player_input()
-		show_ui()
-
-var test_2: bool = false
-
-func show_ui() -> void:
-	
-	await get_tree().create_timer(.1).timeout
-	
-	if player_team_inst[2].progress != 0.0:
-		return
-	
-	if not test_2: 
-		buttons_anim_player.play("buttons_show")
-		#is_hidden = true
-		test_2 = true
-	
-	is_moving = false
-
+ 
 # #############################################################################
-
 
 func _on_tick_timer_timeout() -> void:
 	
@@ -247,7 +245,3 @@ func enemy_tick() -> void:
 	if not is_moving:
 		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, -18), .5).finished
 		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, 18), .5).finished
-
-
-
-
