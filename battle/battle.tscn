@@ -1,11 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=23 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://cbbo3a07wu45y" path="res://yokai/peckpocket/peckpocket.png" id="2_dl272"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://battle/battle_assets/backgrounds/background_test_01.png" id="2_h2niy"]
 [ext_resource type="Texture2D" uid="uid://d2nd6vq2n28fo" path="res://yokai/cadin/cadin.png" id="3_av7rb"]
 [ext_resource type="Texture2D" uid="uid://covon1a5nmpmg" path="res://yokai/jibanyan/jibanyan.png" id="5_wlm6s"]
-[ext_resource type="PackedScene" uid="uid://0ayn2rjngydy" path="res://battle/battle_scenes/player_yokai.tscn" id="6_yhexp"]
 [ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://battle/battle_assets/ui/item_button.png" id="10_a00b0"]
 [ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://battle/battle_assets/ui/target_button.png" id="11_kq0va"]
 [ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://battle/battle_assets/ui/soulimate_button.png" id="12_u58v2"]
@@ -216,15 +215,6 @@ texture = ExtResource("5_wlm6s")
 
 [node name="players" type="Node2D" parent="."]
 position = Vector2(0, -17)
-
-[node name="yokai" parent="players" instance=ExtResource("6_yhexp")]
-position = Vector2(48, 91)
-
-[node name="yokai2" parent="players" instance=ExtResource("6_yhexp")]
-position = Vector2(120, 91)
-
-[node name="yokai3" parent="players" instance=ExtResource("6_yhexp")]
-position = Vector2(192, 91)
 
 [node name="player_yokai_anim_player" type="AnimationPlayer" parent="players"]
 

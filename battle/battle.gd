@@ -11,18 +11,27 @@ func _set_enemy(value: Array[global.Yokai]) -> void:
 
 # ############################################################################# 
  
-@onready var player_team_inst: Array = [$players/yokai, $players/yokai2, $players/yokai3]
+@onready var player_team_inst: Array = []
 
 @onready var anim_player: AnimationPlayer = $anim_player
 @onready var ui_anim_player: AnimationPlayer = $ui/main_ui/ui_anim_player
 @onready var buttons_anim_player: AnimationPlayer = $buttons/buttons_anim_player
 
 func _ready() -> void:
-	
-	print(enemy_team_arr)
+	 
 	setup_battle()
 
 func setup_battle() -> void:
+	
+	for i in range(0, 3):
+		
+		var player_inst = player_yokai_scn.instantiate()
+		player_team_inst.append(player_inst)
+		
+		players.add_child(player_team_inst[i])
+		player_inst.position = Vector2(48, 91) + Vector2(72, 0) * i
+		player_inst.texture = player_yokai_arr[i].front_sprite
+	
 	anim_player.play("start")
 
 # #############################################################################
@@ -187,7 +196,7 @@ func move_yokai(direction: MOVE) -> void:
 
 func inst_yokai() -> Node2D:
 	
-	var player_yokai_inst: Node2D = player_yokai_scn.instantiate()
+	var player_yokai_inst: BattleYokai = player_yokai_scn.instantiate()
 	players.add_child(player_yokai_inst)
 	
 	return player_yokai_inst
