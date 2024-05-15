@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=21 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://battle/battle_assets/backgrounds/background_test_01.png" id="2_h2niy"]
+[ext_resource type="Script" path="res://battle/behavoir.gd" id="3_xc40e"]
 [ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://battle/battle_assets/ui/item_button.png" id="10_a00b0"]
 [ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://battle/battle_assets/ui/target_button.png" id="11_kq0va"]
 [ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://battle/battle_assets/ui/soulimate_button.png" id="12_u58v2"]
@@ -193,6 +194,9 @@ script = ExtResource("1_28vn4")
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
+
+[node name="behavoir" type="Node" parent="."]
+script = ExtResource("3_xc40e")
 
 [node name="enemies" type="Node2D" parent="."]
 

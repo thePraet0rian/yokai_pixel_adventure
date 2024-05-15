@@ -1,12 +1,12 @@
 class_name BattleYokai extends Sprite2D
 
-# #############################################################################
 
 func _ready() -> void:
 	
 	set_process(false)
 
-# #############################################################################
+
+#region MOVEMENT #############################################################################
 
 var progress: float = 0.0
 var input_direction: Vector2
@@ -44,9 +44,11 @@ func remove() -> void:
 	await get_tree().create_timer(.5).timeout
 	queue_free()
 
-# #############################################################################
+#endregion #############################################################################
+
 
 @onready var sprite: Sprite2D = $Sprite2D
+
 
 func update_sprite(updated_texture: Texture) -> void:
 	sprite.texture = updated_texture

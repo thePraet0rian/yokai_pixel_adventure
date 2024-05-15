@@ -54,12 +54,20 @@ class Yokai:
 	var front_sprite: Texture
 	var back_sprite: Texture
 	
-	var behavior: BEHAVIORS = BEHAVIORS.GROUCHY
+	var yokai_behavior: BEHAVIORS = BEHAVIORS.SERIOUS
+	
 	
 	func _init(_hp: int, _front_sprite: Resource) -> void:
 		
 		yokai_hp = _hp
 		front_sprite = _front_sprite
+	
+	
+	func check_health() -> bool:
+		
+		if yokai_hp <= 0:
+			return true
+		return false
 
 
 class Item: 

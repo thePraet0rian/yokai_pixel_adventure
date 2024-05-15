@@ -276,74 +276,22 @@ func _on_tick_timer_timeout() -> void:
 	player_tick()
 	enemy_tick()
 
+@onready var behavoir: Behavoir = $behavoir
 
 func player_tick() -> void:
+	
 	if not is_moving:
+		randomize()
+		var random_float: float = randf()
 		
-		for i in range(0, 3):
-			
-			match player_yokai_arr[i].behavior:
-				
-				0:
-					pass
-				1:
-					pass
-				2:
-					grouchy_behavoir("player", i)
-				3:
-					pass
+		if random_float < 0.2:
+			behavoir.behavoir("player")
 
 
 func enemy_tick() -> void:
+	
 	if not is_moving:
 		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, -18), .5).finished
 		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, 18), .5).finished
 
-
-#region behaviors
-
-func grouchy_behavoir(team: String, index: int) -> void:
-	
-	randomize()
-	var random_float_one: float = randf()
-	
-	if random_float_one < 0.2:
-		
-		randomize()
-		var random_float: float = randf()
-		
-		if random_float < 0.3:
-			attack(team, index)
-			return
-		elif random_float < 0.6:
-			print("technique")
-			return
-		elif random_float < 1:
-			print("inspirit")
-			return
-	else:
-		pass
-
-#endregion
-
-func attack(team: String, index: int) -> void:
-	
-	var damage: int = calc_damage(player_yokai_arr[index].yokai_str)
-	var defending_yokai: int = select_yokai()
-	enemy_yokai_arr[defending_yokai].yokai_hp -= damage
-
-
-func calc_damage(yokai_str: int) -> int: 
-	
-	return yokai_str
-
-
-func select_yokai() -> int:
-	
-	var alive_enemys: int = len(enemy_yokai_arr)
-	
-	randomize()
-	var random_int: int = randi_range(0, alive_enemys)
-	
-	return random_int
 
