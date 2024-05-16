@@ -1,6 +1,7 @@
 class_name Global extends Node
 
 #region Signals #####################################################################
+
 signal _on_battle_start()
 signal _on_battle_end()
 
@@ -15,6 +16,9 @@ signal _on_dialogue()
 signal _on_dialogue_end
 
 signal _on_menue_close
+
+signal _on_yokai_action()
+
 #endregion
 
 #region Variables ###################################################################
@@ -36,7 +40,27 @@ var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jib
 
 class Yokai: 
 	
-	enum BEHAVIORS {SERIOUS = 0, ROUGH = 1, GROUCHY = 2, HELPFUL = 3}
+	enum BEHAVIORS {
+		GROUCHY = 0, 
+		ROUGH = 1, 
+		LOGICAL = 2, 
+		BRAINY = 3, 
+		TWISTED = 4, 
+		CRUEL = 5, 
+		HELPFUL = 6, 
+		DEVOTED = 7, 
+		GENTLE = 8, 
+		TENDER = 9, 
+		CAREFUL = 10, 
+		CALM = 11, 
+	}
+	
+	enum LOAFING {
+		SERIOUS = 0, 
+		STIFF = 1, 
+		CAREFREE = 2, 
+		LOAFER = 3,
+	}
 	
 	var yokai_name: String
 	var yokia_level: int
@@ -54,7 +78,8 @@ class Yokai:
 	var front_sprite: Texture
 	var back_sprite: Texture
 	
-	var yokai_behavior: BEHAVIORS = BEHAVIORS.SERIOUS
+	var yokai_behavior: BEHAVIORS = BEHAVIORS.GROUCHY
+	var yokai_loafing: LOAFING = LOAFING.SERIOUS
 	
 	
 	func _init(_hp: int, _front_sprite: Resource) -> void:
@@ -68,6 +93,21 @@ class Yokai:
 		if yokai_hp <= 0:
 			return true
 		return false
+	
+	func loafing_bound() -> float:
+		
+		match yokai_loafing:
+			
+			0:
+				pass
+			1:
+				pass
+			2:
+				pass
+			3:
+				pass
+		
+		return 1.0
 
 
 class Item: 
@@ -78,7 +118,6 @@ class Item:
 	var sprite: Texture = load("res://yokai/zerberker/zerberker_back.png")
 	
 	func _init() -> void:
-		
 		pass
 
 #endregion

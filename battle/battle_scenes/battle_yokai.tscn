@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0arumlvmxady"]
+
+[ext_resource type="Script" path="res://battle/battle_scenes/battle_yokai.gd" id="1_n8hpv"]
+
+[node name="BattleYokai" type="Sprite2D"]
+script = ExtResource("1_n8hpv")

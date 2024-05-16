@@ -11,11 +11,14 @@ var enemy_team_inst: Array = []
 @onready var ui_anim_player: AnimationPlayer = $ui/main_ui/ui_anim_player
 @onready var buttons_anim_player: AnimationPlayer = $buttons/buttons_anim_player
 
+const battle_yokai_scn: PackedScene = preload("res://battle/battle_scenes/battle_yokai.tscn")
+
 
 func _ready() -> void:
 	
 	setup_players()
 	setup_enemys()
+	connect_signals()
 	
 	anim_player.play("start")
 
@@ -24,24 +27,31 @@ func setup_players() -> void:
 	
 	for i in range(0, 3):
 		
-		var player_inst: Sprite2D = player_yokai_scn.instantiate()
-		player_team_inst.append(player_inst)
+		var BattleYokaiInst: BattleYokai = battle_yokai_scn.instantiate()
+		player_team_inst.append(BattleYokaiInst)
 		
+		BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
+		BattleYokaiInst.Yokai = player_yokai_arr[i]
+		BattleYokaiInst.update("player")
 		players.add_child(player_team_inst[i])
-		player_inst.position = Vector2(48, 91) + Vector2(72, 0) * i
-		player_inst.texture = player_yokai_arr[i].front_sprite
 
 
 func setup_enemys() -> void:
 	
 	for i in range(0, 3):
 		
-		var enemy_inst: Sprite2D = player_yokai_scn.instantiate()
-		enemy_team_inst.append(enemy_inst)
+		var BattleYokaiInst: Sprite2D = battle_yokai_scn.instantiate()
+		enemy_team_inst.append(BattleYokaiInst)
 		
+		BattleYokaiInst.position = Vector2(48, 40) + Vector2(72, 0) * i
+		BattleYokaiInst.Yokai = enemy_yokai_arr[i]
+		BattleYokaiInst.update("enemy")
 		players.add_child(enemy_team_inst[i])
-		enemy_inst.position = Vector2(48, 40) + Vector2(72, 0) * i
-		enemy_inst.texture = enemy_yokai_arr[i].front_sprite
+
+
+func connect_signals() -> void:
+	
+	global._on_yokai_action.connect(_on_yokai_action)
 
 
 # #############################################################################
@@ -223,7 +233,7 @@ func move_yokai(direction: MOVE) -> void:
 
 func inst_yokai() -> Node2D:
 	
-	var player_yokai_inst: BattleYokai = player_yokai_scn.instantiate()
+	var player_yokai_inst: BattleYokai = battle_yokai_scn.instantiate()
 	players.add_child(player_yokai_inst)
 	
 	return player_yokai_inst
@@ -276,22 +286,19 @@ func _on_tick_timer_timeout() -> void:
 	player_tick()
 	enemy_tick()
 
-@onready var behavoir: Behavoir = $behavoir
 
 func player_tick() -> void:
 	
-	if not is_moving:
-		randomize()
-		var random_float: float = randf()
-		
-		if random_float < 0.2:
-			behavoir.behavoir("player")
+	for i in range(0, 3):
+		player_team_inst[i].player_tick()
 
 
 func enemy_tick() -> void:
 	
-	if not is_moving:
-		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, -18), .5).finished
-		await create_tween().tween_property($enemies/enemy_center, "position", $enemies/enemy_center.position + Vector2(0, 18), .5).finished
+	for i in range(0, 3):
+		enemy_team_inst[i].enemy_tick() 
 
 
+func _on_yokai_action() -> void:
+	
+	print_rich("[color=red]あいしてる[/color]")
