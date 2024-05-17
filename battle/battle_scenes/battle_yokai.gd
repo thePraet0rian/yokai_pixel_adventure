@@ -9,6 +9,7 @@ signal action()
 enum {PLAYER = 0, ENEMY = 1}
 
 @onready var Yokai: global.Yokai
+@onready var parent: Battle = get_node("..").get_node("..")
 
 var team: int = PLAYER
 var update_arr: Array = [_update_player, _update_enemy]
@@ -127,12 +128,17 @@ func loaf() -> bool:
 			return true
 
 
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+
+
 func player_grouchy_behavoir() -> void:
 	
-	#randomize()
-	#var random_float: float = randf()
-	
-	global._on_yokai_action.emit()
+	if parent.pick_alive() == -1:
+		return
+
+	print_rich("[color=red]player_attack[/color]")
+	anim_player.play("flash")
+	global._on_yokai_action.emit(0, 0, "attack")
 
 
 
@@ -145,3 +151,9 @@ func enemy_tick() -> void:
 		#print("enemy tick")
 
 #endregion
+
+
+func health_update() -> void:
+	
+	if Yokai.yokai_hp <= 0:
+		visible = false

@@ -7,6 +7,9 @@ var enemy_yokai_arr: Array[global.Yokai]
 var player_team_inst: Array = []
 var enemy_team_inst: Array = []
 
+var player_team_alive: Array[int] = [0, 0, 0, 0, 0, 0]
+var enemy_team_alive: Array[int] = [0, 0, 0]
+
 @onready var anim_player: AnimationPlayer = $anim_player
 @onready var ui_anim_player: AnimationPlayer = $ui/main_ui/ui_anim_player
 @onready var buttons_anim_player: AnimationPlayer = $buttons/buttons_anim_player
@@ -54,10 +57,7 @@ func connect_signals() -> void:
 	global._on_yokai_action.connect(_on_yokai_action)
 
 
-# #############################################################################
-
-
-enum GAME_STATES {MENUE = 0, SELECTING = 1, ACTION = 2}
+enum GAME_STATES {MENUE = 0, SELECTING = 1, ACTION = 2, WIN}
 enum SUB_GAME_STATES {TARGET = 0, SOULIMATE = 1, ITEM = 2, PURIFY = 3, NONE = 4}
 
 var current_game_state: GAME_STATES = GAME_STATES.MENUE
@@ -72,6 +72,8 @@ func _input(event: InputEvent) -> void:
 		_selecting_input(event)
 	elif current_game_state == GAME_STATES.ACTION:
 		_action_input(event)
+	elif current_game_state == GAME_STATES.WIN:
+		_win_input(event)
 
 
 func _menue_input(event: InputEvent) -> void:
@@ -118,6 +120,14 @@ func _selecting_input(event: InputEvent) -> void:
 		current_game_state = GAME_STATES.ACTION
 		current_sub_game_state = buttons_index as SUB_GAME_STATES
 		_change_sub_game_state()
+
+
+func _win_input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("space"):
+		
+		get_tree().paused = false
+		queue_free()
 
 
 func _change_sub_game_state() -> void:
@@ -184,9 +194,6 @@ func purify_input(event: InputEvent) ->  void:
 		purify.visible = false
 
 
-# #############################################################################
-
-
 enum MOVE {LEFT = 0, RIGHT = 1}
 
 var direction_move: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
@@ -205,9 +212,6 @@ func player_input() -> void:
 			
 		elif input_direction == Vector2.RIGHT:
 			move_yokai(MOVE.RIGHT)
-
-
-# #############################################################################
 
 
 const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
@@ -265,8 +269,6 @@ func move_right() -> void:
 	player_yokai_inst.texture = player_yokai_arr[0].front_sprite
 
 
-# #############################################################################
-
 func remove_yokai(yokai: int) -> void:
 	
 	player_team_inst[yokai].remove()
@@ -277,11 +279,12 @@ func _physics_process(_delta: float) -> void:
 	
 	if player_team_inst[2].progress == 0.0:
 		player_input()
- 
 
 # #############################################################################
 
 func _on_tick_timer_timeout() -> void:
+	
+	print_rich("[color=blue]tick[/color]")
 	
 	player_tick()
 	enemy_tick()
@@ -289,16 +292,80 @@ func _on_tick_timer_timeout() -> void:
 
 func player_tick() -> void:
 	
-	for i in range(0, 3):
-		player_team_inst[i].player_tick()
+	if not is_moving:
+		for i in range(0, 3):
+			player_team_inst[i].player_tick()
 
 
 func enemy_tick() -> void:
 	
-	for i in range(0, 3):
-		enemy_team_inst[i].enemy_tick() 
+	if not is_moving:
+		for i in range(0, 3):
+			enemy_team_inst[i].enemy_tick() 
 
 
-func _on_yokai_action() -> void:
+func _on_yokai_action(team: int, yokai: int, action: String) -> void:
 	
-	print_rich("[color=red]あいしてる[/color]")
+	match action:
+		"attack":
+			attack(team, yokai)
+
+
+func attack(team: int, yokai: int) -> void:
+	
+	match team:
+		
+		0:
+			var random_int: int = pick_alive()
+			
+			if random_int == -1:
+				return
+			
+			enemy_team_inst[random_int].Yokai.yokai_hp -= calc_damage(0, 0, 0)
+			enemy_team_inst[random_int].health_update()
+			
+			update_battle()
+		
+		1:
+			pass
+			
+
+func pick_alive() -> int:
+	
+	randomize()
+	var random_int: int = randi_range(0, 2)
+	
+	if enemy_team_inst[0].Yokai.yokai_hp <= 0:
+		if enemy_team_inst[1].Yokai.yokai_hp <= 0:
+			if enemy_team_inst[2].Yokai.yokai_hp <= 0:
+				return -1
+	
+	if enemy_team_inst[random_int].Yokai.yokai_hp <= 0:
+		return pick_alive()
+	
+	return random_int
+
+
+func calc_damage(yokai_str: int, yokai_def: int, power: int) -> int:
+	
+	return 100
+	
+	#var crit: float = 1.0
+	#var guard: float = 1.0
+	
+	#return ((yokai_str / 2 - yokai_def / 4) + (power / 2)) * crit * guard
+
+
+@onready var win_screen: Node2D = $win_screen
+
+
+func update_battle() -> void:
+	
+	if pick_alive() == -1:
+		
+		await get_tree().create_timer(1).timeout
+		anim_player.play_backwards("start")
+		await anim_player.animation_finished
+		
+		win_screen.visible = true
+		current_game_state = GAME_STATES.WIN

@@ -33,6 +33,10 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/bottom_panel_shortcuts/plugin.cfg", "res://addons/script-tabs/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [importer_defaults]
 
 csv_translation={
