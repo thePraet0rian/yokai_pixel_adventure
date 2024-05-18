@@ -1,11 +1,13 @@
 class_name Battle extends CanvasLayer
 
 
+const battle_yokai_scn: PackedScene = preload("res://battle/battle_scenes/battle_yokai.tscn")
+
 var player_yokai_arr: Array[global.Yokai]
 var enemy_yokai_arr: Array[global.Yokai]
  
-var player_team_inst: Array = []
-var enemy_team_inst: Array = []
+var player_team_inst: Array[BattleYokai] = []
+var enemy_team_inst: Array[BattleYokai] = []
 
 var player_team_alive: Array[int] = [0, 0, 0, 0, 0, 0]
 var enemy_team_alive: Array[int] = [0, 0, 0]
@@ -14,14 +16,13 @@ var enemy_team_alive: Array[int] = [0, 0, 0]
 @onready var ui_anim_player: AnimationPlayer = $ui/main_ui/ui_anim_player
 @onready var buttons_anim_player: AnimationPlayer = $buttons/buttons_anim_player
 
-const battle_yokai_scn: PackedScene = preload("res://battle/battle_scenes/battle_yokai.tscn")
-
 
 func _ready() -> void:
 	
 	setup_players()
 	setup_enemys()
-	connect_signals()
+	
+	global._on_yokai_action.connect(_on_yokai_action)
 	
 	anim_player.play("start")
 
@@ -49,12 +50,7 @@ func setup_enemys() -> void:
 		BattleYokaiInst.position = Vector2(48, 40) + Vector2(72, 0) * i
 		BattleYokaiInst.Yokai = enemy_yokai_arr[i]
 		BattleYokaiInst.update("enemy")
-		players.add_child(enemy_team_inst[i])
-
-
-func connect_signals() -> void:
-	
-	global._on_yokai_action.connect(_on_yokai_action)
+		enemies.add_child(enemy_team_inst[i])
 
 
 enum GAME_STATES {MENUE = 0, SELECTING = 1, ACTION = 2, WIN}
@@ -82,9 +78,9 @@ func _menue_input(event: InputEvent) -> void:
 		current_game_state = GAME_STATES.SELECTING
 
 
-@onready var buttons: Array[Sprite2D] = [$buttons/purify, $buttons/soulimate, $buttons/target, $buttons/item]
-
 var buttons_index: int = 0
+
+@onready var buttons: Array[Sprite2D] = [$buttons/purify, $buttons/soulimate, $buttons/target, $buttons/item]
 
 
 func _selecting_input(event: InputEvent) -> void:
@@ -118,16 +114,26 @@ func _selecting_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):
 		
 		current_game_state = GAME_STATES.ACTION
+		tick_timer.stop()
 		current_sub_game_state = buttons_index as SUB_GAME_STATES
 		_change_sub_game_state()
+
+
+@onready var overlay_rect: ColorRect = $ui/main_ui/ColorRect
 
 
 func _win_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):
-		
-		get_tree().paused = false
-		queue_free()
+		overlay_rect.visible = true
+		ui_anim_player.play("fade_in")
+ 
+
+func end() -> void:
+	
+	global._on_battle_end.emit()
+	get_tree().paused = false
+	queue_free()
 
 
 func _change_sub_game_state() -> void:
@@ -171,13 +177,15 @@ func target_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.SELECTING
 		target.visible = false
+		tick_timer.start()
 
 
 func soulimate_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
-		soulimate.visible = false
 		current_game_state = GAME_STATES.SELECTING
+		soulimate.visible = false
+		tick_timer.start()
 
 
 func item_input(event: InputEvent) -> void:
@@ -185,6 +193,7 @@ func item_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.SELECTING
 		items.visible = false
+		tick_timer.start()
 
 
 func purify_input(event: InputEvent) ->  void:
@@ -192,6 +201,7 @@ func purify_input(event: InputEvent) ->  void:
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.SELECTING
 		purify.visible = false
+		tick_timer.start()
 
 
 enum MOVE {LEFT = 0, RIGHT = 1}
@@ -206,17 +216,18 @@ func player_input() -> void:
 	
 	if input_direction != Vector2.ZERO:
 		is_moving = true
-		
 		if input_direction == Vector2.LEFT:
 			move_yokai(MOVE.LEFT)
-			
 		elif input_direction == Vector2.RIGHT:
 			move_yokai(MOVE.RIGHT)
+	else:
+		is_moving = false
 
 
 const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
 
 @onready var players: Node2D = $players
+@onready var enemies: Node2D = $enemies
 
 
 func move_yokai(direction: MOVE) -> void: 
@@ -245,7 +256,7 @@ func inst_yokai() -> Node2D:
 
 func move_left() -> void:
 	
-	var player_yokai_inst: Node2D = inst_yokai()
+	var player_yokai_inst: BattleYokai = inst_yokai()
 	
 	player_yokai_inst.position = Vector2(264, 91)
 	player_team_inst.append(player_yokai_inst)
@@ -253,8 +264,9 @@ func move_left() -> void:
 	player_yokai_arr.append(player_yokai_arr[0])
 	player_yokai_arr.remove_at(0)
 	
-	player_yokai_inst.texture = player_yokai_arr[2].front_sprite
-
+	player_yokai_inst.Yokai = player_yokai_arr[2]
+	player_yokai_inst.update("player")
+	
 
 func move_right() -> void:
 	
@@ -266,7 +278,8 @@ func move_right() -> void:
 	player_yokai_arr.insert(0, player_yokai_arr[5])
 	player_yokai_arr.remove_at(6)
 	
-	player_yokai_inst.texture = player_yokai_arr[0].front_sprite
+	player_yokai_inst.Yokai = player_yokai_arr[0]
+	player_yokai_inst.update("player")
 
 
 func remove_yokai(yokai: int) -> void:
@@ -291,6 +304,8 @@ func _on_tick_timer_timeout() -> void:
 
 
 func player_tick() -> void:
+	
+	print(player_team_inst)
 	
 	if not is_moving:
 		for i in range(0, 3):
@@ -325,7 +340,6 @@ func attack(team: int, yokai: int) -> void:
 			enemy_team_inst[random_int].health_update()
 			
 			update_battle()
-		
 		1:
 			pass
 			
@@ -357,6 +371,7 @@ func calc_damage(yokai_str: int, yokai_def: int, power: int) -> int:
 
 
 @onready var win_screen: Node2D = $win_screen
+@onready var tick_timer: Timer = $tick_timer
 
 
 func update_battle() -> void:
@@ -368,4 +383,11 @@ func update_battle() -> void:
 		await anim_player.animation_finished
 		
 		win_screen.visible = true
+		tick_timer.stop()
 		current_game_state = GAME_STATES.WIN
+
+
+
+
+
+

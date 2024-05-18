@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=21 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://battle/battle_assets/backgrounds/background_test_01.png" id="2_h2niy"]
@@ -90,6 +90,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(230, 86)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("main_ui/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_qfu8t"]
 resource_name = "q_e_anim"
@@ -119,9 +131,41 @@ tracks/1/keys = {
 "values": [Vector2(230, 86), Vector2(232, 86)]
 }
 
+[sub_resource type="Animation" id="Animation_0l5i2"]
+resource_name = "fade_in"
+length = 0.75
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main_ui/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.68),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7eoag"]
 _data = {
 "RESET": SubResource("Animation_qigjb"),
+"fade_in": SubResource("Animation_0l5i2"),
 "q_e_anim": SubResource("Animation_qfu8t")
 }
 
@@ -254,6 +298,14 @@ autoplay = "q_e_anim"
 position = Vector2(120, 122)
 texture = ExtResource("16_uj23c")
 
+[node name="ColorRect" type="ColorRect" parent="ui/main_ui"]
+visible = false
+z_index = 1
+offset_top = 7.0
+offset_right = 240.0
+offset_bottom = 142.0
+color = Color(0, 0, 0, 0)
+
 [node name="sub_ui" type="Node" parent="ui"]
 
 [node name="items" type="Node2D" parent="ui/sub_ui"]
@@ -298,6 +350,7 @@ libraries = {
 }
 
 [node name="temp" type="Node2D" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="temp"]
 offset_right = 240.0

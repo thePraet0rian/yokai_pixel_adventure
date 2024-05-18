@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+yokai_stats="*res://yokai/stats/yokai_stats.gd"
 global="*res://global/global.gd"
 npc_manager="*res://npc/npc_manager.gd"
 

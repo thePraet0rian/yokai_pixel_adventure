@@ -1,0 +1,6427 @@
+{
+   "Pandle": [
+	  {
+		 "Number": 1,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 319,
+		 "BS_B_Str": 160,
+		 "BS_B_Spr": 70,
+		 "BS_B_Def": 82,
+		 "BS_B_Spd": 130
+	  }
+   ],
+   "Undy": [
+	  {
+		 "Number": 2,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 189,
+		 "BS_B_Spr": 84,
+		 "BS_B_Def": 89,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Tanbo": [
+	  {
+		 "Number": 3,
+		 "BS_A_HP": 49,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 430,
+		 "BS_B_Str": 205,
+		 "BS_B_Spr": 99,
+		 "BS_B_Def": 93,
+		 "BS_B_Spd": 151
+	  }
+   ],
+   "Cutta-nah": [
+	  {
+		 "Number": 4,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 5,
+		 "BS_B_HP": 297,
+		 "BS_B_Str": 155,
+		 "BS_B_Spr": 79,
+		 "BS_B_Def": 111,
+		 "BS_B_Spd": 101
+	  }
+   ],
+   "Cutta-nah-nah": [
+	  {
+		 "Number": 5,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 374,
+		 "BS_B_Str": 172,
+		 "BS_B_Spr": 96,
+		 "BS_B_Def": 128,
+		 "BS_B_Spd": 131
+	  }
+   ],
+   "Slacka-slash": [
+	  {
+		 "Number": 6,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 397,
+		 "BS_B_Str": 195,
+		 "BS_B_Spr": 102,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 146
+	  }
+   ],
+   "Brushido": [
+	  {
+		 "Number": 7,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 297,
+		 "BS_B_Str": 141,
+		 "BS_B_Spr": 88,
+		 "BS_B_Def": 77,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Washogun": [
+	  {
+		 "Number": 8,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 351,
+		 "BS_B_Str": 197,
+		 "BS_B_Spr": 108,
+		 "BS_B_Def": 156,
+		 "BS_B_Spd": 137
+	  }
+   ],
+   "Lie-in": [
+	  {
+		 "Number": 9,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 4,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 287,
+		 "BS_B_Str": 144,
+		 "BS_B_Spr": 93,
+		 "BS_B_Def": 78,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Lie-in Heart": [
+	  {
+		 "Number": 10,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 346,
+		 "BS_B_Str": 203,
+		 "BS_B_Spr": 138,
+		 "BS_B_Def": 133,
+		 "BS_B_Spd": 195
+	  }
+   ],
+   "Hissfit": [
+	  {
+		 "Number": 11,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 277,
+		 "BS_B_Str": 148,
+		 "BS_B_Spr": 95,
+		 "BS_B_Def": 103,
+		 "BS_B_Spd": 133
+	  }
+   ],
+   "Zerberker": [
+	  {
+		 "Number": 12,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 421,
+		 "BS_B_Str": 208,
+		 "BS_B_Spr": 126,
+		 "BS_B_Def": 129,
+		 "BS_B_Spd": 146
+	  }
+   ],
+   "Snartle": [
+	  {
+		 "Number": 13,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 27,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 25,
+		 "BS_B_HP": 453,
+		 "BS_B_Str": 232,
+		 "BS_B_Spr": 111,
+		 "BS_B_Def": 112,
+		 "BS_B_Spd": 174
+	  }
+   ],
+   "Mochismo": [
+	  {
+		 "Number": 14,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 369,
+		 "BS_B_Str": 171,
+		 "BS_B_Spr": 65,
+		 "BS_B_Def": 116,
+		 "BS_B_Spd": 104
+	  }
+   ],
+   "Minochi": [
+	  {
+		 "Number": 15,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 3,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 6,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 177,
+		 "BS_B_Spr": 37,
+		 "BS_B_Def": 142,
+		 "BS_B_Spd": 91
+	  }
+   ],
+   "Tublappa": [
+	  {
+		 "Number": 16,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 312,
+		 "BS_B_Str": 156,
+		 "BS_B_Spr": 102,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 120
+	  }
+   ],
+   "Slicenrice": [
+	  {
+		 "Number": 17,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 320,
+		 "BS_B_Str": 171,
+		 "BS_B_Spr": 83,
+		 "BS_B_Def": 98,
+		 "BS_B_Spd": 142
+	  }
+   ],
+   "Flamurice": [
+	  {
+		 "Number": 18,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 351,
+		 "BS_B_Str": 195,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 127,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Helmsman": [
+	  {
+		 "Number": 19,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 358,
+		 "BS_B_Str": 160,
+		 "BS_B_Spr": 68,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 95
+	  }
+   ],
+   "Reuknight": [
+	  {
+		 "Number": 20,
+		 "BS_A_HP": 53,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 402,
+		 "BS_B_Str": 203,
+		 "BS_B_Spr": 84,
+		 "BS_B_Def": 193,
+		 "BS_B_Spd": 143
+	  }
+   ],
+   "Corptain": [
+	  {
+		 "Number": 21,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 438,
+		 "BS_B_Str": 227,
+		 "BS_B_Spr": 88,
+		 "BS_B_Def": 205,
+		 "BS_B_Spd": 126
+	  }
+   ],
+   "Mudmunch": [
+	  {
+		 "Number": 22,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 347,
+		 "BS_B_Str": 172,
+		 "BS_B_Spr": 95,
+		 "BS_B_Def": 156,
+		 "BS_B_Spd": 109
+	  }
+   ],
+   "Sgt. Burly": [
+	  {
+		 "Number": 23,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 25,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 400,
+		 "BS_B_Str": 200,
+		 "BS_B_Spr": 50,
+		 "BS_B_Def": 128,
+		 "BS_B_Spd": 122
+	  }
+   ],
+   "Blazion": [
+	  {
+		 "Number": 24,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 379,
+		 "BS_B_Str": 169,
+		 "BS_B_Spr": 149,
+		 "BS_B_Def": 78,
+		 "BS_B_Spd": 116
+	  }
+   ],
+   "Quaken": [
+	  {
+		 "Number": 25,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 391,
+		 "BS_B_Str": 185,
+		 "BS_B_Spr": 166,
+		 "BS_B_Def": 63,
+		 "BS_B_Spd": 142
+	  }
+   ],
+   "Siro": [
+	  {
+		 "Number": 26,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 415,
+		 "BS_B_Str": 178,
+		 "BS_B_Spr": 198,
+		 "BS_B_Def": 104,
+		 "BS_B_Spd": 149
+	  }
+   ],
+   "Chansin": [
+	  {
+		 "Number": 27,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 373,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 107,
+		 "BS_B_Def": 112,
+		 "BS_B_Spd": 146
+	  }
+   ],
+   "Sheen": [
+	  {
+		 "Number": 28,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 399,
+		 "BS_B_Str": 206,
+		 "BS_B_Spr": 121,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 161
+	  }
+   ],
+   "Snee": [
+	  {
+		 "Number": 29,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 395,
+		 "BS_B_Str": 198,
+		 "BS_B_Spr": 165,
+		 "BS_B_Def": 97,
+		 "BS_B_Spd": 170
+	  }
+   ],
+   "Gleam": [
+	  {
+		 "Number": 30,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 428,
+		 "BS_B_Str": 222,
+		 "BS_B_Spr": 140,
+		 "BS_B_Def": 128,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "Benkei": [
+	  {
+		 "Number": 31,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 391,
+		 "BS_B_Str": 198,
+		 "BS_B_Spr": 77,
+		 "BS_B_Def": 93,
+		 "BS_B_Spd": 146
+	  }
+   ],
+   "B3-NK1": [
+	  {
+		 "Number": 32,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 3,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 437,
+		 "BS_B_Str": 205,
+		 "BS_B_Spr": 52,
+		 "BS_B_Def": 111,
+		 "BS_B_Spd": 161
+	  }
+   ],
+   "Sushiyama": [
+	  {
+		 "Number": 33,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 354,
+		 "BS_B_Str": 188,
+		 "BS_B_Spr": 126,
+		 "BS_B_Def": 118,
+		 "BS_B_Spd": 160
+	  }
+   ],
+   "Kapunki": [
+	  {
+		 "Number": 34,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 368,
+		 "BS_B_Str": 229,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Beetler": [
+	  {
+		 "Number": 35,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 361,
+		 "BS_B_Str": 180,
+		 "BS_B_Spr": 103,
+		 "BS_B_Def": 167,
+		 "BS_B_Spd": 146
+	  }
+   ],
+   "Beetall": [
+	  {
+		 "Number": 36,
+		 "BS_A_HP": 49,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 21,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 426,
+		 "BS_B_Str": 215,
+		 "BS_B_Spr": 106,
+		 "BS_B_Def": 195,
+		 "BS_B_Spd": 148
+	  }
+   ],
+   "Cruncha": [
+	  {
+		 "Number": 37,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 435,
+		 "BS_B_Str": 206,
+		 "BS_B_Spr": 137,
+		 "BS_B_Def": 182,
+		 "BS_B_Spd": 151
+	  }
+   ],
+   "Demuncher": [
+	  {
+		 "Number": 38,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 27,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 25,
+		 "BS_A_Spd": 23,
+		 "BS_B_HP": 396,
+		 "BS_B_Str": 210,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 173,
+		 "BS_B_Spd": 148
+	  }
+   ],
+   "Devourer": [
+	  {
+		 "Number": 39,
+		 "BS_A_HP": 56,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 408,
+		 "BS_B_Str": 216,
+		 "BS_B_Spr": 173,
+		 "BS_B_Def": 139,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Brokenbrella": [
+	  {
+		 "Number": 40,
+		 "BS_A_HP": 30,
+		 "BS_A_Str": 4,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 294,
+		 "BS_B_Str": 70,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 74,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Pittapatt": [
+	  {
+		 "Number": 41,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 4,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 288,
+		 "BS_B_Str": 53,
+		 "BS_B_Spr": 149,
+		 "BS_B_Def": 98,
+		 "BS_B_Spd": 173
+	  }
+   ],
+   "Snotsolong": [
+	  {
+		 "Number": 42,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 302,
+		 "BS_B_Str": 74,
+		 "BS_B_Spr": 154,
+		 "BS_B_Def": 87,
+		 "BS_B_Spd": 148
+	  }
+   ],
+   "Duchoo": [
+	  {
+		 "Number": 43,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 4,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 322,
+		 "BS_B_Str": 87,
+		 "BS_B_Spr": 153,
+		 "BS_B_Def": 109,
+		 "BS_B_Spd": 137
+	  }
+   ],
+   "D'wanna": [
+	  {
+		 "Number": 44,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 288,
+		 "BS_B_Str": 94,
+		 "BS_B_Spr": 132,
+		 "BS_B_Def": 103,
+		 "BS_B_Spd": 124
+	  }
+   ],
+   "N'more": [
+	  {
+		 "Number": 45,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 349,
+		 "BS_B_Str": 106,
+		 "BS_B_Spr": 173,
+		 "BS_B_Def": 116,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Q'wit": [
+	  {
+		 "Number": 46,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 363,
+		 "BS_B_Str": 142,
+		 "BS_B_Spr": 174,
+		 "BS_B_Def": 108,
+		 "BS_B_Spd": 119
+	  }
+   ],
+   "Wazzat": [
+	  {
+		 "Number": 47,
+		 "BS_A_HP": 25,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 252,
+		 "BS_B_Str": 76,
+		 "BS_B_Spr": 150,
+		 "BS_B_Def": 87,
+		 "BS_B_Spd": 192
+	  }
+   ],
+   "Houzzat": [
+	  {
+		 "Number": 48,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 332,
+		 "BS_B_Str": 99,
+		 "BS_B_Spr": 187,
+		 "BS_B_Def": 156,
+		 "BS_B_Spd": 185
+	  }
+   ],
+   "Dummkap": [
+	  {
+		 "Number": 49,
+		 "BS_A_HP": 27,
+		 "BS_A_Str": 3,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 4,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 268,
+		 "BS_B_Str": 55,
+		 "BS_B_Spr": 146,
+		 "BS_B_Def": 84,
+		 "BS_B_Spd": 204
+	  }
+   ],
+   "Faysoff": [
+	  {
+		 "Number": 50,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 317,
+		 "BS_B_Str": 92,
+		 "BS_B_Spr": 164,
+		 "BS_B_Def": 108,
+		 "BS_B_Spd": 154
+	  }
+   ],
+   "Lafalotta": [
+	  {
+		 "Number": 51,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 306,
+		 "BS_B_Str": 103,
+		 "BS_B_Spr": 155,
+		 "BS_B_Def": 113,
+		 "BS_B_Spd": 144
+	  }
+   ],
+   "Blips": [
+	  {
+		 "Number": 52,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 339,
+		 "BS_B_Str": 111,
+		 "BS_B_Spr": 152,
+		 "BS_B_Def": 126,
+		 "BS_B_Spd": 147
+	  }
+   ],
+   "Tattletell": [
+	  {
+		 "Number": 53,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 316,
+		 "BS_B_Str": 84,
+		 "BS_B_Spr": 178,
+		 "BS_B_Def": 115,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Tattlecast": [
+	  {
+		 "Number": 54,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 370,
+		 "BS_B_Str": 113,
+		 "BS_B_Spr": 201,
+		 "BS_B_Def": 124,
+		 "BS_B_Spd": 170
+	  }
+   ],
+   "Skranny": [
+	  {
+		 "Number": 55,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 331,
+		 "BS_B_Str": 111,
+		 "BS_B_Spr": 192,
+		 "BS_B_Def": 99,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Cupistol": [
+	  {
+		 "Number": 56,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 324,
+		 "BS_B_Str": 97,
+		 "BS_B_Spr": 153,
+		 "BS_B_Def": 101,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Casanuva": [
+	  {
+		 "Number": 57,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 358,
+		 "BS_B_Str": 124,
+		 "BS_B_Spr": 205,
+		 "BS_B_Def": 133,
+		 "BS_B_Spd": 193
+	  }
+   ],
+   "Casanono": [
+	  {
+		 "Number": 58,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 19,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 121,
+		 "BS_B_Spr": 221,
+		 "BS_B_Def": 119,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "So-Sorree": [
+	  {
+		 "Number": 59,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 329,
+		 "BS_B_Str": 93,
+		 "BS_B_Spr": 172,
+		 "BS_B_Def": 75,
+		 "BS_B_Spd": 148
+	  }
+   ],
+   "Bowminos": [
+	  {
+		 "Number": 60,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 402,
+		 "BS_B_Str": 144,
+		 "BS_B_Spr": 180,
+		 "BS_B_Def": 176,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Smogling": [
+	  {
+		 "Number": 61,
+		 "BS_A_HP": 30,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 297,
+		 "BS_B_Str": 77,
+		 "BS_B_Spr": 164,
+		 "BS_B_Def": 89,
+		 "BS_B_Spd": 170
+	  }
+   ],
+   "Smogmella": [
+	  {
+		 "Number": 62,
+		 "BS_A_HP": 49,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 21,
+		 "BS_A_Spd": 26,
+		 "BS_B_HP": 353,
+		 "BS_B_Str": 112,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 136,
+		 "BS_B_Spd": 207
+	  }
+   ],
+   "Signibble": [
+	  {
+		 "Number": 63,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 305,
+		 "BS_B_Str": 119,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 108,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Signiton": [
+	  {
+		 "Number": 64,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 380,
+		 "BS_B_Str": 178,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 158,
+		 "BS_B_Spd": 110
+	  }
+   ],
+   "Statiking": [
+	  {
+		 "Number": 65,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 398,
+		 "BS_B_Str": 173,
+		 "BS_B_Spr": 205,
+		 "BS_B_Def": 160,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Master Oden": [
+	  {
+		 "Number": 66,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 389,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 178,
+		 "BS_B_Def": 162,
+		 "BS_B_Spd": 127
+	  }
+   ],
+   "Failian": [
+	  {
+		 "Number": 67,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 3,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 307,
+		 "BS_B_Str": 46,
+		 "BS_B_Spr": 178,
+		 "BS_B_Def": 167,
+		 "BS_B_Spd": 207
+	  }
+   ],
+   "Apelican": [
+	  {
+		 "Number": 68,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 318,
+		 "BS_B_Str": 117,
+		 "BS_B_Spr": 162,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 163
+	  }
+   ],
+   "Mirapo": [
+	  {
+		 "Number": 69,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 331,
+		 "BS_B_Str": 101,
+		 "BS_B_Spr": 167,
+		 "BS_B_Def": 154,
+		 "BS_B_Spd": 128
+	  }
+   ],
+   "Miradox": [
+	  {
+		 "Number": 70,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 26,
+		 "BS_A_Def": 24,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 365,
+		 "BS_B_Str": 120,
+		 "BS_B_Spr": 197,
+		 "BS_B_Def": 193,
+		 "BS_B_Spd": 135
+	  }
+   ],
+   "Mircle": [
+	  {
+		 "Number": 71,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 373,
+		 "BS_B_Str": 120,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 196,
+		 "BS_B_Spd": 123
+	  }
+   ],
+   "Illoo": [
+	  {
+		 "Number": 72,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 332,
+		 "BS_B_Str": 90,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 98,
+		 "BS_B_Spd": 151
+	  }
+   ],
+   "Elloo": [
+	  {
+		 "Number": 73,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 315,
+		 "BS_B_Str": 82,
+		 "BS_B_Spr": 208,
+		 "BS_B_Def": 81,
+		 "BS_B_Spd": 171
+	  }
+   ],
+   "Alloo": [
+	  {
+		 "Number": 74,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 357,
+		 "BS_B_Str": 131,
+		 "BS_B_Spr": 195,
+		 "BS_B_Def": 112,
+		 "BS_B_Spd": 163
+	  }
+   ],
+   "Espy": [
+	  {
+		 "Number": 75,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 363,
+		 "BS_B_Str": 148,
+		 "BS_B_Spr": 182,
+		 "BS_B_Def": 151,
+		 "BS_B_Spd": 118
+	  }
+   ],
+   "Infour": [
+	  {
+		 "Number": 76,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 381,
+		 "BS_B_Str": 101,
+		 "BS_B_Spr": 202,
+		 "BS_B_Def": 122,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Verygoodsir": [
+	  {
+		 "Number": 77,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 326,
+		 "BS_B_Str": 156,
+		 "BS_B_Spr": 182,
+		 "BS_B_Def": 108,
+		 "BS_B_Spd": 176
+	  }
+   ],
+   "Tengu": [
+	  {
+		 "Number": 78,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 28,
+		 "BS_A_Def": 24,
+		 "BS_A_Spd": 23,
+		 "BS_B_HP": 356,
+		 "BS_B_Str": 133,
+		 "BS_B_Spr": 134,
+		 "BS_B_Def": 135,
+		 "BS_B_Spd": 114
+	  }
+   ],
+   "Flengu": [
+	  {
+		 "Number": 79,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 21,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 148,
+		 "BS_B_Spr": 152,
+		 "BS_B_Def": 121,
+		 "BS_B_Spd": 96
+	  }
+   ],
+   "Kyubi": [
+	  {
+		 "Number": 80,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 38,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 393,
+		 "BS_B_Str": 128,
+		 "BS_B_Spr": 227,
+		 "BS_B_Def": 166,
+		 "BS_B_Spd": 193
+	  }
+   ],
+   "Frostail": [
+	  {
+		 "Number": 81,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 27,
+		 "BS_A_Def": 23,
+		 "BS_A_Spd": 24,
+		 "BS_B_HP": 406,
+		 "BS_B_Str": 127,
+		 "BS_B_Spr": 235,
+		 "BS_B_Def": 150,
+		 "BS_B_Spd": 187
+	  }
+   ],
+   "Chymera": [
+	  {
+		 "Number": 82,
+		 "BS_A_HP": 49,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 185,
+		 "BS_B_Spr": 204,
+		 "BS_B_Def": 146,
+		 "BS_B_Spd": 173
+	  }
+   ],
+   "Kingmera": [
+	  {
+		 "Number": 83,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 381,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 231,
+		 "BS_B_Def": 137,
+		 "BS_B_Spd": 189
+	  }
+   ],
+   "Terrorpotta": [
+	  {
+		 "Number": 84,
+		 "BS_A_HP": 23,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 234,
+		 "BS_B_Str": 134,
+		 "BS_B_Spr": 97,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Dulluma": [
+	  {
+		 "Number": 85,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 5,
+		 "BS_B_HP": 329,
+		 "BS_B_Str": 135,
+		 "BS_B_Spr": 71,
+		 "BS_B_Def": 140,
+		 "BS_B_Spd": 90
+	  }
+   ],
+   "Darumacho": [
+	  {
+		 "Number": 86,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 19,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 392,
+		 "BS_B_Str": 174,
+		 "BS_B_Spr": 97,
+		 "BS_B_Def": 185,
+		 "BS_B_Spd": 104
+	  }
+   ],
+   "Goruma": [
+	  {
+		 "Number": 87,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 6,
+		 "BS_B_HP": 411,
+		 "BS_B_Str": 191,
+		 "BS_B_Spr": 92,
+		 "BS_B_Def": 173,
+		 "BS_B_Spd": 94
+	  }
+   ],
+   "Wotchagot": [
+	  {
+		 "Number": 88,
+		 "BS_A_HP": 26,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 260,
+		 "BS_B_Str": 80,
+		 "BS_B_Spr": 138,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Pride Shrimp": [
+	  {
+		 "Number": 89,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 344,
+		 "BS_B_Str": 118,
+		 "BS_B_Spr": 163,
+		 "BS_B_Def": 198,
+		 "BS_B_Spd": 152
+	  }
+   ],
+   "No-Go Kart": [
+	  {
+		 "Number": 90,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 3,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 270,
+		 "BS_B_Str": 128,
+		 "BS_B_Spr": 52,
+		 "BS_B_Def": 152,
+		 "BS_B_Spd": 165
+	  }
+   ],
+   "Mistank": [
+	  {
+		 "Number": 91,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 350,
+		 "BS_B_Str": 183,
+		 "BS_B_Spr": 81,
+		 "BS_B_Def": 172,
+		 "BS_B_Spd": 189
+	  }
+   ],
+   "Noway": [
+	  {
+		 "Number": 92,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 3,
+		 "BS_B_HP": 338,
+		 "BS_B_Str": 122,
+		 "BS_B_Spr": 66,
+		 "BS_B_Def": 168,
+		 "BS_B_Spd": 65
+	  }
+   ],
+   "Impass": [
+	  {
+		 "Number": 93,
+		 "BS_A_HP": 49,
+		 "BS_A_Str": 19,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 419,
+		 "BS_B_Str": 169,
+		 "BS_B_Spr": 89,
+		 "BS_B_Def": 217,
+		 "BS_B_Spd": 121
+	  }
+   ],
+   "Walldin": [
+	  {
+		 "Number": 94,
+		 "BS_A_HP": 54,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 426,
+		 "BS_B_Str": 138,
+		 "BS_B_Spr": 95,
+		 "BS_B_Def": 226,
+		 "BS_B_Spd": 148
+	  }
+   ],
+   "Roughraff": [
+	  {
+		 "Number": 95,
+		 "BS_A_HP": 52,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 328,
+		 "BS_B_Str": 129,
+		 "BS_B_Spr": 47,
+		 "BS_B_Def": 149,
+		 "BS_B_Spd": 115
+	  }
+   ],
+   "Badude": [
+	  {
+		 "Number": 96,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 25,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 23,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 389,
+		 "BS_B_Str": 188,
+		 "BS_B_Spr": 94,
+		 "BS_B_Def": 171,
+		 "BS_B_Spd": 136
+	  }
+   ],
+   "Bruff": [
+	  {
+		 "Number": 97,
+		 "BS_A_HP": 53,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 391,
+		 "BS_B_Str": 198,
+		 "BS_B_Spr": 101,
+		 "BS_B_Def": 185,
+		 "BS_B_Spd": 153
+	  }
+   ],
+   "Armsman": [
+	  {
+		 "Number": 98,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 381,
+		 "BS_B_Str": 133,
+		 "BS_B_Spr": 78,
+		 "BS_B_Def": 152,
+		 "BS_B_Spd": 84
+	  }
+   ],
+   "Mimikin": [
+	  {
+		 "Number": 99,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 298,
+		 "BS_B_Str": 156,
+		 "BS_B_Spr": 55,
+		 "BS_B_Def": 162,
+		 "BS_B_Spd": 153
+	  }
+   ],
+   "Blowkade": [
+	  {
+		 "Number": 100,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 6,
+		 "BS_B_HP": 367,
+		 "BS_B_Str": 127,
+		 "BS_B_Spr": 69,
+		 "BS_B_Def": 150,
+		 "BS_B_Spd": 106
+	  }
+   ],
+   "Ledballoon": [
+	  {
+		 "Number": 101,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 381,
+		 "BS_B_Str": 155,
+		 "BS_B_Spr": 77,
+		 "BS_B_Def": 174,
+		 "BS_B_Spd": 97
+	  }
+   ],
+   "Fidgephant": [
+	  {
+		 "Number": 102,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 343,
+		 "BS_B_Str": 126,
+		 "BS_B_Spr": 101,
+		 "BS_B_Def": 151,
+		 "BS_B_Spd": 112
+	  }
+   ],
+   "Touphant": [
+	  {
+		 "Number": 103,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 322,
+		 "BS_B_Str": 111,
+		 "BS_B_Spr": 169,
+		 "BS_B_Def": 173,
+		 "BS_B_Spd": 114
+	  }
+   ],
+   "Enduriphant": [
+	  {
+		 "Number": 104,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 379,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 132,
+		 "BS_B_Def": 183,
+		 "BS_B_Spd": 134
+	  }
+   ],
+   "Zappary": [
+	  {
+		 "Number": 105,
+		 "BS_A_HP": 26,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 239,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 142,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Frazzel": [
+	  {
+		 "Number": 106,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 337,
+		 "BS_B_Str": 148,
+		 "BS_B_Spr": 192,
+		 "BS_B_Def": 182,
+		 "BS_B_Spd": 181
+	  }
+   ],
+   "Swelton": [
+	  {
+		 "Number": 107,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 5,
+		 "BS_B_HP": 356,
+		 "BS_B_Str": 128,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 172,
+		 "BS_B_Spd": 102
+	  }
+   ],
+   "Mad Mountain": [
+	  {
+		 "Number": 108,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 387,
+		 "BS_B_Str": 153,
+		 "BS_B_Spr": 88,
+		 "BS_B_Def": 149,
+		 "BS_B_Spd": 114
+	  }
+   ],
+   "Lava Lord": [
+	  {
+		 "Number": 109,
+		 "BS_A_HP": 52,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 407,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 134,
+		 "BS_B_Def": 147,
+		 "BS_B_Spd": 136
+	  }
+   ],
+   "Castelius III": [
+	  {
+		 "Number": 110,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 353,
+		 "BS_B_Str": 133,
+		 "BS_B_Spr": 97,
+		 "BS_B_Def": 165,
+		 "BS_B_Spd": 117
+	  }
+   ],
+   "Castelius II": [
+	  {
+		 "Number": 111,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 368,
+		 "BS_B_Str": 145,
+		 "BS_B_Spr": 109,
+		 "BS_B_Def": 181,
+		 "BS_B_Spd": 128
+	  }
+   ],
+   "Castelius I": [
+	  {
+		 "Number": 112,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 24,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 402,
+		 "BS_B_Str": 157,
+		 "BS_B_Spr": 123,
+		 "BS_B_Def": 203,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Castelius Max": [
+	  {
+		 "Number": 113,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 24,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 25,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 428,
+		 "BS_B_Str": 162,
+		 "BS_B_Spr": 131,
+		 "BS_B_Def": 227,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Rhinoggin": [
+	  {
+		 "Number": 114,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 402,
+		 "BS_B_Str": 163,
+		 "BS_B_Spr": 105,
+		 "BS_B_Def": 182,
+		 "BS_B_Spd": 102
+	  }
+   ],
+   "Rhinormous": [
+	  {
+		 "Number": 115,
+		 "BS_A_HP": 56,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 429,
+		 "BS_B_Str": 184,
+		 "BS_B_Spr": 107,
+		 "BS_B_Def": 210,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Hornaplenty": [
+	  {
+		 "Number": 116,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 24,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 431,
+		 "BS_B_Str": 206,
+		 "BS_B_Spr": 84,
+		 "BS_B_Def": 219,
+		 "BS_B_Spd": 172
+	  }
+   ],
+   "Robonyan": [
+	  {
+		 "Number": 117,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 406,
+		 "BS_B_Str": 161,
+		 "BS_B_Spr": 126,
+		 "BS_B_Def": 189,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Goldenyan": [
+	  {
+		 "Number": 118,
+		 "BS_A_HP": 58,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 431,
+		 "BS_B_Str": 162,
+		 "BS_B_Spr": 105,
+		 "BS_B_Def": 207,
+		 "BS_B_Spd": 194
+	  }
+   ],
+   "Dromp": [
+	  {
+		 "Number": 119,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 6,
+		 "BS_B_HP": 426,
+		 "BS_B_Str": 178,
+		 "BS_B_Spr": 93,
+		 "BS_B_Def": 228,
+		 "BS_B_Spd": 93
+	  }
+   ],
+   "Swosh": [
+	  {
+		 "Number": 120,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 451,
+		 "BS_B_Str": 85,
+		 "BS_B_Spr": 174,
+		 "BS_B_Def": 246,
+		 "BS_B_Spd": 132
+	  }
+   ],
+   "Toadal Dude": [
+	  {
+		 "Number": 121,
+		 "BS_A_HP": 69,
+		 "BS_A_Str": 48,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 27,
+		 "BS_A_Spd": 25,
+		 "BS_B_HP": 388,
+		 "BS_B_Str": 217,
+		 "BS_B_Spr": 145,
+		 "BS_B_Def": 197,
+		 "BS_B_Spd": 168
+	  }
+   ],
+   "Uber Geeko": [
+	  {
+		 "Number": 122,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 391,
+		 "BS_B_Str": 154,
+		 "BS_B_Spr": 198,
+		 "BS_B_Def": 204,
+		 "BS_B_Spd": 157
+	  }
+   ],
+   "Leggly": [
+	  {
+		 "Number": 123,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 6,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 294,
+		 "BS_B_Str": 134,
+		 "BS_B_Spr": 78,
+		 "BS_B_Def": 65,
+		 "BS_B_Spd": 177
+	  }
+   ],
+   "Dazzabel": [
+	  {
+		 "Number": 124,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 6,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 281,
+		 "BS_B_Str": 120,
+		 "BS_B_Spr": 79,
+		 "BS_B_Def": 131,
+		 "BS_B_Spd": 139
+	  }
+   ],
+   "Rattelle": [
+	  {
+		 "Number": 125,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 346,
+		 "BS_B_Str": 145,
+		 "BS_B_Spr": 108,
+		 "BS_B_Def": 141,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Skelebella": [
+	  {
+		 "Number": 126,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 129,
+		 "BS_B_Def": 164,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Cadin": [
+	  {
+		 "Number": 127,
+		 "BS_A_HP": 30,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 289,
+		 "BS_B_Str": 135,
+		 "BS_B_Spr": 102,
+		 "BS_B_Def": 90,
+		 "BS_B_Spd": 138
+	  }
+   ],
+   "Cadable": [
+	  {
+		 "Number": 128,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 343,
+		 "BS_B_Str": 165,
+		 "BS_B_Spr": 117,
+		 "BS_B_Def": 106,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Singcada": [
+	  {
+		 "Number": 129,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 385,
+		 "BS_B_Str": 169,
+		 "BS_B_Spr": 141,
+		 "BS_B_Def": 101,
+		 "BS_B_Spd": 181
+	  }
+   ],
+   "Pupsicle": [
+	  {
+		 "Number": 130,
+		 "BS_A_HP": 28,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 271,
+		 "BS_B_Str": 118,
+		 "BS_B_Spr": 128,
+		 "BS_B_Def": 91,
+		 "BS_B_Spd": 135
+	  }
+   ],
+   "Chilhuahua": [
+	  {
+		 "Number": 131,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 343,
+		 "BS_B_Str": 167,
+		 "BS_B_Spr": 203,
+		 "BS_B_Def": 136,
+		 "BS_B_Spd": 163
+	  }
+   ],
+   "Swelterrier": [
+	  {
+		 "Number": 132,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 370,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 196,
+		 "BS_B_Def": 151,
+		 "BS_B_Spd": 179
+	  }
+   ],
+   "Jumbelina": [
+	  {
+		 "Number": 133,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 318,
+		 "BS_B_Str": 87,
+		 "BS_B_Spr": 142,
+		 "BS_B_Def": 111,
+		 "BS_B_Spd": 164
+	  }
+   ],
+   "Boyclops": [
+	  {
+		 "Number": 134,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 307,
+		 "BS_B_Str": 152,
+		 "BS_B_Spr": 88,
+		 "BS_B_Def": 122,
+		 "BS_B_Spd": 160
+	  }
+   ],
+   "Jibanyan": [
+	  {
+		 "Number": 135,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 322,
+		 "BS_B_Str": 153,
+		 "BS_B_Spr": 90,
+		 "BS_B_Def": 108,
+		 "BS_B_Spd": 165
+	  }
+   ],
+   "Thornyan": [
+	  {
+		 "Number": 136,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 23,
+		 "BS_B_HP": 344,
+		 "BS_B_Str": 159,
+		 "BS_B_Spr": 138,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 187
+	  }
+   ],
+   "Baddinyan": [
+	  {
+		 "Number": 137,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 21,
+		 "BS_A_Spd": 23,
+		 "BS_B_HP": 380,
+		 "BS_B_Str": 171,
+		 "BS_B_Spr": 75,
+		 "BS_B_Def": 162,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "Buchinyan": [
+	  {
+		 "Number": 138,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 313,
+		 "BS_B_Str": 174,
+		 "BS_B_Spr": 139,
+		 "BS_B_Def": 97,
+		 "BS_B_Spd": 185
+	  }
+   ],
+   "Walkappa": [
+	  {
+		 "Number": 139,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 305,
+		 "BS_B_Str": 98,
+		 "BS_B_Spr": 157,
+		 "BS_B_Def": 108,
+		 "BS_B_Spd": 151
+	  }
+   ],
+   "Appak": [
+	  {
+		 "Number": 140,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 368,
+		 "BS_B_Str": 176,
+		 "BS_B_Spr": 179,
+		 "BS_B_Def": 119,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Supyo": [
+	  {
+		 "Number": 141,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 382,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 193,
+		 "BS_B_Def": 130,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Komasan": [
+	  {
+		 "Number": 142,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 310,
+		 "BS_B_Str": 103,
+		 "BS_B_Spr": 162,
+		 "BS_B_Def": 114,
+		 "BS_B_Spd": 149
+	  }
+   ],
+   "Komane": [
+	  {
+		 "Number": 143,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 382,
+		 "BS_B_Str": 135,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 139,
+		 "BS_B_Spd": 179
+	  }
+   ],
+   "Komajiro": [
+	  {
+		 "Number": 144,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 276,
+		 "BS_B_Str": 128,
+		 "BS_B_Spr": 131,
+		 "BS_B_Def": 125,
+		 "BS_B_Spd": 153
+	  }
+   ],
+   "Komiger": [
+	  {
+		 "Number": 145,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 355,
+		 "BS_B_Str": 174,
+		 "BS_B_Spr": 170,
+		 "BS_B_Def": 151,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Baku": [
+	  {
+		 "Number": 146,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 306,
+		 "BS_B_Str": 105,
+		 "BS_B_Spr": 148,
+		 "BS_B_Def": 121,
+		 "BS_B_Spd": 143
+	  }
+   ],
+   "Bakulia": [
+	  {
+		 "Number": 147,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 358,
+		 "BS_B_Str": 121,
+		 "BS_B_Spr": 169,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 172
+	  }
+   ],
+   "Whapir": [
+	  {
+		 "Number": 148,
+		 "BS_A_HP": 30,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 298,
+		 "BS_B_Str": 130,
+		 "BS_B_Spr": 175,
+		 "BS_B_Def": 129,
+		 "BS_B_Spd": 173
+	  }
+   ],
+   "Drizzelda": [
+	  {
+		 "Number": 149,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 3,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 327,
+		 "BS_B_Str": 67,
+		 "BS_B_Spr": 182,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 176
+	  }
+   ],
+   "Nekidspeed": [
+	  {
+		 "Number": 150,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 338,
+		 "BS_B_Str": 158,
+		 "BS_B_Spr": 94,
+		 "BS_B_Def": 78,
+		 "BS_B_Spd": 222
+	  }
+   ],
+   "Shmoopie": [
+	  {
+		 "Number": 151,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 344,
+		 "BS_B_Str": 106,
+		 "BS_B_Spr": 162,
+		 "BS_B_Def": 109,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Pinkipoo": [
+	  {
+		 "Number": 152,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 367,
+		 "BS_B_Str": 126,
+		 "BS_B_Spr": 189,
+		 "BS_B_Def": 113,
+		 "BS_B_Spd": 174
+	  }
+   ],
+   "Pookivil": [
+	  {
+		 "Number": 153,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 381,
+		 "BS_B_Str": 182,
+		 "BS_B_Spr": 148,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 188
+	  }
+   ],
+   "Harry Barry": [
+	  {
+		 "Number": 154,
+		 "BS_A_HP": 54,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 342,
+		 "BS_B_Str": 192,
+		 "BS_B_Spr": 146,
+		 "BS_B_Def": 168,
+		 "BS_B_Spd": 130
+	  }
+   ],
+   "Frostina": [
+	  {
+		 "Number": 155,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 349,
+		 "BS_B_Str": 115,
+		 "BS_B_Spr": 181,
+		 "BS_B_Def": 123,
+		 "BS_B_Spd": 168
+	  }
+   ],
+   "Blizzaria": [
+	  {
+		 "Number": 156,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 373,
+		 "BS_B_Str": 128,
+		 "BS_B_Spr": 214,
+		 "BS_B_Def": 147,
+		 "BS_B_Spd": 200
+	  }
+   ],
+   "Damona": [
+	  {
+		 "Number": 157,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 389,
+		 "BS_B_Str": 184,
+		 "BS_B_Spr": 207,
+		 "BS_B_Def": 157,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Faux Kappa": [
+	  {
+		 "Number": 158,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 355,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 180,
+		 "BS_B_Def": 126,
+		 "BS_B_Spd": 188
+	  }
+   ],
+   "Tigappa": [
+	  {
+		 "Number": 159,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 25,
+		 "BS_B_HP": 379,
+		 "BS_B_Str": 189,
+		 "BS_B_Spr": 195,
+		 "BS_B_Def": 118,
+		 "BS_B_Spd": 221
+	  }
+   ],
+   "Master Nyada": [
+	  {
+		 "Number": 160,
+		 "BS_A_HP": 53,
+		 "BS_A_Str": 24,
+		 "BS_A_Spr": 29,
+		 "BS_A_Def": 25,
+		 "BS_A_Spd": 27,
+		 "BS_B_HP": 380,
+		 "BS_B_Str": 138,
+		 "BS_B_Spr": 231,
+		 "BS_B_Def": 164,
+		 "BS_B_Spd": 197
+	  }
+   ],
+   "Wantston": [
+	  {
+		 "Number": 161,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 281,
+		 "BS_B_Str": 129,
+		 "BS_B_Spr": 116,
+		 "BS_B_Def": 98,
+		 "BS_B_Spd": 136
+	  }
+   ],
+   "Grubsnitch": [
+	  {
+		 "Number": 162,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 6,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 319,
+		 "BS_B_Str": 146,
+		 "BS_B_Spr": 120,
+		 "BS_B_Def": 102,
+		 "BS_B_Spd": 144
+	  }
+   ],
+   "Wiglin": [
+	  {
+		 "Number": 163,
+		 "BS_A_HP": 30,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 6,
+		 "BS_B_HP": 295,
+		 "BS_B_Str": 141,
+		 "BS_B_Spr": 105,
+		 "BS_B_Def": 117,
+		 "BS_B_Spd": 111
+	  }
+   ],
+   "Kelpacabana": [
+	  {
+		 "Number": 164,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 308,
+		 "BS_B_Str": 152,
+		 "BS_B_Spr": 158,
+		 "BS_B_Def": 121,
+		 "BS_B_Spd": 168
+	  }
+   ],
+   "Steppa": [
+	  {
+		 "Number": 165,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 288,
+		 "BS_B_Str": 103,
+		 "BS_B_Spr": 121,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 125
+	  }
+   ],
+   "Rhyth": [
+	  {
+		 "Number": 166,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 267,
+		 "BS_B_Str": 98,
+		 "BS_B_Spr": 153,
+		 "BS_B_Def": 111,
+		 "BS_B_Spd": 176
+	  }
+   ],
+   "Hungramps": [
+	  {
+		 "Number": 167,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 300,
+		 "BS_B_Str": 85,
+		 "BS_B_Spr": 133,
+		 "BS_B_Def": 108,
+		 "BS_B_Spd": 142
+	  }
+   ],
+   "Hungorge": [
+	  {
+		 "Number": 168,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 368,
+		 "BS_B_Str": 136,
+		 "BS_B_Spr": 184,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Grainpa": [
+	  {
+		 "Number": 169,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 357,
+		 "BS_B_Str": 181,
+		 "BS_B_Spr": 154,
+		 "BS_B_Def": 127,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Tongus": [
+	  {
+		 "Number": 170,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 3,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 296,
+		 "BS_B_Str": 63,
+		 "BS_B_Spr": 158,
+		 "BS_B_Def": 68,
+		 "BS_B_Spd": 153
+	  }
+   ],
+   "Nurse Tongus": [
+	  {
+		 "Number": 171,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 350,
+		 "BS_B_Str": 108,
+		 "BS_B_Spr": 183,
+		 "BS_B_Def": 117,
+		 "BS_B_Spd": 172
+	  }
+   ],
+   "Sandmeh": [
+	  {
+		 "Number": 172,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 273,
+		 "BS_B_Str": 147,
+		 "BS_B_Spr": 100,
+		 "BS_B_Def": 102,
+		 "BS_B_Spd": 136
+	  }
+   ],
+   "Mr. Sandmeh": [
+	  {
+		 "Number": 173,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 357,
+		 "BS_B_Str": 165,
+		 "BS_B_Spr": 153,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 153
+	  }
+   ],
+   "Pallysol": [
+	  {
+		 "Number": 174,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 285,
+		 "BS_B_Str": 105,
+		 "BS_B_Spr": 123,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 118
+	  }
+   ],
+   "Scarasol": [
+	  {
+		 "Number": 175,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 394,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 182,
+		 "BS_B_Spd": 120
+	  }
+   ],
+   "Lodo": [
+	  {
+		 "Number": 176,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 331,
+		 "BS_B_Str": 111,
+		 "BS_B_Spr": 131,
+		 "BS_B_Def": 125,
+		 "BS_B_Spd": 135
+	  }
+   ],
+   "Supoor Hero": [
+	  {
+		 "Number": 177,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 351,
+		 "BS_B_Str": 163,
+		 "BS_B_Spr": 182,
+		 "BS_B_Def": 149,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Chippa": [
+	  {
+		 "Number": 178,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 352,
+		 "BS_B_Str": 162,
+		 "BS_B_Spr": 116,
+		 "BS_B_Def": 106,
+		 "BS_B_Spd": 157
+	  }
+   ],
+   "Gnomey": [
+	  {
+		 "Number": 179,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 301,
+		 "BS_B_Str": 89,
+		 "BS_B_Spr": 150,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 133
+	  }
+   ],
+   "High Gnomey": [
+	  {
+		 "Number": 180,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 118,
+		 "BS_B_Spr": 197,
+		 "BS_B_Def": 137,
+		 "BS_B_Spd": 178
+	  }
+   ],
+   "Enerfly": [
+	  {
+		 "Number": 181,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 269,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 133,
+		 "BS_B_Def": 110,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Enefly": [
+	  {
+		 "Number": 182,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 305,
+		 "BS_B_Str": 104,
+		 "BS_B_Spr": 155,
+		 "BS_B_Def": 107,
+		 "BS_B_Spd": 134
+	  }
+   ],
+   "Betterfly": [
+	  {
+		 "Number": 183,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 366,
+		 "BS_B_Str": 142,
+		 "BS_B_Spr": 195,
+		 "BS_B_Def": 119,
+		 "BS_B_Spd": 179
+	  }
+   ],
+   "Peppillon": [
+	  {
+		 "Number": 184,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 387,
+		 "BS_B_Str": 153,
+		 "BS_B_Spr": 215,
+		 "BS_B_Def": 149,
+		 "BS_B_Spd": 194
+	  }
+   ],
+   "Predictabull": [
+	  {
+		 "Number": 185,
+		 "BS_A_HP": 30,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 298,
+		 "BS_B_Str": 131,
+		 "BS_B_Spr": 136,
+		 "BS_B_Def": 101,
+		 "BS_B_Spd": 143
+	  }
+   ],
+   "Smashibull": [
+	  {
+		 "Number": 186,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 408,
+		 "BS_B_Str": 203,
+		 "BS_B_Spr": 176,
+		 "BS_B_Def": 151,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Don Chan": [
+	  {
+		 "Number": 187,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 317,
+		 "BS_B_Str": 82,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 159,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Ray O'Light": [
+	  {
+		 "Number": 188,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 333,
+		 "BS_B_Str": 167,
+		 "BS_B_Spr": 148,
+		 "BS_B_Def": 103,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Happierre": [
+	  {
+		 "Number": 189,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 332,
+		 "BS_B_Str": 119,
+		 "BS_B_Spr": 164,
+		 "BS_B_Def": 116,
+		 "BS_B_Spd": 147
+	  }
+   ],
+   "Reversa": [
+	  {
+		 "Number": 190,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 366,
+		 "BS_B_Str": 145,
+		 "BS_B_Spr": 181,
+		 "BS_B_Def": 141,
+		 "BS_B_Spd": 160
+	  }
+   ],
+   "Reversette": [
+	  {
+		 "Number": 191,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 379,
+		 "BS_B_Str": 181,
+		 "BS_B_Spr": 166,
+		 "BS_B_Def": 135,
+		 "BS_B_Spd": 169
+	  }
+   ],
+   "Ol' Saint Trick": [
+	  {
+		 "Number": 192,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 350,
+		 "BS_B_Str": 125,
+		 "BS_B_Spr": 177,
+		 "BS_B_Def": 124,
+		 "BS_B_Spd": 171
+	  }
+   ],
+   "Ol' Fortune": [
+	  {
+		 "Number": 193,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 339,
+		 "BS_B_Str": 177,
+		 "BS_B_Spr": 148,
+		 "BS_B_Def": 139,
+		 "BS_B_Spd": 144
+	  }
+   ],
+   "Rollen": [
+	  {
+		 "Number": 194,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 345,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 166,
+		 "BS_B_Def": 152,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Dubbles": [
+	  {
+		 "Number": 195,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 33,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 44,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 333,
+		 "BS_B_Str": 177,
+		 "BS_B_Spr": 166,
+		 "BS_B_Def": 188,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Papa Bolt": [
+	  {
+		 "Number": 196,
+		 "BS_A_HP": 58,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 364,
+		 "BS_B_Str": 165,
+		 "BS_B_Spr": 141,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 176
+	  }
+   ],
+   "Uncle Infinite": [
+	  {
+		 "Number": 197,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 422,
+		 "BS_B_Str": 191,
+		 "BS_B_Spr": 160,
+		 "BS_B_Def": 161,
+		 "BS_B_Spd": 182
+	  }
+   ],
+   "Mama Aura": [
+	  {
+		 "Number": 198,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 347,
+		 "BS_B_Str": 124,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 146,
+		 "BS_B_Spd": 196
+	  }
+   ],
+   "Auntie Heart": [
+	  {
+		 "Number": 199,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 401,
+		 "BS_B_Str": 159,
+		 "BS_B_Spr": 207,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 200
+	  }
+   ],
+   "Kyryn": [
+	  {
+		 "Number": 200,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 371,
+		 "BS_B_Str": 165,
+		 "BS_B_Spr": 206,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 199
+	  }
+   ],
+   "Unikirin": [
+	  {
+		 "Number": 201,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 19,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 386,
+		 "BS_B_Str": 206,
+		 "BS_B_Spr": 183,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 196
+	  }
+   ],
+   "Leadoni": [
+	  {
+		 "Number": 202,
+		 "BS_A_HP": 28,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 278,
+		 "BS_B_Str": 148,
+		 "BS_B_Spr": 87,
+		 "BS_B_Def": 110,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Mynimo": [
+	  {
+		 "Number": 203,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 307,
+		 "BS_B_Str": 145,
+		 "BS_B_Spr": 113,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 130
+	  }
+   ],
+   "Ake": [
+	  {
+		 "Number": 204,
+		 "BS_A_HP": 30,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 256,
+		 "BS_B_Str": 122,
+		 "BS_B_Spr": 114,
+		 "BS_B_Def": 115,
+		 "BS_B_Spd": 146
+	  }
+   ],
+   "Payn": [
+	  {
+		 "Number": 205,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 342,
+		 "BS_B_Str": 188,
+		 "BS_B_Spr": 116,
+		 "BS_B_Def": 129,
+		 "BS_B_Spd": 121
+	  }
+   ],
+   "Agon": [
+	  {
+		 "Number": 206,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 388,
+		 "BS_B_Str": 202,
+		 "BS_B_Spr": 126,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 105
+	  }
+   ],
+   "Wydeawake": [
+	  {
+		 "Number": 207,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 3,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 339,
+		 "BS_B_Str": 60,
+		 "BS_B_Spr": 142,
+		 "BS_B_Def": 69,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Allnyta": [
+	  {
+		 "Number": 208,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 399,
+		 "BS_B_Str": 83,
+		 "BS_B_Spr": 200,
+		 "BS_B_Def": 97,
+		 "BS_B_Spd": 196
+	  }
+   ],
+   "Herbiboy": [
+	  {
+		 "Number": 209,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 278,
+		 "BS_B_Str": 131,
+		 "BS_B_Spr": 130,
+		 "BS_B_Def": 90,
+		 "BS_B_Spd": 136
+	  }
+   ],
+   "Carniboy": [
+	  {
+		 "Number": 210,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 327,
+		 "BS_B_Str": 195,
+		 "BS_B_Spr": 146,
+		 "BS_B_Def": 156,
+		 "BS_B_Spd": 151
+	  }
+   ],
+   "Negatibuzz": [
+	  {
+		 "Number": 211,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 4,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 279,
+		 "BS_B_Str": 136,
+		 "BS_B_Spr": 123,
+		 "BS_B_Def": 98,
+		 "BS_B_Spd": 126
+	  }
+   ],
+   "Moskevil": [
+	  {
+		 "Number": 212,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 321,
+		 "BS_B_Str": 144,
+		 "BS_B_Spr": 142,
+		 "BS_B_Def": 124,
+		 "BS_B_Spd": 161
+	  }
+   ],
+   "Scritchy": [
+	  {
+		 "Number": 213,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 407,
+		 "BS_B_Str": 105,
+		 "BS_B_Spr": 197,
+		 "BS_B_Def": 142,
+		 "BS_B_Spd": 184
+	  }
+   ],
+   "Dimmy": [
+	  {
+		 "Number": 214,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 286,
+		 "BS_B_Str": 139,
+		 "BS_B_Spr": 103,
+		 "BS_B_Def": 75,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Blandon": [
+	  {
+		 "Number": 215,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 23,
+		 "BS_B_HP": 349,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 154,
+		 "BS_B_Def": 90,
+		 "BS_B_Spd": 191
+	  }
+   ],
+   "Nul": [
+	  {
+		 "Number": 216,
+		 "BS_A_HP": 53,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 361,
+		 "BS_B_Str": 161,
+		 "BS_B_Spr": 183,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 186
+	  }
+   ],
+   "Suspicioni": [
+	  {
+		 "Number": 217,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 288,
+		 "BS_B_Str": 126,
+		 "BS_B_Spr": 149,
+		 "BS_B_Def": 123,
+		 "BS_B_Spd": 133
+	  }
+   ],
+   "Tantroni": [
+	  {
+		 "Number": 218,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 290,
+		 "BS_B_Str": 161,
+		 "BS_B_Spr": 94,
+		 "BS_B_Def": 144,
+		 "BS_B_Spd": 130
+	  }
+   ],
+   "Contrarioni": [
+	  {
+		 "Number": 219,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 312,
+		 "BS_B_Str": 136,
+		 "BS_B_Spr": 153,
+		 "BS_B_Def": 172,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "Hidabat": [
+	  {
+		 "Number": 220,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 299,
+		 "BS_B_Str": 111,
+		 "BS_B_Spr": 128,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 129
+	  }
+   ],
+   "Abodabat": [
+	  {
+		 "Number": 221,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 347,
+		 "BS_B_Str": 156,
+		 "BS_B_Spr": 166,
+		 "BS_B_Def": 181,
+		 "BS_B_Spd": 154
+	  }
+   ],
+   "Belfree": [
+	  {
+		 "Number": 222,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 361,
+		 "BS_B_Str": 159,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 203,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Yoink": [
+	  {
+		 "Number": 223,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 317,
+		 "BS_B_Str": 146,
+		 "BS_B_Spr": 96,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 127
+	  }
+   ],
+   "Gimme": [
+	  {
+		 "Number": 224,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 339,
+		 "BS_B_Str": 182,
+		 "BS_B_Spr": 125,
+		 "BS_B_Def": 163,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "K'mon-K'mon": [
+	  {
+		 "Number": 225,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 316,
+		 "BS_B_Str": 163,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 140,
+		 "BS_B_Spd": 124
+	  }
+   ],
+   "Yoodooit": [
+	  {
+		 "Number": 226,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 325,
+		 "BS_B_Str": 121,
+		 "BS_B_Spr": 173,
+		 "BS_B_Def": 153,
+		 "BS_B_Spd": 120
+	  }
+   ],
+   "Count Zapaway": [
+	  {
+		 "Number": 227,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 295,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 103,
+		 "BS_B_Def": 151,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "Tyrat": [
+	  {
+		 "Number": 228,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 316,
+		 "BS_B_Str": 180,
+		 "BS_B_Spr": 82,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Tengloom": [
+	  {
+		 "Number": 229,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 323,
+		 "BS_B_Str": 111,
+		 "BS_B_Spr": 169,
+		 "BS_B_Def": 128,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Nird": [
+	  {
+		 "Number": 230,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 366,
+		 "BS_B_Str": 101,
+		 "BS_B_Spr": 193,
+		 "BS_B_Def": 119,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Snobetty": [
+	  {
+		 "Number": 231,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 342,
+		 "BS_B_Str": 125,
+		 "BS_B_Spr": 187,
+		 "BS_B_Def": 146,
+		 "BS_B_Spd": 161
+	  }
+   ],
+   "Slimamander": [
+	  {
+		 "Number": 232,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 343,
+		 "BS_B_Str": 201,
+		 "BS_B_Spr": 152,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 145
+	  },
+	  {
+		 "Number": 396,
+		 "BS_A_HP": 1500,
+		 "BS_A_Str": 77,
+		 "BS_A_Spr": 70,
+		 "BS_A_Def": 0,
+		 "BS_A_Spd": 40,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Dracunyan": [
+	  {
+		 "Number": 233,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 19,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 328,
+		 "BS_B_Str": 200,
+		 "BS_B_Spr": 138,
+		 "BS_B_Def": 117,
+		 "BS_B_Spd": 192
+	  }
+   ],
+   "Negasus": [
+	  {
+		 "Number": 234,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 343,
+		 "BS_B_Str": 118,
+		 "BS_B_Spr": 202,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 199
+	  }
+   ],
+   "Neighfarious": [
+	  {
+		 "Number": 235,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 6,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 365,
+		 "BS_B_Str": 202,
+		 "BS_B_Spr": 124,
+		 "BS_B_Def": 199,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Timidevil": [
+	  {
+		 "Number": 236,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 36,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 35,
+		 "BS_B_HP": 322,
+		 "BS_B_Str": 212,
+		 "BS_B_Spr": 144,
+		 "BS_B_Def": 158,
+		 "BS_B_Spd": 209
+	  }
+   ],
+   "Beelzebold": [
+	  {
+		 "Number": 237,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 37,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 359,
+		 "BS_B_Str": 213,
+		 "BS_B_Spr": 158,
+		 "BS_B_Def": 172,
+		 "BS_B_Spd": 184
+	  }
+   ],
+   "Count Cavity": [
+	  {
+		 "Number": 238,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 402,
+		 "BS_B_Str": 177,
+		 "BS_B_Spr": 203,
+		 "BS_B_Def": 125,
+		 "BS_B_Spd": 197
+	  }
+   ],
+   "Eyesoar": [
+	  {
+		 "Number": 239,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 356,
+		 "BS_B_Str": 192,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 169,
+		 "BS_B_Spd": 131
+	  }
+   ],
+   "Eyellure": [
+	  {
+		 "Number": 240,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 403,
+		 "BS_B_Str": 176,
+		 "BS_B_Spr": 210,
+		 "BS_B_Def": 181,
+		 "BS_B_Spd": 136
+	  }
+   ],
+   "Greesel": [
+	  {
+		 "Number": 241,
+		 "BS_A_HP": 53,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 32,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 397,
+		 "BS_B_Str": 137,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 165,
+		 "BS_B_Spd": 170
+	  }
+   ],
+   "Awevil": [
+	  {
+		 "Number": 242,
+		 "BS_A_HP": 49,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 421,
+		 "BS_B_Str": 141,
+		 "BS_B_Spr": 205,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 195
+	  }
+   ],
+   "Wobblewok": [
+	  {
+		 "Number": 243,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 397,
+		 "BS_B_Str": 194,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 158,
+		 "BS_B_Spd": 160
+	  },
+	  {
+		 "Number": 414,
+		 "BS_A_HP": 5000,
+		 "BS_A_Str": 195,
+		 "BS_A_Spr": 195,
+		 "BS_A_Def": 141,
+		 "BS_A_Spd": 145,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Coughkoff": [
+	  {
+		 "Number": 244,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 348,
+		 "BS_B_Str": 145,
+		 "BS_B_Spr": 48,
+		 "BS_B_Def": 120,
+		 "BS_B_Spd": 106
+	  }
+   ],
+   "Hurchin": [
+	  {
+		 "Number": 245,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 347,
+		 "BS_B_Str": 55,
+		 "BS_B_Spr": 152,
+		 "BS_B_Def": 153,
+		 "BS_B_Spd": 123
+	  }
+   ],
+   "Droplette": [
+	  {
+		 "Number": 246,
+		 "BS_A_HP": 26,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 234,
+		 "BS_B_Str": 81,
+		 "BS_B_Spr": 173,
+		 "BS_B_Def": 88,
+		 "BS_B_Spd": 179
+	  }
+   ],
+   "Drizzle": [
+	  {
+		 "Number": 247,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 346,
+		 "BS_B_Str": 106,
+		 "BS_B_Spr": 204,
+		 "BS_B_Def": 141,
+		 "BS_B_Spd": 148
+	  }
+   ],
+   "Slush": [
+	  {
+		 "Number": 248,
+		 "BS_A_HP": 26,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 259,
+		 "BS_B_Str": 62,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 153
+	  }
+   ],
+   "Alhail": [
+	  {
+		 "Number": 249,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 367,
+		 "BS_B_Str": 76,
+		 "BS_B_Spr": 166,
+		 "BS_B_Def": 195,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Gush": [
+	  {
+		 "Number": 250,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 351,
+		 "BS_B_Str": 53,
+		 "BS_B_Spr": 185,
+		 "BS_B_Def": 109,
+		 "BS_B_Spd": 140
+	  }
+   ],
+   "Peckpocket": [
+	  {
+		 "Number": 251,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 274,
+		 "BS_B_Str": 152,
+		 "BS_B_Spr": 95,
+		 "BS_B_Def": 126,
+		 "BS_B_Spd": 111
+	  }
+   ],
+   "Robbinyu": [
+	  {
+		 "Number": 252,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 341,
+		 "BS_B_Str": 193,
+		 "BS_B_Spr": 122,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Rockabelly": [
+	  {
+		 "Number": 253,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 310,
+		 "BS_B_Str": 96,
+		 "BS_B_Spr": 140,
+		 "BS_B_Def": 147,
+		 "BS_B_Spd": 123
+	  }
+   ],
+   "Squeeky": [
+	  {
+		 "Number": 254,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 276,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 103,
+		 "BS_B_Def": 78,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Rawry": [
+	  {
+		 "Number": 255,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 346,
+		 "BS_B_Str": 183,
+		 "BS_B_Spr": 116,
+		 "BS_B_Def": 97,
+		 "BS_B_Spd": 206
+	  }
+   ],
+   "Buhu": [
+	  {
+		 "Number": 256,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 287,
+		 "BS_B_Str": 95,
+		 "BS_B_Spr": 141,
+		 "BS_B_Def": 107,
+		 "BS_B_Spd": 124
+	  }
+   ],
+   "Flumpy": [
+	  {
+		 "Number": 257,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 327,
+		 "BS_B_Str": 116,
+		 "BS_B_Spr": 164,
+		 "BS_B_Def": 119,
+		 "BS_B_Spd": 152
+	  }
+   ],
+   "Skreek": [
+	  {
+		 "Number": 258,
+		 "BS_A_HP": 54,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 375,
+		 "BS_B_Str": 189,
+		 "BS_B_Spr": 173,
+		 "BS_B_Def": 124,
+		 "BS_B_Spd": 177
+	  }
+   ],
+   "Manjimutt": [
+	  {
+		 "Number": 259,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 273,
+		 "BS_B_Str": 142,
+		 "BS_B_Spr": 114,
+		 "BS_B_Def": 94,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Multimutt": [
+	  {
+		 "Number": 260,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 25,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 23,
+		 "BS_B_HP": 351,
+		 "BS_B_Str": 200,
+		 "BS_B_Spr": 137,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Sir Berus": [
+	  {
+		 "Number": 261,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 379,
+		 "BS_B_Str": 135,
+		 "BS_B_Spr": 197,
+		 "BS_B_Def": 144,
+		 "BS_B_Spd": 171
+	  }
+   ],
+   "Furgus": [
+	  {
+		 "Number": 262,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 4,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 267,
+		 "BS_B_Str": 80,
+		 "BS_B_Spr": 168,
+		 "BS_B_Def": 68,
+		 "BS_B_Spd": 165
+	  }
+   ],
+   "Furdinand": [
+	  {
+		 "Number": 263,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 359,
+		 "BS_B_Str": 126,
+		 "BS_B_Spr": 192,
+		 "BS_B_Def": 152,
+		 "BS_B_Spd": 188
+	  }
+   ],
+   "Nosirs": [
+	  {
+		 "Number": 264,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 290,
+		 "BS_B_Str": 155,
+		 "BS_B_Spr": 163,
+		 "BS_B_Def": 89,
+		 "BS_B_Spd": 132
+	  }
+   ],
+   "Dismarelda": [
+	  {
+		 "Number": 265,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 323,
+		 "BS_B_Str": 91,
+		 "BS_B_Spr": 155,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 120
+	  }
+   ],
+   "Chatalie": [
+	  {
+		 "Number": 266,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 312,
+		 "BS_B_Str": 121,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 103,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Nagatha": [
+	  {
+		 "Number": 267,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 342,
+		 "BS_B_Str": 180,
+		 "BS_B_Spr": 98,
+		 "BS_B_Def": 128,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Papa Windbag": [
+	  {
+		 "Number": 268,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 331,
+		 "BS_B_Str": 126,
+		 "BS_B_Spr": 177,
+		 "BS_B_Def": 104,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Ben Tover": [
+	  {
+		 "Number": 269,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 304,
+		 "BS_B_Str": 136,
+		 "BS_B_Spr": 165,
+		 "BS_B_Def": 113,
+		 "BS_B_Spd": 178
+	  }
+   ],
+   "Cheeksqueek": [
+	  {
+		 "Number": 270,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 313,
+		 "BS_B_Str": 157,
+		 "BS_B_Spr": 133,
+		 "BS_B_Def": 112,
+		 "BS_B_Spd": 165
+	  }
+   ],
+   "Cuttincheez": [
+	  {
+		 "Number": 271,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 19,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 353,
+		 "BS_B_Str": 150,
+		 "BS_B_Spr": 188,
+		 "BS_B_Def": 141,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "Toiletta": [
+	  {
+		 "Number": 272,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 310,
+		 "BS_B_Str": 109,
+		 "BS_B_Spr": 170,
+		 "BS_B_Def": 139,
+		 "BS_B_Spd": 167
+	  }
+   ],
+   "Foiletta": [
+	  {
+		 "Number": 273,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 345,
+		 "BS_B_Str": 136,
+		 "BS_B_Spr": 204,
+		 "BS_B_Def": 164,
+		 "BS_B_Spd": 179
+	  }
+   ],
+   "Sproink": [
+	  {
+		 "Number": 274,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 335,
+		 "BS_B_Str": 151,
+		 "BS_B_Spr": 182,
+		 "BS_B_Def": 163,
+		 "BS_B_Spd": 144
+	  },
+	  {
+		 "Number": 398,
+		 "BS_A_HP": 2100,
+		 "BS_A_Str": 77,
+		 "BS_A_Spr": 72,
+		 "BS_A_Def": 130,
+		 "BS_A_Spd": 83,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Compunzer": [
+	  {
+		 "Number": 275,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 352,
+		 "BS_B_Str": 140,
+		 "BS_B_Spr": 185,
+		 "BS_B_Def": 158,
+		 "BS_B_Spd": 182
+	  }
+   ],
+   "Lamedian": [
+	  {
+		 "Number": 276,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 387,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 139,
+		 "BS_B_Def": 131,
+		 "BS_B_Spd": 174
+	  }
+   ],
+   "Grumples": [
+	  {
+		 "Number": 277,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 321,
+		 "BS_B_Str": 110,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 121,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Everfore": [
+	  {
+		 "Number": 278,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 377,
+		 "BS_B_Str": 141,
+		 "BS_B_Spr": 207,
+		 "BS_B_Def": 152,
+		 "BS_B_Spd": 198
+	  }
+   ],
+   "Eterna": [
+	  {
+		 "Number": 279,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 413,
+		 "BS_B_Str": 170,
+		 "BS_B_Spr": 199,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 191
+	  }
+   ],
+   "Insomni": [
+	  {
+		 "Number": 280,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 147,
+		 "BS_B_Spr": 184,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 189
+	  }
+   ],
+   "Sandi": [
+	  {
+		 "Number": 281,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 421,
+		 "BS_B_Str": 138,
+		 "BS_B_Spr": 199,
+		 "BS_B_Def": 146,
+		 "BS_B_Spd": 204
+	  }
+   ],
+   "Arachnus": [
+	  {
+		 "Number": 282,
+		 "BS_A_HP": 62,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 52,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 381,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 217,
+		 "BS_B_Def": 160,
+		 "BS_B_Spd": 189
+	  }
+   ],
+   "Arachnia": [
+	  {
+		 "Number": 283,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 388,
+		 "BS_B_Str": 207,
+		 "BS_B_Spr": 154,
+		 "BS_B_Def": 153,
+		 "BS_B_Spd": 202
+	  }
+   ],
+   "Cricky": [
+	  {
+		 "Number": 284,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 4,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 300,
+		 "BS_B_Str": 78,
+		 "BS_B_Spr": 152,
+		 "BS_B_Def": 85,
+		 "BS_B_Spd": 149
+	  }
+   ],
+   "Noko": [
+	  {
+		 "Number": 285,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 27,
+		 "BS_B_HP": 299,
+		 "BS_B_Str": 57,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 60,
+		 "BS_B_Spd": 196
+	  }
+   ],
+   "Bloominoko": [
+	  {
+		 "Number": 286,
+		 "BS_A_HP": 51,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 40,
+		 "BS_B_HP": 377,
+		 "BS_B_Str": 121,
+		 "BS_B_Spr": 200,
+		 "BS_B_Def": 116,
+		 "BS_B_Spd": 221
+	  }
+   ],
+   "Pandanoko": [
+	  {
+		 "Number": 287,
+		 "BS_A_HP": 52,
+		 "BS_A_Str": 24,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 21,
+		 "BS_A_Spd": 23,
+		 "BS_B_HP": 348,
+		 "BS_B_Str": 202,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 150,
+		 "BS_B_Spd": 197
+	  }
+   ],
+   "Snaggly": [
+	  {
+		 "Number": 288,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 287,
+		 "BS_B_Str": 131,
+		 "BS_B_Spr": 98,
+		 "BS_B_Def": 102,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Whinona": [
+	  {
+		 "Number": 289,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 366,
+		 "BS_B_Str": 176,
+		 "BS_B_Spr": 168,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 172
+	  }
+   ],
+   "Heheheel": [
+	  {
+		 "Number": 290,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 301,
+		 "BS_B_Str": 150,
+		 "BS_B_Spr": 104,
+		 "BS_B_Def": 122,
+		 "BS_B_Spd": 116
+	  }
+   ],
+   "Croonger": [
+	  {
+		 "Number": 291,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 312,
+		 "BS_B_Str": 158,
+		 "BS_B_Spr": 152,
+		 "BS_B_Def": 127,
+		 "BS_B_Spd": 133
+	  }
+   ],
+   "Urnaconda": [
+	  {
+		 "Number": 292,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 336,
+		 "BS_B_Str": 176,
+		 "BS_B_Spr": 106,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 121
+	  }
+   ],
+   "Fishpicable": [
+	  {
+		 "Number": 293,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 317,
+		 "BS_B_Str": 130,
+		 "BS_B_Spr": 137,
+		 "BS_B_Def": 129,
+		 "BS_B_Spd": 108
+	  }
+   ],
+   "Rageon": [
+	  {
+		 "Number": 294,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 351,
+		 "BS_B_Str": 153,
+		 "BS_B_Spr": 179,
+		 "BS_B_Def": 152,
+		 "BS_B_Spd": 126
+	  }
+   ],
+   "Tunatic": [
+	  {
+		 "Number": 295,
+		 "BS_A_HP": 55,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 398,
+		 "BS_B_Str": 204,
+		 "BS_B_Spr": 138,
+		 "BS_B_Def": 170,
+		 "BS_B_Spd": 126
+	  }
+   ],
+   "Flushback": [
+	  {
+		 "Number": 296,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 294,
+		 "BS_B_Str": 70,
+		 "BS_B_Spr": 152,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 118
+	  }
+   ],
+   "Vacuumory": [
+	  {
+		 "Number": 297,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 364,
+		 "BS_B_Str": 141,
+		 "BS_B_Spr": 200,
+		 "BS_B_Def": 182,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Irewig": [
+	  {
+		 "Number": 298,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 319,
+		 "BS_B_Str": 171,
+		 "BS_B_Spr": 83,
+		 "BS_B_Def": 101,
+		 "BS_B_Spd": 156
+	  }
+   ],
+   "Firewig": [
+	  {
+		 "Number": 299,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 434,
+		 "BS_B_Str": 214,
+		 "BS_B_Spr": 123,
+		 "BS_B_Def": 86,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "Draggie": [
+	  {
+		 "Number": 300,
+		 "BS_A_HP": 32,
+		 "BS_A_Str": 5,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 6,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 315,
+		 "BS_B_Str": 102,
+		 "BS_B_Spr": 148,
+		 "BS_B_Def": 117,
+		 "BS_B_Spd": 139
+	  }
+   ],
+   "Dragon Lord": [
+	  {
+		 "Number": 301,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 407,
+		 "BS_B_Str": 154,
+		 "BS_B_Spr": 202,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 176
+	  }
+   ],
+   "Azure Dragon": [
+	  {
+		 "Number": 302,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 433,
+		 "BS_B_Str": 193,
+		 "BS_B_Spr": 173,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Mermaidyn": [
+	  {
+		 "Number": 303,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 277,
+		 "BS_B_Str": 100,
+		 "BS_B_Spr": 153,
+		 "BS_B_Def": 97,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Mermadonna": [
+	  {
+		 "Number": 304,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 372,
+		 "BS_B_Str": 156,
+		 "BS_B_Spr": 213,
+		 "BS_B_Def": 158,
+		 "BS_B_Spd": 183
+	  }
+   ],
+   "Mermother": [
+	  {
+		 "Number": 305,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 25,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 17,
+		 "BS_B_HP": 382,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 221,
+		 "BS_B_Def": 179,
+		 "BS_B_Spd": 177
+	  }
+   ],
+   "Lady Longnek": [
+	  {
+		 "Number": 306,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 342,
+		 "BS_B_Str": 153,
+		 "BS_B_Spr": 126,
+		 "BS_B_Def": 128,
+		 "BS_B_Spd": 149
+	  }
+   ],
+   "Daiz": [
+	  {
+		 "Number": 307,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 1,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 50,
+		 "BS_B_HP": 347,
+		 "BS_B_Str": 43,
+		 "BS_B_Spr": 167,
+		 "BS_B_Def": 142,
+		 "BS_B_Spd": 207
+	  }
+   ],
+   "Confuze": [
+	  {
+		 "Number": 308,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 331,
+		 "BS_B_Str": 141,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 124,
+		 "BS_B_Spd": 172
+	  }
+   ],
+   "Chummer": [
+	  {
+		 "Number": 309,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 6,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 362,
+		 "BS_B_Str": 157,
+		 "BS_B_Spr": 105,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 142
+	  }
+   ],
+   "Shrook": [
+	  {
+		 "Number": 310,
+		 "BS_A_HP": 50,
+		 "BS_A_Str": 19,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 408,
+		 "BS_B_Str": 181,
+		 "BS_B_Spr": 87,
+		 "BS_B_Def": 161,
+		 "BS_B_Spd": 123
+	  }
+   ],
+   "Spenp": [
+	  {
+		 "Number": 311,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 334,
+		 "BS_B_Str": 135,
+		 "BS_B_Spr": 122,
+		 "BS_B_Def": 188,
+		 "BS_B_Spd": 119
+	  }
+   ],
+   "Almi": [
+	  {
+		 "Number": 312,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 351,
+		 "BS_B_Str": 126,
+		 "BS_B_Spr": 175,
+		 "BS_B_Def": 199,
+		 "BS_B_Spd": 116
+	  }
+   ],
+   "Babblong": [
+	  {
+		 "Number": 313,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 347,
+		 "BS_B_Str": 152,
+		 "BS_B_Spr": 96,
+		 "BS_B_Def": 140,
+		 "BS_B_Spd": 147
+	  }
+   ],
+   "Bananose": [
+	  {
+		 "Number": 314,
+		 "BS_A_HP": 54,
+		 "BS_A_Str": 27,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 26,
+		 "BS_B_HP": 373,
+		 "BS_B_Str": 191,
+		 "BS_B_Spr": 138,
+		 "BS_B_Def": 134,
+		 "BS_B_Spd": 184
+	  }
+   ],
+   "Draaagin": [
+	  {
+		 "Number": 315,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 327,
+		 "BS_B_Str": 158,
+		 "BS_B_Spr": 192,
+		 "BS_B_Def": 167,
+		 "BS_B_Spd": 126
+	  }
+   ],
+   "SV Snaggerjag": [
+	  {
+		 "Number": 316,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 337,
+		 "BS_B_Str": 139,
+		 "BS_B_Spr": 201,
+		 "BS_B_Def": 135,
+		 "BS_B_Spd": 163
+	  },
+	  {
+		 "Number": 400,
+		 "BS_A_HP": 2400,
+		 "BS_A_Str": 73,
+		 "BS_A_Spr": 63,
+		 "BS_A_Def": 73,
+		 "BS_A_Spd": 68,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Copperled": [
+	  {
+		 "Number": 317,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 18,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 143,
+		 "BS_B_Spr": 119,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 172
+	  }
+   ],
+   "Cynake": [
+	  {
+		 "Number": 318,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 13,
+		 "BS_B_HP": 357,
+		 "BS_B_Str": 115,
+		 "BS_B_Spr": 185,
+		 "BS_B_Def": 155,
+		 "BS_B_Spd": 138
+	  }
+   ],
+   "Slitheref": [
+	  {
+		 "Number": 319,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 384,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 149,
+		 "BS_B_Def": 170,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Venoct": [
+	  {
+		 "Number": 320,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 22,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 36,
+		 "BS_B_HP": 389,
+		 "BS_B_Str": 202,
+		 "BS_B_Spr": 172,
+		 "BS_B_Def": 130,
+		 "BS_B_Spd": 214
+	  }
+   ],
+   "Shad. Venoct": [
+	  {
+		 "Number": 321,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 409,
+		 "BS_B_Str": 165,
+		 "BS_B_Spr": 200,
+		 "BS_B_Def": 142,
+		 "BS_B_Spd": 191
+	  }
+   ],
+   "Shogunyan": [
+	  {
+		 "Number": 322,
+		 "BS_A_HP": 56,
+		 "BS_A_Str": 55,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 389,
+		 "BS_B_Str": 219,
+		 "BS_B_Spr": 135,
+		 "BS_B_Def": 143,
+		 "BS_B_Spd": 238
+	  }
+   ],
+   "Komashura": [
+	  {
+		 "Number": 323,
+		 "BS_A_HP": 57,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 54,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 406,
+		 "BS_B_Str": 131,
+		 "BS_B_Spr": 253,
+		 "BS_B_Def": 140,
+		 "BS_B_Spd": 192
+	  }
+   ],
+   "Gilgaros": [
+	  {
+		 "Number": 324,
+		 "BS_A_HP": 96,
+		 "BS_A_Str": 97,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 465,
+		 "BS_B_Str": 253,
+		 "BS_B_Spr": 78,
+		 "BS_B_Def": 198,
+		 "BS_B_Spd": 151
+	  }
+   ],
+   "Spoilerina": [
+	  {
+		 "Number": 325,
+		 "BS_A_HP": 53,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 55,
+		 "BS_B_HP": 388,
+		 "BS_B_Str": 146,
+		 "BS_B_Spr": 200,
+		 "BS_B_Def": 144,
+		 "BS_B_Spd": 246
+	  }
+   ],
+   "Elder Bloom": [
+	  {
+		 "Number": 326,
+		 "BS_A_HP": 57,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 50,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 363,
+		 "BS_B_Str": 138,
+		 "BS_B_Spr": 236,
+		 "BS_B_Def": 153,
+		 "BS_B_Spd": 233
+	  }
+   ],
+   "Poofessor": [
+	  {
+		 "Number": 327,
+		 "BS_A_HP": 56,
+		 "BS_A_Str": 50,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 424,
+		 "BS_B_Str": 201,
+		 "BS_B_Spr": 197,
+		 "BS_B_Def": 103,
+		 "BS_B_Spd": 198
+	  }
+   ],
+   "Dandoodle": [
+	  {
+		 "Number": 328,
+		 "BS_A_HP": 53,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 57,
+		 "BS_B_HP": 417,
+		 "BS_B_Str": 148,
+		 "BS_B_Spr": 211,
+		 "BS_B_Def": 126,
+		 "BS_B_Spd": 222
+	  }
+   ],
+   "Slurpent": [
+	  {
+		 "Number": 329,
+		 "BS_A_HP": 97,
+		 "BS_A_Str": 86,
+		 "BS_A_Spr": 87,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 56,
+		 "BS_B_HP": 488,
+		 "BS_B_Str": 178,
+		 "BS_B_Spr": 179,
+		 "BS_B_Def": 133,
+		 "BS_B_Spd": 167
+	  }
+   ],
+   "Sapphinyan": [
+	  {
+		 "Number": 330,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 21,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 357,
+		 "BS_B_Str": 127,
+		 "BS_B_Spr": 206,
+		 "BS_B_Def": 139,
+		 "BS_B_Spd": 186
+	  }
+   ],
+   "Emenyan": [
+	  {
+		 "Number": 331,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 20,
+		 "BS_A_Spr": 23,
+		 "BS_A_Def": 21,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 343,
+		 "BS_B_Str": 147,
+		 "BS_B_Spr": 189,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 188
+	  }
+   ],
+   "Rubinyan": [
+	  {
+		 "Number": 332,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 23,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 387,
+		 "BS_B_Str": 206,
+		 "BS_B_Spr": 131,
+		 "BS_B_Def": 132,
+		 "BS_B_Spd": 159
+	  }
+   ],
+   "Topanyan": [
+	  {
+		 "Number": 333,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 410,
+		 "BS_B_Str": 157,
+		 "BS_B_Spr": 101,
+		 "BS_B_Def": 206,
+		 "BS_B_Spd": 141
+	  }
+   ],
+   "Dianyan": [
+	  {
+		 "Number": 334,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 18,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 369,
+		 "BS_B_Str": 154,
+		 "BS_B_Spr": 145,
+		 "BS_B_Def": 141,
+		 "BS_B_Spd": 206
+	  }
+   ],
+   "Melonyan": [
+	  {
+		 "Number": 335,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 354,
+		 "BS_B_Str": 167,
+		 "BS_B_Spr": 168,
+		 "BS_B_Def": 161,
+		 "BS_B_Spd": 165
+	  }
+   ],
+   "Oranyan": [
+	  {
+		 "Number": 336,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 372,
+		 "BS_B_Str": 169,
+		 "BS_B_Spr": 132,
+		 "BS_B_Def": 106,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Kiwinyan": [
+	  {
+		 "Number": 337,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 334,
+		 "BS_B_Str": 192,
+		 "BS_B_Spr": 108,
+		 "BS_B_Def": 149,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Grapenyan": [
+	  {
+		 "Number": 338,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 328,
+		 "BS_B_Str": 115,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 170
+	  }
+   ],
+   "Strawbnyan": [
+	  {
+		 "Number": 339,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 17,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 337,
+		 "BS_B_Str": 145,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 110,
+		 "BS_B_Spd": 197
+	  }
+   ],
+   "Watermelnyan": [
+	  {
+		 "Number": 340,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 19,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 20,
+		 "BS_B_HP": 340,
+		 "BS_B_Str": 171,
+		 "BS_B_Spr": 143,
+		 "BS_B_Def": 206,
+		 "BS_B_Spd": 155
+	  }
+   ],
+   "Robokapp": [
+	  {
+		 "Number": 341,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 12,
+		 "BS_B_HP": 338,
+		 "BS_B_Str": 168,
+		 "BS_B_Spr": 182,
+		 "BS_B_Def": 178,
+		 "BS_B_Spd": 179
+	  }
+   ],
+   "Robokoma": [
+	  {
+		 "Number": 342,
+		 "BS_A_HP": 41,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 334,
+		 "BS_B_Str": 145,
+		 "BS_B_Spr": 203,
+		 "BS_B_Def": 170,
+		 "BS_B_Spd": 193
+	  }
+   ],
+   "Robogramps": [
+	  {
+		 "Number": 343,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 15,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 320,
+		 "BS_B_Str": 152,
+		 "BS_B_Spr": 176,
+		 "BS_B_Def": 165,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Robomutt": [
+	  {
+		 "Number": 344,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 340,
+		 "BS_B_Str": 172,
+		 "BS_B_Spr": 116,
+		 "BS_B_Def": 156,
+		 "BS_B_Spd": 191
+	  }
+   ],
+   "Robonoko": [
+	  {
+		 "Number": 345,
+		 "BS_A_HP": 38,
+		 "BS_A_Str": 8,
+		 "BS_A_Spr": 14,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 306,
+		 "BS_B_Str": 61,
+		 "BS_B_Spr": 183,
+		 "BS_B_Def": 206,
+		 "BS_B_Spd": 219
+	  }
+   ],
+   "Robodraggie": [
+	  {
+		 "Number": 346,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 18,
+		 "BS_A_Spd": 19,
+		 "BS_B_HP": 315,
+		 "BS_B_Str": 105,
+		 "BS_B_Spr": 199,
+		 "BS_B_Def": 176,
+		 "BS_B_Spd": 180
+	  }
+   ],
+   "Wondernyan": [
+	  {
+		 "Number": 347,
+		 "BS_A_HP": 47,
+		 "BS_A_Str": 25,
+		 "BS_A_Spr": 20,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 357,
+		 "BS_B_Str": 184,
+		 "BS_B_Spr": 146,
+		 "BS_B_Def": 115,
+		 "BS_B_Spd": 173
+	  }
+   ],
+   "Robonyan F": [
+	  {
+		 "Number": 348,
+		 "BS_A_HP": 82,
+		 "BS_A_Str": 30,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 24,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 390,
+		 "BS_B_Str": 201,
+		 "BS_B_Spr": 106,
+		 "BS_B_Def": 173,
+		 "BS_B_Spd": 145
+	  }
+   ],
+   "Sailornyan": [
+	  {
+		 "Number": 349,
+		 "BS_A_HP": 45,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 27,
+		 "BS_A_Def": 17,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 349,
+		 "BS_B_Str": 131,
+		 "BS_B_Spr": 199,
+		 "BS_B_Def": 147,
+		 "BS_B_Spd": 189
+	  }
+   ],
+   "Machonyan": [
+	  {
+		 "Number": 350,
+		 "BS_A_HP": 76,
+		 "BS_A_Str": 30,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 411,
+		 "BS_B_Str": 203,
+		 "BS_B_Spr": 101,
+		 "BS_B_Def": 136,
+		 "BS_B_Spd": 164
+	  }
+   ],
+   "Hovernyan": [
+	  {
+		 "Number": 351,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 16,
+		 "BS_A_Spd": 22,
+		 "BS_B_HP": 332,
+		 "BS_B_Str": 193,
+		 "BS_B_Spr": 136,
+		 "BS_B_Def": 101,
+		 "BS_B_Spd": 211
+	  }
+   ],
+   "Darknyan": [
+	  {
+		 "Number": 352,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 340,
+		 "BS_B_Str": 148,
+		 "BS_B_Spr": 203,
+		 "BS_B_Def": 154,
+		 "BS_B_Spd": 195
+	  }
+   ],
+   "Jibakoma": [
+	  {
+		 "Number": 353,
+		 "BS_A_HP": 46,
+		 "BS_A_Str": 29,
+		 "BS_A_Spr": 27,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 21,
+		 "BS_B_HP": 335,
+		 "BS_B_Str": 198,
+		 "BS_B_Spr": 186,
+		 "BS_B_Def": 120,
+		 "BS_B_Spd": 176
+	  }
+   ],
+   "Jetnyan": [
+	  {
+		 "Number": 354,
+		 "BS_A_HP": 43,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 28,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 26,
+		 "BS_B_HP": 346,
+		 "BS_B_Str": 104,
+		 "BS_B_Spr": 194,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 193
+	  }
+   ],
+   "Unfairy": [
+	  {
+		 "Number": 355,
+		 "BS_A_HP": 189,
+		 "BS_A_Str": 33,
+		 "BS_A_Spr": 62,
+		 "BS_A_Def": 125,
+		 "BS_A_Spd": 58,
+		 "BS_B_HP": 514,
+		 "BS_B_Str": 110,
+		 "BS_B_Spr": 193,
+		 "BS_B_Def": 247,
+		 "BS_B_Spd": 166
+	  }
+   ],
+   "Unkaind": [
+	  {
+		 "Number": 356,
+		 "BS_A_HP": 180,
+		 "BS_A_Str": 36,
+		 "BS_A_Spr": 74,
+		 "BS_A_Def": 31,
+		 "BS_A_Spd": 95,
+		 "BS_B_HP": 469,
+		 "BS_B_Str": 176,
+		 "BS_B_Spr": 183,
+		 "BS_B_Def": 152,
+		 "BS_B_Spd": 250
+	  }
+   ],
+   "Untidy": [
+	  {
+		 "Number": 357,
+		 "BS_A_HP": 215,
+		 "BS_A_Str": 125,
+		 "BS_A_Spr": 31,
+		 "BS_A_Def": 91,
+		 "BS_A_Spd": 25,
+		 "BS_B_HP": 522,
+		 "BS_B_Str": 254,
+		 "BS_B_Spr": 86,
+		 "BS_B_Def": 218,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Unpleasant": [
+	  {
+		 "Number": 358,
+		 "BS_A_HP": 177,
+		 "BS_A_Str": 32,
+		 "BS_A_Spr": 110,
+		 "BS_A_Def": 33,
+		 "BS_A_Spd": 65,
+		 "BS_B_HP": 472,
+		 "BS_B_Str": 144,
+		 "BS_B_Spr": 254,
+		 "BS_B_Def": 168,
+		 "BS_B_Spd": 192
+	  }
+   ],
+   "Unkeen": [
+	  {
+		 "Number": 359,
+		 "BS_A_HP": 188,
+		 "BS_A_Str": 105,
+		 "BS_A_Spr": 105,
+		 "BS_A_Def": 53,
+		 "BS_A_Spd": 93,
+		 "BS_B_HP": 461,
+		 "BS_B_Str": 215,
+		 "BS_B_Spr": 211,
+		 "BS_B_Def": 138,
+		 "BS_B_Spd": 205
+	  }
+   ],
+   "Grublappa": [
+	  {
+		 "Number": 360,
+		 "BS_A_HP": 89,
+		 "BS_A_Str": 59,
+		 "BS_A_Spr": 26,
+		 "BS_A_Def": 25,
+		 "BS_A_Spd": 47,
+		 "BS_B_HP": 384,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 118,
+		 "BS_B_Def": 104,
+		 "BS_B_Spd": 138
+	  }
+   ],
+   "Madmunch": [
+	  {
+		 "Number": 361,
+		 "BS_A_HP": 92,
+		 "BS_A_Str": 49,
+		 "BS_A_Spr": 27,
+		 "BS_A_Def": 66,
+		 "BS_A_Spd": 40,
+		 "BS_B_HP": 423,
+		 "BS_B_Str": 204,
+		 "BS_B_Spr": 112,
+		 "BS_B_Def": 123,
+		 "BS_B_Spd": 138
+	  }
+   ],
+   "Badsmella": [
+	  {
+		 "Number": 362,
+		 "BS_A_HP": 102,
+		 "BS_A_Str": 27,
+		 "BS_A_Spr": 74,
+		 "BS_A_Def": 28,
+		 "BS_A_Spd": 51,
+		 "BS_B_HP": 424,
+		 "BS_B_Str": 88,
+		 "BS_B_Spr": 217,
+		 "BS_B_Def": 102,
+		 "BS_B_Spd": 223
+	  }
+   ],
+   "Mad Kappa": [
+	  {
+		 "Number": 363,
+		 "BS_A_HP": 87,
+		 "BS_A_Str": 34,
+		 "BS_A_Spr": 76,
+		 "BS_A_Def": 28,
+		 "BS_A_Spd": 56,
+		 "BS_B_HP": 389,
+		 "BS_B_Str": 189,
+		 "BS_B_Spr": 203,
+		 "BS_B_Def": 64,
+		 "BS_B_Spd": 205
+	  }
+   ],
+   "Shamasol": [
+	  {
+		 "Number": 364,
+		 "BS_A_HP": 86,
+		 "BS_A_Str": 71,
+		 "BS_A_Spr": 24,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 45,
+		 "BS_B_HP": 344,
+		 "BS_B_Str": 158,
+		 "BS_B_Spr": 120,
+		 "BS_B_Def": 89,
+		 "BS_B_Spd": 149
+	  }
+   ],
+   "Gnomine": [
+	  {
+		 "Number": 365,
+		 "BS_A_HP": 88,
+		 "BS_A_Str": 25,
+		 "BS_A_Spr": 73,
+		 "BS_A_Def": 21,
+		 "BS_A_Spd": 47,
+		 "BS_B_HP": 359,
+		 "BS_B_Str": 151,
+		 "BS_B_Spr": 173,
+		 "BS_B_Def": 85,
+		 "BS_B_Spd": 162
+	  }
+   ],
+   "Defectabull": [
+	  {
+		 "Number": 366,
+		 "BS_A_HP": 85,
+		 "BS_A_Str": 70,
+		 "BS_A_Spr": 26,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 48,
+		 "BS_B_HP": 369,
+		 "BS_B_Str": 176,
+		 "BS_B_Spr": 154,
+		 "BS_B_Def": 78,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Feargus": [
+	  {
+		 "Number": 367,
+		 "BS_A_HP": 82,
+		 "BS_A_Str": 39,
+		 "BS_A_Spr": 36,
+		 "BS_A_Def": 22,
+		 "BS_A_Spd": 48,
+		 "BS_B_HP": 335,
+		 "BS_B_Str": 107,
+		 "BS_B_Spr": 189,
+		 "BS_B_Def": 52,
+		 "BS_B_Spd": 179
+	  }
+   ],
+   "Scaremaiden": [
+	  {
+		 "Number": 368,
+		 "BS_A_HP": 89,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 74,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 46,
+		 "BS_B_HP": 384,
+		 "BS_B_Str": 106,
+		 "BS_B_Spr": 189,
+		 "BS_B_Def": 63,
+		 "BS_B_Spd": 188
+	  }
+   ],
+   "Wrongnek": [
+	  {
+		 "Number": 369,
+		 "BS_A_HP": 92,
+		 "BS_A_Str": 61,
+		 "BS_A_Spr": 63,
+		 "BS_A_Def": 27,
+		 "BS_A_Spd": 50,
+		 "BS_B_HP": 397,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 168,
+		 "BS_B_Def": 91,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Grumpus Khan": [
+	  {
+		 "Number": 370,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 14,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 8,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 280,
+		 "BS_B_Str": 166,
+		 "BS_B_Spr": 99,
+		 "BS_B_Def": 110,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Groupus Khan": [
+	  {
+		 "Number": 371,
+		 "BS_A_HP": 42,
+		 "BS_A_Str": 16,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 336,
+		 "BS_B_Str": 186,
+		 "BS_B_Spr": 106,
+		 "BS_B_Def": 128,
+		 "BS_B_Spd": 189
+	  }
+   ],
+   "Slumberhog": [
+	  {
+		 "Number": 372,
+		 "BS_A_HP": 31,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 11,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 305,
+		 "BS_B_Str": 158,
+		 "BS_B_Spr": 147,
+		 "BS_B_Def": 114,
+		 "BS_B_Spd": 106
+	  }
+   ],
+   "Snortlehog": [
+	  {
+		 "Number": 373,
+		 "BS_A_HP": 39,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 17,
+		 "BS_A_Def": 20,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 343,
+		 "BS_B_Str": 177,
+		 "BS_B_Spr": 150,
+		 "BS_B_Def": 166,
+		 "BS_B_Spd": 109
+	  }
+   ],
+   "Panja Pupil": [
+	  {
+		 "Number": 374,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 10,
+		 "BS_A_Spr": 6,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 286,
+		 "BS_B_Str": 161,
+		 "BS_B_Spr": 82,
+		 "BS_B_Def": 104,
+		 "BS_B_Spd": 172
+	  }
+   ],
+   "Panja Pro": [
+	  {
+		 "Number": 375,
+		 "BS_A_HP": 40,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 14,
+		 "BS_B_HP": 331,
+		 "BS_B_Str": 182,
+		 "BS_B_Spr": 103,
+		 "BS_B_Def": 126,
+		 "BS_B_Spd": 203
+	  }
+   ],
+   "Samureel": [
+	  {
+		 "Number": 376,
+		 "BS_A_HP": 35,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 4,
+		 "BS_A_Def": 7,
+		 "BS_A_Spd": 6,
+		 "BS_B_HP": 319,
+		 "BS_B_Str": 175,
+		 "BS_B_Spr": 75,
+		 "BS_B_Def": 147,
+		 "BS_B_Spd": 114
+	  }
+   ],
+   "Time Keeler": [
+	  {
+		 "Number": 377,
+		 "BS_A_HP": 36,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 5,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 6,
+		 "BS_B_HP": 363,
+		 "BS_B_Str": 203,
+		 "BS_B_Spr": 87,
+		 "BS_B_Def": 194,
+		 "BS_B_Spd": 98
+	  }
+   ],
+   "Takoyakid": [
+	  {
+		 "Number": 378,
+		 "BS_A_HP": 33,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 8,
+		 "BS_A_Def": 11,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 320,
+		 "BS_B_Str": 169,
+		 "BS_B_Spr": 74,
+		 "BS_B_Def": 135,
+		 "BS_B_Spd": 107
+	  }
+   ],
+   "Takoyaking": [
+	  {
+		 "Number": 379,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 9,
+		 "BS_A_Def": 12,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 384,
+		 "BS_B_Str": 190,
+		 "BS_B_Spr": 78,
+		 "BS_B_Def": 163,
+		 "BS_B_Spd": 130
+	  }
+   ],
+   "Danke Sand": [
+	  {
+		 "Number": 380,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 7,
+		 "BS_B_HP": 325,
+		 "BS_B_Str": 73,
+		 "BS_B_Spr": 156,
+		 "BS_B_Def": 148,
+		 "BS_B_Spd": 103
+	  }
+   ],
+   "No Sandkyu": [
+	  {
+		 "Number": 381,
+		 "BS_A_HP": 44,
+		 "BS_A_Str": 9,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 10,
+		 "BS_B_HP": 378,
+		 "BS_B_Str": 90,
+		 "BS_B_Spr": 188,
+		 "BS_B_Def": 176,
+		 "BS_B_Spd": 113
+	  }
+   ],
+   "Sumodon": [
+	  {
+		 "Number": 382,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 11,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 13,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 317,
+		 "BS_B_Str": 158,
+		 "BS_B_Spr": 74,
+		 "BS_B_Def": 161,
+		 "BS_B_Spd": 95
+	  }
+   ],
+   "Yokozudon": [
+	  {
+		 "Number": 383,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 13,
+		 "BS_A_Spr": 7,
+		 "BS_A_Def": 15,
+		 "BS_A_Spd": 9,
+		 "BS_B_HP": 366,
+		 "BS_B_Str": 194,
+		 "BS_B_Spr": 89,
+		 "BS_B_Def": 182,
+		 "BS_B_Spd": 114
+	  }
+   ],
+   "Whateverest": [
+	  {
+		 "Number": 384,
+		 "BS_A_HP": 34,
+		 "BS_A_Str": 4,
+		 "BS_A_Spr": 12,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 5,
+		 "BS_B_HP": 326,
+		 "BS_B_Str": 54,
+		 "BS_B_Spr": 178,
+		 "BS_B_Def": 172,
+		 "BS_B_Spd": 75
+	  }
+   ],
+   "Whatuption": [
+	  {
+		 "Number": 385,
+		 "BS_A_HP": 48,
+		 "BS_A_Str": 6,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 8,
+		 "BS_B_HP": 368,
+		 "BS_B_Str": 62,
+		 "BS_B_Spr": 207,
+		 "BS_B_Def": 216,
+		 "BS_B_Spd": 92
+	  }
+   ],
+   "Happycane": [
+	  {
+		 "Number": 386,
+		 "BS_A_HP": 29,
+		 "BS_A_Str": 7,
+		 "BS_A_Spr": 13,
+		 "BS_A_Def": 9,
+		 "BS_A_Spd": 11,
+		 "BS_B_HP": 284,
+		 "BS_B_Str": 85,
+		 "BS_B_Spr": 163,
+		 "BS_B_Def": 123,
+		 "BS_B_Spd": 150
+	  }
+   ],
+   "Starrycane": [
+	  {
+		 "Number": 387,
+		 "BS_A_HP": 37,
+		 "BS_A_Str": 12,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 14,
+		 "BS_A_Spd": 16,
+		 "BS_B_HP": 338,
+		 "BS_B_Str": 102,
+		 "BS_B_Spr": 183,
+		 "BS_B_Def": 145,
+		 "BS_B_Spd": 177
+	  }
+   ],
+   "Gutsy Bones": [
+	  {
+		 "Number": 388,
+		 "BS_A_HP": 320,
+		 "BS_A_Str": 22,
+		 "BS_A_Spr": 27,
+		 "BS_A_Def": 120,
+		 "BS_A_Spd": 24,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Meganyan": [
+	  {
+		 "Number": 389,
+		 "BS_A_HP": 59,
+		 "BS_A_Str": 21,
+		 "BS_A_Spr": 18,
+		 "BS_A_Def": 19,
+		 "BS_A_Spd": 15,
+		 "BS_B_HP": 412,
+		 "BS_B_Str": 189,
+		 "BS_B_Spr": 165,
+		 "BS_B_Def": 173,
+		 "BS_B_Spd": 158
+	  }
+   ],
+   "Cap'n Crash": [
+	  {
+		 "Number": 390,
+		 "BS_A_HP": 1150,
+		 "BS_A_Str": 38,
+		 "BS_A_Spr": 16,
+		 "BS_A_Def": 38,
+		 "BS_A_Spd": 42,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Eyeclone": [
+	  {
+		 "Number": 391,
+		 "BS_A_HP": 1300,
+		 "BS_A_Str": 50,
+		 "BS_A_Spr": 50,
+		 "BS_A_Def": 65,
+		 "BS_A_Spd": 64,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Kin": [
+	  {
+		 "Number": 392,
+		 "BS_A_HP": 650,
+		 "BS_A_Str": 40,
+		 "BS_A_Spr": 54,
+		 "BS_A_Def": 36,
+		 "BS_A_Spd": 39,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Gin": [
+	  {
+		 "Number": 393,
+		 "BS_A_HP": 620,
+		 "BS_A_Str": 40,
+		 "BS_A_Spr": 50,
+		 "BS_A_Def": 50,
+		 "BS_A_Spd": 39,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Dame Dedtime": [
+	  {
+		 "Number": 394,
+		 "BS_A_HP": 3200,
+		 "BS_A_Str": 54,
+		 "BS_A_Spr": 108,
+		 "BS_A_Def": 73,
+		 "BS_A_Spd": 77,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Dame Demona": [
+	  {
+		 "Number": 395,
+		 "BS_A_HP": 3600,
+		 "BS_A_Str": 96,
+		 "BS_A_Spr": 105,
+		 "BS_A_Def": 85,
+		 "BS_A_Spd": 84,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Eyedra": [
+	  {
+		 "Number": 397,
+		 "BS_A_HP": 2700,
+		 "BS_A_Str": 15,
+		 "BS_A_Spr": 10,
+		 "BS_A_Def": 10,
+		 "BS_A_Spd": 120,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Hoggles": [
+	  {
+		 "Number": 399,
+		 "BS_A_HP": 4700,
+		 "BS_A_Str": 226,
+		 "BS_A_Spr": 300,
+		 "BS_A_Def": 197,
+		 "BS_A_Spd": 128,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Styx Mk.VI": [
+	  {
+		 "Number": 401,
+		 "BS_A_HP": 4500,
+		 "BS_A_Str": 215,
+		 "BS_A_Spr": 230,
+		 "BS_A_Def": 121,
+		 "BS_A_Spd": 150,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Massiface": [
+	  {
+		 "Number": 402,
+		 "BS_A_HP": 2300,
+		 "BS_A_Str": 186,
+		 "BS_A_Spr": 132,
+		 "BS_A_Def": 105,
+		 "BS_A_Spd": 72,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Clipso": [
+	  {
+		 "Number": 403,
+		 "BS_A_HP": 4900,
+		 "BS_A_Str": 256,
+		 "BS_A_Spr": 230,
+		 "BS_A_Def": 136,
+		 "BS_A_Spd": 168,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Phantasmurai": [
+	  {
+		 "Number": 404,
+		 "BS_A_HP": 1600,
+		 "BS_A_Str": 124,
+		 "BS_A_Spr": 117,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 71,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Spooklunk": [
+	  {
+		 "Number": 405,
+		 "BS_A_HP": 4000,
+		 "BS_A_Str": 265,
+		 "BS_A_Spr": 200,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 185,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Tarantutor": [
+	  {
+		 "Number": 406,
+		 "BS_A_HP": 890,
+		 "BS_A_Str": 74,
+		 "BS_A_Spr": 67,
+		 "BS_A_Def": 5,
+		 "BS_A_Spd": 71,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Dr. Maddiman": [
+	  {
+		 "Number": 407,
+		 "BS_A_HP": 3400,
+		 "BS_A_Str": 145,
+		 "BS_A_Spr": 141,
+		 "BS_A_Def": 91,
+		 "BS_A_Spd": 114,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Dr. Nogut": [
+	  {
+		 "Number": 408,
+		 "BS_A_HP": 4500,
+		 "BS_A_Str": 206,
+		 "BS_A_Spr": 210,
+		 "BS_A_Def": 134,
+		 "BS_A_Spd": 224,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "McKraken": [
+	  {
+		 "Number": 409,
+		 "BS_A_HP": 3800,
+		 "BS_A_Str": 141,
+		 "BS_A_Spr": 133,
+		 "BS_A_Def": 88,
+		 "BS_A_Spd": 102,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  },
+	  {
+		 "Number": 410,
+		 "BS_A_HP": 3800,
+		 "BS_A_Str": 145,
+		 "BS_A_Spr": 142,
+		 "BS_A_Def": 105,
+		 "BS_A_Spd": 108,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Squisker": [
+	  {
+		 "Number": 411,
+		 "BS_A_HP": 4600,
+		 "BS_A_Str": 210,
+		 "BS_A_Spr": 190,
+		 "BS_A_Def": 75,
+		 "BS_A_Spd": 186,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Duwheel": [
+	  {
+		 "Number": 412,
+		 "BS_A_HP": 1800,
+		 "BS_A_Str": 50,
+		 "BS_A_Spr": 52,
+		 "BS_A_Def": 125,
+		 "BS_A_Spd": 43,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Chirpster": [
+	  {
+		 "Number": 413,
+		 "BS_A_HP": 960,
+		 "BS_A_Str": 47,
+		 "BS_A_Spr": 54,
+		 "BS_A_Def": 48,
+		 "BS_A_Spd": 33,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Hans Full": [
+	  {
+		 "Number": 415,
+		 "BS_A_HP": 2400,
+		 "BS_A_Str": 81,
+		 "BS_A_Spr": 83,
+		 "BS_A_Def": 256,
+		 "BS_A_Spd": 96,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Eyephoon": [
+	  {
+		 "Number": 416,
+		 "BS_A_HP": 3200,
+		 "BS_A_Str": 220,
+		 "BS_A_Spr": 220,
+		 "BS_A_Def": 220,
+		 "BS_A_Spd": 155,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Mallice": [
+	  {
+		 "Number": 417,
+		 "BS_A_HP": 4200,
+		 "BS_A_Str": 140,
+		 "BS_A_Spr": 135,
+		 "BS_A_Def": 105,
+		 "BS_A_Spd": 135,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Cap'n Rex": [
+	  {
+		 "Number": 418,
+		 "BS_A_HP": 5200,
+		 "BS_A_Str": 255,
+		 "BS_A_Spr": 269,
+		 "BS_A_Def": 123,
+		 "BS_A_Spd": 181,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Flippa": [
+	  {
+		 "Number": 419,
+		 "BS_A_HP": 2900,
+		 "BS_A_Str": 100,
+		 "BS_A_Spr": 230,
+		 "BS_A_Def": 125,
+		 "BS_A_Spd": 151,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Floppa": [
+	  {
+		 "Number": 420,
+		 "BS_A_HP": 2400,
+		 "BS_A_Str": 75,
+		 "BS_A_Spr": 200,
+		 "BS_A_Def": 140,
+		 "BS_A_Spd": 166,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Dame Dredful": [
+	  {
+		 "Number": 421,
+		 "BS_A_HP": 5800,
+		 "BS_A_Str": 207,
+		 "BS_A_Spr": 245,
+		 "BS_A_Def": 148,
+		 "BS_A_Spd": 178,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Kat Kraydel": [
+	  {
+		 "Number": 422,
+		 "BS_A_HP": 9000,
+		 "BS_A_Str": 280,
+		 "BS_A_Spr": 260,
+		 "BS_A_Def": 600,
+		 "BS_A_Spd": 240,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Goldy Bones": [
+	  {
+		 "Number": 423,
+		 "BS_A_HP": 2200,
+		 "BS_A_Str": 265,
+		 "BS_A_Spr": 348,
+		 "BS_A_Def": 400,
+		 "BS_A_Spd": 138,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Glitzy Bones": [
+	  {
+		 "Number": 424,
+		 "BS_A_HP": 3300,
+		 "BS_A_Str": 404,
+		 "BS_A_Spr": 605,
+		 "BS_A_Def": 600,
+		 "BS_A_Spd": 209,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Hans Galore": [
+	  {
+		 "Number": 425,
+		 "BS_A_HP": 3900,
+		 "BS_A_Str": 208,
+		 "BS_A_Spr": 398,
+		 "BS_A_Def": 430,
+		 "BS_A_Spd": 163,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Retinado": [
+	  {
+		 "Number": 426,
+		 "BS_A_HP": 3500,
+		 "BS_A_Str": 235,
+		 "BS_A_Spr": 235,
+		 "BS_A_Def": 240,
+		 "BS_A_Spd": 167,
+		 "BS_B_HP": 0,
+		 "BS_B_Str": 0,
+		 "BS_B_Spr": 0,
+		 "BS_B_Def": 0,
+		 "BS_B_Spd": 0
+	  }
+   ],
+   "Gargaros": [
+	  {
+		 "Number": 427,
+		 "BS_A_HP": 999,
+		 "BS_A_Str": 100,
+		 "BS_A_Spr": 100,
+		 "BS_A_Def": 100,
+		 "BS_A_Spd": 100,
+		 "BS_B_HP": 999,
+		 "BS_B_Str": 100,
+		 "BS_B_Spr": 100,
+		 "BS_B_Def": 100,
+		 "BS_B_Spd": 100
+	  }
+   ],
+   "Ogralus": [
+	  {
+		 "Number": 428,
+		 "BS_A_HP": 999,
+		 "BS_A_Str": 100,
+		 "BS_A_Spr": 100,
+		 "BS_A_Def": 100,
+		 "BS_A_Spd": 100,
+		 "BS_B_HP": 999,
+		 "BS_B_Str": 100,
+		 "BS_B_Spr": 100,
+		 "BS_B_Def": 100,
+		 "BS_B_Spd": 100
+	  }
+   ],
+   "Orcanos": [
+	  {
+		 "Number": 429,
+		 "BS_A_HP": 999,
+		 "BS_A_Str": 100,
+		 "BS_A_Spr": 100,
+		 "BS_A_Def": 100,
+		 "BS_A_Spd": 100,
+		 "BS_B_HP": 999,
+		 "BS_B_Str": 100,
+		 "BS_B_Spr": 100,
+		 "BS_B_Def": 100,
+		 "BS_B_Spd": 100
+	  }
+   ]
+}

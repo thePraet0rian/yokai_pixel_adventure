@@ -13,6 +13,7 @@ enum {PLAYER = 0, ENEMY = 1}
 
 var team: int = PLAYER
 var update_arr: Array = [_update_player, _update_enemy]
+var dirty: bool = false
 
 
 func _ready() -> void:
@@ -39,7 +40,7 @@ func _update_enemy() -> void:
 
 
 #endregion 
-#region MOVEMENT #############################################################################
+#region MOVEMENT ##############################################################
 
 var progress: float = 0.0
 var input_direction: Vector2
@@ -82,7 +83,7 @@ func remove() -> void:
 	queue_free()
 
 #endregion
-#region BEHAVOIR #######################################################################
+#region PLAYER BEHAVOIR #######################################################
 
 var is_loafing: bool = false
 
@@ -92,6 +93,7 @@ func player_tick() -> void:
 	randomize()
 	var random_float: float = randf()
 	
+	print_rich("[color=green]BattleYokai Tick[/color]")
 	if random_float < 0.2:
 		player_behavoir()
 
@@ -141,6 +143,8 @@ func player_grouchy_behavoir() -> void:
 	global._on_yokai_action.emit(0, 0, "attack")
 
 
+#endregion
+#region ENEMEY BEHAVOIR #######################################################
 
 func enemy_tick() -> void:
 	randomize()
@@ -148,7 +152,6 @@ func enemy_tick() -> void:
 	
 	if random_float < 0.2:
 		pass
-		#print("enemy tick")
 
 #endregion
 

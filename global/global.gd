@@ -27,14 +27,15 @@ var current_time: int = 0
 var current_money: int = 1240
 var player_inventory: Array[Item] = [Item.new()]
 
-var player_yokai: Array[Yokai] = [Yokai.new(0, preload("res://yokai/jibanyan/jibanyan.png")), 
-	Yokai.new(0, preload("res://yokai/zerberker/zerberker_back.png")), 
-	Yokai.new(0, preload("res://yokai/dargon_lord/dargon_lord_back.png")), 
-	Yokai.new(0, preload("res://yokai/cadin/cadin.png")), 
-	Yokai.new(0, preload("res://yokai/peckpocket/peckpocket.png")),
-	Yokai.new(0, preload("res://yokai/jibanyan/jibanyan_back.png"))]
+@onready var player_yokai: Array[Yokai] = [
+	Yokai.new("Jibanyan", preload("res://yokai/jibanyan/jibanyan.png")), 
+	Yokai.new("Zerberker", preload("res://yokai/zerberker/zerberker_back.png")), 
+	Yokai.new("Dragon Lord", preload("res://yokai/dargon_lord/dargon_lord_back.png")), 
+	Yokai.new("Cadin", preload("res://yokai/cadin/cadin.png")), 
+	Yokai.new("Peckpocket", preload("res://yokai/peckpocket/peckpocket.png")),
+	Yokai.new("Jibanyan", preload("res://yokai/jibanyan/jibanyan_back.png"))
+]
 
-#endregion
 
 #region Classes #####################################################################
 
@@ -62,11 +63,11 @@ class Yokai:
 		LOAFER = 3,
 	}
 	
-	var yokai_name: String
 	var yokia_level: int
 	var yokai_xp: int
 	var rank: String = ""
 	
+	var yokai_name: String
 	var yokai_hp: int
 	var yokai_str: int
 	var yokai_spr: int
@@ -82,9 +83,15 @@ class Yokai:
 	var yokai_loafing: LOAFING = LOAFING.SERIOUS
 	
 	
-	func _init(_hp: int, _front_sprite: Resource) -> void:
+	func _init(name: String, _front_sprite: Resource) -> void:
 		
-		yokai_hp = _hp
+		yokai_name = name
+		yokai_hp = yokai_stats.data[name][0]["BS_A_HP"]
+		yokai_str = yokai_stats.data[name][0]["BS_A_Str"]
+		yokai_spr = yokai_stats.data[name][0]["BS_A_Spr"]
+		yokai_def = yokai_stats.data[name][0]["BS_A_Def"]
+		yokai_spd = yokai_stats.data[name][0]["BS_A_Spd"]
+		
 		front_sprite = _front_sprite
 	
 	
