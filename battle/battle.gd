@@ -12,28 +12,29 @@ var enemy_team_inst: Array[BattleYokai] = []
 var player_team_alive: Array[int] = [0, 0, 0, 0, 0, 0]
 var enemy_team_alive: Array[int] = [0, 0, 0]
 
+@onready var tick_timer: Timer = $tick_timer
 @onready var anim_player: AnimationPlayer = $anim_player
 @onready var ui_anim_player: AnimationPlayer = $ui/main_ui/ui_anim_player
 @onready var buttons_anim_player: AnimationPlayer = $buttons/buttons_anim_player
 
 
 func _ready() -> void:
-
+	
 	setup_players()
 	setup_enemys()
-
+	
 	global._on_yokai_action.connect(_on_yokai_action)
-
+	
 	anim_player.play("start")
 
 
 func setup_players() -> void:
-
+	
 	for i in range(0, 3):
-
+		
 		var BattleYokaiInst: BattleYokai = battle_yokai_scn.instantiate()
 		player_team_inst.append(BattleYokaiInst)
-
+		
 		BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
 		BattleYokaiInst.Yokai = player_yokai_arr[i]
 		BattleYokaiInst.update("player")
@@ -41,9 +42,9 @@ func setup_players() -> void:
 
 
 func setup_enemys() -> void:
-
+	
 	for i in range(0, 3):
-
+		
 		var BattleYokaiInst: Sprite2D = battle_yokai_scn.instantiate()
 		enemy_team_inst.append(BattleYokaiInst)
 
@@ -80,7 +81,12 @@ func _menue_input(event: InputEvent) -> void:
 
 var buttons_index: int = 0
 
-@onready var buttons: Array[Sprite2D] = [$buttons/purify, $buttons/soulimate, $buttons/target, $buttons/item]
+@onready var buttons: Array[Sprite2D] = [
+	$buttons/purify, 
+	$buttons/soulimate, 
+	$buttons/target, 
+	$buttons/item,
+]
 
 
 func _selecting_input(event: InputEvent) -> void:
@@ -329,12 +335,8 @@ func _on_yokai_action(team: int, yokai: int, action: String) -> void:
 func attack(team: int, yokai: int) -> void:
 
 	match team:
-
 		0:
 			var random_int: int = pick_alive()
-
-			if random_int == -1:
-				return
 
 			enemy_team_inst[random_int].Yokai.yokai_hp -= calc_damage(0, 0, 0)
 			enemy_team_inst[random_int].health_update()
@@ -363,25 +365,24 @@ func pick_alive() -> int:
 func calc_damage(yokai_str: int, yokai_def: int, power: int) -> int:
 
 	return 100
-
+	
 	#var crit: float = 1.0
 	#var guard: float = 1.0
-
+	
 	#return ((yokai_str / 2 - yokai_def / 4) + (power / 2)) * crit * guard
 
 
 @onready var win_screen: Node2D = $win_screen
-@onready var tick_timer: Timer = $tick_timer
 
 
 func update_battle() -> void:
-
+	
 	if pick_alive() == -1:
-
+		
 		await get_tree().create_timer(1).timeout
 		anim_player.play_backwards("start")
 		await anim_player.animation_finished
-
+		
 		win_screen.visible = true
 		tick_timer.stop()
 		current_game_state = GAME_STATES.WIN

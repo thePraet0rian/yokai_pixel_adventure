@@ -28,11 +28,16 @@ func update(team_str: String) -> void:
 	elif team_str == "enemy":
 		team = ENEMY
 	
+	await ready
 	update_arr[team].call()
 	
+
+@onready var ui: Sprite2D = $ui
+
 	
 func _update_player() -> void:
 	texture = Yokai.front_sprite
+	ui.visible = true
 	
 
 func _update_enemy() -> void:
@@ -88,7 +93,7 @@ func remove() -> void:
 var is_loafing: bool = false
 
 
-func player_tick() -> void:
+func player_tick() -> void: 
 	
 	randomize()
 	var random_float: float = randf()

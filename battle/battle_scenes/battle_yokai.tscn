@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0arumlvmxady"]
+[gd_scene load_steps=9 format=3 uid="uid://d0arumlvmxady"]
 
 [ext_resource type="Shader" path="res://titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://battle/battle_scenes/battle_yokai.gd" id="1_n8hpv"]
 [ext_resource type="Texture2D" uid="uid://covon1a5nmpmg" path="res://yokai/jibanyan/jibanyan.png" id="2_kqog4"]
+[ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://battle/battle_assets/ui/health_bar.png" id="4_d7a0h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubimd"]
 resource_local_to_scene = true
@@ -57,3 +58,8 @@ script = ExtResource("1_n8hpv")
 libraries = {
 "": SubResource("AnimationLibrary_py8ro")
 }
+
+[node name="ui" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 26)
+texture = ExtResource("4_d7a0h")
