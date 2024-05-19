@@ -137,9 +137,9 @@ func end() -> void:
 	queue_free()
 
 
-func _change_sub_game_state(buttons_index: int) -> void:
+func _change_sub_game_state(sub_buttons_index: int) -> void:
 
-	match buttons_index:
+	match sub_buttons_index:
 		0:
 			
 			for i in range(len(player_team_inst)):
@@ -250,8 +250,6 @@ func player_input() -> void:
 	else:
 		is_moving = false
 
-
-const player_yokai_scn: PackedScene = preload("res://battle/battle_scenes/player_yokai.tscn")
 
 @onready var players: Node2D = $players
 @onready var enemies: Node2D = $enemies

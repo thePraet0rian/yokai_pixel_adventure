@@ -1,9 +1,6 @@
 class_name BattleYokai extends Sprite2D
 
 
-#region SETUP #################################################################
-
-
 signal action()
 
 enum {PLAYER = 0, ENEMY = 1}
@@ -43,9 +40,6 @@ func _update_player() -> void:
 func _update_enemy() -> void:
 	texture = Yokai.front_sprite
 
-
-#endregion 
-#region MOVEMENT ##############################################################
 
 var progress: float = 0.0
 var input_direction: Vector2
@@ -87,8 +81,6 @@ func remove() -> void:
 	await get_tree().create_timer(.5).timeout
 	queue_free()
 
-#endregion
-#region PLAYER BEHAVOIR #######################################################
 
 var is_loafing: bool = false
 
@@ -148,17 +140,12 @@ func player_grouchy_behavoir() -> void:
 	global._on_yokai_action.emit(0, 0, "attack")
 
 
-#endregion
-#region ENEMEY BEHAVOIR #######################################################
-
 func enemy_tick() -> void:
 	randomize()
 	var random_float: float = randf()
 	
 	if random_float < 0.2:
 		pass
-
-#endregion
 
 
 func health_update() -> void:

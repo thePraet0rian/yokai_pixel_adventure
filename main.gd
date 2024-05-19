@@ -1,6 +1,5 @@
 class_name Main extends Node2D
 
-# #############################################################################
 
 func _ready() -> void:
 	
@@ -16,9 +15,9 @@ func _ready() -> void:
 	global._on_dialogue_end.connect(_on_dialogue_end)
 	global._on_menue_close.connect(_on_menue_close)
 
-# #############################################################################
 
 const BattleScene: PackedScene = preload("res://battle/battle.tscn")
+
 
 func _on_battle_started(enemy_yokai_arr: Array[global.Yokai]) -> void:
 	

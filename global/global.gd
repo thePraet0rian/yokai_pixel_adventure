@@ -1,6 +1,5 @@
 class_name Global extends Node
 
-#region Signals #####################################################################
 
 signal _on_battle_start()
 signal _on_battle_end()
@@ -19,9 +18,6 @@ signal _on_menue_close
 
 signal _on_yokai_action()
 
-#endregion
-
-#region Variables ###################################################################
 
 var current_time: int = 0
 var current_money: int = 1240
@@ -36,8 +32,6 @@ var player_inventory: Array[Item] = [Item.new()]
 	Yokai.new("Jibanyan", preload("res://yokai/jibanyan/jibanyan_back.png"))
 ]
 
-
-#region Classes #####################################################################
 
 class Yokai: 
 	
@@ -127,5 +121,3 @@ class Item:
 	
 	func _init() -> void:
 		pass
-
-#endregion

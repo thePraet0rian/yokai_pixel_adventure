@@ -16,17 +16,11 @@ func get_dialogue(npc_name: String, npc: String) -> void:
 	var data = JSON.parse_string(file.get_as_text())
 	text = data[npc_name][npc]
 	file.close()
-
-
-###############################################################################
-
+	
 
 func _ready() -> void:
 	
 	write_text()
-
-
-###############################################################################
 
 
 func write_text() -> void: 
