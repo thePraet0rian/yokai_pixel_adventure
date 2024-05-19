@@ -92,14 +92,12 @@ var buttons_index: int = 0
 func _selecting_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("move_left"):
-
 		if buttons_index != 0:
 			buttons_index -= 1
 		else:
 			buttons_index = 3
 
 	elif event.is_action_pressed("move_right"):
-
 		if buttons_index != 3:
 			buttons_index += 1
 		else:
@@ -119,10 +117,7 @@ func _selecting_input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("space"):
 
-		current_game_state = GAME_STATES.ACTION
-		tick_timer.stop()
-		current_sub_game_state = buttons_index as SUB_GAME_STATES
-		_change_sub_game_state()
+		_change_sub_game_state(buttons_index)
 
 
 @onready var overlay_rect: ColorRect = $ui/main_ui/ColorRect
@@ -142,22 +137,41 @@ func end() -> void:
 	queue_free()
 
 
-func _change_sub_game_state() -> void:
+func _change_sub_game_state(buttons_index: int) -> void:
 
-	match current_sub_game_state:
-
-		SUB_GAME_STATES.PURIFY:
-			purify.visible = true
-		SUB_GAME_STATES.SOULIMATE:
-			soulimate.visible = true
-		SUB_GAME_STATES.ITEM:
-			items.visible = true
-		SUB_GAME_STATES.TARGET:
+	match buttons_index:
+		0:
+			
+			for i in range(len(player_team_inst)):
+				if player_team_inst[i].dirty:
+					purify.visible = true
+			
+			return
+			
+		1:
+			
+			for i in range(len(player_team_inst)):
+				if player_team_inst[i].Yokai.yokai_soul:
+					soulimate.visible = true
+					current_game_state = GAME_STATES.ACTION
+					current_sub_game_state = SUB_GAME_STATES.SOULIMATE
+			return
+			
+		2:
+			
 			target.visible = true
+			current_game_state = GAME_STATES.ACTION
+			current_sub_game_state = SUB_GAME_STATES.TARGET
+			
+		3:
+			
+			items.visible = true
+			current_game_state = GAME_STATES.ACTION
+			current_sub_game_state = SUB_GAME_STATES.ITEM
 
 
 func _action_input(event: InputEvent) -> void:
-
+	
 	match current_sub_game_state:
 
 		SUB_GAME_STATES.PURIFY:
@@ -175,11 +189,18 @@ func _action_input(event: InputEvent) -> void:
 @onready var soulimate: Node2D = $ui/sub_ui/soulimate
 @onready var purify: Node2D = $ui/sub_ui/purify
 
+@onready var target_spr: Sprite2D = $ui/sub_ui/target/target
+
 var input_direction: Vector2 = Vector2.ZERO
+var target_vec: Vector2 = Vector2.ZERO
 
 
 func target_input(event: InputEvent) -> void:
 
+	target_vec.x = Input.get_axis("move_left", "move_right")
+	target_vec.y = Input.get_axis("move_up", "move_down")
+	target_vec = target_vec.normalized()
+	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.SELECTING
 		target.visible = false
@@ -296,6 +317,8 @@ func remove_yokai(yokai: int) -> void:
 
 func _physics_process(_delta: float) -> void:
 
+	target_spr.position += target_vec
+
 	if player_team_inst[2].progress == 0.0:
 		player_input()
 
@@ -386,7 +409,6 @@ func update_battle() -> void:
 		win_screen.visible = true
 		tick_timer.stop()
 		current_game_state = GAME_STATES.WIN
-
 
 
 

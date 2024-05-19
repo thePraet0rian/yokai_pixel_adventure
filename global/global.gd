@@ -67,6 +67,7 @@ class Yokai:
 	var yokai_xp: int
 	var rank: String = ""
 	
+	var yokai_soul: float = 1.0
 	var yokai_name: String
 	var yokai_hp: int
 	var yokai_str: int
