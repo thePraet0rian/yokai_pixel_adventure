@@ -1,5 +1,4 @@
-class_name Dialogue
-extends CanvasLayer
+class_name Dialogue extends CanvasLayer
 
 
 @onready var text_label: RichTextLabel = $text

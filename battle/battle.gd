@@ -279,11 +279,11 @@ func inst_yokai() -> Node2D:
 	return player_yokai_inst
 
 
-func move_left() -> void:
+func move_left() -> void: 
 
 	var player_yokai_inst: BattleYokai = inst_yokai()
-
 	player_yokai_inst.position = Vector2(264, 91)
+
 	player_team_inst.append(player_yokai_inst)
 
 	player_yokai_arr.append(player_yokai_arr[0])
