@@ -6,7 +6,8 @@ func _ready() -> void:
 	global._on_battle_start.connect(_on_battle_started)
 	global._on_battle_end.connect(_on_battle_end)
 	
-	global._on_room_changing.connect(_on_room_changing)
+	global._on_room_transition.connect(_on_room_transition)
+	
 	global._on_warp.connect(_on_warp)
 	global._on_save.connect(_on_save)
 	global._on_load.connect(_on_load)
@@ -35,14 +36,12 @@ func _on_battle_end() -> void:
 const room_02: PackedScene = preload("res://rooms/room_02.scn")
 
 
-func _on_room_changing(room: int) -> void:
+func _on_room_transition(room: int) -> void:
 	
-	match room:
-		
-		0:
-			get_tree().change_scene_to_packed(room_02)
-			queue_free()
-			#TODO: FIX THIS SHIT THANK YOU VERY MUCH
+	match room:		
+		1:
+			$rooms/room_01.queue_free()
+			$rooms.add_child(room_02.instantiate())
 
 
 func _on_warp(warp: int) -> void:
@@ -55,6 +54,7 @@ func _on_warp(warp: int) -> void:
 const save_file_arr: Array[String] = ["user://savefile_one.save", 
 	"user://savefile_two.save", 
 	"user://savefile_three.save"]
+
 
 var save_file_int: int 
 

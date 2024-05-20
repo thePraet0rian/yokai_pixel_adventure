@@ -1,11 +1,11 @@
 class_name Player extends CharacterBody2D
 
 
-var input_vec: Vector2 = Vector2.ZERO
-var speed: int = 70
-
 const debug_scn: PackedScene = preload("res://characters/player/debug.tscn")
 const inventory_scn: PackedScene = preload("res://characters/player/inventory.tscn")
+
+var input_vec: Vector2 = Vector2.ZERO
+var speed: int = 70
 
 
 func _input(event: InputEvent) -> void:
@@ -21,13 +21,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):
 		if npc_met:
 			npc_dialogue()
+		elif can_transition:
+			transition()
 
-	#TODO: scene transititon	
-	#if confirm_button.visible == true:
-		#
-		#if Input.is_action_just_pressed("space"):
-			#global._on_room_changing.emit(0)
-			#pass
 
 @onready var hurtbox: Area2D = $hurtbox
 @onready var ui_anim_player: AnimationPlayer = $player_ui/ui_anim_player
@@ -63,15 +59,15 @@ func _process(_delta: float) -> void:
 	
 	if previous_input_vec != Vector2.ZERO and input_vec == Vector2.ZERO:
 		show_objective()
-	
+	 
 	if input_vec == Vector2.LEFT:
-		hurtbox.rotation = PI/2
+		hurtbox.position = Vector2(-9, -4)
 	elif input_vec == Vector2.RIGHT:
-		hurtbox.rotation = -PI/2
+		hurtbox.position = Vector2(9, -4)
 	elif input_vec == Vector2.DOWN:
-		hurtbox.rotation = 0
+		hurtbox.position = Vector2.ZERO
 	elif input_vec == Vector2.UP:
-		hurtbox.rotation = -PI
+		hurtbox.position = Vector2(0, -8)
 	
 	velocity = input_vec.normalized() * speed
 	move_and_slide()
@@ -99,12 +95,23 @@ func npc_dialogue() -> void:
 var npc_met: bool = false
 var npc: CharacterBody2D
 
+var can_transition: bool = false
+var transition_target: int = 0
+
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
 	if "npc" in area.get_parent().name:
 		npc = area.get_parent()
 		npc_met = true
+	elif "transition" in area.name:
+		can_transition = true
+		transition_target = area.connected_transition_area
+
+
+func transition() -> void:
+	
+	global._on_room_transition.emit(transition_target)
 
 
 func _on_hurtbox_area_exited(area: Area2D) -> void:

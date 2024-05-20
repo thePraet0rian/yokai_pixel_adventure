@@ -6,7 +6,7 @@ signal action()
 enum {PLAYER = 0, ENEMY = 1}
 
 @onready var Yokai: global.Yokai
-@onready var parent: Battle #= get_node("..").get_node("..")
+@onready var parent: Battle = get_node("..").get_node("..")
 
 var team: int = PLAYER
 var update_arr: Array = [_update_player, _update_enemy]
@@ -33,12 +33,13 @@ func update(team_str: String) -> void:
 	
 func _update_player() -> void:
 	texture = Yokai.front_sprite
-	await ready
-	ui.visible = true
+	
 	
 
 func _update_enemy() -> void:
 	texture = Yokai.front_sprite
+	await ready
+	ui.visible = false
 
 
 var progress: float = 0.0

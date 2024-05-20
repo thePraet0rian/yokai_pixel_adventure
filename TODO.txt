@@ -1,0 +1,16 @@
+GENERALL:
+- [ ] Battle
+- [ ] Scene Transtition 
+- [ ] First Level (Tilemap)
+- [ ] Story
+
+
+BATTLE:
+- [ ] Targeting System (Pin)
+- [ ] Yokai Watch AI 
+- [ ] Items 
+- [ ] Soulimate
+- [ ] Behavoirs 
+- [ ] Purification
+
+

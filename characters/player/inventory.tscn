@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b58q5n1hvqs43"]
+[gd_scene load_steps=26 format=3 uid="uid://b58q5n1hvqs43"]
 
 [ext_resource type="Script" path="res://characters/player/inventory.gd" id="1_q2b6n"]
 [ext_resource type="Texture2D" uid="uid://645r0vjm7hvj" path="res://ui/assets/menue/top_bar.png" id="2_idn6n"]
@@ -11,6 +11,13 @@
 [ext_resource type="FontFile" uid="uid://dr2fylr683c1" path="res://dialogue/dialogue_assets/new_font.ttf" id="7_ag7fq"]
 [ext_resource type="Texture2D" uid="uid://mhhjalft6ppc" path="res://ui/assets/menue/settings_wheel.png" id="10_0t2jj"]
 [ext_resource type="Texture2D" uid="uid://ba6wumu6plc1y" path="res://ui/assets/menue/team_button.png" id="10_oe38n"]
+[ext_resource type="Texture2D" uid="uid://do5i55dam37i7" path="res://ui/assets/menue/buttons/inventory_button.png" id="10_yhrr0"]
+[ext_resource type="Texture2D" uid="uid://ccvoheswqw3cw" path="res://ui/assets/menue/buttons/diary_button.png" id="11_45kaa"]
+[ext_resource type="Texture2D" uid="uid://do0vvx8qbr07a" path="res://ui/assets/menue/buttons/medals_button.png" id="12_0cj4t"]
+[ext_resource type="Texture2D" uid="uid://ck5dxsdgbtqcc" path="res://ui/assets/menue/top_bars/inventory_top_bar.png" id="15_8st2f"]
+[ext_resource type="Texture2D" uid="uid://kibnmaf61yf5" path="res://ui/assets/menue/top_bars/bar.png" id="16_vj4hn"]
+[ext_resource type="Texture2D" uid="uid://vbeyuqff8xvw" path="res://ui/assets/menue/top_bars/select.png" id="17_h32vq"]
+[ext_resource type="Texture2D" uid="uid://w1sriqagsv7w" path="res://ui/assets/menue/top_bars/selection.png" id="18_24875"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bkul1"]
 shader = ExtResource("2_kouq0")
@@ -28,7 +35,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("top_bar2:frame")
+tracks/0/path = NodePath("main/button_back:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,7 +47,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("top_bar3:frame")
+tracks/1/path = NodePath("main/button_enter:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -83,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("top_bar2:frame")
+tracks/1/path = NodePath("main/button_back:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -112,7 +119,7 @@ step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("top_bar3:frame")
+tracks/0/path = NodePath("main/button_enter:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -150,13 +157,15 @@ position = Vector2(120, 67.5)
 texture = ExtResource("4_3iyjv")
 metadata/_edit_lock_ = true
 
-[node name="top_bar" type="Sprite2D" parent="."]
+[node name="main" type="Node2D" parent="."]
+
+[node name="top_bar" type="Sprite2D" parent="main"]
 material = SubResource("ShaderMaterial_v022q")
 position = Vector2(120, 8)
 texture = ExtResource("2_idn6n")
 metadata/_edit_lock_ = true
 
-[node name="money" type="Label" parent="top_bar"]
+[node name="money" type="Label" parent="main/top_bar"]
 offset_left = 49.0
 offset_top = -2.0
 offset_right = 118.0
@@ -168,64 +177,130 @@ text = "500"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="top_bar2" type="Sprite2D" parent="."]
+[node name="button_back" type="Sprite2D" parent="main"]
 position = Vector2(36, 127)
 texture = ExtResource("4_0x44w")
 hframes = 2
 
-[node name="top_bar3" type="Sprite2D" parent="."]
+[node name="button_enter" type="Sprite2D" parent="main"]
 position = Vector2(204, 127)
 texture = ExtResource("7_51f4f")
 hframes = 2
 
-[node name="medals" type="Node2D" parent="."]
+[node name="anim_player" type="AnimationPlayer" parent="main"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_5nvia")
+}
 
-[node name="buttons" type="Node2D" parent="."]
+[node name="buttons" type="Node2D" parent="main"]
 position = Vector2(11, 0)
-metadata/_edit_lock_ = true
 
-[node name="button_0" type="Sprite2D" parent="buttons"]
+[node name="button_0" type="Sprite2D" parent="main/buttons"]
 position = Vector2(32, 48)
-texture = ExtResource("10_0t2jj")
+texture = ExtResource("10_yhrr0")
 hframes = 2
 frame = 1
 
-[node name="button_1" type="Sprite2D" parent="buttons"]
+[node name="button_1" type="Sprite2D" parent="main/buttons"]
 position = Vector2(80, 48)
-texture = ExtResource("10_0t2jj")
+texture = ExtResource("11_45kaa")
 hframes = 2
 
-[node name="button_2" type="Sprite2D" parent="buttons"]
+[node name="button_2" type="Sprite2D" parent="main/buttons"]
 position = Vector2(128, 48)
-texture = ExtResource("10_0t2jj")
+texture = ExtResource("12_0cj4t")
 hframes = 2
 
-[node name="button_3" type="Sprite2D" parent="buttons"]
+[node name="button_3" type="Sprite2D" parent="main/buttons"]
 position = Vector2(32, 88)
 texture = ExtResource("10_0t2jj")
 hframes = 2
 
-[node name="button_4" type="Sprite2D" parent="buttons"]
+[node name="button_4" type="Sprite2D" parent="main/buttons"]
 position = Vector2(80, 88)
 texture = ExtResource("10_0t2jj")
 hframes = 2
 
-[node name="button_5" type="Sprite2D" parent="buttons"]
+[node name="button_5" type="Sprite2D" parent="main/buttons"]
 position = Vector2(128, 88)
 texture = ExtResource("10_0t2jj")
 hframes = 2
 
-[node name="button_06" type="Sprite2D" parent="buttons"]
+[node name="button_06" type="Sprite2D" parent="main/buttons"]
 position = Vector2(182, 68)
 texture = ExtResource("10_oe38n")
 hframes = 2
 
-[node name="anim_player" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_5nvia")
-}
+[node name="sub_ui" type="Node2D" parent="."]
+
+[node name="inventory" type="Node2D" parent="sub_ui"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="sub_ui/inventory"]
+offset_right = 240.0
+offset_bottom = 135.0
+
+[node name="top_bar" type="Sprite2D" parent="sub_ui/inventory"]
+position = Vector2(120, 8)
+texture = ExtResource("15_8st2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="sub_ui/inventory"]
+position = Vector2(120, 28)
+texture = ExtResource("16_vj4hn")
+
+[node name="select" type="Sprite2D" parent="sub_ui/inventory/Sprite2D"]
+position = Vector2(-80, 1)
+texture = ExtResource("17_h32vq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="sub_ui/inventory"]
+position = Vector2(204, 127)
+texture = ExtResource("7_51f4f")
+hframes = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="sub_ui/inventory"]
+position = Vector2(36, 127)
+texture = ExtResource("4_0x44w")
+hframes = 2
+
+[node name="sub_inventories" type="Node2D" parent="sub_ui/inventory"]
+
+[node name="food" type="Node2D" parent="sub_ui/inventory/sub_inventories"]
+
+[node name="select" type="Sprite2D" parent="sub_ui/inventory/sub_inventories/food"]
+position = Vector2(24, 60)
+texture = ExtResource("18_24875")
+
+[node name="items" type="Node2D" parent="sub_ui/inventory/sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_ui/inventory/sub_inventories/items"]
+position = Vector2(24, 60)
+texture = ExtResource("18_24875")
+
+[node name="animals" type="Node2D" parent="sub_ui/inventory/sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_ui/inventory/sub_inventories/animals"]
+position = Vector2(24, 60)
+texture = ExtResource("18_24875")
+
+[node name="equip" type="Node2D" parent="sub_ui/inventory/sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_ui/inventory/sub_inventories/equip"]
+position = Vector2(24, 60)
+texture = ExtResource("18_24875")
+
+[node name="key" type="Node2D" parent="sub_ui/inventory/sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_ui/inventory/sub_inventories/key"]
+position = Vector2(24, 60)
+texture = ExtResource("18_24875")
 
 [node name="overlay_01" type="ColorRect" parent="."]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true

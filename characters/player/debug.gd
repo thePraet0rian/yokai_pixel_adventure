@@ -4,7 +4,7 @@ class_name Debug extends CanvasLayer
 @onready var enemy_arr: Array[global.Yokai] = [
 	global.Yokai.new("Zerberker", preload("res://yokai/zerberker/zerberker_back.png")), 
 	global.Yokai.new("Zerberker", preload("res://yokai/zerberker/zerberker_back.png")), 
-	global.Yokai.new("Zerberker", preload("res://yokai/zerberker/zerberker_back.png")),
+	global.Yokai.new("Jibanyan", preload("res://yokai/jibanyan/jibanyan_one.png")),
 ]
 
 

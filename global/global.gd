@@ -4,7 +4,7 @@ class_name Global extends Node
 signal _on_battle_start()
 signal _on_battle_end()
 
-signal _on_room_changing()
+signal _on_room_transition()
 
 signal _on_warp()
 
@@ -23,8 +23,9 @@ var current_time: int = 0
 var current_money: int = 1240
 var player_inventory: Array[Item] = [Item.new()]
 
+
 @onready var player_yokai: Array[Yokai] = [
-	Yokai.new("Jibanyan", preload("res://yokai/jibanyan/jibanyan.png")), 
+	Yokai.new("Jibanyan", preload("res://yokai/jibanyan/jibanyan_two.png")), 
 	Yokai.new("Zerberker", preload("res://yokai/zerberker/zerberker_back.png")), 
 	Yokai.new("Dragon Lord", preload("res://yokai/dargon_lord/dargon_lord_back.png")), 
 	Yokai.new("Cadin", preload("res://yokai/cadin/cadin.png")), 
@@ -79,7 +80,6 @@ class Yokai:
 	
 	
 	func _init(name: String, _front_sprite: Resource) -> void:
-		
 		yokai_name = name
 		yokai_hp = yokai_stats.data[name][0]["BS_A_HP"]
 		yokai_str = yokai_stats.data[name][0]["BS_A_Str"]
@@ -88,7 +88,6 @@ class Yokai:
 		yokai_spd = yokai_stats.data[name][0]["BS_A_Spd"]
 		
 		front_sprite = _front_sprite
-	
 	
 	func check_health() -> bool:
 		

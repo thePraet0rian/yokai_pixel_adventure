@@ -67,6 +67,7 @@ script = ExtResource("1_v1i0g")
 [node name="camera" type="Camera2D" parent="."]
 
 [node name="player_sprite" type="Sprite2D" parent="."]
+position = Vector2(1, -16)
 texture = ExtResource("1_onj6w")
 
 [node name="player_ui" type="CanvasLayer" parent="."]
@@ -85,13 +86,14 @@ libraries = {
 }
 
 [node name="hitbox" type="CollisionPolygon2D" parent="."]
-position = Vector2(-1, 6)
+position = Vector2(0, -10)
 polygon = PackedVector2Array(-7, 6, -7, 10, 7, 10, 7, 6)
 
 [node name="hurtbox" type="Area2D" parent="."]
+position = Vector2(-9, -4)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hurtbox"]
-position = Vector2(-1, 6)
+position = Vector2(0, -10)
 polygon = PackedVector2Array(-2, 10, -2, 14, 2, 14, 2, 10)
 
 [node name="accept_button" type="Sprite2D" parent="."]
