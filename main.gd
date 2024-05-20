@@ -1,3 +1,5 @@
+## The main scene of yokai watch pixel adventure. 
+## Manages battles, dialogue, transitions and menues.
 class_name Main extends Node2D
 
 
@@ -22,18 +24,14 @@ const BattleScene: PackedScene = preload("res://battle/battle.tscn")
 
 func _on_battle_started(enemy_yokai_arr: Array[global.Yokai]) -> void:
 	
-	var BattleInstance: Battle = BattleScene.instantiate()
+	var BattleInstance: Battle = BattleScene.instantiate()	
 	BattleInstance.player_yokai_arr = global.player_yokai
 	BattleInstance.enemy_yokai_arr = enemy_yokai_arr.duplicate()
 	add_child(BattleInstance)
 
-
 func _on_battle_end() -> void:
 	
 	_on_menue_close()
-
-
-const room_02: PackedScene = preload("res://rooms/room_02.scn")
 
 
 func _on_room_transition(room: int) -> void:
@@ -41,9 +39,7 @@ func _on_room_transition(room: int) -> void:
 	match room:		
 		1:
 			$rooms/room_01.queue_free()
-			$rooms.add_child(room_02.instantiate())
-
-
+			$rooms.add_child(global.rooms[0].instantiate())
 func _on_warp(warp: int) -> void:
 	
 	match warp: 
@@ -51,13 +47,13 @@ func _on_warp(warp: int) -> void:
 			pass
 
 
-const save_file_arr: Array[String] = ["user://savefile_one.save", 
+const save_file_arr: Array[String] = [
+	"user://savefile_one.save", 
 	"user://savefile_two.save", 
-	"user://savefile_three.save"]
-
+	"user://savefile_three.save"
+]
 
 var save_file_int: int 
-
 
 func _on_load(_save_file: int) -> void:
 	
@@ -79,16 +75,11 @@ func _on_save() -> void:
 	save_file.store_8(3)
 	
 	for i in range(len(global.player_inventory)):
-		save_file.store_var(global.player_inventory[i].name_str)
-		save_file.store_var(global.player_inventory[i].description)
-		save_file.store_var(global.player_inventory[i].sprite)
+		save_file.store_var(global.player_inventory[i][0].name_str)
+		save_file.store_var(global.player_inventory[i][0].description)
+		save_file.store_var(global.player_inventory[i][0].sprite)
 	
 	save_file.close()
-
-
-func _on_main_timer_timeout() -> void:
-	
-	global.current_time += 1
 
 
 const dialogue_scn: PackedScene = preload("res://dialogue/dialogue.tscn")
@@ -100,12 +91,10 @@ func _on_dialogue(npc_name: String, dialogue_int: int) -> void:
 	DialogueInstance.get_dialogue(npc_name, str(dialogue_int))
 	add_child(DialogueInstance)
 	print(npc_name)
-	print("dialogue instanced")
 
 
 func _on_dialogue_end() -> void:
 	
-	print("dialogue freed")
 	get_tree().paused = false
 
 
@@ -117,6 +106,19 @@ func _on_menue_close() -> void:
 	
 	ui_overlay.visible = true
 	ui_anim_player.play("fade_in")
+	
 	await ui_anim_player.animation_finished
 	ui_overlay.visible = false
+	
 	ui_anim_player.play("RESET")
+
+
+func _on_main_timer_timeout() -> void:
+	global.current_time += 1
+	
+	
+	
+	
+	
+	
+	

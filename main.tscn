@@ -652,13 +652,13 @@ layer_1/tile_data = PackedInt32Array(65518, 3, 1, 131054, 3, 2, 65519, 65539, 1,
 position = Vector2(-203, -36)
 connected_transition_area = 1
 
-[node name="ysort" type="Node2D" parent="rooms"]
+[node name="ysort" type="Node2D" parent="rooms/room_01"]
 y_sort_enabled = true
 
-[node name="player" parent="rooms/ysort" instance=ExtResource("1_ab6pt")]
+[node name="player" parent="rooms/room_01/ysort" instance=ExtResource("1_ab6pt")]
 y_sort_enabled = true
 
-[node name="npc" parent="rooms/ysort" instance=ExtResource("7_w5aia")]
+[node name="npc" parent="rooms/room_01/ysort" instance=ExtResource("7_w5aia")]
 position = Vector2(64, 72)
 points = Array[Vector2]([Vector2(64, 72), Vector2(500, 72)])
 times = Array[int]([0])
@@ -666,7 +666,7 @@ velocities = Array[Vector2]([Vector2(10, 0), Vector2(100, 0)])
 name_signal = "NPC_01"
 npc_name = "NPC_01"
 
-[node name="overworld_yokai" parent="rooms/ysort" instance=ExtResource("6_k76cu")]
+[node name="overworld_yokai" parent="rooms/room_01/ysort" instance=ExtResource("6_k76cu")]
 position = Vector2(-67, 68)
 yokai_name = "Mirapo"
 

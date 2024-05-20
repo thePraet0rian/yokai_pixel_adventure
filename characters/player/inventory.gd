@@ -79,6 +79,7 @@ func main_menue_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):
 		anim_player.play("enter")
+		await anim_player.animation_finished
 		
 		if cur_pos.x == 0 and cur_pos.y == 0:
 			current_state = STATES.INVENTORY
@@ -95,6 +96,7 @@ func main_menue_input(event: InputEvent) -> void:
 
 
 @onready var select: Sprite2D = $sub_ui/inventory/Sprite2D/select
+@onready var inventory_anim_player: AnimationPlayer = $sub_ui/inventory/inventory_anim_player
 
 @onready var sub_inventories: Array[Node2D] = [
 	$sub_ui/inventory/sub_inventories/food,
@@ -108,7 +110,6 @@ func main_menue_input(event: InputEvent) -> void:
 	$sub_ui/inventory/sub_inventories/food/select,
 	$sub_ui/inventory/sub_inventories/items/select,
 	$sub_ui/inventory/sub_inventories/animals/select,
-	$sub_ui/inventory/sub_inventories/animals/select, 
 	$sub_ui/inventory/sub_inventories/equip/select, 
 	$sub_ui/inventory/sub_inventories/key/select,
 ]
@@ -127,15 +128,41 @@ var indices: Array[Vector2] = [
 func inventory_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("move_wheel_left"):
-		select.position.x -= 22
+		if inventory_page > 0:
+			select.position.x -= 22
+			inventory_page -= 1
 	elif event.is_action_pressed("move_wheel_right"):
-		select.position.x += 22
+		if inventory_page < 4:
+			select.position.x += 22
+			inventory_page += 1
 	
-	indices[inventory_page].x += Input.get_axis("move_left", "move_right")
-	indices[inventory_page].y += Input.get_axis("move_up", "move_down")
+	for i in range(0, 5):
+		sub_inventories[i].visible = true if i == inventory_page else false
+	
+	if event.is_action_pressed("move_left"):
+		if indices[inventory_page].x > 0:
+			indices[inventory_page].x -= 1
+	elif event.is_action_pressed("move_right"):
+		if indices[inventory_page].x < 10:
+			indices[inventory_page].x += 1
+	elif event.is_action_pressed("move_up"):
+		if indices[inventory_page].y > 0:
+			indices[inventory_page].y -= 1
+	elif event.is_action_pressed("move_down"):
+		if indices[inventory_page].y < 2:
+			indices[inventory_page].y += 1
 	
 	sub_selector[inventory_page].position = Vector2(24, 60) + Vector2(18, 18) * indices[inventory_page]
 	
+	if event.is_action_pressed("space"):
+		inventory_anim_player.play("enter")
+	
+	if event.is_action_pressed("shift"):
+		inventory_anim_player.play("end")
+		await inventory_anim_player.animation_finished
+		sub_ui[0].visible = false
+		current_state = STATES.MAIN
+
 	
 func end() -> void:	
 	global._on_menue_close.emit()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b58q5n1hvqs43"]
+[gd_scene load_steps=30 format=3 uid="uid://b58q5n1hvqs43"]
 
 [ext_resource type="Script" path="res://characters/player/inventory.gd" id="1_q2b6n"]
 [ext_resource type="Texture2D" uid="uid://645r0vjm7hvj" path="res://ui/assets/menue/top_bar.png" id="2_idn6n"]
@@ -136,6 +136,72 @@ _data = {
 "enter": SubResource("Animation_siyqd")
 }
 
+[sub_resource type="Animation" id="Animation_ru4kb"]
+resource_name = "end"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back_button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_upcj4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back_button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enter_button:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_f816l"]
+resource_name = "enter"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enter_button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vkcq"]
+_data = {
+"RESET": SubResource("Animation_upcj4"),
+"end": SubResource("Animation_ru4kb"),
+"enter": SubResource("Animation_f816l")
+}
+
 [node name="inventory" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_q2b6n")
@@ -235,30 +301,31 @@ hframes = 2
 [node name="sub_ui" type="Node2D" parent="."]
 
 [node name="inventory" type="Node2D" parent="sub_ui"]
-visible = false
 
-[node name="ColorRect" type="ColorRect" parent="sub_ui/inventory"]
+[node name="background" type="ColorRect" parent="sub_ui/inventory"]
 offset_right = 240.0
 offset_bottom = 135.0
+metadata/_edit_lock_ = true
 
 [node name="top_bar" type="Sprite2D" parent="sub_ui/inventory"]
 position = Vector2(120, 8)
 texture = ExtResource("15_8st2f")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="sub_ui/inventory"]
 position = Vector2(120, 28)
 texture = ExtResource("16_vj4hn")
 
 [node name="select" type="Sprite2D" parent="sub_ui/inventory/Sprite2D"]
-position = Vector2(-80, 1)
+position = Vector2(-80, -1)
 texture = ExtResource("17_h32vq")
 
-[node name="Sprite2D2" type="Sprite2D" parent="sub_ui/inventory"]
+[node name="enter_button" type="Sprite2D" parent="sub_ui/inventory"]
 position = Vector2(204, 127)
 texture = ExtResource("7_51f4f")
 hframes = 2
 
-[node name="Sprite2D3" type="Sprite2D" parent="sub_ui/inventory"]
+[node name="back_button" type="Sprite2D" parent="sub_ui/inventory"]
 position = Vector2(36, 127)
 texture = ExtResource("4_0x44w")
 hframes = 2
@@ -298,6 +365,11 @@ visible = false
 [node name="select" type="Sprite2D" parent="sub_ui/inventory/sub_inventories/key"]
 position = Vector2(24, 60)
 texture = ExtResource("18_24875")
+
+[node name="inventory_anim_player" type="AnimationPlayer" parent="sub_ui/inventory"]
+libraries = {
+"": SubResource("AnimationLibrary_1vkcq")
+}
 
 [node name="overlay_01" type="ColorRect" parent="."]
 offset_right = 240.0

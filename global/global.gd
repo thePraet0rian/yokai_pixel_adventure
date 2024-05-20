@@ -21,7 +21,7 @@ signal _on_yokai_action()
 
 var current_time: int = 0
 var current_money: int = 1240
-var player_inventory: Array[Item] = [Item.new()]
+var player_inventory: Array[Array] = [[],[],[],[],[]]
 
 
 @onready var player_yokai: Array[Yokai] = [
@@ -31,6 +31,10 @@ var player_inventory: Array[Item] = [Item.new()]
 	Yokai.new("Cadin", preload("res://yokai/cadin/cadin.png")), 
 	Yokai.new("Peckpocket", preload("res://yokai/peckpocket/peckpocket.png")),
 	Yokai.new("Jibanyan", preload("res://yokai/jibanyan/jibanyan_back.png"))
+]
+
+const rooms: Array[PackedScene] = [
+	preload("res://rooms/room_02.scn"),
 ]
 
 
