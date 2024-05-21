@@ -102,9 +102,12 @@ position = Vector2(16, -12)
 texture = ExtResource("5_mwuta")
 
 [node name="sprint_bar" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(14, -14)
 texture = ExtResource("6_flss0")
+hframes = 4
+
+[node name="sprint_timer" type="Timer" parent="sprint_bar"]
+wait_time = 2.0
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

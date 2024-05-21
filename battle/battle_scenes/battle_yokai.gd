@@ -5,7 +5,7 @@ signal action()
 
 enum {PLAYER = 0, ENEMY = 1}
 
-@onready var Yokai: global.Yokai
+@onready var YokaiInst: Yokai
 @onready var parent: Battle = get_node("..").get_node("..")
 
 var team: int = PLAYER
@@ -32,12 +32,12 @@ func update(team_str: String) -> void:
 
 	
 func _update_player() -> void:
-	texture = Yokai.front_sprite
+	texture = YokaiInst.front_sprite
 	
 	
 
 func _update_enemy() -> void:
-	texture = Yokai.front_sprite
+	texture = YokaiInst.front_sprite
 	await ready
 	ui.visible = false
 
@@ -99,7 +99,7 @@ func player_tick() -> void:
 func player_behavoir() -> void:
 	
 	if not loaf():
-		match Yokai.yokai_behavior:
+		match YokaiInst.yokai_behavior:
 			
 			0:
 				player_grouchy_behavoir()
@@ -120,7 +120,7 @@ func loaf() -> bool:
 		randomize()
 		var random_float: float = randf()
 		
-		if random_float < Yokai.loafing_bound():
+		if random_float < YokaiInst.loafing_bound():
 			is_loafing = false
 			return false
 		else:
@@ -151,5 +151,5 @@ func enemy_tick() -> void:
 
 func health_update() -> void:
 	
-	if Yokai.yokai_hp <= 0:
+	if YokaiInst.yokai_hp <= 0:
 		visible = false

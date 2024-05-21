@@ -28,22 +28,37 @@ func _input(event: InputEvent) -> void:
 @onready var hurtbox: Area2D = $hurtbox
 @onready var ui_anim_player: AnimationPlayer = $player_ui/ui_anim_player
 @onready var sprint_bar: Sprite2D = $sprint_bar
+@onready var sprint_timer: Timer = $sprint_bar/sprint_timer
 
 var is_moving: bool = false
 var state_change: bool = false
 var previous_input_vec: Vector2 = Vector2.ZERO
 var is_hidden: bool = false
 
+var can_sprint: bool = true
+var is_sprinting: bool = false
+
 
 func _process(_delta: float) -> void:
 	
+	sprint()
+	move()
+	
+
+func sprint() -> void:
+	
 	if Input.is_action_pressed("shift"):
-		speed = 200
-		if input_vec != Vector2.ZERO:
-			sprint_bar.visible = true
+		if can_sprint:
+			is_sprinting = true
+			speed = 200
+			if input_vec != Vector2.ZERO:
+				sprint_bar.visible = true
 	else:
 		speed = 70
 		sprint_bar.visible = false
+
+
+func move() -> void:
 	
 	previous_input_vec = input_vec
 	
@@ -71,6 +86,7 @@ func _process(_delta: float) -> void:
 	
 	velocity = input_vec.normalized() * speed
 	move_and_slide()
+
 
 
 func show_objective() -> void:
@@ -118,3 +134,5 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 	
 	if "npc" in area.get_parent().name:
 		npc_met = false
+
+

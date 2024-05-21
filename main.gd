@@ -1,5 +1,3 @@
-## The main scene of yokai watch pixel adventure. 
-## Manages battles, dialogue, transitions and menues.
 class_name Main extends Node2D
 
 
@@ -22,7 +20,7 @@ func _ready() -> void:
 const BattleScene: PackedScene = preload("res://battle/battle.tscn")
 
 
-func _on_battle_started(enemy_yokai_arr: Array[global.Yokai]) -> void:
+func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
 	
 	var BattleInstance: Battle = BattleScene.instantiate()	
 	BattleInstance.player_yokai_arr = global.player_yokai
@@ -40,6 +38,8 @@ func _on_room_transition(room: int) -> void:
 		1:
 			$rooms/room_01.queue_free()
 			$rooms.add_child(global.rooms[0].instantiate())
+
+
 func _on_warp(warp: int) -> void:
 	
 	match warp: 
@@ -54,6 +54,7 @@ const save_file_arr: Array[String] = [
 ]
 
 var save_file_int: int 
+
 
 func _on_load(_save_file: int) -> void:
 	

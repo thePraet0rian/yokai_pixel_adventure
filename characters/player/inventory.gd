@@ -165,6 +165,7 @@ func inventory_input(event: InputEvent) -> void:
 
 	
 func end() -> void:	
+	
 	global._on_menue_close.emit()
 	get_tree().paused = false
 	queue_free()

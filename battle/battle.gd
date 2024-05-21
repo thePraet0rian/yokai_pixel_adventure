@@ -3,8 +3,8 @@ class_name Battle extends CanvasLayer
 
 const battle_yokai_scn: PackedScene = preload("res://battle/battle_scenes/battle_yokai.tscn")
 
-var player_yokai_arr: Array[global.Yokai]
-var enemy_yokai_arr: Array[global.Yokai]
+var player_yokai_arr: Array[Yokai]
+var enemy_yokai_arr: Array[Yokai]
 
 var player_team_inst: Array[BattleYokai] = []
 var enemy_team_inst: Array[BattleYokai] = []
@@ -353,7 +353,7 @@ func _on_yokai_action(team: int, yokai: int, action: String) -> void:
 			attack(team, yokai)
 
 
-func attack(team: int, yokai: int) -> void:
+func attack(team: int, _yokai: int) -> void:
 
 	match team:
 		0:
@@ -383,7 +383,7 @@ func pick_alive() -> int:
 	return random_int
 
 
-func calc_damage(yokai_str: int, yokai_def: int, power: int) -> int:
+func calc_damage(_yokai_str: int, _yokai_def: int, _power: int) -> int:
 
 	return 100
 	

@@ -14,7 +14,7 @@ config/name="yokai_watch_pixel"
 run/main_scene="res://titlescreen/titlescreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 run/max_fps=144
-config/icon="res://icon.svg"
+config/icon="res://yokai/jibanyan/icon_export.png"
 
 [autoload]
 

@@ -18,4 +18,3 @@ extends Area2D
 func _ready() -> void:
 	
 	hitbox.polygon = hitbox_points
-	

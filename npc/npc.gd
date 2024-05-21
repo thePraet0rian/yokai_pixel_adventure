@@ -1,5 +1,5 @@
-class_name Npc 
-extends CharacterBody2D
+class_name Npc extends CharacterBody2D
+
 
 enum BEHAVIOR {WALKING = 0, STANDING = 1}
 
@@ -12,6 +12,7 @@ enum BEHAVIOR {WALKING = 0, STANDING = 1}
 var current_index: int = 0
 var current_behavior: BEHAVIOR = BEHAVIOR.WALKING
 
+
 func _ready() -> void:
 	
 	for i in range(len(times)):
@@ -21,7 +22,9 @@ func _ready() -> void:
 	position = points[current_index] + velocities[current_index] * global.current_time
 	move()
 
+
 @onready var tween: Tween = create_tween()
+
 
 func move() -> void:
 	
@@ -34,8 +37,10 @@ func move() -> void:
 		else:
 			tween.tween_property(self, "position", points[i], (distance/velocities[i].x))
 
+
 @export var npc_name: String = "0"
 @export var npc_int: int = 0
+
 
 func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	
