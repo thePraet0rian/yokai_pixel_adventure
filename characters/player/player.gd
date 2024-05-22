@@ -84,9 +84,27 @@ func move() -> void:
 	elif input_vec == Vector2.UP:
 		hurtbox.position = Vector2(0, -8)
 	
+	_animate()
+	
 	velocity = input_vec.normalized() * speed
 	move_and_slide()
 
+@onready var anim_player: AnimationPlayer = $anim_player
+@onready var anim_tree: AnimationTree = $anim_tree
+@onready var anim_propteries = $anim_tree.get("parameters/playback")
+
+
+func _animate() -> void:
+	
+	if input_vec != Vector2.ZERO:
+		
+		anim_tree.set("parameters/walk/blend_position", input_vec)
+		anim_tree.set("parameters/idle/blend_position", input_vec)
+		anim_tree.set("parameters/run/blend_position", input_vec)
+		
+		anim_propteries.travel("run")
+	else:
+		anim_propteries.travel("idle")
 
 
 func show_objective() -> void:

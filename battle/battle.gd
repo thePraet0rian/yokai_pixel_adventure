@@ -36,7 +36,7 @@ func setup_players() -> void:
 		player_team_inst.append(BattleYokaiInst)
 		
 		BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
-		BattleYokaiInst.Yokai = player_yokai_arr[i]
+		BattleYokaiInst.YokaiInst = player_yokai_arr[i]
 		BattleYokaiInst.update("player")
 		players.add_child(player_team_inst[i])
 
@@ -49,7 +49,7 @@ func setup_enemys() -> void:
 		enemy_team_inst.append(BattleYokaiInst)
 
 		BattleYokaiInst.position = Vector2(48, 40) + Vector2(72, 0) * i
-		BattleYokaiInst.Yokai = enemy_yokai_arr[i]
+		BattleYokaiInst.YokaiInst = enemy_yokai_arr[i]
 		BattleYokaiInst.update("enemy")
 		enemies.add_child(enemy_team_inst[i])
 
@@ -82,9 +82,9 @@ func _menue_input(event: InputEvent) -> void:
 var buttons_index: int = 0
 
 @onready var buttons: Array[Sprite2D] = [
-	$buttons/purify, 
-	$buttons/soulimate, 
-	$buttons/target, 
+	$buttons/purify,
+	$buttons/soulimate,
+	$buttons/target,
 	$buttons/item,
 ]
 
@@ -151,7 +151,7 @@ func _change_sub_game_state(sub_buttons_index: int) -> void:
 		1:
 			
 			for i in range(len(player_team_inst)):
-				if player_team_inst[i].Yokai.yokai_soul:
+				if player_team_inst[i].YokaiInst.yokai_soul:
 					soulimate.visible = true
 					current_game_state = GAME_STATES.ACTION
 					current_sub_game_state = SUB_GAME_STATES.SOULIMATE
@@ -279,7 +279,7 @@ func inst_yokai() -> Node2D:
 	return player_yokai_inst
 
 
-func move_left() -> void: 
+func move_left() -> void:
 
 	var player_yokai_inst: BattleYokai = inst_yokai()
 	player_yokai_inst.position = Vector2(264, 91)
@@ -359,7 +359,7 @@ func attack(team: int, _yokai: int) -> void:
 		0:
 			var random_int: int = pick_alive()
 
-			enemy_team_inst[random_int].Yokai.yokai_hp -= calc_damage(0, 0, 0)
+			enemy_team_inst[random_int].YokaiInst.yokai_hp -= calc_damage(0, 0, 0)
 			enemy_team_inst[random_int].health_update()
 
 			update_battle()
@@ -372,12 +372,12 @@ func pick_alive() -> int:
 	randomize()
 	var random_int: int = randi_range(0, 2)
 
-	if enemy_team_inst[0].Yokai.yokai_hp <= 0:
-		if enemy_team_inst[1].Yokai.yokai_hp <= 0:
-			if enemy_team_inst[2].Yokai.yokai_hp <= 0:
+	if enemy_team_inst[0].YokaiInst.yokai_hp <= 0:
+		if enemy_team_inst[1].YokaiInst.yokai_hp <= 0:
+			if enemy_team_inst[2].YokaiInst.yokai_hp <= 0:
 				return -1
 
-	if enemy_team_inst[random_int].Yokai.yokai_hp <= 0:
+	if enemy_team_inst[random_int].YokaiInst.yokai_hp <= 0:
 		return pick_alive()
 
 	return random_int

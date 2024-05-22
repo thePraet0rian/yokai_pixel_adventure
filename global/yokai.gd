@@ -47,14 +47,14 @@ var yokai_behavior: BEHAVIORS = BEHAVIORS.GROUCHY
 var yokai_loafing: LOAFING = LOAFING.SERIOUS
 
 
-func _init(name: String, _front_sprite: Resource) -> void:
+func _init(_yokai_name: String, _front_sprite: Resource) -> void:
 	
-	yokai_name = name
-	yokai_hp = yokai_stats.data[name][0]["BS_A_HP"]
-	yokai_str = yokai_stats.data[name][0]["BS_A_Str"]
-	yokai_spr = yokai_stats.data[name][0]["BS_A_Spr"]
-	yokai_def = yokai_stats.data[name][0]["BS_A_Def"]
-	yokai_spd = yokai_stats.data[name][0]["BS_A_Spd"]
+	yokai_name = _yokai_name
+	yokai_hp = yokai_stats.data[_yokai_name][0]["BS_A_HP"]
+	yokai_str = yokai_stats.data[_yokai_name][0]["BS_A_Str"]
+	yokai_spr = yokai_stats.data[_yokai_name][0]["BS_A_Spr"]
+	yokai_def = yokai_stats.data[_yokai_name][0]["BS_A_Def"]
+	yokai_spd = yokai_stats.data[_yokai_name][0]["BS_A_Spd"]
 	
 	front_sprite = _front_sprite
 
