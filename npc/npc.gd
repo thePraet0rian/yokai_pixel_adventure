@@ -7,6 +7,7 @@ enum BEHAVIOR {WALKING = 0, STANDING = 1}
 @export var times: Array[int] = []
 @export var velocities: Array[Vector2] = []
 
+@export var repeating: bool = false
 @export var name_signal: String = "test_npc"
 
 var current_index: int = 0
@@ -15,27 +16,38 @@ var current_behavior: BEHAVIOR = BEHAVIOR.WALKING
 
 func _ready() -> void:
 	
-	for i in range(len(times)):
-		if global.current_time >= times[i]:
-			current_index = i
-	
-	position = points[current_index] + velocities[current_index] * global.current_time
+
+	print(points)
+	position = points[0]
 	move()
 
 
-@onready var tween: Tween = create_tween()
+@onready var tween: Tween
 
 
 func move() -> void:
 	
-	for i in range(len(points)):
+	while true:
+		for i in range(1, len(points)):
 		
-		var distance: float = position.distance_to(points[i])
+			var distance: float = position.distance_to(points[i])
+			print(distance)
 		
-		if velocities[i].x == 0:
-			tween.tween_property(self, "position", points[i], (distance/velocities[i].y))
-		else:
-			tween.tween_property(self, "position", points[i], (distance/velocities[i].x))
+			if velocities[i].x == 0:
+				tween = create_tween()
+				tween.tween_property(self, "position", points[i], abs(distance/velocities[i].x))
+				
+			elif velocities[i].y == 0:
+				tween = create_tween()
+				tween.tween_property(self, "position", points[i], abs(distance/velocities[i].x))
+			
+			await tween.finished
+			tween.stop()
+			print("why" + name)
+			
+			if not repeating:
+				return
+
 
 
 @export var npc_name: String = "0"

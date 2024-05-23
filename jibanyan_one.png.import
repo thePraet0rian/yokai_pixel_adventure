@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b20i504garbf4"
-path="res://.godot/imported/jibanyan_one.png-b28a17813a0722b3ffd02c4012da152f.ctex"
+uid="uid://c2c0hgsn46wbx"
+path="res://.godot/imported/jibanyan_one.png-83c2589d49817df3d8f00d31c1c71a21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://yokai/jibanyan/jibanyan_one.png"
-dest_files=["res://.godot/imported/jibanyan_one.png-b28a17813a0722b3ffd02c4012da152f.ctex"]
+source_file="res://jibanyan_one.png"
+dest_files=["res://.godot/imported/jibanyan_one.png-83c2589d49817df3d8f00d31c1c71a21.ctex"]
 
 [params]
 

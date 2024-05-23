@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r8lgrb5cep7h"]
+[gd_scene load_steps=21 format=3 uid="uid://r8lgrb5cep7h"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6cwiw"]
 [ext_resource type="PackedScene" uid="uid://byw2vrqxq0slp" path="res://characters/player/player.tscn" id="1_ab6pt"]
@@ -675,6 +675,8 @@ _data = {
 "fade_in": SubResource("Animation_kyokr")
 }
 
+[sub_resource type="Environment" id="Environment_lusif"]
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_6cwiw")
 
@@ -701,17 +703,26 @@ metadata/_edit_lock_ = true
 [node name="player" parent="rooms/room_01/ysort" instance=ExtResource("1_ab6pt")]
 y_sort_enabled = true
 
-[node name="npc" parent="rooms/room_01/ysort" instance=ExtResource("7_w5aia")]
-position = Vector2(64, 72)
-points = Array[Vector2]([Vector2(64, 72), Vector2(500, 72)])
-times = Array[int]([0])
-velocities = Array[Vector2]([Vector2(10, 0), Vector2(100, 0)])
-name_signal = "NPC_01"
-npc_name = "NPC_01"
-
 [node name="overworld_yokai" parent="rooms/room_01/ysort" instance=ExtResource("6_k76cu")]
 position = Vector2(-67, 68)
+scale = Vector2(0.333, 0.333)
 yokai_name = "Mirapo"
+
+[node name="overworld_yokai2" parent="rooms/room_01/ysort" instance=ExtResource("6_k76cu")]
+position = Vector2(-19, 68)
+yokai_name = "Jibanyan"
+
+[node name="overworld_yokai3" parent="rooms/room_01/ysort" instance=ExtResource("6_k76cu")]
+position = Vector2(29, 68)
+scale = Vector2(0.333, 0.333)
+yokai_name = "Darkyubi"
+
+[node name="npc2" parent="rooms/room_01/ysort" instance=ExtResource("7_w5aia")]
+position = Vector2(-120, 8)
+points = Array[Vector2]([Vector2(-120, 8), Vector2(120, 8), Vector2(-120, 8)])
+times = Array[int]([0, 0])
+velocities = Array[Vector2]([Vector2(100, 0), Vector2(100, 0), Vector2(-100, 0)])
+repeating = true
 
 [node name="main_timer" type="Timer" parent="."]
 autostart = true
@@ -728,5 +739,8 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_ny5sb")
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lusif")
 
 [connection signal="timeout" from="main_timer" to="." method="_on_main_timer_timeout"]
