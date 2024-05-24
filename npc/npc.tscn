@@ -19,7 +19,5 @@ polygon = PackedVector2Array(-16, -15, -16, 17, 16, 17, 16, -15)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hurtbox"]
 polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
-
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
