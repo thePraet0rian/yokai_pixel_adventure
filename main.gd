@@ -27,6 +27,7 @@ func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
 	BattleInstance.enemy_yokai_arr = enemy_yokai_arr.duplicate()
 	add_child(BattleInstance)
 
+
 func _on_battle_end() -> void:
 	
 	_on_menue_close()
@@ -58,15 +59,16 @@ var save_file_int: int
 
 func _on_load(_save_file: int) -> void:
 	
-	save_file_int = _save_file
+	#save_file_int = _save_file
 	
-	var load_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.READ)
-	var _inventory_length: int = load_file.get_8()
+	#var load_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.READ)
+	#var _inventory_length: int = load_file.get_8()
 	
-	for i in range(3):
-		pass
+	#for i in range(3):
+		#pass
 	
-	load_file.close()
+	#load_file.close()
+	pass
 
 
 func _on_save() -> void:
@@ -116,10 +118,3 @@ func _on_menue_close() -> void:
 
 func _on_main_timer_timeout() -> void:
 	global.current_time += 1
-	
-	
-	
-	
-	
-	
-	

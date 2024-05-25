@@ -1,6 +1,7 @@
 class_name BattleYokai extends Sprite2D
 
 
+@warning_ignore("unused_signal")
 signal action()
 
 enum {PLAYER = 0, ENEMY = 1}

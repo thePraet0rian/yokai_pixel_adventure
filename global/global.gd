@@ -1,21 +1,24 @@
 class_name Global extends Node
 
-
+@warning_ignore("unused_signal")
 signal _on_battle_start()
+@warning_ignore("unused_signal")
 signal _on_battle_end()
-
+@warning_ignore("unused_signal")
 signal _on_room_transition()
-
+@warning_ignore("unused_signal")
 signal _on_warp()
-
+@warning_ignore("unused_signal")
 signal _on_save
+@warning_ignore("unused_signal")
 signal _on_load()
-
+@warning_ignore("unused_signal")
 signal _on_dialogue()
+@warning_ignore("unused_signal")
 signal _on_dialogue_end
-
+@warning_ignore("unused_signal")
 signal _on_menue_close
-
+@warning_ignore("unused_signal")
 signal _on_yokai_action()
 
 
