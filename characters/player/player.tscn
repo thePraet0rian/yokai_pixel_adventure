@@ -262,13 +262,15 @@ libraries = {
 }
 
 [node name="anim_tree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_t6p3o")
-}
 tree_root = SubResource("AnimationNodeStateMachine_3pwau")
 anim_player = NodePath("../anim_player")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/run/blend_position = Vector2(0, 0)
+
+[node name="player" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player"]
+polygon = PackedVector2Array(-16, -48, -40, -24, -40, 8, -16, 32, 16, 32, 40, 8, 40, -24, 16, -48)
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]

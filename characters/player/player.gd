@@ -3,6 +3,7 @@ class_name Player extends CharacterBody2D
 
 const debug_scn: PackedScene = preload("res://characters/player/debug.tscn")
 const inventory_scn: PackedScene = preload("res://characters/player/inventory.tscn")
+const map_scn: PackedScene = preload("res://ui/map/map.tscn")
 
 var input_vec: Vector2 = Vector2.ZERO
 var speed: int = 70
@@ -23,6 +24,10 @@ func _input(event: InputEvent) -> void:
 			npc_dialogue()
 		elif can_transition:
 			transition()
+	
+	if event.is_action_pressed("map"):
+		get_parent().add_child(map_scn.instantiate())
+		get_tree().paused = true
 
 
 @onready var hurtbox: Area2D = $hurtbox

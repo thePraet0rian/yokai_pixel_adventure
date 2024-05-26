@@ -1,0 +1,148 @@
+[gd_scene load_steps=12 format=3 uid="uid://uejbseqlvmo"]
+
+[ext_resource type="Script" path="res://menue/scenes/inventory.gd" id="1_shj4r"]
+[ext_resource type="Texture2D" uid="uid://ck5dxsdgbtqcc" path="res://ui/assets/menue/top_bars/inventory_top_bar.png" id="1_wik2j"]
+[ext_resource type="Texture2D" uid="uid://kibnmaf61yf5" path="res://ui/assets/menue/top_bars/bar.png" id="2_ggsoo"]
+[ext_resource type="Texture2D" uid="uid://vbeyuqff8xvw" path="res://ui/assets/menue/top_bars/select.png" id="3_e5pkt"]
+[ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://ui/assets/menue/button_select.png" id="4_h1nce"]
+[ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://ui/assets/menue/button_back.png" id="5_u2hej"]
+[ext_resource type="Texture2D" uid="uid://w1sriqagsv7w" path="res://ui/assets/menue/top_bars/selection.png" id="6_8e7ik"]
+
+[sub_resource type="Animation" id="Animation_upcj4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back_button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("enter_button:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ru4kb"]
+resource_name = "end"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("back_button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_f816l"]
+resource_name = "enter"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("enter_button:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vkcq"]
+_data = {
+"RESET": SubResource("Animation_upcj4"),
+"end": SubResource("Animation_ru4kb"),
+"enter": SubResource("Animation_f816l")
+}
+
+[node name="inventory" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_shj4r")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+metadata/_edit_lock_ = true
+
+[node name="top_bar" type="Sprite2D" parent="."]
+position = Vector2(120, 8)
+texture = ExtResource("1_wik2j")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 28)
+texture = ExtResource("2_ggsoo")
+
+[node name="select" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-80, -1)
+texture = ExtResource("3_e5pkt")
+
+[node name="enter_button" type="Sprite2D" parent="."]
+position = Vector2(204, 127)
+texture = ExtResource("4_h1nce")
+hframes = 2
+
+[node name="back_button" type="Sprite2D" parent="."]
+position = Vector2(36, 127)
+texture = ExtResource("5_u2hej")
+hframes = 2
+
+[node name="sub_inventories" type="Node2D" parent="."]
+
+[node name="food" type="Node2D" parent="sub_inventories"]
+
+[node name="select" type="Sprite2D" parent="sub_inventories/food"]
+position = Vector2(24, 60)
+texture = ExtResource("6_8e7ik")
+
+[node name="items" type="Node2D" parent="sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_inventories/items"]
+position = Vector2(24, 60)
+texture = ExtResource("6_8e7ik")
+
+[node name="animals" type="Node2D" parent="sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_inventories/animals"]
+position = Vector2(24, 60)
+texture = ExtResource("6_8e7ik")
+
+[node name="equip" type="Node2D" parent="sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_inventories/equip"]
+position = Vector2(24, 60)
+texture = ExtResource("6_8e7ik")
+
+[node name="key" type="Node2D" parent="sub_inventories"]
+visible = false
+
+[node name="select" type="Sprite2D" parent="sub_inventories/key"]
+position = Vector2(24, 60)
+texture = ExtResource("6_8e7ik")
+
+[node name="inventory_anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1vkcq")
+}
