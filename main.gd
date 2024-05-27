@@ -93,7 +93,6 @@ func _on_dialogue(npc_name: String, dialogue_int: int) -> void:
 	var DialogueInstance: Dialogue = dialogue_scn.instantiate()
 	DialogueInstance.get_dialogue(npc_name, str(dialogue_int))
 	add_child(DialogueInstance)
-	print(npc_name)
 
 
 func _on_dialogue_end() -> void:

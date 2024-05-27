@@ -49,6 +49,9 @@ func _process(_delta: float) -> void:
 	sprint()
 	move()
 	
+	if is_tracking_hostop:
+		hotspot_tracking()
+	
 
 func sprint() -> void:
 	
@@ -94,6 +97,12 @@ func move() -> void:
 	velocity = input_vec.normalized() * speed
 	move_and_slide()
 
+
+func hotspot_tracking() -> void:
+	
+	print(position.distance_to(hotspot_target.position))
+
+
 @onready var anim_player: AnimationPlayer = $anim_player
 @onready var anim_tree: AnimationTree = $anim_tree
 @onready var anim_propteries = $anim_tree.get("parameters/playback")
@@ -137,15 +146,23 @@ var npc: CharacterBody2D
 var can_transition: bool = false
 var transition_target: int = 0
 
+var hotspot_target: Area2D
+var is_tracking_hostop: bool
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
 	if "npc" in area.get_parent().name:
 		npc = area.get_parent()
 		npc_met = true
-	elif "transition" in area.name:
+	
+	if "transition" in area.name:
 		can_transition = true
 		transition_target = area.connected_transition_area
+	
+	if "hotspot" in area.name:
+		print("hotspot")
+		hotspot_target = area
+		is_tracking_hostop = true 
 
 
 func transition() -> void:
@@ -155,7 +172,13 @@ func transition() -> void:
 
 func _on_hurtbox_area_exited(area: Area2D) -> void:
 	
+	print("hai")	
+	
 	if "npc" in area.get_parent().name:
 		npc_met = false
+	
+	if "hotspot" in area.name:
+		print("hotspot exit")
+		is_tracking_hostop = false
 
 

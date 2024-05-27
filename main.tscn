@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r8lgrb5cep7h"]
+[gd_scene load_steps=21 format=3 uid="uid://r8lgrb5cep7h"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_6cwiw"]
 [ext_resource type="PackedScene" uid="uid://byw2vrqxq0slp" path="res://characters/player/player.tscn" id="1_ab6pt"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://8dv6erki1q75" path="res://yokai/overworld_yokai.tscn" id="6_k76cu"]
 [ext_resource type="Texture2D" uid="uid://c7e6tc4fubnn8" path="res://tilesets/exterior_assets/forest/anim.png" id="6_u3w50"]
 [ext_resource type="PackedScene" uid="uid://bfdl8pokk8rk7" path="res://npc/npc.tscn" id="7_w5aia"]
+[ext_resource type="PackedScene" uid="uid://l7nllo5lmlwl" path="res://yokai/scenes/yokai_hotspot.tscn" id="11_mn8e5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4hrdx"]
 texture = ExtResource("1_mp3td")
@@ -721,6 +722,9 @@ points = Array[Vector2]([Vector2(-120, 8), Vector2(120, 8), Vector2(-120, 8)])
 times = Array[int]([0, 0])
 velocities = Array[Vector2]([Vector2(100, 0), Vector2(100, 0), Vector2(-100, 0)])
 repeating = true
+
+[node name="yokai_hotspot" parent="rooms/room_01" instance=ExtResource("11_mn8e5")]
+position = Vector2(128, 104)
 
 [node name="main_timer" type="Timer" parent="."]
 autostart = true
