@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc478gnyai7e"]
+
+[ext_resource type="Texture2D" uid="uid://by7fybvor2s8o" path="res://res/npc/mom.png" id="1_rj7ai"]
+
+[node name="yokai_follower" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_rj7ai")

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://l7nllo5lmlwl"]
+
+[ext_resource type="Texture2D" uid="uid://dahw4xe8gmh5d" path="res://res/test/test.png" id="1_2h3kn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3h8g"]
+radius = 100.0
+
+[node name="yokai_hotspot" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2h3kn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l3h8g")

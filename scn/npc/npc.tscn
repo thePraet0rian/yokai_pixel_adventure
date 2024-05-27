@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfdl8pokk8rk7"]
+
+[ext_resource type="Texture2D" uid="uid://by7fybvor2s8o" path="res://res/npc/mom.png" id="2_7fk7t"]
+[ext_resource type="Script" path="res://src/npc/npc.gd" id="2_7lkj6"]
+
+[node name="npc" type="CharacterBody2D"]
+script = ExtResource("2_7lkj6")
+
+[node name="sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_7fk7t")
+
+[node name="hitbox" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-16, -15, -16, 17, 16, 17, 16, -15)
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hurtbox"]
+polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
