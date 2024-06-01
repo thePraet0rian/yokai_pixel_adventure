@@ -1,113 +1,118 @@
 class_name BattleYokai extends Sprite2D
 
 
-@warning_ignore("unused_signal")
 signal action()
 
 enum {PLAYER = 0, ENEMY = 1}
 
-@onready var YokaiInst: Yokai
-@onready var parent: Battle = get_node("..").get_node("..")
+const walk_speed: int = 5
+const TILE_SIZE: Vector2 = Vector2(72, 0)
 
 var team: int = PLAYER
 var update_arr: Array = [_update_player, _update_enemy]
 var dirty: bool = false
 
+var progress: float = 0.0
+var input_direction: Vector2
+var last_position: Vector2
 
-func _ready() -> void:
-	
-	set_process(false)
+var is_loafing: bool = false
+var is_ticking: bool = true
+
+@onready var YokaiInst: Yokai
+@onready var parent: Battle = get_node("..").get_node("..")
+@onready var ui: Sprite2D = $ui
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var tick_timer: Timer = $tick
 
 
 func update(team_str: String) -> void:
-	
 	if team_str == "player":
 		team = PLAYER
 	elif team_str == "enemy":
 		team = ENEMY
-
+	
 	update_arr[team].call()
-	
 
-@onready var ui: Sprite2D = $ui
 
-	
 func _update_player() -> void:
 	texture = YokaiInst.front_sprite
 	
 	
-
 func _update_enemy() -> void:
 	texture = YokaiInst.front_sprite
 	await ready
 	ui.visible = false
 
 
-var progress: float = 0.0
-var input_direction: Vector2
-var last_position: Vector2
-
-const walk_speed: int = 5
-const TILE_SIZE: Vector2 = Vector2(72, 0)
-
+func _ready() -> void:
+	set_process(false)
+	
 
 func move_direction(direction: Vector2) -> void:
-	
 	last_position = position
 	input_direction = direction
 	set_process(true)
 
 
 func _process(delta: float) -> void:
-	
-	move(delta) 
+	_move(delta) 
 
 
-func move(delta: float) -> void:
-	
+func _move(delta: float) -> void:
 	progress += delta * walk_speed 
 	
 	if input_direction != Vector2.ZERO:
-		
 		if progress >= 1.0:
 			position = last_position + (TILE_SIZE * input_direction)
 			progress = 0.0
 			set_process(false)
-			
 		else:
 			position = last_position + (TILE_SIZE * input_direction * progress)
 
 
 func remove() -> void:
-	
 	await get_tree().create_timer(.5).timeout
 	queue_free()
 
 
-var is_loafing: bool = false
+func _on_tick_timeout() -> void:
+	if team == 0:
+		_player_tick()
+	if team == 1:
+		_enemy_tick()
 
 
-func player_tick() -> void: 
+func _player_tick() -> void: 
 	
+	print("player tick")
+	
+	if _behavoir_barrier():
+		_player_behavoir()
+
+
+func _enemy_tick() -> void:
+	if _behavoir_barrier():
+		pass	
+
+
+func _behavoir_barrier() -> bool: 
 	randomize()
 	var random_float: float = randf()
 	
-	print_rich("[color=green]BattleYokai Tick[/color]")
 	if random_float < 0.2:
-		player_behavoir()
+		return true
+	return false
 
 
-func player_behavoir() -> void:
-	
+func _player_behavoir() -> void:
 	if not loaf():
 		match YokaiInst.yokai_behavior:
-			
 			0:
-				player_grouchy_behavoir()
+				_player_grouchy_behavoir()
 
 
 func loaf() -> bool:
-	
 	if is_loafing:
 		randomize()
 		var random_float: float = randf()
@@ -129,28 +134,24 @@ func loaf() -> bool:
 			return true
 
 
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
-
-
-func player_grouchy_behavoir() -> void:
-	
+func _player_grouchy_behavoir() -> void:
 	if parent.pick_alive() == -1:
 		return
-
-	print_rich("[color=red]player_attack[/color]")
 	anim_player.play("flash")
 	global._on_yokai_action.emit(0, 0, "attack")
-
-
-func enemy_tick() -> void:
-	randomize()
-	var random_float: float = randf()
-	
-	if random_float < 0.2:
-		pass
 
 
 func health_update() -> void:
 	
 	if YokaiInst.yokai_hp <= 0:
 		visible = false
+
+
+func disable_tick() -> void:
+	tick_timer.stop()
+	is_ticking = false
+
+func enable_tick() -> void:
+	tick_timer.start()
+	is_ticking = true
+

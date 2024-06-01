@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvls135bybcc7"]
+
+[ext_resource type="PackedScene" uid="uid://d0arumlvmxady" path="res://scn/battle/battle_yokai.tscn" id="1_vklld"]
+[ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="2_xe7i4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_06abe"]
+resource_local_to_scene = true
+shader = ExtResource("2_xe7i4")
+shader_parameter/color = Vector4(1, 1, 0, 1)
+shader_parameter/mx = 0.0
+
+[node name="player_battle_yokai" type="Sprite2D"]
+
+[node name="BattleYokai" parent="." instance=ExtResource("1_vklld")]
+material = SubResource("ShaderMaterial_06abe")

@@ -62,3 +62,14 @@ libraries = {
 [node name="ui" type="Sprite2D" parent="."]
 position = Vector2(0, 26)
 texture = ExtResource("4_d7a0h")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-14, 16, -14, -16, 15, -16, 15, 16)
+
+[node name="tick" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="tick" to="." method="_on_tick_timeout"]

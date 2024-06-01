@@ -1,5 +1,6 @@
 class_name Global extends Node
 
+
 @warning_ignore("unused_signal")
 signal _on_battle_start()
 @warning_ignore("unused_signal")
