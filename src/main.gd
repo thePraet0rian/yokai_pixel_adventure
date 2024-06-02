@@ -1,53 +1,6 @@
 class_name Main extends Node2D
 
 
-func _ready() -> void:
-	
-	global._on_battle_start.connect(_on_battle_started)
-	global._on_battle_end.connect(_on_battle_end)
-	
-	global._on_room_transition.connect(_on_room_transition)
-	
-	global._on_warp.connect(_on_warp)
-	global._on_save.connect(_on_save)
-	global._on_load.connect(_on_load)
-	
-	global._on_dialogue.connect(_on_dialogue)
-	global._on_dialogue_end.connect(_on_dialogue_end)
-	global._on_menue_close.connect(_on_menue_close)
-
-
-const BattleScene: PackedScene = preload("res://scn/battle/battle.tscn")
-
-
-func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
-	
-	var BattleInstance: Battle = BattleScene.instantiate()	
-	BattleInstance.player_yokai_arr = global.player_yokai
-	BattleInstance.enemy_yokai_arr = enemy_yokai_arr.duplicate()
-	add_child(BattleInstance)
-
-
-func _on_battle_end() -> void:
-	
-	_on_menue_close()
-
-
-func _on_room_transition(room: int) -> void:
-	
-	match room:		
-		1:
-			$rooms/room_01.queue_free()
-			$rooms.add_child(global.rooms[0].instantiate())
-
-
-func _on_warp(warp: int) -> void:
-	
-	match warp: 
-		0:
-			pass
-
-
 const save_file_arr: Array[String] = [
 	"user://savefile_one.save", 
 	"user://savefile_two.save", 
@@ -71,6 +24,60 @@ func _on_load(_save_file: int) -> void:
 	pass
 
 
+func _ready() -> void:
+	
+	global._on_battle_start.connect(_on_battle_started)
+	global._on_battle_end.connect(_on_battle_end)
+	
+	global._on_room_transition.connect(_on_room_transition)
+	global._on_warp.connect(_on_warp)
+	
+	global._on_save.connect(_on_save)
+	global._on_load.connect(_on_load)
+	
+	global._on_dialogue.connect(_on_dialogue)
+	global._on_dialogue_end.connect(_on_dialogue_end)
+	
+	global._on_menue_close.connect(_on_menue_close)
+
+
+const BattleScene: PackedScene = preload("res://scn/battle/battle.tscn")
+
+
+func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
+	var BattleInstance: Battle = BattleScene.instantiate()	
+	BattleInstance.player_yokai_arr = global.player_yokai
+	BattleInstance.enemy_yokai_arr = enemy_yokai_arr.duplicate()
+	add_child(BattleInstance)
+	
+func _on_battle_end() -> void:
+	_on_menue_close()
+
+
+@onready var rooms: Node2D = $rooms
+
+const player_scn: PackedScene = preload("res://scn/player/player.tscn")
+
+
+func _on_room_transition(room: int) -> void:
+	match room:		
+		1:
+			rooms.get_child(0).queue_free()
+			
+			var new_room: Node2D = global.rooms[1].instantiate()
+			rooms.add_child(new_room)
+			
+			var player_inst: CharacterBody2D = player_scn.instantiate()
+			new_room.get_node("ysort").add_child(player_inst)
+			player_inst.position = Vector2(64, 64)
+			
+func _on_warp(warp: int) -> void:
+	
+	match warp: 
+		0:
+			pass
+
+
 func _on_save() -> void:
 	
 	var save_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.WRITE)
@@ -89,11 +96,9 @@ const dialogue_scn: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
 
 
 func _on_dialogue(npc_name: String, dialogue_int: int) -> void:
-	
 	var DialogueInstance: Dialogue = dialogue_scn.instantiate()
 	DialogueInstance.get_dialogue(npc_name, str(dialogue_int))
 	add_child(DialogueInstance)
-
 
 func _on_dialogue_end() -> void:
 	
@@ -105,7 +110,6 @@ func _on_dialogue_end() -> void:
 
 
 func _on_menue_close() -> void:
-	
 	ui_overlay.visible = true
 	ui_anim_player.play("fade_in")
 	
@@ -117,3 +121,6 @@ func _on_menue_close() -> void:
 
 func _on_main_timer_timeout() -> void:
 	global.current_time += 1
+
+
+

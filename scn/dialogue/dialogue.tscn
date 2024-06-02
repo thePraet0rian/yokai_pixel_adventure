@@ -76,3 +76,5 @@ libraries = {
 "": SubResource("AnimationLibrary_khrwt")
 }
 autoplay = "constant"
+
+[node name="character" type="Sprite2D" parent="."]
