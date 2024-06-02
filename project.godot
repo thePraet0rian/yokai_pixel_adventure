@@ -20,6 +20,7 @@ config/icon="res://res/yokai/jibanyan/icon_export.png"
 
 yokai_stats="*res://res/yokai/stats/yokai_stats.gd"
 global="*res://src/global/global.gd"
+npc_manager="*res://src/global/npc_manager.gd"
 
 [display]
 

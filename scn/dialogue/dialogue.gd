@@ -11,7 +11,7 @@ var dialouge_line: int = 0
 
 func get_dialogue(npc_name: String, npc: String) -> void:
 	
-	var file = FileAccess.open("res://dialogue/test.json", FileAccess.READ)
+	var file = FileAccess.open("res://scn/dialogue/test.json", FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	text = data[npc_name][npc]
 	file.close()

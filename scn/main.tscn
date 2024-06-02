@@ -718,13 +718,14 @@ yokai_name = "Darkyubi"
 
 [node name="npc2" parent="rooms/room_01/ysort" instance=ExtResource("10_2eeur")]
 position = Vector2(-120, 8)
-points = Array[Vector2]([Vector2(-120, 8), Vector2(120, 8), Vector2(-120, 8)])
-times = Array[int]([0, 0])
-velocities = Array[Vector2]([Vector2(100, 0), Vector2(100, 0), Vector2(-100, 0)])
+current_behavior = 0
 repeating = true
 
+[node name="npc" parent="rooms/room_01/ysort" instance=ExtResource("10_2eeur")]
+position = Vector2(-120, 121)
+
 [node name="yokai_hotspot" parent="rooms/room_01" instance=ExtResource("11_3llsb")]
-position = Vector2(128, 104)
+position = Vector2(136, 137)
 
 [node name="main_timer" type="Timer" parent="."]
 autostart = true
