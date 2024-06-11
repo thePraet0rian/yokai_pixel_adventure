@@ -1,65 +1,69 @@
 class_name Main extends Node2D
 
 
+const PlayerScene: PackedScene = preload("res://scn/player/player.tscn")
+const DialogueScene: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
+const BattleScene: PackedScene = preload("res://scn/battle/battle.tscn")
+const ShopScene: PackedScene = preload("res://scn/ui/shop/shop.tscn")
+
 const save_file_arr: Array[String] = [
 	"user://savefile_one.save", 
 	"user://savefile_two.save", 
 	"user://savefile_three.save"
 ]
 
+@onready var rooms: Node2D = $rooms
+@onready var player_inst: Player = rooms.get_child(0).get_node("ysort").get_node("player")
+@onready var ui_anim_player: AnimationPlayer = $ui/anim_player
+@onready var ui_overlay: ColorRect = $ui/ColorRect
+
 var save_file_int: int 
 
 
-func _on_load(_save_file: int) -> void:
+func _on_game_loaded(_save_file: int) -> void:
 	
-	#save_file_int = _save_file
+	save_file_int = _save_file
+	var load_file = FileAccess.open(save_file_arr[0], FileAccess.READ)
+	var string = load_file.get_as_text()
+	var data: Dictionary = JSON.parse_string(string)
 	
-	#var load_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.READ)
-	#var _inventory_length: int = load_file.get_8()
+	player_inst.position.x = data["Player"]["posX"]
+	player_inst.position.y = data["Player"]["posY"]
 	
-	#for i in range(3):
-		#pass
+	load_file.close()
 	
-	#load_file.close()
-	pass
-
 
 func _ready() -> void:
 	
-	global._on_battle_start.connect(_on_battle_started)
-	global._on_battle_end.connect(_on_battle_end)
+	global.on_battle_started.connect(_on_battle_started)
+	global.on_battle_ended.connect(_on_battle_ended)
 	
-	global._on_room_transition.connect(_on_room_transition)
-	global._on_warp.connect(_on_warp)
+	global.on_room_transitioned.connect(_on_room_transitioned)
 	
-	global._on_save.connect(_on_save)
-	global._on_load.connect(_on_load)
+	global.on_game_saved.connect(_on_game_saved)
+	global.on_game_loaded.connect(_on_game_loaded)
 	
-	global._on_dialogue.connect(_on_dialogue)
-	global._on_dialogue_end.connect(_on_dialogue_end)
+	global.on_dialogue_started.connect(_on_dialogue_started)
+	global.on_dialogue_ended.connect(_on_dialogue_ended)
 	
-	global._on_menue_close.connect(_on_menue_close)
-
-
-const BattleScene: PackedScene = preload("res://scn/battle/battle.tscn")
+	global.on_menue_closed.connect(_on_menue_closed)
+	
+	global.on_shopkeeper_met.connect(_on_shopkeeper_met)
 
 
 func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
+	
 	var BattleInstance: Battle = BattleScene.instantiate()	
 	BattleInstance.player_yokai_arr = global.player_yokai
 	BattleInstance.enemy_yokai_arr = enemy_yokai_arr.duplicate()
 	add_child(BattleInstance)
+		
+func _on_battle_ended() -> void:
 	
-func _on_battle_end() -> void:
-	_on_menue_close()
+	_on_menue_closed()
 
 
-@onready var rooms: Node2D = $rooms
-
-const player_scn: PackedScene = preload("res://scn/player/player.tscn")
-
-
-func _on_room_transition(room: int) -> void:
+func _on_room_transitioned(room: int) -> void:
 	match room:		
 		1:
 			rooms.get_child(0).queue_free()
@@ -67,49 +71,40 @@ func _on_room_transition(room: int) -> void:
 			var new_room: Node2D = global.rooms[1].instantiate()
 			rooms.add_child(new_room)
 			
-			var player_inst: CharacterBody2D = player_scn.instantiate()
+			player_inst = PlayerScene.instantiate()			
 			new_room.get_node("ysort").add_child(player_inst)
-			player_inst.position = Vector2(64, 64)
 			
-func _on_warp(warp: int) -> void:
-	
-	match warp: 
-		0:
-			pass
+			player_inst.set_orientation(Vector2(-1, 0))
+			player_inst.position = Vector2(64, 64)
 
 
-func _on_save() -> void:
-	
+func _on_game_saved() -> void:
+
 	var save_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.WRITE)
+	var data: Dictionary = {
+		"Player": {
+			"posX": int(player_inst.position.x),
+			"posY": int(player_inst.position.y),
+		}
+	}	
 	
-	save_file.store_8(3)
-	
-	for i in range(len(global.player_inventory)):
-		save_file.store_var(global.player_inventory[i][0].name_str)
-		save_file.store_var(global.player_inventory[i][0].description)
-		save_file.store_var(global.player_inventory[i][0].sprite)
-	
+	var string = JSON.stringify(data)
+	save_file.store_string(string)	
 	save_file.close()
 
 
-const dialogue_scn: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
-
-
-func _on_dialogue(npc_name: String, dialogue_int: int) -> void:
-	var DialogueInstance: Dialogue = dialogue_scn.instantiate()
-	DialogueInstance.get_dialogue(npc_name, str(dialogue_int))
+func _on_dialogue_started(npc_name: String, dialogue_int: int) -> void:
+	
+	var DialogueInstance: Dialogue = DialogueScene.instantiate()
+	DialogueInstance.set_dialogue(npc_name, str(dialogue_int))
 	add_child(DialogueInstance)
 
-func _on_dialogue_end() -> void:
+func _on_dialogue_ended() -> void:
 	
 	get_tree().paused = false
 
 
-@onready var ui_anim_player: AnimationPlayer = $ui/anim_player
-@onready var ui_overlay: ColorRect = $ui/ColorRect
-
-
-func _on_menue_close() -> void:
+func _on_menue_closed() -> void:
 	ui_overlay.visible = true
 	ui_anim_player.play("fade_in")
 	
@@ -123,4 +118,9 @@ func _on_main_timer_timeout() -> void:
 	global.current_time += 1
 
 
-
+func _on_shopkeeper_met(shopkeep_name: String) -> void:
+	
+	var ShopInstance: Shop = ShopScene.instantiate()
+	ShopInstance.shop = shopkeep_name
+	add_child(ShopInstance)
+	

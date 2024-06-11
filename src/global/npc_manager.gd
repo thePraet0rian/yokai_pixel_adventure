@@ -9,11 +9,12 @@ func _ready() -> void:
 	var file = FileAccess.open("res://src/npc/npcs.json", FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	
-	for i in range(len(data)):
+	for i in range(len(data)): 
 
 		var points: Array[Vector2] = []
 		var velocities: Array[Vector2] = []
 		var times: Array[int] = []
+		var sprite: String
 		
 		for j in range(len(data[i]["Points"])):
 			
@@ -26,9 +27,11 @@ func _ready() -> void:
 			velocities.append(Vector2(vel_x, vel_y))
 			
 			times.append(int(data[i]["Times"][j]))
+			
+			sprite = data[i]["Sprite"]
 		
 		
-		npcs[data[i]["Name"]] = {"Points": points, "Velocities": velocities, "Times": times}
+		npcs[data[i]["Name"]] = {"Points": points, "Velocities": velocities, "Times": times, "Sprite": sprite}
 	
 	print(npcs)
 	

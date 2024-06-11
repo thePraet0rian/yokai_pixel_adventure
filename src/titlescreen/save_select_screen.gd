@@ -14,8 +14,8 @@ func _input(event: InputEvent) -> void:
 		await anim_player.animation_finished
 		
 		get_parent().add_child(main_scn.instantiate())
-		global._on_load.emit(0)
-		global._on_menue_close.emit()
+		global.on_game_loaded.emit(0)
+		global.on_menue_closed.emit()
 		
 		queue_free()
 	

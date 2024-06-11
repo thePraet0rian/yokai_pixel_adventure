@@ -1,10 +1,10 @@
 class_name Npc extends CharacterBody2D
 
 
-enum BEHAVIOR {WALKING = 0, STANDING = 1, WAITING = 2}
+enum BEHAVIOR {WALKING = 0, STANDING = 1, WAITING = 2, SHOPKEEPING = 3}
 
+@export var current_behavior: BEHAVIOR = BEHAVIOR.SHOPKEEPING
 @export var npc_name: String = "NPC_01"
-@export var current_behavior: BEHAVIOR = BEHAVIOR.STANDING
 @export var repeating: bool = false
 
 @onready var tween: Tween

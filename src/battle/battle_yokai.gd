@@ -138,7 +138,7 @@ func _player_grouchy_behavoir() -> void:
 	if parent.pick_alive() == -1:
 		return
 	anim_player.play("flash")
-	global._on_yokai_action.emit(0, 0, "attack")
+	global.on_yokai_action.emit(0, 0, "attack")
 
 
 func health_update() -> void:

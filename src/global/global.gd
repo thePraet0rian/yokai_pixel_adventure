@@ -1,26 +1,22 @@
 class_name Global extends Node
 
 
+signal on_battle_started()
+signal on_battle_ended()
 
-signal _on_battle_start()
+signal on_room_transitioned()
 
-signal _on_battle_end()
+signal on_game_saved()
+signal on_game_loaded()
 
-signal _on_room_transition()
+signal on_dialogue_started()
+signal on_dialogue_ended()
 
-signal _on_warp()
+signal on_menue_closed()
 
-signal _on_save
+signal on_yokai_action() 
 
-signal _on_load()
-
-signal _on_dialogue()
-
-signal _on_dialogue_end
-
-signal _on_menue_close
-
-signal _on_yokai_action()
+signal on_shopkeeper_met()
 
 
 var current_time: int = 0

@@ -1,10 +1,10 @@
 {
   "NPC_01": {"0": [
-	{"npc": "MainCharacter", "text": "This is a test", "expresion": "Angy", },
-	{"npc": "Mother", "text": "This is a second test", "expresion": "Angy"},
-	{"npc": "MainCharacter", "text": "this is a third test", "expression": "Angy"},
-	{"npc": "MainCharacter", "text": "this is an actual dialogue line", "expression": "Angry"},
-	{"npc": "MainCharacter", "text": "Julian ist ein kleiner Bastard", "expression": "Angry"}]
+	{"npc": "NPC_01", "text": "This is a test", "expresion": "Angy", },
+	{"npc": "NPC_01", "text": "This is a second test", "expresion": "Angy"},
+	{"npc": "NPC_01", "text": "this is a third test", "expression": "Angy"},
+	{"npc": "NPC_01", "text": "this is an actual dialogue line", "expression": "Angry"},
+	{"npc": "NPC_01", "text": "Julian ist ein kleiner Bastard", "expression": "Angry"}]
   }
 }
 

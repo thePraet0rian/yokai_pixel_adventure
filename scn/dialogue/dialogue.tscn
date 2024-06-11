@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://sw7vj0dvb1ge"]
+[gd_scene load_steps=9 format=3 uid="uid://sw7vj0dvb1ge"]
 
 [ext_resource type="Script" path="res://scn/dialogue/dialogue.gd" id="1_dp4kh"]
+[ext_resource type="Texture2D" uid="uid://diw125fhxqa4" path="res://res/npc/npc_assets/family/mom.png" id="2_iyud8"]
 [ext_resource type="Texture2D" uid="uid://c7w7aowkxwfmw" path="res://res/dialogue_assets/background.png" id="2_uqhs5"]
 [ext_resource type="Texture2D" uid="uid://do2bpyyli3idp" path="res://res/dialogue_assets/continue.png" id="3_64615"]
 [ext_resource type="FontFile" uid="uid://dr2fylr683c1" path="res://res/dialogue_assets/new_font.ttf" id="3_wqf1j"]
@@ -47,6 +48,10 @@ _data = {
 process_mode = 3
 script = ExtResource("1_dp4kh")
 
+[node name="character" type="Sprite2D" parent="."]
+position = Vector2(33, 74)
+texture = ExtResource("2_iyud8")
+
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(120, 113)
 texture = ExtResource("2_uqhs5")
@@ -76,5 +81,3 @@ libraries = {
 "": SubResource("AnimationLibrary_khrwt")
 }
 autoplay = "constant"
-
-[node name="character" type="Sprite2D" parent="."]

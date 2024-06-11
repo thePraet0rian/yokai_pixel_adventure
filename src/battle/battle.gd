@@ -21,7 +21,7 @@ func _ready() -> void:
 	setup_players()
 	setup_enemys()
 	
-	global._on_yokai_action.connect(_on_yokai_action)
+	global.on_yokai_action.connect(_on_yokai_action)
 	
 	anim_player.play("start")
 
@@ -132,7 +132,7 @@ func _win_input(event: InputEvent) -> void:
 
 func end() -> void:
 
-	global._on_battle_end.emit()
+	global.on_battle_ended.emit()
 	get_tree().paused = false
 	queue_free()
 

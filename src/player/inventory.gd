@@ -27,12 +27,10 @@ var current_state: STATES = STATES.MAIN
 
 
 func _ready() -> void:
-	
 	money_label.text = str(global.current_money)
 
 
 func _input(event: InputEvent) -> void:
-	
 	match current_state:
 		0:
 			main_menue_input(event)
@@ -40,7 +38,6 @@ func _input(event: InputEvent) -> void:
 
 
 func main_menue_input(event: InputEvent) -> void:
-	
 	if event.is_action_pressed("move_up"):
 		if cur_pos.y == 0:
 			pass
@@ -84,21 +81,20 @@ func main_menue_input(event: InputEvent) -> void:
 
 
 func match_main_input() -> void:
-	
 	if cur_pos.x == 0 and cur_pos.y == 0:
 		var inventory_inst: Node2D = inventory_scn.instantiate()
 		sub_inventory.add_child(inventory_inst)
 		inventory_inst._sig_inventory_close.connect(inventory_close)
 		current_state = STATES.INVENTORY
+	if cur_pos.x == 1 and cur_pos.y == 0:
+		global.on_game_saved.emit()
 
 
 func inventory_close() -> void:
-	
 	current_state = STATES.MAIN
 
 
 func end() -> void:	
-	
-	global._on_menue_close.emit()
+	global.on_menue_closed.emit()
 	get_tree().paused = false
 	queue_free()
