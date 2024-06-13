@@ -44,7 +44,7 @@ func _input(event: InputEvent) -> void:
 			select.position.x += 22
 			inventory_page += 1
 	
-	for i in range(0, 5):
+	for i in range(0, 5):		
 		sub_inventories[i].visible = true if i == inventory_page else false
 	
 	if event.is_action_pressed("move_left"):
@@ -70,5 +70,3 @@ func _input(event: InputEvent) -> void:
 		await inventory_anim_player.animation_finished
 		_sig_inventory_close.emit()
 		queue_free()
-
-

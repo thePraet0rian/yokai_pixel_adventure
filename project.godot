@@ -38,7 +38,10 @@ enabled=PackedStringArray("res://addons/bottom_panel_shortcuts/plugin.cfg", "res
 [file_customization]
 
 folder_colors={
-"res://addons/": "gray"
+"res://addons/": "gray",
+"res://res/": "red",
+"res://scn/": "teal",
+"res://src/": "orange"
 }
 
 [filesystem]

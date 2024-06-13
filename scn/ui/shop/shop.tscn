@@ -1,12 +1,74 @@
-[gd_scene load_steps=2 format=3 uid="uid://bos6u0i2gjjh5"]
+[gd_scene load_steps=7 format=3 uid="uid://bos6u0i2gjjh5"]
 
 [ext_resource type="Script" path="res://src/ui/shop/shop.gd" id="1_qn5l5"]
+[ext_resource type="Texture2D" uid="uid://dqt81fe301xcf" path="res://res/ui/shop/shopkeeper.png" id="2_ahvod"]
+[ext_resource type="Texture2D" uid="uid://bnxcb4y70qbgd" path="res://res/ui/shop/item_selector.png" id="3_cxypx"]
+
+[sub_resource type="Animation" id="Animation_l2tp7"]
+resource_name = "fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_usi8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpivp"]
+_data = {
+"RESET": SubResource("Animation_usi8i"),
+"fade": SubResource("Animation_l2tp7")
+}
 
 [node name="shop" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_qn5l5")
+items = Array[String](["Onigiri", "Onigiri", "Onigiri", "", "", "", "", "", ""])
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_top = 1.0
+[node name="background" type="ColorRect" parent="."]
 offset_right = 240.0
 offset_bottom = 135.0
-color = Color(0, 0, 0, 0.282353)
+color = Color(0, 0, 0, 0.882353)
+metadata/_edit_lock_ = true
+
+[node name="shopkepper" type="Sprite2D" parent="."]
+position = Vector2(28, 81)
+texture = ExtResource("2_ahvod")
+metadata/_edit_lock_ = true
+
+[node name="container" type="Node2D" parent="."]
+
+[node name="selector" type="Sprite2D" parent="container"]
+position = Vector2(152, 36)
+texture = ExtResource("3_cxypx")
+
+[node name="overlay" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0)
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vpivp")
+}
