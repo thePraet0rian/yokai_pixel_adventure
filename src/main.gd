@@ -121,6 +121,6 @@ func _on_main_timer_timeout() -> void:
 func _on_shopkeeper_met(shopkeep_name: String) -> void:
 	
 	var ShopInstance: Shop = ShopScene.instantiate()
-	ShopInstance.shop = shopkeep_name
+	ShopInstance.shop_name = shopkeep_name
 	add_child(ShopInstance)
 	

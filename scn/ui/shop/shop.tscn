@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://dqt81fe301xcf" path="res://res/ui/shop/shopkeeper.png" id="2_ahvod"]
 [ext_resource type="Texture2D" uid="uid://bnxcb4y70qbgd" path="res://res/ui/shop/item_selector.png" id="3_cxypx"]
 
+[sub_resource type="Animation" id="Animation_usi8i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_l2tp7"]
 resource_name = "fade"
 length = 0.5
@@ -20,21 +35,6 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_usi8i"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("overlay:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpivp"]
 _data = {
 "RESET": SubResource("Animation_usi8i"),
@@ -44,7 +44,7 @@ _data = {
 [node name="shop" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_qn5l5")
-items = Array[String](["Onigiri", "Onigiri", "Onigiri", "", "", "", "", "", ""])
+tmp_items = Array[String](["Onigiri", "Onigiri", "Onigiri", "Mighty Medicine"])
 
 [node name="background" type="ColorRect" parent="."]
 offset_right = 240.0
@@ -72,3 +72,7 @@ color = Color(0, 0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_vpivp")
 }
+
+[node name="money_label" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

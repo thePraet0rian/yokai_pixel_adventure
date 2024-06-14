@@ -3,6 +3,8 @@ extends Node2D
 
 signal _sig_inventory_close
 
+const ItemIconsScene: PackedScene = preload("res://scn/ui/inventory/item_icons.tscn")
+
 @onready var select: Sprite2D = $Sprite2D/select
 @onready var inventory_anim_player: AnimationPlayer = $inventory_anim_player
 
@@ -31,6 +33,24 @@ var indices: Array[Vector2] = [
 	Vector2.ZERO,
 	Vector2.ZERO,
 ]
+
+
+func _ready() -> void:
+	
+	var y_index: int = 0
+	
+	for i in range(5):
+		y_index = 0
+		for j in range(len(global.player_inventory[i])):
+			
+			
+			if j % 3 == 0:
+				y_index += 1
+			
+			var ItemIconInstance: ItemIcons = ItemIconsScene.instantiate()
+			ItemIconInstance.item = global.player_inventory[i][j]
+			ItemIconInstance.position = Vector2(24, 60) + Vector2(0, 18) * (j % 3) + Vector2(18, 0) * (y_index - 1)
+			sub_inventories[i].add_child(ItemIconInstance)
 
 
 func _input(event: InputEvent) -> void:

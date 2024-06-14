@@ -21,12 +21,13 @@ signal on_shopkeeper_met()
 
 var current_time: int = 0
 var current_money: int = 1240
+
 var player_inventory: Array[Array] = [
-	[Item.new()],
-	[Item.new()],
-	[Item.new()],
-	[Item.new()],
-	[Item.new()],
+	[Item.new("Onigiri")],
+	[Item.new("Onigiri")],
+	[Item.new("Onigiri")],
+	[Item.new("Onigiri")],
+	[Item.new("Onigiri")],
 ]
 
 @onready var player_yokai: Array[Yokai] = [

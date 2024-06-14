@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv1eqrx8or0pi"]
+
+[ext_resource type="Texture2D" uid="uid://c7ngbyohdl77n" path="res://res/items/items.png" id="1_jnj87"]
+[ext_resource type="Script" path="res://src/ui/inventory/item_icons.gd" id="1_uf678"]
+
+[node name="item_icons" type="Sprite2D"]
+texture = ExtResource("1_jnj87")
+hframes = 8
+vframes = 8
+frame = 11
+script = ExtResource("1_uf678")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)

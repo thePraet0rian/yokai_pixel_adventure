@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bt3haerqovogc"]
+[gd_scene load_steps=16 format=3 uid="uid://bt3haerqovogc"]
 
 [ext_resource type="Script" path="res://src/titlescreen/save_select_screen.gd" id="1_f8tgk"]
 [ext_resource type="Shader" path="res://src/player/background.gdshader" id="2_fb2vd"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://7ptjarqcjc1" path="res://src/ui/assets/save_select_screen/top_bar.png" id="5_xarpd"]
 [ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://src/ui/assets/menue/button_back.png" id="6_6fd2n"]
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://src/ui/assets/menue/button_select.png" id="7_cfi1u"]
+[ext_resource type="Texture2D" uid="uid://cxd3rf2uoelch" path="res://res/ui/save_select_screen/select_slot.png" id="9_6216d"]
+[ext_resource type="Texture2D" uid="uid://ca2f427xlugyj" path="res://res/ui/save_select_screen/selector.png" id="10_yevgm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wudcp"]
 shader = ExtResource("2_fb2vd")
@@ -89,6 +91,24 @@ hframes = 2
 position = Vector2(204, 127)
 texture = ExtResource("7_cfi1u")
 hframes = 2
+
+[node name="save_files" type="Node2D" parent="."]
+
+[node name="savefile_01" type="Sprite2D" parent="save_files"]
+position = Vector2(120, 38)
+texture = ExtResource("9_6216d")
+
+[node name="savefile_02" type="Sprite2D" parent="save_files"]
+position = Vector2(120, 60)
+texture = ExtResource("9_6216d")
+
+[node name="savefile_03" type="Sprite2D" parent="save_files"]
+position = Vector2(120, 82)
+texture = ExtResource("9_6216d")
+
+[node name="selector" type="Sprite2D" parent="save_files"]
+position = Vector2(120, 38)
+texture = ExtResource("10_yevgm")
 
 [node name="fade_overlay" type="ColorRect" parent="."]
 offset_right = 240.0

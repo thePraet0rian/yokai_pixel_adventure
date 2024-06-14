@@ -155,9 +155,6 @@ func npc_dialogue() -> void:
 		get_tree().paused = true
 
 
-
-
-
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
 	if "npc" in area.get_parent().name:
