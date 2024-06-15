@@ -66,6 +66,8 @@ func _npc_01() -> void:
 	if difference > 0:
 		global.current_money -= price
 		_update_ui()
+	else:
+		return
 	
 	print(tmp_items[index])
 	

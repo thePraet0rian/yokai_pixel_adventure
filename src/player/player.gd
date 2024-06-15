@@ -143,8 +143,7 @@ func show_objective() -> void:
 
  
 func npc_dialogue() -> void:
-	
-	
+		
 	if npc_type == 1:
 		global.on_dialogue_started.emit(npc.npc_name, npc.npc_int)
 		npc_met = false

@@ -26,9 +26,9 @@ func _ready() -> void:
 
 
 func _load_npc() -> void: 
-	velocities.append_array(npc_manager.npcs[npc_name]["Velocities"])
-	points.append_array(npc_manager.npcs[npc_name]["Points"])
-	times.append_array(npc_manager.npcs[npc_name]["Times"])
+	velocities.append_array(global_npc.moving_npcs[npc_name]["Velocities"])
+	points.append_array(global_npc.moving_npcs[npc_name]["Points"])
+	times.append_array(global_npc.moving_npcs[npc_name]["Times"])
 
 
 func move() -> void:

@@ -683,5 +683,9 @@ repeating = true
 [node name="npc" parent="ysort" instance=ExtResource("9_rngbx")]
 position = Vector2(-120, 121)
 
+[node name="npc3" parent="ysort" instance=ExtResource("9_rngbx")]
+position = Vector2(-120, 160)
+current_behavior = 1
+
 [node name="yokai_hotspot" parent="." instance=ExtResource("10_bctyr")]
 position = Vector2(136, 137)

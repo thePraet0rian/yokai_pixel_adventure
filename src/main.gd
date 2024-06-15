@@ -99,6 +99,7 @@ func _on_dialogue_started(npc_name: String, dialogue_int: int) -> void:
 	DialogueInstance.set_dialogue(npc_name, str(dialogue_int))
 	add_child(DialogueInstance)
 
+
 func _on_dialogue_ended() -> void:
 	
 	get_tree().paused = false

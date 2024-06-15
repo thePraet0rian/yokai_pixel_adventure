@@ -1,8 +1,8 @@
 class_name Inventory extends CanvasLayer
 
 
-const inventory_scn: PackedScene = preload("res://scn/menue/inventory.tscn")
-
+const InventoryScene: PackedScene = preload("res://scn/menue/inventory.tscn")
+ 
 enum STATES {
 	MAIN = 0, 
 	INVENTORY = 1, 
@@ -80,8 +80,9 @@ func main_menue_input(event: InputEvent) -> void:
 
 
 func match_main_input() -> void:
+	
 	if cur_pos.x == 0 and cur_pos.y == 0:
-		var inventory_inst: Node2D = inventory_scn.instantiate()
+		var inventory_inst: Node2D = InventoryScene.instantiate()
 		sub_inventory.add_child(inventory_inst)
 		inventory_inst._sig_inventory_close.connect(inventory_close)
 		current_state = STATES.INVENTORY

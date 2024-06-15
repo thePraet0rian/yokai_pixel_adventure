@@ -1,20 +1,17 @@
 class_name Dialogue extends CanvasLayer
 
 
-@onready var text_label: RichTextLabel = $text
-@onready var character_sprite: Sprite2D = $character
-
 var writing: bool = false
 var text: Array
 var dialouge_line: int = 0
 
+@onready var text_label: RichTextLabel = $text
+@onready var character_sprite: Sprite2D = $character
+
 
 func set_dialogue(npc_name: String, npc: String) -> void:
 	
-	var file = FileAccess.open("res://scn/dialogue/test.json", FileAccess.READ)
-	var data = JSON.parse_string(file.get_as_text())
-	text = data[npc_name][npc]
-	file.close()
+	text = global_npc.talking_npcs[npc_name][npc]
 	
 
 func _ready() -> void:
@@ -28,8 +25,8 @@ func write_text() -> void:
 		
 		text_label.visible_ratio = 0
 		text_label.text = text[dialouge_line]["text"]
-		print(npc_manager.npcs["NPC_01"])
-		character_sprite.texture = load(npc_manager.npcs["NPC_01"]["Sprite"])
+		print(global_npc.moving_npcs["NPC_01"])
+		character_sprite.texture = load(global_npc.moving_npcs["NPC_01"]["Sprite"])
 		dialouge_line += 1
 		writing = true
 		await create_tween().tween_property(text_label, "visible_ratio", 1, 1).finished
