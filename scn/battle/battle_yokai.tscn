@@ -72,4 +72,4 @@ polygon = PackedVector2Array(-14, 16, -14, -16, 15, -16, 15, 16)
 wait_time = 2.0
 autostart = true
 
-[connection signal="timeout" from="tick" to="." method="_on_tick_timeout"]
+[connection signal="timeout" from="tick" to="." method="_on_tick_timer_timeout"]

@@ -6,7 +6,7 @@ const DialogueScene: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
 const BattleScene: PackedScene = preload("res://scn/battle/battle.tscn")
 const ShopScene: PackedScene = preload("res://scn/ui/shop/shop.tscn")
 
-const save_file_arr: Array[String] = [
+const SAVE_FILE_ARR: Array[String] = [
 	"user://savefile_one.save", 
 	"user://savefile_two.save", 
 	"user://savefile_three.save"
@@ -23,7 +23,7 @@ var save_file_int: int
 func _on_game_loaded(_save_file: int) -> void:
 	
 	save_file_int = _save_file
-	var load_file = FileAccess.open(save_file_arr[0], FileAccess.READ)
+	var load_file = FileAccess.open(SAVE_FILE_ARR[0], FileAccess.READ)
 	var string = load_file.get_as_text()
 	var data: Dictionary = JSON.parse_string(string)
 	
@@ -80,7 +80,7 @@ func _on_room_transitioned(room: int) -> void:
 
 func _on_game_saved() -> void:
 
-	var save_file = FileAccess.open(save_file_arr[save_file_int], FileAccess.WRITE)
+	var save_file = FileAccess.open(SAVE_FILE_ARR[save_file_int], FileAccess.WRITE)
 	var data: Dictionary = {
 		"Player": {
 			"posX": int(player_inst.position.x),

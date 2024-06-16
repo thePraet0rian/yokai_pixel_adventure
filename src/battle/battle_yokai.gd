@@ -75,8 +75,9 @@ func remove() -> void:
 	await get_tree().create_timer(.5).timeout
 	queue_free()
 
-
-func _on_tick_timeout() -> void:
+func _on_tick_timer_timeout() -> void:
+	
+	
 	if team == 0:
 		_player_tick()
 	if team == 1:
@@ -84,8 +85,6 @@ func _on_tick_timeout() -> void:
 
 
 func _player_tick() -> void: 
-	
-	print("player tick")
 	
 	if _behavoir_barrier():
 		_player_behavoir()
@@ -135,6 +134,7 @@ func loaf() -> bool:
 
 
 func _player_grouchy_behavoir() -> void:
+	
 	if parent.pick_alive() == -1:
 		return
 	anim_player.play("flash")
@@ -148,10 +148,12 @@ func health_update() -> void:
 
 
 func disable_tick() -> void:
+
 	tick_timer.stop()
 	is_ticking = false
 
 func enable_tick() -> void:
+
 	tick_timer.start()
 	is_ticking = true
 
