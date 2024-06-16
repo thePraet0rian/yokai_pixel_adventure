@@ -1,8 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=22 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
-[ext_resource type="Texture2D" uid="uid://dudkwk0a1cq8" path="res://res/battle/ui/target/target.png" id="10_73vdx"]
 [ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://res/battle/ui/item_button.png" id="10_a00b0"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="10_u3foe"]
 [ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://res/battle/ui/target_button.png" id="11_kq0va"]
@@ -132,7 +131,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"end"
+"method": &"_end"
 }]
 }
 
@@ -240,14 +239,16 @@ script = ExtResource("1_28vn4")
 position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
 
-[node name="enemies" type="Node2D" parent="."]
+[node name="yokai" type="Node" parent="."]
 
-[node name="enemy_yokai_anim_player" type="AnimationPlayer" parent="enemies"]
+[node name="enemies" type="Node2D" parent="yokai"]
 
-[node name="players" type="Node2D" parent="."]
+[node name="enemy_yokai_anim_player" type="AnimationPlayer" parent="yokai/enemies"]
+
+[node name="players" type="Node2D" parent="yokai"]
 position = Vector2(0, -17)
 
-[node name="player_yokai_anim_player" type="AnimationPlayer" parent="players"]
+[node name="player_yokai_anim_player" type="AnimationPlayer" parent="yokai/players"]
 
 [node name="buttons" type="Node2D" parent="."]
 
@@ -276,6 +277,10 @@ libraries = {
 "": SubResource("AnimationLibrary_l10kg")
 }
 
+[node name="wheel" type="Sprite2D" parent="buttons"]
+position = Vector2(120, 115)
+texture = ExtResource("16_uj23c")
+
 [node name="ui" type="Node2D" parent="."]
 position = Vector2(0, -7)
 
@@ -296,13 +301,7 @@ libraries = {
 }
 autoplay = "q_e_anim"
 
-[node name="wheel" type="Sprite2D" parent="ui/main_ui"]
-position = Vector2(120, 122)
-texture = ExtResource("16_uj23c")
-
 [node name="ColorRect" type="ColorRect" parent="ui/main_ui"]
-visible = false
-z_index = 1
 offset_top = 7.0
 offset_right = 240.0
 offset_bottom = 142.0
@@ -331,10 +330,6 @@ offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
 
-[node name="target" type="Sprite2D" parent="ui/sub_ui/target"]
-position = Vector2(120, 67.5)
-texture = ExtResource("10_73vdx")
-
 [node name="soulimate" type="Node2D" parent="ui/sub_ui"]
 visible = false
 
@@ -350,11 +345,6 @@ visible = false
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
-
-[node name="anim_player" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_6w7eq")
-}
 
 [node name="temp" type="Node2D" parent="."]
 visible = false
@@ -378,3 +368,8 @@ visible = false
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(1, 1, 0, 1)
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6w7eq")
+}

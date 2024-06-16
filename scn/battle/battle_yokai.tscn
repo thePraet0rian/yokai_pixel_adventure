@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0arumlvmxady"]
+[gd_scene load_steps=10 format=3 uid="uid://d0arumlvmxady"]
 
 [ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://src/battle/battle_yokai.gd" id="1_n8hpv"]
 [ext_resource type="Texture2D" uid="uid://covon1a5nmpmg" path="res://res/yokai/jibanyan/jibanyan.png" id="2_kqog4"]
 [ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://res/battle/ui/health_bar.png" id="4_d7a0h"]
+[ext_resource type="Texture2D" uid="uid://bu40c2kpc02i5" path="res://res/battle/fx/hit_fx.png" id="5_uw4bc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubimd"]
 resource_local_to_scene = true
@@ -71,5 +72,9 @@ polygon = PackedVector2Array(-14, 16, -14, -16, 15, -16, 15, 16)
 [node name="tick" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
+
+[node name="damage" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_uw4bc")
 
 [connection signal="timeout" from="tick" to="." method="_on_tick_timer_timeout"]

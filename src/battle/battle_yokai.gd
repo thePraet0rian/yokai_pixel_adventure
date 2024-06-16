@@ -20,10 +20,11 @@ var is_loafing: bool = false
 var is_ticking: bool = true
 
 @onready var YokaiInst: Yokai
-@onready var parent: Battle = get_node("..").get_node("..")
+@onready var parent: Battle = get_node("..").get_node("..").get_node("..")
 @onready var ui: Sprite2D = $ui
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var tick_timer: Timer = $tick
+@onready var damage: Sprite2D = $damage
 
 
 func update(team_str: String) -> void:
@@ -141,7 +142,11 @@ func _player_grouchy_behavoir() -> void:
 	global.on_yokai_action.emit(0, 0, "attack")
 
 
-func health_update() -> void:
+func health_update(_damage: int) -> void:
+	
+	damage.visible = true
+	
+	YokaiInst.yokai_hp -= _damage
 	
 	if YokaiInst.yokai_hp <= 0:
 		visible = false
