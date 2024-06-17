@@ -1,10 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=24 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
 [ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://res/battle/ui/item_button.png" id="10_a00b0"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="10_u3foe"]
+[ext_resource type="PackedScene" uid="uid://bc7a0o82w1jyo" path="res://scn/battle/items.tscn" id="11_2r0ru"]
 [ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://res/battle/ui/target_button.png" id="11_kq0va"]
+[ext_resource type="PackedScene" uid="uid://byuu60sehf7ok" path="res://scn/battle/target.tscn" id="12_bmpme"]
 [ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://res/battle/ui/soulimate_button.png" id="12_u58v2"]
 [ext_resource type="Texture2D" uid="uid://xwp6084y0l66" path="res://res/battle/ui/purify_button.png" id="13_r3le3"]
 [ext_resource type="Texture2D" uid="uid://d1e7nrdftl8pc" path="res://res/battle/ui/q_sign.png" id="14_hoddt"]
@@ -314,21 +316,9 @@ texture = ExtResource("10_u3foe")
 
 [node name="sub_ui" type="Node" parent="ui"]
 
-[node name="items" type="Node2D" parent="ui/sub_ui"]
-visible = false
+[node name="items" parent="ui/sub_ui" instance=ExtResource("11_2r0ru")]
 
-[node name="background" type="ColorRect" parent="ui/sub_ui/items"]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0, 0, 0, 0.392157)
-
-[node name="target" type="Node2D" parent="ui/sub_ui"]
-visible = false
-
-[node name="background" type="ColorRect" parent="ui/sub_ui/target"]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0, 0, 0, 0.392157)
+[node name="target" parent="ui/sub_ui" instance=ExtResource("12_bmpme")]
 
 [node name="soulimate" type="Node2D" parent="ui/sub_ui"]
 visible = false

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://byuu60sehf7ok"]
+
+[ext_resource type="Script" path="res://src/battle/sub/target.gd" id="1_muyoo"]
+[ext_resource type="Texture2D" uid="uid://c72xw3du4t1tg" path="res://res/battle/target/back_button.png" id="1_qiwi2"]
+[ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="3_43r33"]
+[ext_resource type="Texture2D" uid="uid://b8gcfmii16co" path="res://res/battle/target/selector_01.png" id="4_4d6ip"]
+[ext_resource type="Texture2D" uid="uid://bpbkxp384h7xf" path="res://res/battle/target/selector_02.png" id="5_yqxb0"]
+
+[node name="target" type="Node2D"]
+script = ExtResource("1_muyoo")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.392157)
+
+[node name="back_button" type="Sprite2D" parent="."]
+position = Vector2(38, 127.5)
+texture = ExtResource("1_qiwi2")
+hframes = 2
+
+[node name="normal_selector" type="Sprite2D" parent="."]
+position = Vector2(94, 127.5)
+texture = ExtResource("1_qiwi2")
+hframes = 2
+
+[node name="back_button3" type="Sprite2D" parent="."]
+position = Vector2(146, 127.5)
+texture = ExtResource("1_qiwi2")
+hframes = 2
+
+[node name="back_button4" type="Sprite2D" parent="."]
+position = Vector2(202, 127.5)
+texture = ExtResource("1_qiwi2")
+hframes = 2
+
+[node name="selector" type="Sprite2D" parent="."]
+position = Vector2(120, 40)
+texture = ExtResource("3_43r33")
+
+[node name="selector_01" type="Sprite2D" parent="."]
+position = Vector2(120, 60)
+texture = ExtResource("4_4d6ip")
+hframes = 2
+frame = 1
+
+[node name="selector_02" type="Sprite2D" parent="."]
+position = Vector2(120, 127)
+texture = ExtResource("5_yqxb0")
+hframes = 2
