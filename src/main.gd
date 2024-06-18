@@ -1,10 +1,11 @@
 class_name Main extends Node2D
 
 
-const PlayerScene: PackedScene = preload("res://scn/player/player.tscn")
-const DialogueScene: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
-const BattleScene: PackedScene = preload("res://scn/battle/battle.tscn")
-const ShopScene: PackedScene = preload("res://scn/ui/shop/shop.tscn")
+const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
+const DIALOGUE_SCENE: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
+const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
+const SHOP_SCENE: PackedScene = preload("res://scn/ui/shop/shop.tscn")
+const TEST_SCENE: PackedScene = preload("res://scn/battle/target.tscn")
 
 const SAVE_FILE_ARR: Array[String] = [
 	"user://savefile_one.save", 
@@ -49,18 +50,23 @@ func _ready() -> void:
 	global.on_menue_closed.connect(_on_menue_closed)
 	
 	global.on_shopkeeper_met.connect(_on_shopkeeper_met)
+	
+	global.on_test_start.connect(_on_test_start)
+	
+	global.disable_main.connect(_on_disable_main)
 
 
 func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
 	
-	var BattleInstance: Battle = BattleScene.instantiate()	
+	var BattleInstance: Battle = BATTLE_SCENE.instantiate()	
 	BattleInstance.player_yokai_arr = global.player_yokai
 	BattleInstance.enemy_yokai_arr = enemy_yokai_arr.duplicate()
 	add_child(BattleInstance)
 		
 func _on_battle_ended() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT
+
 	
-	_on_menue_closed()
 
 
 func _on_room_transitioned(room: int) -> void:
@@ -71,7 +77,7 @@ func _on_room_transitioned(room: int) -> void:
 			var new_room: Node2D = global.rooms[1].instantiate()
 			rooms.add_child(new_room)
 			
-			player_inst = PlayerScene.instantiate()			
+			player_inst = PLAYER_SCENE.instantiate()			
 			new_room.get_node("ysort").add_child(player_inst)
 			
 			player_inst.set_orientation(Vector2(-1, 0))
@@ -95,7 +101,7 @@ func _on_game_saved() -> void:
 
 func _on_dialogue_started(npc_name: String, dialogue_int: int) -> void:
 	
-	var DialogueInstance: Dialogue = DialogueScene.instantiate()
+	var DialogueInstance: Dialogue = DIALOGUE_SCENE.instantiate()
 	DialogueInstance.set_dialogue(npc_name, str(dialogue_int))
 	add_child(DialogueInstance)
 
@@ -121,7 +127,16 @@ func _on_main_timer_timeout() -> void:
 
 func _on_shopkeeper_met(shopkeep_name: String) -> void:
 	
-	var ShopInstance: Shop = ShopScene.instantiate()
+	var ShopInstance: Shop = SHOP_SCENE.instantiate()
 	ShopInstance.shop_name = shopkeep_name
 	add_child(ShopInstance)
 	
+
+func _on_test_start() -> void:
+	
+	add_child(TEST_SCENE.instantiate())
+	get_tree().paused = true
+
+
+func _on_disable_main() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED

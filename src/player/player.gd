@@ -38,7 +38,7 @@ func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("esc"): 
 		get_parent().add_child(DebugScene.instantiate())
-		get_tree().paused = true
+		global.disable_main.emit()
 		
 	if event.is_action_pressed("inventory"):
 		get_tree().paused = true

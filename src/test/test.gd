@@ -1,2 +1,2 @@
-class_name test extends Node2D
+class_name test extends CanvasLayer
 

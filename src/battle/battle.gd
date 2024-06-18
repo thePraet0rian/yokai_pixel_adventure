@@ -58,12 +58,12 @@ var is_moving: bool = false
 	$buttons/item,
 ]
 
-@onready var overlay_rect: ColorRect = $ui/main_ui/ColorRect
 
 @onready var players: Node2D = $yokai/players
 @onready var enemies: Node2D = $yokai/enemies
 
 @onready var win_screen: Node2D = $win_screen
+@onready var WinScreenAnimPlayer: AnimationPlayer = $win_screen/anim_player
 
 
 # START # -----------------------------------------------------------------------------------------
@@ -164,6 +164,8 @@ func _change_sub_game_state(sub_buttons_index: int) -> void:
 					current_game_state = GAME_STATES.ACTION
 			
 		SUB_GAME_STATES.TARGET:
+			target.process_mode = Node.PROCESS_MODE_ALWAYS
+			process_mode = Node.PROCESS_MODE_ALWAYS
 			target.visible = true
 			current_sub_game_state = SUB_GAME_STATES.TARGET
 			current_game_state = GAME_STATES.ACTION
@@ -205,27 +207,14 @@ func _soulimate_input(event: InputEvent) -> void:
 		_enable_yokai()
 
 
-func _target_input(event: InputEvent) -> void:
+func _target_input(_event: InputEvent) -> void:
 
-	if event.is_action_pressed("move_left"):
-		if targeting_int > 0:
-			targeting_int -= 1
-	if event.is_action_pressed("move_right"):
-		if targeting_int < 2:
-			targeting_int += 1
+	#if event.is_action_pressed("shift"):
+		#_enable_yokai()		
+		#current_game_state = GAME_STATES.SELECTING
+		#target.visible = false
 	
-	target_spr.visible = true
-	target_spr.position = Vector2(48, 32) + Vector2(72, 0) * targeting_int
-	
-	if event.is_action_pressed("shift"):
-		_enable_yokai()		
-		current_game_state = GAME_STATES.SELECTING
-		target.visible = false
-	if event.is_action_pressed("space"):
-		is_targeting = true
-		_enable_yokai()
-		current_game_state = GAME_STATES.SELECTING
-		target.visible = false
+	pass
 		
 		
 func _item_input(event: InputEvent) -> void:
@@ -409,14 +398,13 @@ func _enable_yokai() -> void:
 func _win_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):
-		overlay_rect.visible = true
-		ui_anim_player.play("fade_in")
+		print("yes")
+		WinScreenAnimPlayer.play("fade")
 
 
 func _end() -> void:
 	
-	global.on_battle_ended.emit()
-	get_tree().paused = false
+	#global.on_ba	ttle_ended.emit()
 	queue_free()
 
 

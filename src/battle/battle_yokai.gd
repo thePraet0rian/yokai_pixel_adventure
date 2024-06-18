@@ -18,6 +18,7 @@ var last_position: Vector2
 
 var is_loafing: bool = false
 var is_ticking: bool = true
+var is_targeted: bool = true
 
 @onready var YokaiInst: Yokai
 @onready var parent: Battle = get_node("..").get_node("..").get_node("..")
@@ -25,6 +26,12 @@ var is_ticking: bool = true
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var tick_timer: Timer = $tick
 @onready var damage: Sprite2D = $damage
+@onready var selector: Sprite2D = $selector
+
+
+func set_target() -> void:
+	if team == ENEMY:
+		selector.visible = true
 
 
 func update(team_str: String) -> void:

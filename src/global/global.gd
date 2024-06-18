@@ -17,6 +17,9 @@ signal on_menue_closed()
 signal on_yokai_action() 
 
 signal on_shopkeeper_met()
+signal on_test_start
+
+signal disable_main
 
 
 var current_time: int = 0

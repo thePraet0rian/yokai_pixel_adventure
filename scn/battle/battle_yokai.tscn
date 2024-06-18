@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0arumlvmxady"]
+[gd_scene load_steps=11 format=3 uid="uid://d0arumlvmxady"]
 
 [ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://src/battle/battle_yokai.gd" id="1_n8hpv"]
 [ext_resource type="Texture2D" uid="uid://covon1a5nmpmg" path="res://res/yokai/jibanyan/jibanyan.png" id="2_kqog4"]
 [ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://res/battle/ui/health_bar.png" id="4_d7a0h"]
 [ext_resource type="Texture2D" uid="uid://bu40c2kpc02i5" path="res://res/battle/fx/hit_fx.png" id="5_uw4bc"]
+[ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="6_il4qv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubimd"]
 resource_local_to_scene = true
@@ -64,9 +65,9 @@ libraries = {
 position = Vector2(0, 26)
 texture = ExtResource("4_d7a0h")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="battle_yokai" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="battle_yokai"]
 polygon = PackedVector2Array(-14, 16, -14, -16, 15, -16, 15, 16)
 
 [node name="tick" type="Timer" parent="."]
@@ -76,5 +77,10 @@ autostart = true
 [node name="damage" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("5_uw4bc")
+
+[node name="selector" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -22)
+texture = ExtResource("6_il4qv")
 
 [connection signal="timeout" from="tick" to="." method="_on_tick_timer_timeout"]

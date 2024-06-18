@@ -5,43 +5,40 @@ enum STATE {ONE = 1, TWO = 2}
 
 var index: int = 1
 var current_state: STATE = STATE.ONE
+var input_vector: Vector2 = Vector2.ZERO
 
 @onready var Buttons: Array[Sprite2D] = [
-	$back_button,
-	$normal_selector,
-	$back_button3,
-	$back_button4
+	$buttons/back_button,
+	$buttons/normal_selector,
+	$buttons/back_button3,
+	$buttons/back_button4,
 ]
+
+@onready var selector: Area2D = $selector
+
+
+func _ready() -> void:
+	
+	await selector.area_entered
+	print("fuck")
 
 
 func _input(event: InputEvent) -> void:
 	
-	match current_state:
-		0:
-			_input_one(event)
-		1:
-			_input_two(event)
+	if event.is_action_pressed("shift"):
+		pass
 
 
-func _input_one(event: InputEvent) -> void: 
+func _physics_process(_delta: float) -> void:
 	
-	if event.is_action_pressed("move_left"):
-		if index < 0:
-			index = 3
-		else:
-			index -= 1
-	elif event.is_action_pressed("move_right"):
-		if index > 2:
-			index = 0
-		else:
-			index += 1
+	input_vector.x = Input.get_axis("move_left", "move_right")
+	input_vector.y = Input.get_axis("move_up", "move_down")
 	
-	for i in range(4):
-		Buttons[i].frame = 0
-	
-	Buttons[index].frame = 1
+	input_vector = input_vector.normalized()
+	selector.position += input_vector
 
 
-func _input_two(event: InputEvent) -> void:
+func _on_selector_area_entered(area: Area2D) -> void:
 	
-	pass
+	if "battle_yokai" in area.name:
+		area.get_parent().set_target()

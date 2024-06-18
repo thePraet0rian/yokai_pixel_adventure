@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://beiex3s3utp6x"]
+
+[ext_resource type="Script" path="res://scn/test/test_02.gd" id="1_m3rcb"]
+
+[node name="Node2D" type="Node2D"]
+process_mode = 1
+script = ExtResource("1_m3rcb")
