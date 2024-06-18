@@ -7,7 +7,8 @@ var item: Item
 
 
 func _ready() -> void:
-	
+	print("wai")
+	print(item)
 	texture = item.item_texture
 	count.text = str(item.item_count)
 	

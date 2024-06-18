@@ -43,7 +43,6 @@ func _ready() -> void:
 		y_index = 0
 		for j in range(len(global.player_inventory[i])):
 			
-			
 			if j % 3 == 0:
 				y_index += 1
 			

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt1ynq3r78we0"]
+[gd_scene load_steps=2 format=3 uid="uid://dt1ynq3r78we0"]
 
 [ext_resource type="Script" path="res://src/test/test.gd" id="1_m2b1v"]
-[ext_resource type="PackedScene" uid="uid://byuu60sehf7ok" path="res://scn/battle/target.tscn" id="2_l30jb"]
 
 [node name="test" type="CanvasLayer"]
 process_mode = 3
@@ -12,4 +11,4 @@ offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 1)
 
-[node name="target" parent="." instance=ExtResource("2_l30jb")]
+[node name="Node2D" type="Node2D" parent="."]

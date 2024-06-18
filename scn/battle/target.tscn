@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dudkwk0a1cq8" path="res://res/battle/ui/target/target.png" id="6_axyj8"]
 
 [node name="target" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_muyoo")
 
 [node name="background" type="ColorRect" parent="."]

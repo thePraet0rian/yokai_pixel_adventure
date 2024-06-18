@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
 [ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://res/battle/ui/item_button.png" id="10_a00b0"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="10_u3foe"]
-[ext_resource type="PackedScene" uid="uid://bc7a0o82w1jyo" path="res://scn/battle/items.tscn" id="11_2r0ru"]
+[ext_resource type="PackedScene" uid="uid://b3v3yrawn71wv" path="res://scn/battle/sub/items.tscn" id="11_kis0f"]
 [ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://res/battle/ui/target_button.png" id="11_kq0va"]
 [ext_resource type="PackedScene" uid="uid://byuu60sehf7ok" path="res://scn/battle/target.tscn" id="12_bmpme"]
 [ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://res/battle/ui/soulimate_button.png" id="12_u58v2"]
@@ -148,6 +148,21 @@ _data = {
 "q_e_anim": SubResource("Animation_qfu8t")
 }
 
+[sub_resource type="Animation" id="Animation_bnhii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_rm8fg"]
 resource_name = "fade"
 length = 0.25
@@ -177,21 +192,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"_end"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_bnhii"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("overlay:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhtm6"]
@@ -338,7 +338,8 @@ texture = ExtResource("10_u3foe")
 
 [node name="sub_ui" type="Node" parent="ui"]
 
-[node name="items" parent="ui/sub_ui" instance=ExtResource("11_2r0ru")]
+[node name="items" parent="ui/sub_ui" instance=ExtResource("11_kis0f")]
+process_mode = 4
 visible = false
 
 [node name="target" parent="ui/sub_ui" instance=ExtResource("12_bmpme")]

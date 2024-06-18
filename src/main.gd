@@ -13,10 +13,10 @@ const SAVE_FILE_ARR: Array[String] = [
 	"user://savefile_three.save"
 ]
 
-@onready var rooms: Node2D = $rooms
-@onready var player_inst: Player = rooms.get_child(0).get_node("ysort").get_node("player")
-@onready var ui_anim_player: AnimationPlayer = $ui/anim_player
-@onready var ui_overlay: ColorRect = $ui/ColorRect
+@onready var Rooms: Node2D = $rooms
+@onready var PlayerInst: Player = Rooms.get_child(0).get_node("ysort").get_node("player")
+@onready var UiAnimPlayer: AnimationPlayer = $ui/anim_player
+@onready var UiOverlay: ColorRect = $ui/ColorRect
 
 var save_file_int: int 
 
@@ -28,8 +28,8 @@ func _on_game_loaded(_save_file: int) -> void:
 	var string = load_file.get_as_text()
 	var data: Dictionary = JSON.parse_string(string)
 	
-	player_inst.position.x = data["Player"]["posX"]
-	player_inst.position.y = data["Player"]["posY"]
+	PlayerInst.position.x = data["Player"]["posX"]
+	PlayerInst.position.y = data["Player"]["posY"]
 	
 	load_file.close()
 	
@@ -64,24 +64,24 @@ func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
 	add_child(BattleInstance)
 		
 func _on_battle_ended() -> void:
-	process_mode = Node.PROCESS_MODE_INHERIT
-
 	
+	get_tree().paused = false
 
 
 func _on_room_transitioned(room: int) -> void:
-	match room:		
+	
+	match room:	
 		1:
-			rooms.get_child(0).queue_free()
+			Rooms.get_child(0).queue_free()
 			
 			var new_room: Node2D = global.rooms[1].instantiate()
-			rooms.add_child(new_room)
+			Rooms.add_child(new_room)
 			
-			player_inst = PLAYER_SCENE.instantiate()			
-			new_room.get_node("ysort").add_child(player_inst)
+			PlayerInst = PLAYER_SCENE.instantiate()			
+			new_room.get_node("ysort").add_child(PlayerInst)
 			
-			player_inst.set_orientation(Vector2(-1, 0))
-			player_inst.position = Vector2(64, 64)
+			PlayerInst.set_orientation(Vector2(-1, 0))
+			PlayerInst.position = Vector2(64, 64)
 
 
 func _on_game_saved() -> void:
@@ -89,8 +89,8 @@ func _on_game_saved() -> void:
 	var save_file = FileAccess.open(SAVE_FILE_ARR[save_file_int], FileAccess.WRITE)
 	var data: Dictionary = {
 		"Player": {
-			"posX": int(player_inst.position.x),
-			"posY": int(player_inst.position.y),
+			"posX": int(PlayerInst.position.x),
+			"posY": int(PlayerInst.position.y),
 		}
 	}	
 	
@@ -112,16 +112,18 @@ func _on_dialogue_ended() -> void:
 
 
 func _on_menue_closed() -> void:
-	ui_overlay.visible = true
-	ui_anim_player.play("fade_in")
 	
-	await ui_anim_player.animation_finished
-	ui_overlay.visible = false
+	UiOverlay.visible = true
+	UiAnimPlayer.play("fade_in")
 	
-	ui_anim_player.play("RESET")
+	await UiAnimPlayer.animation_finished
+	UiOverlay.visible = false
+	
+	UiAnimPlayer.play("RESET")
 
 
 func _on_main_timer_timeout() -> void:
+	
 	global.current_time += 1
 
 
@@ -140,3 +142,4 @@ func _on_test_start() -> void:
 
 func _on_disable_main() -> void:
 	process_mode = Node.PROCESS_MODE_DISABLED
+	print("disabeld")
