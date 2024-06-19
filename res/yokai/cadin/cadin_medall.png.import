@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2c0hgsn46wbx"
-path="res://.godot/imported/jibanyan_one.png-83c2589d49817df3d8f00d31c1c71a21.ctex"
+uid="uid://8in5h2wwviwf"
+path="res://.godot/imported/cadin_medall.png-f3277b9120367287c8eed96327bceb1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://jibanyan_one.png"
-dest_files=["res://.godot/imported/jibanyan_one.png-83c2589d49817df3d8f00d31c1c71a21.ctex"]
+source_file="res://res/yokai/cadin/cadin_medall.png"
+dest_files=["res://.godot/imported/cadin_medall.png-f3277b9120367287c8eed96327bceb1e.ctex"]
 
 [params]
 

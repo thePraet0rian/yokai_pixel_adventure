@@ -8,6 +8,7 @@ const ITEM_ICON_SCN: PackedScene = preload("res://scn/ui/inventory/item_icons.ts
 
 var indices: Vector2 = Vector2.ZERO
 
+
 func _ready() -> void:
 	
 	var y_index: int = 0

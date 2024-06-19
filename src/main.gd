@@ -5,7 +5,6 @@ const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
 const DIALOGUE_SCENE: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
 const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
 const SHOP_SCENE: PackedScene = preload("res://scn/ui/shop/shop.tscn")
-const TEST_SCENE: PackedScene = preload("res://scn/battle/target.tscn")
 
 const SAVE_FILE_ARR: Array[String] = [
 	"user://savefile_one.save", 
@@ -136,8 +135,9 @@ func _on_shopkeeper_met(shopkeep_name: String) -> void:
 
 func _on_test_start() -> void:
 	
-	add_child(TEST_SCENE.instantiate())
-	get_tree().paused = true
+	#add_child(TEST_SCENE.instantiate())
+	#get_tree().paused = true
+	pass
 
 
 func _on_disable_main() -> void:

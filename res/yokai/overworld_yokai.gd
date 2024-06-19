@@ -16,7 +16,7 @@ func _ready() -> void:
 		"Mirapo":
 			sprite.texture = load("res://res/yokai/mirapo/miarpo.png")
 		"Jibanyan":
-			sprite.texture = load("res://jibanyan_one.png")
+			sprite.texture = load("res://res/yokai/jibanyan/jibanyan_one.png")
 		"Darkyubi":
 			sprite.texture = load("res://res/yokai/darkyubi/darkyubi.png")
 		

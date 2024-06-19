@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6eejfy5sjkik"
-path="res://.godot/imported/test.png-2b0b935732229e5bd5e655f2644b2498.ctex"
+uid="uid://ckffxgr4ew1xs"
+path="res://.godot/imported/jibanyan_medall.png-462b1c98fc7fc2698352f3d157ea582b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test.png"
-dest_files=["res://.godot/imported/test.png-2b0b935732229e5bd5e655f2644b2498.ctex"]
+source_file="res://res/yokai/jibanyan/jibanyan_medall.png"
+dest_files=["res://.godot/imported/jibanyan_medall.png-462b1c98fc7fc2698352f3d157ea582b.ctex"]
 
 [params]
 

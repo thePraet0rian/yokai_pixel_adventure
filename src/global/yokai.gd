@@ -42,12 +42,13 @@ var loafer: bool = true
 
 var front_sprite: Texture
 var back_sprite: Texture
+var yokai_medall_sprite: Texture
 
 var yokai_behavior: BEHAVIORS = BEHAVIORS.GROUCHY
 var yokai_loafing: LOAFING = LOAFING.SERIOUS
 
 
-func _init(_yokai_name: String, _front_sprite: Resource) -> void:
+func _init(_yokai_name: String, _front_sprite: Resource, _yokai_medall) -> void:
 	
 	yokai_name = _yokai_name
 	yokai_hp = yokai_stats.data[_yokai_name][0]["BS_A_HP"]
@@ -57,6 +58,7 @@ func _init(_yokai_name: String, _front_sprite: Resource) -> void:
 	yokai_spd = yokai_stats.data[_yokai_name][0]["BS_A_Spd"]
 	
 	front_sprite = _front_sprite
+	yokai_medall_sprite = _yokai_medall
 
 
 func check_health() -> bool:

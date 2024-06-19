@@ -20,6 +20,8 @@ var is_loafing: bool = false
 var is_ticking: bool = true
 var is_targeted: bool = true
 
+var yokai_number: int = 0
+
 @onready var YokaiInst: Yokai
 @onready var parent: Battle = get_node("..").get_node("..").get_node("..")
 @onready var ui: Sprite2D = $ui
@@ -30,9 +32,10 @@ var is_targeted: bool = true
 
 
 func set_target() -> void:
+	
 	if team == ENEMY:
 		selector.visible = true
-		parent.selected_yokai = 0
+		parent.set_selected_yokai(yokai_number)
 
 
 func update(team_str: String) -> void:
@@ -86,6 +89,7 @@ func remove() -> void:
 
 func _on_tick_timer_timeout() -> void:
 	
+	print("tick")
 	
 	if team == 0:
 		_player_tick()
@@ -144,8 +148,8 @@ func loaf() -> bool:
 
 func _player_grouchy_behavoir() -> void:
 	
-	if parent.pick_alive() == -1:
-		return
+	#if parent.pick_alive() == -1:
+		#return
 	anim_player.play("flash")
 	global.on_yokai_action.emit(0, 0, "attack")
 

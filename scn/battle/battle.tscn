@@ -1,15 +1,19 @@
-[gd_scene load_steps=27 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=31 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
 [ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://res/battle/buttons/item_button.png" id="3_5sywo"]
+[ext_resource type="Script" path="res://src/battle/yokai_helper.gd" id="3_yiroh"]
 [ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://res/battle/buttons/target_button.png" id="4_8w6uo"]
 [ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://res/battle/buttons/soulimate_button.png" id="5_n70qx"]
 [ext_resource type="Texture2D" uid="uid://xwp6084y0l66" path="res://res/battle/buttons/purify_button.png" id="6_4vrvv"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="10_u3foe"]
 [ext_resource type="PackedScene" uid="uid://b3v3yrawn71wv" path="res://scn/battle/sub/items.tscn" id="11_kis0f"]
 [ext_resource type="PackedScene" uid="uid://byuu60sehf7ok" path="res://scn/battle/sub/target.tscn" id="12_bmpme"]
+[ext_resource type="PackedScene" uid="uid://c7k2h62jlwjwd" path="res://scn/battle/sub/soulimate.tscn" id="13_clbgi"]
+[ext_resource type="PackedScene" uid="uid://nwiqhsqjtw60" path="res://scn/battle/sub/purify.tscn" id="14_eeg27"]
 [ext_resource type="Texture2D" uid="uid://d1e7nrdftl8pc" path="res://res/battle/ui/q_sign.png" id="14_hoddt"]
+[ext_resource type="Texture2D" uid="uid://8in5h2wwviwf" path="res://res/yokai/cadin/cadin_medall.png" id="15_cdgot"]
 [ext_resource type="Texture2D" uid="uid://bdoxxvscku02" path="res://res/battle/ui/e_sign.png" id="15_co87e"]
 [ext_resource type="Texture2D" uid="uid://cryqic7d88ff4" path="res://res/battle/ui/wheel.png" id="16_uj23c"]
 
@@ -270,6 +274,7 @@ position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
 
 [node name="yokai" type="Node" parent="."]
+script = ExtResource("3_yiroh")
 
 [node name="enemies" type="Node2D" parent="yokai"]
 
@@ -346,21 +351,13 @@ visible = false
 process_mode = 4
 visible = false
 
-[node name="soulimate" type="Node2D" parent="ui/sub_ui"]
+[node name="soulimate" parent="ui/sub_ui" instance=ExtResource("13_clbgi")]
+process_mode = 4
 visible = false
 
-[node name="background" type="ColorRect" parent="ui/sub_ui/soulimate"]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0, 0, 0, 0.392157)
-
-[node name="purify" type="Node2D" parent="ui/sub_ui"]
+[node name="purify" parent="ui/sub_ui" instance=ExtResource("14_eeg27")]
+process_mode = 4
 visible = false
-
-[node name="background" type="ColorRect" parent="ui/sub_ui/purify"]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0, 0, 0, 0.392157)
 
 [node name="temp" type="Node2D" parent="."]
 visible = false
@@ -394,6 +391,20 @@ libraries = {
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0)
+
+[node name="medalls" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="medalls"]
+position = Vector2(103, 115)
+texture = ExtResource("15_cdgot")
+
+[node name="Sprite2D2" type="Sprite2D" parent="medalls"]
+position = Vector2(120, 115)
+texture = ExtResource("15_cdgot")
+
+[node name="Sprite2D3" type="Sprite2D" parent="medalls"]
+position = Vector2(137, 115)
+texture = ExtResource("15_cdgot")
 
 [node name="anim_player" type="AnimationPlayer" parent="."]
 libraries = {

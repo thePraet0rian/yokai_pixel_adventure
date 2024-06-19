@@ -30,9 +30,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
-		Parent.current_game_state = Parent.GAME_STATES.SELECTING
-		visible = false
-		process_mode = Node.PROCESS_MODE_DISABLED
+		#Parent.current_game_state = Parent.GAME_STATES.SELECTING
+		#visible = false
+		#process_mode = Node.PROCESS_MODE_DISABLED
+		pass
 	
 	if hovering:
 		if event.is_action_pressed("space"):
