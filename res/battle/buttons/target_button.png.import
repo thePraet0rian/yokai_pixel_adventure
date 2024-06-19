@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xwp6084y0l66"
-path="res://.godot/imported/purify_button.png-446928e1bdbc51f1e2a09e729fb40030.ctex"
+uid="uid://2u2skkt4v80i"
+path="res://.godot/imported/target_button.png-91e0b41e273df038543f92aef45d605b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/ui/purify_button.png"
-dest_files=["res://.godot/imported/purify_button.png-446928e1bdbc51f1e2a09e729fb40030.ctex"]
+source_file="res://res/battle/buttons/target_button.png"
+dest_files=["res://.godot/imported/target_button.png-91e0b41e273df038543f92aef45d605b.ctex"]
 
 [params]
 

@@ -32,6 +32,7 @@ var is_targeted: bool = true
 func set_target() -> void:
 	if team == ENEMY:
 		selector.visible = true
+		parent.selected_yokai = 0
 
 
 func update(team_str: String) -> void:

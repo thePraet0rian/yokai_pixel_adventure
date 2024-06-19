@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6wg0blukpgdw"
-path="res://.godot/imported/item_button.png-8afb03368b8741ec811620ef99b86e62.ctex"
+uid="uid://dvleb0gb3oipa"
+path="res://.godot/imported/soulimate_button.png-e9691ed4fe40ec984a3479635205b9e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/ui/item_button.png"
-dest_files=["res://.godot/imported/item_button.png-8afb03368b8741ec811620ef99b86e62.ctex"]
+source_file="res://res/battle/buttons/soulimate_button.png"
+dest_files=["res://.godot/imported/soulimate_button.png-e9691ed4fe40ec984a3479635205b9e2.ctex"]
 
 [params]
 

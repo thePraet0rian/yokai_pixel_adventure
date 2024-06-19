@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/shop/shop.gd" id="1_qn5l5"]
 [ext_resource type="Texture2D" uid="uid://dqt81fe301xcf" path="res://res/ui/shop/shopkeeper.png" id="2_ahvod"]
-[ext_resource type="Texture2D" uid="uid://bnxcb4y70qbgd" path="res://res/ui/shop/item_selector.png" id="3_cxypx"]
+[ext_resource type="Texture2D" uid="uid://bnxcb4y70qbgd" path="res://res/ui/item_selector.png" id="3_cxypx"]
 
 [sub_resource type="Animation" id="Animation_usi8i"]
 length = 0.001

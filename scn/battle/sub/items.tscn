@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3v3yrawn71wv"]
+[gd_scene load_steps=3 format=3 uid="uid://b3v3yrawn71wv"]
 
 [ext_resource type="Script" path="res://src/battle/sub/items.gd" id="1_bloyq"]
+[ext_resource type="Texture2D" uid="uid://w1sriqagsv7w" path="res://src/ui/assets/menue/top_bars/selection.png" id="2_k8gnc"]
 
 [node name="items" type="Node2D"]
 script = ExtResource("1_bloyq")
@@ -18,3 +19,7 @@ offset_bottom = 112.0
 color = Color(0.856067, 0.856067, 0.856067, 1)
 
 [node name="items" type="Node" parent="."]
+
+[node name="selector" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+texture = ExtResource("2_k8gnc")

@@ -5,7 +5,6 @@ const BATTLE_YOKAI_SCENE: PackedScene = preload("res://scn/battle/battle_yokai.t
 
 
 enum GAME_STATES {
-	MENUE = 0,
 	SELECTING = 1, 
 	ACTION = 2, 
 	WIN = 3,
@@ -29,6 +28,7 @@ enum {
 
 @onready var Purify: Node2D = $ui/sub_ui/purify
 @onready var Soulimate: Node2D = $ui/sub_ui/soulimate
+@onready var SoulimateButton: Sprite2D = $buttons/soulimate
 @onready var Target: Node2D = $ui/sub_ui/target
 @onready var Items: Node2D = $ui/sub_ui/items
 
@@ -65,6 +65,13 @@ var targeting_int: int = 0
 
 var direction_move: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
 var is_moving: bool = false
+
+var can_soulimate: bool = true
+var can_item: bool = true
+var can_purfy: bool = true
+var can_target: bool = true
+
+var selected_yokai: int
 
 
 # START # -----------------------------------------------------------------------------------------
@@ -123,6 +130,8 @@ func _input(event: InputEvent) -> void:
 			_action_input(event)
 		GAME_STATES.WIN:
 			_win_input(event)
+	
+	_update_ui()
 
 
 func _selecting_input(event: InputEvent) -> void:
@@ -143,6 +152,14 @@ func _selecting_input(event: InputEvent) -> void:
 			Buttons[i].frame = 1
 		else:
 			Buttons[i].frame = 0
+	
+	match buttons_index:
+		1:
+			if _can_soulimate(): 
+				Buttons[1].frame = 1
+			else:
+				print("yes")
+				Buttons[1].frame = 3
 
 	if event.is_action_pressed("space"):
 		_change_sub_game_state(buttons_index)
@@ -161,7 +178,7 @@ func _change_sub_game_state(sub_buttons_index: int) -> void:
 			
 		SUB_GAME_STATES.SOULIMATE:
 			for i in range(len(player_team_inst)):
-				if player_team_inst[i].YokaiInst.yokai_soul:
+				if player_team_inst[i].YokaiInst.yokai_soul >= 1.0:
 					Soulimate.visible = true
 					current_sub_game_state = SUB_GAME_STATES.SOULIMATE
 					current_game_state = GAME_STATES.ACTION
@@ -176,8 +193,28 @@ func _change_sub_game_state(sub_buttons_index: int) -> void:
 		SUB_GAME_STATES.ITEM:
 			_hide_ui()
 			Items.visible = true
+			Items.process_mode = Node.PROCESS_MODE_INHERIT
 			current_sub_game_state = SUB_GAME_STATES.ITEM
 			current_game_state = GAME_STATES.ACTION
+
+
+func _update_ui() -> void:
+	
+	#SoulimateButton.frame = 2
+	#for i in range(len(player_team_inst)):
+		#if player_team_inst[i].YokaiInst.yokai_soul >= 1.0:
+			#Soulimate.frame = 0
+	pass
+
+
+func _can_soulimate() -> bool:
+	
+	for i in range(len(player_team_inst)):
+		if player_team_inst[i].YokaiInst.yokai_soul >= 1.0:
+			print("soulimate")
+			return true
+	return false
+			
 
 
 func _action_input(event: InputEvent) -> void:
@@ -203,7 +240,7 @@ func _purify_input(event: InputEvent) ->  void:
 
 
 func _soulimate_input(event: InputEvent) -> void:
-
+	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.SELECTING
 		Soulimate.visible = false
