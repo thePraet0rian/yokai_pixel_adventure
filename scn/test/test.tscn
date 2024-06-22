@@ -1,14 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt1ynq3r78we0"]
+[gd_scene load_steps=4 format=3 uid="uid://dt1ynq3r78we0"]
 
 [ext_resource type="Script" path="res://src/test/test.gd" id="1_m2b1v"]
 
+[sub_resource type="Gradient" id="Gradient_ccq7x"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nh7es"]
+gradient = SubResource("Gradient_ccq7x")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="test" type="CanvasLayer"]
-process_mode = 3
 script = ExtResource("1_m2b1v")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 1)
 
 [node name="Node2D" type="Node2D" parent="."]
+visible = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(112, 72)
+emitting = false
+amount = 100
+texture = SubResource("GradientTexture2D_nh7es")
+one_shot = true

@@ -150,7 +150,7 @@ func on_yokai_action(team: int, yokai: int, action: String) -> void:
 			attack(team, yokai)
 
 
-func attack(team: int, yokai: int) -> void:
+func attack(team: int, _yokai: int) -> void:
 	
 	match team:
 		0:

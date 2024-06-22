@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://r8lgrb5cep7h"]
+[gd_scene load_steps=7 format=3 uid="uid://r8lgrb5cep7h"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_05pgc"]
 [ext_resource type="PackedScene" uid="uid://vs5hxcple51o" path="res://scn/rooms/room_01.tscn" id="2_fhx6e"]
@@ -40,6 +40,8 @@ _data = {
 "fade_in": SubResource("Animation_kyokr")
 }
 
+[sub_resource type="Environment" id="Environment_obxjp"]
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_05pgc")
 
@@ -62,5 +64,8 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_ny5sb")
 }
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_obxjp")
 
 [connection signal="timeout" from="main_timer" to="." method="_on_main_timer_timeout"]
