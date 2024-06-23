@@ -23,7 +23,7 @@ var is_targeted: bool = true
 var yokai_number: int = 0
 
 @onready var YokaiInst: Yokai
-@onready var parent: Battle = get_node("..").get_node("..").get_node("..")
+@onready var parent: YokaiHelper = get_node("..").get_node("..")
 @onready var ui: Sprite2D = $ui
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 @onready var tick_timer: Timer = $tick

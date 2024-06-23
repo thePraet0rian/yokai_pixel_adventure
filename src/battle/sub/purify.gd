@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var Parent: Battle = get_parent().get_parent().get_parent()
+@onready var Parent: YokaiHelper = get_parent().get_parent().get_parent().BattleYokaiHelper
 
 
 func _input(event: InputEvent) -> void:

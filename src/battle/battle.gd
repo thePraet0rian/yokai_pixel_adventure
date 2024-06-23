@@ -21,6 +21,8 @@ enum {
 }
 
 
+@onready var BattleYokaiHelper: YokaiHelper = $yokai
+
 @onready var AnimPlayer: AnimationPlayer = $anim_player
 
 @onready var Purify: Node2D = $ui/sub_ui/purify
@@ -44,8 +46,6 @@ enum {
 	$medalls/Sprite2D2, 
 	$medalls/Sprite2D3
 ]
-
-@onready var BattleYokaiHelper: YokaiHelper = $yokai
 
 @onready var WinScreen: Node2D = $win_screen
 @onready var WinScreenAnimPlayer: AnimationPlayer = $win_screen/anim_player
@@ -142,30 +142,36 @@ func _selecting_input(event: InputEvent) -> void:
 func _change_sub_game_state(sub_buttons_index: int) -> void:
 	
 	BattleYokaiHelper.disable_yokai()
+	_change_game_state()
 	
 	match sub_buttons_index:
 		SUB_GAME_STATES.PURIFY:
 			Purify.visible = true
-			current_game_state = GAME_STATES.ACTION
+			current_sub_game_state = SUB_GAME_STATES.PURIFY
 			
 		SUB_GAME_STATES.SOULIMATE:
 			if _can_soulimate():
 				Soulimate.visible = true
 				Soulimate.process_mode = Node.PROCESS_MODE_INHERIT
+				current_sub_game_state = SUB_GAME_STATES.PURIFY
 			
 		SUB_GAME_STATES.TARGET:
 			_hide_ui()
 			Target.visible = true
 			Target.process_mode = Node.PROCESS_MODE_INHERIT
-			current_game_state = GAME_STATES.ACTION
 			current_sub_game_state = SUB_GAME_STATES.TARGET
 			
 		SUB_GAME_STATES.ITEM:
 			_hide_ui()
 			Items.visible = true
 			Items.process_mode = Node.PROCESS_MODE_INHERIT
-			current_game_state = GAME_STATES.ACTION
 			current_sub_game_state = SUB_GAME_STATES.ITEM
+
+
+func _change_game_state() -> void:
+	
+	current_game_state = GAME_STATES.ACTION
+
 
 
 func _can_soulimate() -> bool:
@@ -214,14 +220,6 @@ func _target_input(event: InputEvent) -> void:
 		Target.process_mode = Node.PROCESS_MODE_DISABLED
 		BattleYokaiHelper.enable_yokai()
 		_show_ui()
-
-
-func set_selected_yokai(_yokai_number: int) -> void:
-	
-	#for i in range(len(enemy_team_inst)):
-		#if yokai_number != i:
-			#enemy_team_inst[i].selector.visible = false
-	pass
 
 		
 func _item_input(event: InputEvent) -> void:

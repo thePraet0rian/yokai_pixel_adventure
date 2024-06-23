@@ -1,7 +1,34 @@
-[gd_scene format=3 uid="uid://de1pj2koiqvh1"]
+[gd_scene load_steps=2 format=3 uid="uid://de1pj2koiqvh1"]
+
+[ext_resource type="Texture2D" uid="uid://cgmx3dbb5h2k1" path="res://res/items/medalls.png" id="1_db2mt"]
 
 [node name="team" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="."]
 offset_right = 240.0
 offset_bottom = 135.0
+color = Color(0.332881, 0.332881, 0.332881, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(24, 26)
+texture = ExtResource("1_db2mt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(64, 26)
+texture = ExtResource("1_db2mt")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(64, 66)
+texture = ExtResource("1_db2mt")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(23, 67)
+texture = ExtResource("1_db2mt")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(64, 106)
+texture = ExtResource("1_db2mt")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(24, 106)
+texture = ExtResource("1_db2mt")

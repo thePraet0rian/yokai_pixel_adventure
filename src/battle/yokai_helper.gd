@@ -90,6 +90,16 @@ func _setup_enemies() -> void:
 		Enemies.add_child(BattleYokaiInst)
 
 
+# PURFIY # ----------------------------------------------------------------------------------------
+
+
+func set_selected_yokai(yokai_number: int) -> void:
+	
+	for i in range(len(enemy_team_inst_front)):
+		if yokai_number != i:
+			enemy_team_inst_front[i].selector.visible = false
+
+
 # MOVE YOKAI # ------------------------------------------------------------------------------------
 
 
