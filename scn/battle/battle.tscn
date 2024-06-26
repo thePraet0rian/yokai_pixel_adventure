@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=29 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://d1e7nrdftl8pc" path="res://res/battle/ui/q_sign.png" id="14_hoddt"]
 [ext_resource type="Texture2D" uid="uid://8in5h2wwviwf" path="res://res/yokai/cadin/cadin_medall.png" id="15_cdgot"]
 [ext_resource type="Texture2D" uid="uid://bdoxxvscku02" path="res://res/battle/ui/e_sign.png" id="15_co87e"]
+[ext_resource type="PackedScene" uid="uid://bn0spooqowien" path="res://scn/battle/sub/win_screen.tscn" id="16_2w66e"]
 [ext_resource type="Texture2D" uid="uid://cryqic7d88ff4" path="res://res/battle/ui/wheel.png" id="16_uj23c"]
 
 [sub_resource type="Animation" id="Animation_kdyfp"]
@@ -150,58 +151,6 @@ _data = {
 "RESET": SubResource("Animation_qigjb"),
 "fade_in": SubResource("Animation_0l5i2"),
 "q_e_anim": SubResource("Animation_qfu8t")
-}
-
-[sub_resource type="Animation" id="Animation_bnhii"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("overlay:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_rm8fg"]
-resource_name = "fade"
-length = 0.25
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("overlay:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.25),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_end"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qhtm6"]
-_data = {
-"RESET": SubResource("Animation_bnhii"),
-"fade": SubResource("Animation_rm8fg")
 }
 
 [sub_resource type="Animation" id="Animation_w77cg"]
@@ -359,8 +308,11 @@ visible = false
 process_mode = 4
 visible = false
 
+[node name="overlay" type="Node" parent="ui"]
+
+[node name="ui_anim_player" type="AnimationPlayer" parent="ui"]
+
 [node name="temp" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="temp"]
 offset_right = 240.0
@@ -374,23 +326,7 @@ offset_bottom = 203.0
 scale = Vector2(1, -1)
 color = Color(0, 0, 0, 1)
 
-[node name="win_screen" type="Node2D" parent="."]
-visible = false
-
-[node name="background" type="ColorRect" parent="win_screen"]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(1, 1, 0, 1)
-
-[node name="anim_player" type="AnimationPlayer" parent="win_screen"]
-libraries = {
-"": SubResource("AnimationLibrary_qhtm6")
-}
-
-[node name="overlay" type="ColorRect" parent="win_screen"]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0, 0, 0, 0)
+[node name="win_screen" parent="." instance=ExtResource("16_2w66e")]
 
 [node name="medalls" type="Node" parent="."]
 

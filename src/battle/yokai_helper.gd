@@ -121,7 +121,9 @@ func move_yokai(dir: int) -> void:
 	elif dir == 1:
 		player_team_inst_front.remove_at(3)
 		player_team_inst_back.remove_at(0)
-
+	
+	Parent.update_medalls()	
+	
 
 func _move_left() -> void:
 	

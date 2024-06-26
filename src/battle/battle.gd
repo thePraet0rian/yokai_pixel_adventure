@@ -259,6 +259,15 @@ func _player_input() -> void:
 		is_moving = false
 
 
+
+func update_medalls() -> void:
+	
+	for i in range(len(Medalls)):
+		Medalls[i].texture = BattleYokaiHelper.player_team_inst_back[i].YokaiInst.yokai_medall_sprite
+
+
+
+
 # ACTION # ----------------------------------------------------------------------------------------
 
 
@@ -309,9 +318,5 @@ func _show_ui() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(ButtonA, "position", Vector2(0, 0), 0.15)
 
-
-func _update_medalls() -> void:
-	
-	pass
 
 # -------------------------------------------------------------------------------------------------

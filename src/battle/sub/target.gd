@@ -30,14 +30,16 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
-		#Parent.current_game_state = Parent.GAME_STATES.SELECTING
-		#visible = false
-		#process_mode = Node.PROCESS_MODE_DISABLED
 		pass
 	
 	if hovering:
 		if event.is_action_pressed("space"):
 			yokai.get_parent().set_target()
+			hovering = false
+	else:
+		if event.is_action_pressed("space"):
+			print("wat")
+			Parent.BattleYokaiHelper.set_selected_yokai(-1)
 
 
 func _physics_process(delta: float) -> void:
@@ -52,5 +54,6 @@ func _physics_process(delta: float) -> void:
 func _on_selector_area_entered(area: Area2D) -> void:
 	
 	if "battle_yokai" in area.name:
-		hovering = true
-		yokai = area
+		if area.get_parent().team == 1:
+			hovering = true
+			yokai = area

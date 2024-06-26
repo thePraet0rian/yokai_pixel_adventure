@@ -32,6 +32,8 @@ func _on_game_loaded(_save_file: int) -> void:
 	
 	load_file.close()
 	
+	print("あいしてる")
+	
 
 func _ready() -> void:
 	
