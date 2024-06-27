@@ -1,6 +1,8 @@
 class_name Main extends Node2D
 
 
+# This is a test for Felix.
+
 const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
 const DIALOGUE_SCENE: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
 const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
