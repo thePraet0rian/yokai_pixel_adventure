@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://37d11hhm4ypv"]
+
+[ext_resource type="Script" path="res://src/ui/inventory/save_screen.gd" id="1_80h8o"]
+[ext_resource type="Texture2D" uid="uid://bqxfv7ify6iyi" path="res://res/ui/inventory/save_screen/yes_button.png" id="1_yvt0t"]
+[ext_resource type="Texture2D" uid="uid://dvdf4sijv1gxm" path="res://res/ui/inventory/save_screen/no_button.png" id="2_23l0e"]
+
+[node name="save_screen" type="Node2D"]
+script = ExtResource("1_80h8o")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0.281187, 0.281187, 0.281187, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(60, 88)
+texture = ExtResource("1_yvt0t")
+hframes = 2
+frame = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(180, 88)
+texture = ExtResource("2_23l0e")
+hframes = 2

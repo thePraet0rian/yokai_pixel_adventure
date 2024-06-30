@@ -2,107 +2,132 @@ class_name Inventory extends CanvasLayer
 
 
 const INVENTORY_SCENE: PackedScene = preload("res://scn/menue/inventory.tscn")
+const SAVE_SCREEN_SCENE: PackedScene = preload("res://scn/ui/inventory/save_screen.tscn")
 const TEAM_SCENE: PackedScene = preload("res://scn/ui/inventory/team.tscn")
- 
+
+
 enum STATES {
 	MAIN = 0, 
 	INVENTORY = 1, 
 	SAVE = 2, 
-	MEDALS = 3, 
+	MEDALLS = 3, 
 	TEAM = 4,
 }
 
-@onready var money_label: Label = $main/top_bar/money
-@onready var anim_player: AnimationPlayer = $main/anim_player
-@onready var sub_inventory: Node2D = $sub_ui
 
-@onready var buttons: Array[Array] = [
+@onready var MoneyLabel: Label = $main/top_bar/money
+@onready var AnimPlayer: AnimationPlayer = $main/anim_player
+@onready var SubInventory: Node2D = $sub_ui
+
+@onready var Buttons: Array[Array] = [
 	[$main/buttons/button_0, $main/buttons/button_3], 
 	[$main/buttons/button_1, $main/buttons/button_4], 
 	[$main/buttons/button_2, $main/buttons/button_5], 
 	[$main/buttons/button_06, $main/buttons/button_06],
 ]
 
+
 var cur_pos: Vector2 = Vector2.ZERO
 var current_state: STATES = STATES.MAIN
 
 
+# Public Methods # --------------------------------------------------------------------------------
+
+
+func set_current_state(state: int) -> void:
+	
+	current_state = state as STATES
+
+
+# Private # ---------------------------------------------------------------------------------------
+
+
 func _ready() -> void:
-	money_label.text = str(global.current_money)
+	
+	MoneyLabel.text = str(global.current_money)
 
 
 func _input(event: InputEvent) -> void:
+	
 	match current_state:
 		0:
-			main_menue_input(event)
+			_main_menue_input(event)
 
 
-func main_menue_input(event: InputEvent) -> void:
+func _main_menue_input(event: InputEvent) -> void:
+
 	if event.is_action_pressed("move_up"):
 		if cur_pos.y == 0:
 			pass
 		else:
 			cur_pos.y -= 1
 	if event.is_action_pressed("move_down"):
-		
+
 		if cur_pos.y == 1:
 			pass
 		else:
 			cur_pos.y += 1
-	if event.is_action_pressed("move_left"):
-		
+	if event.is_action_pressed("move_left"):		
 		if cur_pos.x == 0:
 			pass
 		else:
 			cur_pos.x -= 1
 	if event.is_action_pressed("move_right"):
-		
 		if cur_pos.x == 3:
 			pass
 		else:
 			cur_pos.x += 1
 	
 	if event.is_action_pressed("shift"):
-		anim_player.play("end")
+		AnimPlayer.play("end")
 	
 	if event.is_action_pressed("space"):
-		anim_player.play("enter")
-		await anim_player.animation_finished
+		AnimPlayer.play("enter")
+		await AnimPlayer.animation_finished
 		
-		match_main_input()
+		_match_main_input()
 	
-	for i in range(len(buttons)):
-		for j in range(len(buttons[i])):
+	for i in range(len(Buttons)):
+		for j in range(len(Buttons[i])):
 			
 			if not(i == cur_pos.x and j == cur_pos.y):
-				buttons[i][j].frame = 0
+				Buttons[i][j].frame = 0
 	
-	buttons[cur_pos.x][cur_pos.y].frame = 1
+	Buttons[cur_pos.x][cur_pos.y].frame = 1
 
 
-func match_main_input() -> void:
+func _match_main_input() -> void:
 	
 	if cur_pos.x == 0 and cur_pos.y == 0:
 		
 		var InventoryInst: Node2D = INVENTORY_SCENE.instantiate()
-		sub_inventory.add_child(InventoryInst)
-		InventoryInst._sig_inventory_close.connect(inventory_close)
+		InventoryInst.inventory_close.connect(set_current_state)
+		
+		SubInventory.add_child(InventoryInst)
 		current_state = STATES.INVENTORY
+	
 	if cur_pos.x == 1 and cur_pos.y == 0:
 		
-		global.on_game_saved.emit()
+		var SaveScreenInst: Node2D = SAVE_SCREEN_SCENE.instantiate()
+		SaveScreenInst.save_screen_close.connect(set_current_state)
+		
+		SubInventory.add_child(SaveScreenInst)
+		current_state = STATES.SAVE
+	
 	if cur_pos.x == 3:
 		
-		var TeamInst: Node2D = TEAM_SCENE.instantiate()
-		sub_inventory.add_child(TeamInst)
+		var TeamInst: Team = TEAM_SCENE.instantiate()
+		TeamInst.team_close.connect(set_current_state)
 		
-
-
-func inventory_close() -> void:
-	current_state = STATES.MAIN
+		SubInventory.add_child(TeamInst)
+		current_state = STATES.TEAM
 
 
 func end() -> void:	
+	
 	global.on_menue_closed.emit()
 	get_tree().paused = false
 	queue_free()
+
+
+# -------------------------------------------------------------------------------------------------

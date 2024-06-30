@@ -1,8 +1,6 @@
 class_name Main extends Node2D
 
 
-# This is a test for Felix.
-
 const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
 const DIALOGUE_SCENE: PackedScene = preload("res://scn/dialogue/dialogue.tscn")
 const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
@@ -11,7 +9,7 @@ const SHOP_SCENE: PackedScene = preload("res://scn/ui/shop/shop.tscn")
 const SAVE_FILE_ARR: Array[String] = [
 	"user://savefile_one.save", 
 	"user://savefile_two.save", 
-	"user://savefile_three.save"
+	"user://savefile_three.save",
 ]
 
 @onready var Rooms: Node2D = $rooms

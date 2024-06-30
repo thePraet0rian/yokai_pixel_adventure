@@ -9,7 +9,7 @@ const walk_speed: int = 5
 const TILE_SIZE: Vector2 = Vector2(72, 0)
 
 var team: int = PLAYER
-var update_arr: Array = [_update_player, _update_enemy]
+var update_arr: Array[Callable] = [_update_player, _update_enemy]
 var dirty: bool = false
 
 var progress: float = 0.0
