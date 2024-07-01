@@ -1,20 +1,38 @@
+## Global Singelton for the management of NPCs
 class_name GlobalNpc extends Node
 
 
+const NPC_SPRITES_PATH: String = "res://src/npc/data/npc_sprites.json"
 const MOVING_NPC_PATH: String = "res://src/npc/npcs.json"
-const TALKING_NPC_PATH: String = "res://scn/dialogue/test.json"
+const TALKING_NPC_PATH: String = "res://src/npc/test.json"
 
+
+var npc_sprites: Dictionary
 var moving_npcs: Dictionary
 var talking_npcs: Dictionary
 
 
+# Methods # ----------------------------------------------------------------------------------------
+
+
 func _ready() -> void:
 	
-	_start_moving_npcs()
-	_start_talking_npcs()
+	_load_npc_sprites()
+	_load_moving_npcs()
+	_load_talking_npcs()
 
 
-func _start_moving_npcs() -> void:
+func _load_npc_sprites() -> void:
+	
+	var file = FileAccess.open(NPC_SPRITES_PATH, FileAccess.READ)
+	var data = JSON.parse_string(file.get_as_text())
+	
+	npc_sprites = data
+	
+	file.close()
+
+
+func _load_moving_npcs() -> void:
 	
 	var file = FileAccess.open(MOVING_NPC_PATH, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
@@ -40,13 +58,22 @@ func _start_moving_npcs() -> void:
 			
 			sprite = data[i]["Sprite"]
 		
+		
 		moving_npcs[data[i]["Name"]] = {"Points": points, "Velocities": velocities, "Times": times, "Sprite": sprite}
+		
+	print_rich("[color=blue]pain[/color]")
+	print(moving_npcs)
+		
+	file.close()
 	
 
-func _start_talking_npcs() -> void:
+func _load_talking_npcs() -> void:
 	
-	var file = FileAccess.open("res://scn/dialogue/test.json", FileAccess.READ)
+	var file = FileAccess.open(TALKING_NPC_PATH, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
-	talking_npcs = data
 	
+	talking_npcs = data
 	file.close()
+
+
+# --------------------------------------------------------------------------------------------------

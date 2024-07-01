@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diw125fhxqa4"
-path="res://.godot/imported/mom.png-2fa88aaf489e91b81741e8e7b6d76a58.ctex"
+uid="uid://c2c4tjcr5tjf6"
+path="res://.godot/imported/save_button.png-b738a1347fea5c7a05144f000a45eebe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/npc/npc_assets/family/mom.png"
-dest_files=["res://.godot/imported/mom.png-2fa88aaf489e91b81741e8e7b6d76a58.ctex"]
+source_file="res://res/ui/inventory/save_screen/save_button.png"
+dest_files=["res://.godot/imported/save_button.png-b738a1347fea5c7a05144f000a45eebe.ctex"]
 
 [params]
 
