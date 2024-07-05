@@ -80,7 +80,7 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"end"
+"method": &"_end"
 }]
 }
 tracks/1/type = "value"

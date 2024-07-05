@@ -1,4 +1,5 @@
-## Global Singelton for the management of NPCs
+# --------------------------------------------------------------------------------------------------
+## GLOBAL AUTOLOAD NPC SINGELTON
 class_name GlobalNpc extends Node
 
 

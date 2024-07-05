@@ -1,10 +1,14 @@
-extends StaticBody2D
+# --------------------------------------------------------------------------------------------------
+## GLOBAL OVERWORLD CLASS
+class_name OverworldYokai extends StaticBody2D
 
 
 enum BEHAVOIRS {STANDING = 0, ATTACKING = 1}
 
+
 @export var yokai_name: String = ""
 @export var behavoir: BEHAVOIRS = BEHAVOIRS.STANDING
+
 
 @onready var sprite: Sprite2D = $sprite
 

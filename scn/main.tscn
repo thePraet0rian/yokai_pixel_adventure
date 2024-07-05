@@ -1,46 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://r8lgrb5cep7h"]
+[gd_scene load_steps=4 format=3 uid="uid://r8lgrb5cep7h"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_05pgc"]
 [ext_resource type="PackedScene" uid="uid://vs5hxcple51o" path="res://scn/rooms/room_01.tscn" id="2_fhx6e"]
-
-[sub_resource type="Animation" id="Animation_068ii"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_kyokr"]
-resource_name = "fade_in"
-length = 0.4
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ny5sb"]
-_data = {
-"RESET": SubResource("Animation_068ii"),
-"fade_in": SubResource("Animation_kyokr")
-}
-
-[sub_resource type="Environment" id="Environment_obxjp"]
+[ext_resource type="PackedScene" uid="uid://b2n8wg3aj32jv" path="res://scn/ui/ui.tscn" id="3_rv7kk"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_05pgc")
@@ -52,20 +14,6 @@ script = ExtResource("1_05pgc")
 [node name="main_timer" type="Timer" parent="."]
 autostart = true
 
-[node name="ui" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="ui"]
-visible = false
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0, 0, 0, 1)
-
-[node name="anim_player" type="AnimationPlayer" parent="ui"]
-libraries = {
-"": SubResource("AnimationLibrary_ny5sb")
-}
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_obxjp")
+[node name="ui" parent="." instance=ExtResource("3_rv7kk")]
 
 [connection signal="timeout" from="main_timer" to="." method="_on_main_timer_timeout"]

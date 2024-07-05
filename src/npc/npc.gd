@@ -1,4 +1,5 @@
-## Global NPC class
+# --------------------------------------------------------------------------------------------------
+## GLOBAL NPC CLASS
 class_name Npc extends CharacterBody2D
 
 

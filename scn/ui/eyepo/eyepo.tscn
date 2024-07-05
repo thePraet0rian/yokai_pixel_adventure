@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dalo32xsuccq1"]
+
+[ext_resource type="Script" path="res://src/ui/eyepo/eyepo.gd" id="1_3nm8y"]
+
+[node name="eyepo" type="CanvasLayer"]
+script = ExtResource("1_3nm8y")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.509804)
+
+[node name="heal_button" type="Sprite2D" parent="."]
+
+[node name="switch_button" type="Sprite2D" parent="."]
+
+[node name="close_button" type="Sprite2D" parent="."]

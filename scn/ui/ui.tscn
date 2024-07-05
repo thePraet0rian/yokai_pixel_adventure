@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2n8wg3aj32jv"]
+
+[ext_resource type="Script" path="res://src/ui/ui.gd" id="1_u1al5"]
+
+[sub_resource type="Animation" id="Animation_068ii"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kyokr"]
+resource_name = "fade_in"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("overlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ny5sb"]
+_data = {
+"RESET": SubResource("Animation_068ii"),
+"fade_in": SubResource("Animation_kyokr")
+}
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_u1al5")
+
+[node name="overlay" type="ColorRect" parent="."]
+visible = false
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 1)
+
+[node name="anim_player" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ny5sb")
+}

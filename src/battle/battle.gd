@@ -1,3 +1,5 @@
+# --------------------------------------------------------------------------------------------------
+## GLOBAL BATTLE CLASS
 class_name Battle extends CanvasLayer
 
 
@@ -15,10 +17,9 @@ enum SUB_GAME_STATES {
 	NONE = 4,
 }
 
-enum {
-	LEFT = 0, 
-	RIGHT = 1,
-}
+
+const LEFT: int = 0
+const RIGHT: int = 1
 
 
 @onready var BattleYokaiHelper: YokaiHelper = $yokai
@@ -75,7 +76,7 @@ var can_target: bool = true
 var selected_yokai: int
 
 
-# START # -----------------------------------------------------------------------------------------
+# METHODS # ----------------------------------------------------------------------------------------
 
 
 func _ready() -> void:	
@@ -87,7 +88,7 @@ func _ready() -> void:
 	BattleYokaiHelper.setup_yokai()
 
 
-# INPUT # -----------------------------------------------------------------------------------------
+# INPUT # ------------------------------------------------------------------------------------------
 
 
 func _input(event: InputEvent) -> void:

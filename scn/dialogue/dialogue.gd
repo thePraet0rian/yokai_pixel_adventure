@@ -1,12 +1,17 @@
+# --------------------------------------------------------------------------------------------------
 class_name Dialogue extends CanvasLayer
+
+
+@onready var text_label: RichTextLabel = $text
+@onready var character_sprite: Sprite2D = $character
 
 
 var writing: bool = false
 var text: Array
 var dialouge_line: int = 0
 
-@onready var text_label: RichTextLabel = $text
-@onready var character_sprite: Sprite2D = $character
+
+# METHODS # ----------------------------------------------------------------------------------------
 
 
 func set_dialogue(npc_name: String, npc: String) -> void:
@@ -41,3 +46,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):
 		if not writing:
 			write_text()
+
+
+# --------------------------------------------------------------------------------------------------
