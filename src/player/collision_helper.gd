@@ -17,10 +17,11 @@ var transition_target
 # METHODS # ----------------------------------------------------------------------------------------
 
 
-
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):
+		
+		print(npc_met)
 		
 		if npc_met:
 			npc_type = NpcInstance.get_type()
@@ -59,7 +60,7 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 	
 	match area.name:
 		
-		"npc":
+		"npc_hurtbox":
 			npc_met = false
 		
 		"yokai":
