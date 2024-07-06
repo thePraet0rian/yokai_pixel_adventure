@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://uejbseqlvmo"]
+[gd_scene load_steps=19 format=3 uid="uid://uejbseqlvmo"]
 
 [ext_resource type="Script" path="res://src/menue/inventory.gd" id="1_shj4r"]
 [ext_resource type="Texture2D" uid="uid://ck5dxsdgbtqcc" path="res://src/ui/assets/menue/top_bars/inventory_top_bar.png" id="1_wik2j"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://src/ui/assets/menue/button_back.png" id="5_u2hej"]
 [ext_resource type="Texture2D" uid="uid://wl6ehr1mjtd0" path="res://src/ui/assets/save_select_screen/overlay.png" id="5_w6nqu"]
 [ext_resource type="Texture2D" uid="uid://w1sriqagsv7w" path="res://src/ui/assets/menue/top_bars/selection.png" id="6_8e7ik"]
+[ext_resource type="Texture2D" uid="uid://dg3q01fumvds8" path="res://res/ui/inventory/inventory/item_background.png" id="8_n37nn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nddqi"]
 shader = ExtResource("2_b31id")
@@ -106,6 +107,11 @@ material = SubResource("ShaderMaterial_b5i33")
 position = Vector2(120, 67.5)
 texture = ExtResource("5_w6nqu")
 metadata/_edit_lock_ = true
+
+[node name="select2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(40, 76)
+texture = ExtResource("8_n37nn")
 
 [node name="top_bar" type="Sprite2D" parent="."]
 position = Vector2(120, 8)

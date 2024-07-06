@@ -10,6 +10,7 @@ const ITEM_ICONS_SCENE: PackedScene = preload("res://scn/ui/inventory/item_icons
 
 
 @onready var Select: Sprite2D = $select
+@onready var SelectTwo: Sprite2D = $select2
 @onready var InventoryAnimPlayer: AnimationPlayer = $inventory_anim_player
 
 @onready var SubInventories: Array[Node2D] = [
@@ -65,10 +66,12 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("move_wheel_left"):
 		if inventory_page > 0:
 			Select.position.x -= 22
+			SelectTwo.position.x -= 22
 			inventory_page -= 1
 	elif event.is_action_pressed("move_wheel_right"):
 		if inventory_page < 4:
 			Select.position.x += 22
+			SelectTwo.position.x += 22
 			inventory_page += 1
 	
 	for i in range(0, 5):		

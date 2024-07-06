@@ -26,11 +26,9 @@ func _ready() -> void:
 		"Darkyubi":
 			sprite.texture = load("res://res/yokai/darkyubi/darkyubi.png")
 		"Eyepo":
-			sprite.texture = load("res://res/yokai/eyepo/eyepo_one.png")
-		
+			sprite.texture = load("res://res/yokai/eyepo/eyepo_two.png")
 		_:
 			print("YOKAI NAME NOT FOUND")
-			return
 
 
 # --------------------------------------------------------------------------------------------------
