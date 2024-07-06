@@ -9,7 +9,7 @@ signal inventory_close
 const ITEM_ICONS_SCENE: PackedScene = preload("res://scn/ui/inventory/item_icons.tscn")
 
 
-@onready var Select: Sprite2D = $Sprite2D/select
+@onready var Select: Sprite2D = $select
 @onready var InventoryAnimPlayer: AnimationPlayer = $inventory_anim_player
 
 @onready var SubInventories: Array[Node2D] = [

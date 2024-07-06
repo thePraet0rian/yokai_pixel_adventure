@@ -7,18 +7,16 @@ const DEBUG_SCENE: PackedScene = preload("res://src/player/debug.tscn")
 const INVENTORY_SCENE: PackedScene = preload("res://src/player/inventory.tscn")
 const MAP_SCENE: PackedScene = preload("res://src/ui/map/map.tscn")
 
+const  SPEED: int = 125
+const ACCELERATION: int = 10
 
-@onready var CollisionHelper: Node = $collision_helper
 
-
+@onready var CollisionHelperInstance: Node = $collision_helper
 
 @onready var Hurtbox: Area2D = $collision_helper/hurtbox
 @onready var UiAnimPlayer: AnimationPlayer = $ui/player_ui/ui_anim_player
 @onready var SprintBar: Sprite2D = $ui/sprint_bar
 #@onready var sprint_timer: Timer = $sprint_bar/sprint_timer
-#
-
-
 
 @onready var AnimPlayer: AnimationPlayer = $anim_player
 @onready var AnimTree: AnimationTree = $anim_tree
@@ -26,8 +24,8 @@ const MAP_SCENE: PackedScene = preload("res://src/ui/map/map.tscn")
 
 #@onready var confirm_button: Sprite2D = $accept_button
 
+
 var input_vec: Vector2 = Vector2.ZERO
-var speed: int = 70
 var is_moving: bool = false
 var state_change: bool = false
 var previous_input_vec: Vector2 = Vector2.ZERO
@@ -68,34 +66,36 @@ func _input(event: InputEvent) -> void:
 		get_tree().paused = true
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	
 	sprint()
-	move()
+	move(delta)
 	
 	if is_tracking_hostop:
 		hotspot_tracking()
 	
 
 func sprint() -> void:
-	
-	if Input.is_action_pressed("shift"):
-		if can_sprint:
-			is_sprinting = true
-			speed = 200
-			if input_vec != Vector2.ZERO:
-				SprintBar.visible = true
-	else:
-		speed = 70
-		SprintBar.visible = false
+	#
+	#if Input.is_action_pressed("shift"):
+		#if can_sprint:
+			#is_sprinting = true
+			#speed = 200
+			#if input_vec != Vector2.ZERO:
+				#SprintBar.visible = true
+	#else:
+		#speed = 70
+		#SprintBar.visible = false
+		pass
 
 
-func move() -> void:
+func move(delta: float) -> void:
 	
 	previous_input_vec = input_vec
 	
 	input_vec.x = Input.get_axis("move_left", "move_right")
 	input_vec.y = Input.get_axis("move_up", "move_down")
+	
 	
 	if previous_input_vec == Vector2.ZERO and input_vec != Vector2.ZERO:
 		
@@ -117,8 +117,8 @@ func move() -> void:
 		Hurtbox.position = Vector2(0, -8)
 	
 	_animate()
-	
-	velocity = input_vec.normalized() * speed
+	input_vec = input_vec.normalized()
+	velocity = lerp(velocity, input_vec * SPEED, delta * ACCELERATION)
 	move_and_slide()
 
 

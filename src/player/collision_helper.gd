@@ -38,12 +38,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	
-	print("ahhhhhhhh")
-	
-	match area.name:
-		
+	match area.name:	
 		"npc_hurtbox":
-			print("blem")
 			NpcInstance = area.get_parent()
 			npc_met = true
 		
@@ -57,9 +53,6 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		
 		"hotspot":
 			pass
-		
-		_:
-			return
 
 
 func _on_hurtbox_area_exited(area: Area2D) -> void:
@@ -79,14 +72,12 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 func _npc() -> void:
 	
 	match npc_type:
-		
 		1:
 			global.on_dialogue_started.emit(NpcInstance.npc_name, NpcInstance.npc_int)
 			npc_met = false
 			get_tree().paused = true 
 		
 		3:
-			print("yse")
 			global.on_shopkeeper_met.emit(NpcInstance.npc_name)
 			npc_met = false
 			get_tree().paused = true

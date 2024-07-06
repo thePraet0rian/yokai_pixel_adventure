@@ -1,12 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://uejbseqlvmo"]
+[gd_scene load_steps=18 format=3 uid="uid://uejbseqlvmo"]
 
 [ext_resource type="Script" path="res://src/menue/inventory.gd" id="1_shj4r"]
 [ext_resource type="Texture2D" uid="uid://ck5dxsdgbtqcc" path="res://src/ui/assets/menue/top_bars/inventory_top_bar.png" id="1_wik2j"]
+[ext_resource type="Shader" path="res://src/player/background.gdshader" id="2_b31id"]
 [ext_resource type="Texture2D" uid="uid://kibnmaf61yf5" path="res://src/ui/assets/menue/top_bars/bar.png" id="2_ggsoo"]
 [ext_resource type="Texture2D" uid="uid://vbeyuqff8xvw" path="res://src/ui/assets/menue/top_bars/select.png" id="3_e5pkt"]
+[ext_resource type="Texture2D" uid="uid://dovux82540yw" path="res://src/ui/assets/menue/back_background.png" id="3_f1o6i"]
+[ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="4_4wes7"]
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://src/ui/assets/menue/button_select.png" id="4_h1nce"]
 [ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://src/ui/assets/menue/button_back.png" id="5_u2hej"]
+[ext_resource type="Texture2D" uid="uid://wl6ehr1mjtd0" path="res://src/ui/assets/save_select_screen/overlay.png" id="5_w6nqu"]
 [ext_resource type="Texture2D" uid="uid://w1sriqagsv7w" path="res://src/ui/assets/menue/top_bars/selection.png" id="6_8e7ik"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nddqi"]
+shader = ExtResource("2_b31id")
+shader_parameter/speed = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b5i33"]
+shader = ExtResource("4_4wes7")
+shader_parameter/color = Vector4(0, 0, 1, 0.05)
+shader_parameter/mx = 0.3
 
 [sub_resource type="Animation" id="Animation_upcj4"]
 length = 0.001
@@ -78,9 +91,20 @@ _data = {
 process_mode = 3
 script = ExtResource("1_shj4r")
 
-[node name="background" type="ColorRect" parent="."]
-offset_right = 240.0
-offset_bottom = 135.0
+[node name="background" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_nddqi")
+position = Vector2(240, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("3_f1o6i")
+region_enabled = true
+region_rect = Rect2(0, 0, 240, 135)
+metadata/_edit_lock_ = true
+
+[node name="overlay" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_b5i33")
+position = Vector2(120, 67.5)
+texture = ExtResource("5_w6nqu")
 metadata/_edit_lock_ = true
 
 [node name="top_bar" type="Sprite2D" parent="."]
@@ -88,13 +112,13 @@ position = Vector2(120, 8)
 texture = ExtResource("1_wik2j")
 metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(120, 28)
-texture = ExtResource("2_ggsoo")
-
-[node name="select" type="Sprite2D" parent="Sprite2D"]
-position = Vector2(-80, -1)
+[node name="select" type="Sprite2D" parent="."]
+position = Vector2(40, 70)
 texture = ExtResource("3_e5pkt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 29)
+texture = ExtResource("2_ggsoo")
 
 [node name="enter_button" type="Sprite2D" parent="."]
 position = Vector2(204, 127)
