@@ -37,7 +37,7 @@ func _ready() -> void:
 		
 	if current_behavior == Behavoirs.MOVING:
 		_load_move()
-		
+
 
 func _load_npc() -> void:
 	
@@ -91,6 +91,12 @@ func _on_hurtbox_area_exited(_area: Area2D) -> void:
 		current_behavior = Behavoirs.MOVING
 		if tween.is_valid():
 			tween.play()
+
+
+
+func get_type() -> int:
+	return current_behavior
+
 
 
 # --------------------------------------------------------------------------------------------------

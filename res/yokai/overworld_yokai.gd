@@ -9,9 +9,11 @@ enum BEHAVOIRS {STANDING = 0, ATTACKING = 1}
 @export var yokai_name: String = ""
 @export var behavoir: BEHAVOIRS = BEHAVOIRS.STANDING
 
-
 @onready var sprite: Sprite2D = $sprite
 
+
+# METHODS # ----------------------------------------------------------------------------------------
+# Private: 
 
 func _ready() -> void:
 	
@@ -29,3 +31,6 @@ func _ready() -> void:
 		_:
 			print("YOKAI NAME NOT FOUND")
 			return
+
+
+# --------------------------------------------------------------------------------------------------

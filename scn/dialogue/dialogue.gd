@@ -30,8 +30,7 @@ func write_text() -> void:
 		
 		text_label.visible_ratio = 0
 		text_label.text = text[dialouge_line]["text"]
-		print(global_npc.moving_npcs["NPC_01"])
-		character_sprite.texture = load(global_npc.moving_npcs["NPC_01"]["Sprite"])
+		character_sprite.texture = load(global_npc.npc_expressions["NPC_01"]["Angry"])
 		dialouge_line += 1
 		writing = true
 		await create_tween().tween_property(text_label, "visible_ratio", 1, 1).finished

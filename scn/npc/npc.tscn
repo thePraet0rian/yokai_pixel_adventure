@@ -13,10 +13,10 @@ texture = ExtResource("2_7fk7t")
 position = Vector2(0, -1)
 polygon = PackedVector2Array(-16, -15, -16, 17, 16, 17, 16, -15)
 
-[node name="hurtbox" type="Area2D" parent="."]
+[node name="npc_hurtbox" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hurtbox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_hurtbox"]
 polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 
-[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
-[connection signal="area_exited" from="hurtbox" to="." method="_on_hurtbox_area_exited"]
+[connection signal="area_entered" from="npc_hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="area_exited" from="npc_hurtbox" to="." method="_on_hurtbox_area_exited"]

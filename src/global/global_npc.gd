@@ -11,6 +11,7 @@ const TALKING_NPC_PATH: String = "res://src/npc/test.json"
 var npc_sprites: Dictionary
 var moving_npcs: Dictionary
 var talking_npcs: Dictionary
+var npc_expressions: Dictionary
 
 
 # Methods # ----------------------------------------------------------------------------------------
@@ -21,6 +22,9 @@ func _ready() -> void:
 	_load_npc_sprites()
 	_load_moving_npcs()
 	_load_talking_npcs()
+	_load_npc_dialogue_expressions()
+	
+	print(talking_npcs)
 
 
 func _load_npc_sprites() -> void:
@@ -74,6 +78,15 @@ func _load_talking_npcs() -> void:
 	var data = JSON.parse_string(file.get_as_text())
 	
 	talking_npcs = data
+	file.close()
+
+
+func _load_npc_dialogue_expressions() -> void:
+	
+	var file = FileAccess.open("res://src/npc/data/npc_expressions.json", FileAccess.READ)
+	var data = JSON.parse_string(file.get_as_text())
+	
+	npc_expressions = data
 	file.close()
 
 

@@ -27,6 +27,8 @@ signal on_test_start
 
 signal disable_main
 
+signal on_yokai
+
 
 @onready var player_yokai: Array[Yokai] = [
 	Yokai.new("Jibanyan", preload("res://res/yokai/jibanyan/jibanyan_two.png"), load("res://res/yokai/jibanyan/jibanyan_medall.png")),

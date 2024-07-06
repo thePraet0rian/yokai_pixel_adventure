@@ -10,9 +10,9 @@ script = ExtResource("1_ulryl")
 y_sort_enabled = true
 polygon = PackedVector2Array(-15, 24, 15, 24, 15, 7, -15, 7)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="yokai" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="yokai"]
 polygon = PackedVector2Array(-15, 7, -15, 24, 15, 24, 15, 0, -15, 0)
 
 [node name="sprite" type="Sprite2D" parent="."]
