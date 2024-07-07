@@ -89,6 +89,9 @@ func _main_menue_input(event: InputEvent) -> void:
 		AnimPlayer.play("enter")
 		await AnimPlayer.animation_finished
 		
+		AnimPlayer.play("hide")
+		await AnimPlayer.animation_finished
+		
 		_match_main_input()
 	
 	for i in range(len(Buttons)):

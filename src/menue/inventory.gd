@@ -46,6 +46,8 @@ var indices: Array[Vector2] = [
 
 func _ready() -> void:
 	
+	InventoryAnimPlayer.play("start")
+	
 	var y_index: int = 0
 	
 	for i in range(5):

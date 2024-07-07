@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b58q5n1hvqs43"]
+[gd_scene load_steps=23 format=3 uid="uid://b58q5n1hvqs43"]
 
 [ext_resource type="Script" path="res://src/player/inventory.gd" id="1_q2b6n"]
 [ext_resource type="Texture2D" uid="uid://645r0vjm7hvj" path="res://src/ui/assets/menue/top_bar.png" id="2_idn6n"]
@@ -64,6 +64,54 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("main/top_bar:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(120, 8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("main/buttons:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(11, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("main/button_back:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(36, 127)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("main/button_enter:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(204, 127)]
+}
 
 [sub_resource type="Animation" id="Animation_63d2d"]
 resource_name = "end"
@@ -125,11 +173,63 @@ tracks/0/keys = {
 "values": [1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_cd8tq"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("main/top_bar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(120, 8), Vector2(120, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("main/buttons:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(11, 0), Vector2(11, 101)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("main/button_back:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(36, 127), Vector2(36, 143)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("main/button_enter:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(204, 127), Vector2(204, 143)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5nvia"]
 _data = {
 "RESET": SubResource("Animation_5kbak"),
 "end": SubResource("Animation_63d2d"),
-"enter": SubResource("Animation_siyqd")
+"enter": SubResource("Animation_siyqd"),
+"hide": SubResource("Animation_cd8tq")
 }
 
 [node name="inventory" type="CanvasLayer"]
@@ -159,7 +259,6 @@ metadata/_edit_lock_ = true
 material = SubResource("ShaderMaterial_v022q")
 position = Vector2(120, 8)
 texture = ExtResource("2_idn6n")
-metadata/_edit_lock_ = true
 
 [node name="money" type="Label" parent="main/top_bar"]
 offset_left = 49.0
@@ -172,22 +271,6 @@ theme_override_font_sizes/font_size = 8
 text = "500"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="button_back" type="Sprite2D" parent="main"]
-position = Vector2(36, 127)
-texture = ExtResource("4_0x44w")
-hframes = 2
-
-[node name="button_enter" type="Sprite2D" parent="main"]
-position = Vector2(204, 127)
-texture = ExtResource("7_51f4f")
-hframes = 2
-
-[node name="anim_player" type="AnimationPlayer" parent="main"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_5nvia")
-}
 
 [node name="buttons" type="Node2D" parent="main"]
 position = Vector2(11, 0)
@@ -227,6 +310,22 @@ hframes = 2
 position = Vector2(182, 68)
 texture = ExtResource("10_oe38n")
 hframes = 2
+
+[node name="button_back" type="Sprite2D" parent="main"]
+position = Vector2(36, 127)
+texture = ExtResource("4_0x44w")
+hframes = 2
+
+[node name="button_enter" type="Sprite2D" parent="main"]
+position = Vector2(204, 127)
+texture = ExtResource("7_51f4f")
+hframes = 2
+
+[node name="anim_player" type="AnimationPlayer" parent="main"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_5nvia")
+}
 
 [node name="sub_ui" type="Node2D" parent="."]
 
