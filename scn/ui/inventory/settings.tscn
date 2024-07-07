@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1fgnrdw26i8"]
+
+[ext_resource type="Script" path="res://src/ui/inventory/settings.gd" id="1_lxqih"]
+[ext_resource type="Texture2D" uid="uid://dy420wj0l0l77" path="res://res/ui/inventory/settings/topbar.png" id="1_nsk68"]
+
+[node name="settings" type="Node2D"]
+script = ExtResource("1_lxqih")
+
+[node name="topbar" type="Sprite2D" parent="."]
+position = Vector2(120, 8)
+texture = ExtResource("1_nsk68")

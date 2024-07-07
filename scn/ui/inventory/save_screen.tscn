@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://37d11hhm4ypv"]
+[gd_scene load_steps=7 format=3 uid="uid://37d11hhm4ypv"]
 
 [ext_resource type="Script" path="res://src/ui/inventory/save_screen.gd" id="1_80h8o"]
 [ext_resource type="Texture2D" uid="uid://bqxfv7ify6iyi" path="res://res/ui/inventory/save_screen/yes_button.png" id="1_yvt0t"]
+[ext_resource type="Texture2D" uid="uid://c1qg80364vaqn" path="res://res/ui/inventory/save_screen/slot.png" id="2_5dxjc"]
+[ext_resource type="Texture2D" uid="uid://cs1s1vqpvse0w" path="res://res/ui/inventory/save_screen/background.png" id="2_7poqt"]
 [ext_resource type="Texture2D" uid="uid://dvdf4sijv1gxm" path="res://res/ui/inventory/save_screen/no_button.png" id="2_23l0e"]
+[ext_resource type="Texture2D" uid="uid://dherrifc5gaqm" path="res://res/ui/inventory/save_screen/topbar.png" id="4_h6j8r"]
 
 [node name="save_screen" type="Node2D"]
 script = ExtResource("1_80h8o")
@@ -12,13 +15,26 @@ offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0.281187, 0.281187, 0.281187, 1)
 
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(120, 61)
+texture = ExtResource("2_7poqt")
+
+[node name="slot" type="Sprite2D" parent="."]
+position = Vector2(120, 113)
+scale = Vector2(0.933333, 1)
+texture = ExtResource("2_5dxjc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(60, 88)
+position = Vector2(84, 112)
 texture = ExtResource("1_yvt0t")
 hframes = 2
 frame = 1
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(180, 88)
+position = Vector2(156, 112)
 texture = ExtResource("2_23l0e")
 hframes = 2
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(120, 8)
+texture = ExtResource("4_h6j8r")

@@ -6,6 +6,7 @@ class_name Inventory extends CanvasLayer
 const INVENTORY_SCENE: PackedScene = preload("res://scn/menue/inventory.tscn")
 const SAVE_SCREEN_SCENE: PackedScene = preload("res://scn/ui/inventory/save_screen.tscn")
 const TEAM_SCENE: PackedScene = preload("res://scn/ui/inventory/team.tscn")
+const SETTINGS_SCENE: PackedScene = preload("res://scn/ui/inventory/settings.tscn")
 
 
 enum STATES {
@@ -14,6 +15,7 @@ enum STATES {
 	SAVE = 2, 
 	MEDALLS = 3, 
 	TEAM = 4,
+	SETTINGS = 5
 }
 
 
@@ -115,6 +117,13 @@ func _match_main_input() -> void:
 		
 		SubInventory.add_child(SaveScreenInst)
 		current_state = STATES.SAVE
+	
+	if cur_pos.x == 2 and cur_pos.y == 1:
+		
+		var SettingsInstance: Node2D = SETTINGS_SCENE.instantiate()
+		
+		SubInventory.add_child(SettingsInstance)
+		current_state = STATES.SETTINGS
 	
 	if cur_pos.x == 3:
 		
