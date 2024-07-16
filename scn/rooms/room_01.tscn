@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://vs5hxcple51o"]
+[gd_scene load_steps=19 format=3 uid="uid://vs5hxcple51o"]
 
 [ext_resource type="Texture2D" uid="uid://cuva0cafshqn" path="res://res/tilesets/exterior_assets/uptown/tileset.png" id="1_33vkq"]
 [ext_resource type="Texture2D" uid="uid://dte7u17hlrf6f" path="res://res/tilesets/exterior_assets/forest/tilemap_forest.png" id="2_m6m82"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cov13t8hdryhj" path="res://res/tilesets/exterior_assets/forest/tiles.png" id="4_dlag2"]
 [ext_resource type="Texture2D" uid="uid://c7e6tc4fubnn8" path="res://res/tilesets/exterior_assets/forest/anim.png" id="5_u81ua"]
 [ext_resource type="PackedScene" uid="uid://dhp4leqo6phiv" path="res://scn/transition/transition.tscn" id="6_g5gkn"]
-[ext_resource type="PackedScene" uid="uid://byw2vrqxq0slp" path="res://scn/player/player.tscn" id="7_wyqmi"]
 [ext_resource type="PackedScene" uid="uid://8dv6erki1q75" path="res://res/yokai/overworld_yokai.tscn" id="8_e1llb"]
 [ext_resource type="PackedScene" uid="uid://bfdl8pokk8rk7" path="res://scn/npc/npc.tscn" id="9_rngbx"]
 [ext_resource type="PackedScene" uid="uid://l7nllo5lmlwl" path="res://res/yokai/scenes/yokai_hotspot.tscn" id="10_bctyr"]
@@ -684,11 +683,6 @@ connected_transition_area = 1
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 metadata/_edit_lock_ = true
-
-[node name="player" parent="ysort" instance=ExtResource("7_wyqmi")]
-light_mask = 0
-visibility_layer = 0
-y_sort_enabled = true
 
 [node name="overworld_yokai" parent="ysort" instance=ExtResource("8_e1llb")]
 position = Vector2(-67, 68)

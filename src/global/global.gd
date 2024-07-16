@@ -42,6 +42,7 @@ signal on_yokai
 
 var current_time: int = 0
 var current_money: int = 1240
+var current_room: int
 
 var player_inventory: Array[Array] = [
 	[Item.new("Onigiri")],

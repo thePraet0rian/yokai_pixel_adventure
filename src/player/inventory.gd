@@ -7,6 +7,7 @@ const INVENTORY_SCENE: PackedScene = preload("res://scn/menue/inventory.tscn")
 const SAVE_SCREEN_SCENE: PackedScene = preload("res://scn/ui/inventory/save_screen.tscn")
 const TEAM_SCENE: PackedScene = preload("res://scn/ui/inventory/team.tscn")
 const SETTINGS_SCENE: PackedScene = preload("res://scn/ui/inventory/settings.tscn")
+const MEDALLS_SCENE: PackedScene = preload("res://scn/ui/inventory/medalls.tscn")
 
 
 enum STATES {
@@ -127,6 +128,13 @@ func _match_main_input() -> void:
 		
 		SubInventory.add_child(SettingsInstance)
 		current_state = STATES.SETTINGS
+	
+	if cur_pos.x == 2 and cur_pos.y == 0:
+		
+		var MedallsInstance: Node2D = MEDALLS_SCENE.instantiate()
+		
+		SubInventory.add_child(MedallsInstance)
+		current_state = STATES.MEDALLS
 	
 	if cur_pos.x == 3:
 		

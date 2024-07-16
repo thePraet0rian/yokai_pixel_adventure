@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=30 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
 [ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://res/battle/buttons/item_button.png" id="3_5sywo"]
 [ext_resource type="Script" path="res://src/battle/yokai_helper.gd" id="3_yiroh"]
+[ext_resource type="Script" path="res://src/battle/ui_helper.gd" id="4_2n2qt"]
 [ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://res/battle/buttons/target_button.png" id="4_8w6uo"]
 [ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://res/battle/buttons/soulimate_button.png" id="5_n70qx"]
 [ext_resource type="Texture2D" uid="uid://xwp6084y0l66" path="res://res/battle/buttons/purify_button.png" id="6_4vrvv"]
@@ -158,7 +159,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("temp/ColorRect:scale")
+tracks/0/path = NodePath("ui_helper/overlay/ColorRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -170,7 +171,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("temp/ColorRect2:scale")
+tracks/1/path = NodePath("ui_helper/overlay/ColorRect2:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -186,7 +187,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("temp/ColorRect:scale")
+tracks/0/path = NodePath("ui_helper/overlay/ColorRect:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -198,7 +199,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("temp/ColorRect2:scale")
+tracks/1/path = NodePath("ui_helper/overlay/ColorRect2:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -222,127 +223,135 @@ script = ExtResource("1_28vn4")
 position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
 
-[node name="yokai" type="Node" parent="."]
+[node name="yokai_helper" type="Node" parent="."]
 script = ExtResource("3_yiroh")
 
-[node name="enemies" type="Node2D" parent="yokai"]
+[node name="enemies" type="Node2D" parent="yokai_helper"]
 
-[node name="enemy_yokai_anim_player" type="AnimationPlayer" parent="yokai/enemies"]
+[node name="enemy_yokai_anim_player" type="AnimationPlayer" parent="yokai_helper/enemies"]
 
-[node name="players" type="Node2D" parent="yokai"]
+[node name="players" type="Node2D" parent="yokai_helper"]
 position = Vector2(0, -17)
 
-[node name="player_yokai_anim_player" type="AnimationPlayer" parent="yokai/players"]
+[node name="player_yokai_anim_player" type="AnimationPlayer" parent="yokai_helper/players"]
 
-[node name="buttons" type="Node2D" parent="."]
+[node name="ui_helper" type="Node" parent="."]
+script = ExtResource("4_2n2qt")
 
-[node name="item" type="Sprite2D" parent="buttons"]
+[node name="main_menue" type="Node2D" parent="ui_helper"]
+
+[node name="medalls" type="Node" parent="ui_helper/main_menue"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
+position = Vector2(103, 115)
+texture = ExtResource("15_cdgot")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
+position = Vector2(120, 115)
+texture = ExtResource("15_cdgot")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
+position = Vector2(137, 115)
+texture = ExtResource("15_cdgot")
+
+[node name="buttons" type="Node2D" parent="ui_helper/main_menue"]
+
+[node name="item" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
 position = Vector2(211, 127)
 texture = ExtResource("3_5sywo")
 hframes = 2
 
-[node name="target" type="Sprite2D" parent="buttons"]
+[node name="target" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
 position = Vector2(151, 127)
 texture = ExtResource("4_8w6uo")
 hframes = 2
 
-[node name="soulimate" type="Sprite2D" parent="buttons"]
+[node name="soulimate" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
 position = Vector2(90, 127)
 texture = ExtResource("5_n70qx")
 hframes = 4
 
-[node name="purify" type="Sprite2D" parent="buttons"]
+[node name="purify" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
 position = Vector2(30, 127)
 texture = ExtResource("6_4vrvv")
 hframes = 2
 
-[node name="buttons_anim_player" type="AnimationPlayer" parent="buttons"]
+[node name="wheel" type="Sprite2D" parent="ui_helper/main_menue"]
+position = Vector2(120, 115)
+texture = ExtResource("16_uj23c")
+
+[node name="buttons_anim_player" type="AnimationPlayer" parent="ui_helper/main_menue"]
 libraries = {
 "": SubResource("AnimationLibrary_l10kg")
 }
 
-[node name="wheel" type="Sprite2D" parent="buttons"]
-position = Vector2(120, 115)
-texture = ExtResource("16_uj23c")
-
-[node name="ui" type="Node2D" parent="."]
+[node name="ui" type="Node2D" parent="ui_helper"]
 position = Vector2(0, -7)
 
-[node name="main_ui" type="Node2D" parent="ui"]
+[node name="main_ui" type="Node2D" parent="ui_helper/ui"]
 
-[node name="left_sign" type="Sprite2D" parent="ui/main_ui"]
+[node name="left_sign" type="Sprite2D" parent="ui_helper/ui/main_ui"]
 position = Vector2(10, 86)
 texture = ExtResource("14_hoddt")
 
-[node name="right_sign" type="Sprite2D" parent="ui/main_ui"]
+[node name="right_sign" type="Sprite2D" parent="ui_helper/ui/main_ui"]
 position = Vector2(230, 86)
 texture = ExtResource("15_co87e")
 
-[node name="ui_anim_player" type="AnimationPlayer" parent="ui/main_ui"]
+[node name="ui_anim_player" type="AnimationPlayer" parent="ui_helper/ui/main_ui"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_7eoag")
 }
 autoplay = "q_e_anim"
 
-[node name="target" type="Sprite2D" parent="ui/main_ui"]
+[node name="target" type="Sprite2D" parent="ui_helper/ui/main_ui"]
 visible = false
 position = Vector2(47, 48)
 texture = ExtResource("10_u3foe")
 
-[node name="sub_ui" type="Node" parent="ui"]
+[node name="sub_ui" type="Node" parent="ui_helper/ui"]
 
-[node name="items" parent="ui/sub_ui" instance=ExtResource("11_kis0f")]
+[node name="items" parent="ui_helper/ui/sub_ui" instance=ExtResource("11_kis0f")]
 process_mode = 4
 visible = false
 
-[node name="target" parent="ui/sub_ui" instance=ExtResource("12_bmpme")]
+[node name="target" parent="ui_helper/ui/sub_ui" instance=ExtResource("12_bmpme")]
 process_mode = 4
 visible = false
 
-[node name="soulimate" parent="ui/sub_ui" instance=ExtResource("13_clbgi")]
+[node name="soulimate" parent="ui_helper/ui/sub_ui" instance=ExtResource("13_clbgi")]
 process_mode = 4
 visible = false
 
-[node name="purify" parent="ui/sub_ui" instance=ExtResource("14_eeg27")]
+[node name="purify" parent="ui_helper/ui/sub_ui" instance=ExtResource("14_eeg27")]
 process_mode = 4
 visible = false
 
-[node name="overlay" type="Node" parent="ui"]
+[node name="win_screen" parent="ui_helper/ui/sub_ui" instance=ExtResource("16_2w66e")]
+process_mode = 4
 
-[node name="ui_anim_player" type="AnimationPlayer" parent="ui"]
+[node name="overlay" type="Node" parent="ui_helper/ui"]
 
-[node name="temp" type="Node2D" parent="."]
+[node name="ui_anim_player" type="AnimationPlayer" parent="ui_helper/ui"]
 
-[node name="ColorRect" type="ColorRect" parent="temp"]
+[node name="overlay" type="Node2D" parent="ui_helper"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="ui_helper/overlay"]
 offset_right = 240.0
 offset_bottom = 67.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="temp"]
+[node name="ColorRect2" type="ColorRect" parent="ui_helper/overlay"]
 offset_top = 135.0
 offset_right = 240.0
 offset_bottom = 203.0
 scale = Vector2(1, -1)
 color = Color(0, 0, 0, 1)
 
-[node name="win_screen" parent="." instance=ExtResource("16_2w66e")]
-
-[node name="medalls" type="Node" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="medalls"]
-position = Vector2(103, 115)
-texture = ExtResource("15_cdgot")
-
-[node name="Sprite2D2" type="Sprite2D" parent="medalls"]
-position = Vector2(120, 115)
-texture = ExtResource("15_cdgot")
-
-[node name="Sprite2D3" type="Sprite2D" parent="medalls"]
-position = Vector2(137, 115)
-texture = ExtResource("15_cdgot")
-
-[node name="anim_player" type="AnimationPlayer" parent="."]
+[node name="anim_player" type="AnimationPlayer" parent="ui_helper"]
+root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_6w7eq")
 }

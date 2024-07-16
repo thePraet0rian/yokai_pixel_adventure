@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://fmau7olynl3n"]
+
+[ext_resource type="Texture2D" uid="uid://7ptjarqcjc1" path="res://src/ui/assets/save_select_screen/top_bar.png" id="1_jvwhp"]
+
+[node name="medalls" type="Node2D"]
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 1)
+
+[node name="top_bar" type="Sprite2D" parent="."]
+position = Vector2(120, 8)
+texture = ExtResource("1_jvwhp")

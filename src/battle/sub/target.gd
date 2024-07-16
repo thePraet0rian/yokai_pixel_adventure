@@ -4,7 +4,7 @@ extends Node2D
 enum STATE {ONE = 1, TWO = 2}
 
 @onready var Selector: Area2D = $selector
-@onready var Parent: Battle = get_parent().get_parent().get_parent()
+@onready var BattleInstance: Battle = get_parent().get_parent().get_parent().get_parent()
 
 @onready var Buttons: Array[Sprite2D] = [
 	$buttons/back_button,
@@ -39,7 +39,7 @@ func _input(event: InputEvent) -> void:
 	else:
 		if event.is_action_pressed("space"):
 			print("wat")
-			Parent.BattleYokaiHelper.set_selected_yokai(-1)
+			BattleInstance.BattleYokaiHelper.set_selected_yokai(-1)
 
 
 func _physics_process(delta: float) -> void:

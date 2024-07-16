@@ -14,10 +14,10 @@ const SAVE_FILE_ARR: Array[String] = [
 ]
 
 
-@onready var UiHelper: Ui = $ui
+@onready var UiHelperInstance: Ui = $ui
 
 @onready var Rooms: Node2D = $rooms
-@onready var PlayerInst: Player = Rooms.get_child(0).get_node("ysort").get_node("player")
+@onready var PlayerInstance: Player = PLAYER_SCENE.instantiate()
 
 
 var save_file_int: int 
@@ -32,9 +32,17 @@ func _on_game_loaded(_save_file: int) -> void:
 	var load_file = FileAccess.open(SAVE_FILE_ARR[0], FileAccess.READ)
 	var string = load_file.get_as_text()
 	var data: Dictionary = JSON.parse_string(string)
+
+	# Instance Room
+	var new_room: Node2D = global.rooms[data["room"]].instantiate()
+	Rooms.add_child(new_room)
+
+	# Instance Player
+	Rooms.get_child(0).get_node("ysort").add_child(PlayerInstance)
+	# Set Player Position
+	PlayerInstance.position.x = data["Player"]["posX"]
+	PlayerInstance.position.y = data["Player"]["posY"]
 	
-	PlayerInst.position.x = data["Player"]["posX"]
-	PlayerInst.position.y = data["Player"]["posY"]
 	
 	load_file.close()
 	
@@ -48,8 +56,6 @@ func _ready() -> void:
 	
 	global.on_game_saved.connect(_on_game_saved)
 	global.on_game_loaded.connect(_on_game_loaded)
-	
-	global.disable_main.connect(_on_disable_main)
 
 
 func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
@@ -71,24 +77,28 @@ func _on_room_transitioned(room: int) -> void:
 		1:
 			Rooms.get_child(0).queue_free()
 			
-			var new_room: Node2D = global.rooms[1].instantiate()
+			var new_room: Node2D = global.rooms[room].instantiate()
 			Rooms.add_child(new_room)
 			
-			PlayerInst = PLAYER_SCENE.instantiate()			
-			new_room.get_node("ysort").add_child(PlayerInst)
+			global.current_room = 1
 			
-			PlayerInst.set_orientation(Vector2(-1, 0))
-			PlayerInst.position = Vector2(64, 64)
+			PlayerInstance = PLAYER_SCENE.instantiate()			
+			new_room.get_node("ysort").add_child(PlayerInstance )
+			
+			PlayerInstance.set_orientation(Vector2(-1, 0))
+			PlayerInstance.position = Vector2(64, 64)
 
 
 func _on_game_saved() -> void:
 
 	var save_file = FileAccess.open(SAVE_FILE_ARR[save_file_int], FileAccess.WRITE)
+	
 	var data: Dictionary = {
 		"Player": {
-			"posX": int(PlayerInst.position.x),
-			"posY": int(PlayerInst.position.y),
-		}
+			"posX": int(PlayerInstance.position.x),
+			"posY": int(PlayerInstance.position.y),
+		}, 
+		"room": global.current_room,
 	}	
 	
 	var string = JSON.stringify(data)
@@ -99,10 +109,6 @@ func _on_game_saved() -> void:
 func _on_main_timer_timeout() -> void:
 	
 	global.current_time += 1
-
-
-func _on_disable_main() -> void:
-	process_mode = Node.PROCESS_MODE_DISABLED
 
 
 # --------------------------------------------------------------------------------------------------
