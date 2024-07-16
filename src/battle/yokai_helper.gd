@@ -101,6 +101,16 @@ func set_selected_yokai(yokai_number: int) -> void:
 			enemy_team_inst_front[i].selector.visible = false
 
 
+func set_soulimate_selected_yokai(yokai_number: int) -> void:
+	
+	for i in range(len(player_team_inst_front)):
+		
+		if i == yokai_number:
+			player_team_inst_front[i].set_soulimate(yokai_number, true)
+		else: 
+			player_team_inst_front[i].set_soulimate(yokai_number, false)
+
+
 # MOVE YOKAI # ------------------------------------------------------------------------------------
 
 

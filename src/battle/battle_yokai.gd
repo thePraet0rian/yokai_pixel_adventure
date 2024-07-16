@@ -1,7 +1,7 @@
 class_name BattleYokai extends Sprite2D
 
 
-signal action()
+signal action
 
 enum {PLAYER = 0, ENEMY = 1}
 
@@ -25,10 +25,11 @@ var yokai_number: int = 0
 @onready var YokaiInst: Yokai
 @onready var parent: YokaiHelper = get_node("..").get_node("..")
 @onready var ui: Sprite2D = $ui
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var anim_player: AnimationPlayer = $anim_player
 @onready var tick_timer: Timer = $tick
 @onready var damage: Sprite2D = $damage
 @onready var selector: Sprite2D = $selector
+@onready var SoulimateSelector: Sprite2D = $soulimate_selector
 
 
 func set_target() -> void:
@@ -37,6 +38,15 @@ func set_target() -> void:
 		selector.visible = true
 		parent.set_selected_yokai(yokai_number)
 
+
+func set_soulimate(selected_soul_yokai: int, active: bool) -> void:
+	
+	if team == PLAYER: 
+		SoulimateSelector.visible = true
+		
+		if active:			
+			SoulimateSelector.frame = 1
+	
 
 func update(team_str: String) -> void:
 	if team_str == "player":

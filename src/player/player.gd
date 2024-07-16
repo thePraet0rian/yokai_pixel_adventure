@@ -4,7 +4,7 @@ class_name Player extends CharacterBody2D
 
 
 const DEBUG_SCENE: PackedScene = preload("res://src/player/debug.tscn")
-const INVENTORY_SCENE: PackedScene = preload("res://src/player/inventory.tscn")
+const INVENTORY_SCENE: PackedScene = preload("res://src/player/menue.tscn")
 const MAP_SCENE: PackedScene = preload("res://src/ui/map/map.tscn")
 
 const  SPEED: int = 125

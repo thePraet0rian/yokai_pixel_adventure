@@ -12,11 +12,11 @@
 ### ToDo:
 - [ ] Full save system;
 - [ ] Sprites (Animations);
-- [ ] Targetting system With lerp() accelection; 
+- [ ] Targeting system With lerp() acceleration; 
 - [ ] Any custom story at all;
 - [ ] Custom yokai (sprites and stats);
 - [ ] Everything else;
 - [ ] ...
 
 
-
+Zis has things 

@@ -141,11 +141,23 @@ func _purify_input(event: InputEvent) ->  void:
 
 func _soulimate_input(event: InputEvent) -> void:
 	
+	var test_index: int = 0
+	
+	if event.is_action_pressed("move_left"):
+		if test_index >= 0:
+			test_index -= 1
+	if event.is_action_pressed("move_right"):
+		if test_index < 10:
+			test_index += 1
+	
+	BattleYokaiHelper.set_soulimate_selected_yokai(test_index)
+	
 	if event.is_action_pressed("shift"):
 		current_game_state = GAME_STATES.SELECTING
 		
 		UiHelperInstance.set_sub_ui_input(event, 1)
 		BattleYokaiHelper.enable_yokai()
+		
 
 
 func _target_input(event: InputEvent) -> void:
