@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfdl8pokk8rk7"]
+[gd_scene load_steps=4 format=3 uid="uid://bfdl8pokk8rk7"]
 
 [ext_resource type="Texture2D" uid="uid://by7fybvor2s8o" path="res://res/npc/mom.png" id="2_7fk7t"]
 [ext_resource type="Script" path="res://src/npc/npc.gd" id="2_7lkj6"]
+[ext_resource type="Texture2D" uid="uid://wnggpxxwsqlj" path="res://res/interaction_icons/shop.png" id="3_xtth1"]
 
 [node name="npc" type="CharacterBody2D"]
 script = ExtResource("2_7lkj6")
@@ -17,6 +18,11 @@ polygon = PackedVector2Array(-16, -15, -16, 17, 16, 17, 16, -15)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="npc_hurtbox"]
 polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
+
+[node name="icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -26)
+texture = ExtResource("3_xtth1")
 
 [connection signal="area_entered" from="npc_hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="npc_hurtbox" to="." method="_on_hurtbox_area_exited"]

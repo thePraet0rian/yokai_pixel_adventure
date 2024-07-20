@@ -1,4 +1,4 @@
-class_name YokaiHelper extends Node
+class_name BattleYokaiHelper extends Node
 
 
 const BATTLE_YOKAI_SCENE: PackedScene = preload("res://scn/battle/battle_yokai.tscn")
@@ -20,38 +20,37 @@ var yokai_finished_moving: bool = true
 
 @onready var Players: Node2D = $players
 @onready var Enemies: Node2D = $enemies
-@onready var Parent: Battle = get_parent()
-
-
-# READY # -----------------------------------------------------------------------------------------
-
-
-func _ready() -> void:
-	
-	global.on_yokai_action.connect(on_yokai_action)
-
-
-
-# SETUP # -----------------------------------------------------------------------------------------
+@onready var BattleInstance: Battle = get_parent()
 
 
 func set_player_yokai_arr(arr: Array) -> void:
-	
 	player_yokai_arr = arr
 
 func set_enemy_yokai_arr(arr: Array) -> void:
-	
 	enemy_yokai_arr = arr 
 
 
+func start_soulimate(yokai: int) -> void:
+	for i in range(len(enemy_team_inst_front)):
+		enemy_team_inst_front[i].health_update(100)
+
 func setup_yokai() -> void:
-	
 	_setup_players()
 	_setup_enemies()
 
+func get_enemy_arr() -> Array[int]:	
+	var enemy_arr: Array[int] 
+	
+	for i in range(len(enemy_team_inst_front)):
+		enemy_arr.append(enemy_team_inst_front[i].YokaiInst.yokai_hp)
+	
+	return enemy_arr
+
+
+func _ready() -> void:	
+	global.on_yokai_action.connect(on_yokai_action)
 
 func _setup_players() -> void:
-	
 	for i in range(3):
 		
 		var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
@@ -69,14 +68,12 @@ func _setup_players() -> void:
 		
 		BattleYokaiInst.position = Vector2(-200, -200)
 		BattleYokaiInst.YokaiInst = player_yokai_arr[i]
-		BattleYokaiInst.update("Player")
+		BattleYokaiInst.update("player")
 		Players.add_child(BattleYokaiInst)
 		
 		BattleYokaiInst.disable_tick()
 
-
-func _setup_enemies() -> void:
-	
+func _setup_enemies() -> void:	
 	for i in range(3):
 		
 		var BattleYokaiInst: Sprite2D = BATTLE_YOKAI_SCENE.instantiate()
@@ -90,32 +87,25 @@ func _setup_enemies() -> void:
 		
 		Enemies.add_child(BattleYokaiInst)
 
-
-# PURFIY # ----------------------------------------------------------------------------------------
-
-
-func set_selected_yokai(yokai_number: int) -> void:
-	
+func set_selected_yokai(yokai_number: int) -> void:	
 	for i in range(len(enemy_team_inst_front)):
 		if yokai_number != i:
 			enemy_team_inst_front[i].selector.visible = false
 
-
-func set_soulimate_selected_yokai(yokai_number: int) -> void:
-	
+func set_soulimate_selected_yokai(yokai_number: int) -> void:		
 	for i in range(len(player_team_inst_front)):
-		
 		if i == yokai_number:
 			player_team_inst_front[i].set_soulimate(yokai_number, true)
 		else: 
 			player_team_inst_front[i].set_soulimate(yokai_number, false)
 
-
-# MOVE YOKAI # ------------------------------------------------------------------------------------
-
+func disable_soulimate_ui() -> void:
+	
+	for i in range(len(player_team_inst_front)):
+		player_team_inst_front[i].SoulimateSelector.visible = false
 
 func move_yokai(dir: int) -> void:
-	
+		
 	yokai_finished_moving = false
 	
 	if dir == 0:
@@ -133,7 +123,7 @@ func move_yokai(dir: int) -> void:
 		player_team_inst_front.remove_at(3)
 		player_team_inst_back.remove_at(0)
 	
-	Parent.update_medalls()	
+	BattleInstance.update_medalls()	
 	
 
 func _move_left() -> void:
@@ -150,7 +140,6 @@ func _move_left() -> void:
 
 
 func _move_right() -> void:
-	
 	var new_yokai: Node2D = player_team_inst_back[0]
 	new_yokai.position = Vector2(-24, 91)
 	new_yokai.enable_tick()
@@ -162,43 +151,22 @@ func _move_right() -> void:
 	new_yokai.update("player")
 
 
-# ACTIONS # ---------------------------------------------------------------------------------------	
-
-
 func on_yokai_action(team: int, yokai: int, action: String) -> void:
 	
 	match action: 
-		
 		"attack":
 			attack(team, yokai)
 
 
-func attack(team: int, _yokai: int) -> void:
+func attack(team: int, yokai: int) -> void:
 	
 	match team:
 		0:
-			enemy_team_inst_front[yokai_ai(team)].health_update(100)
+			enemy_team_inst_front[yokai].health_update(100)
 		1:
 			pass
 	
-	Parent.update_battle_conditions()
-
-
-
-func yokai_ai(team: int) -> int:
-	
-	match team:
-		0:
-			return randi_range(0, 2)
-		1:
-			pass
-		
-	return 0
-
-
-
-
-# MISC # ------------------------------------------------------------------------------------------
+	BattleInstance.update_battle_conditions()
 
 
 func disable_yokai() -> void:
@@ -219,4 +187,6 @@ func enable_yokai() -> void:
 		enemy_team_inst_front[i].enable_tick()
 
 
-# -------------------------------------------------------------------------------------------------
+func update() -> void:
+	BattleInstance.update_battle_conditions()
+

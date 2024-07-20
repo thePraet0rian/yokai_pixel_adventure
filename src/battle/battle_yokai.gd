@@ -3,10 +3,14 @@ class_name BattleYokai extends Sprite2D
 
 signal action
 
-enum {PLAYER = 0, ENEMY = 1}
+enum {
+	PLAYER = 0, 
+	ENEMY = 1,
+}
 
 const walk_speed: int = 5
 const TILE_SIZE: Vector2 = Vector2(72, 0)
+const DEAD_YOKAI: Texture = preload("res://res/yokai/general/dead_yokai.png")
 
 var team: int = PLAYER
 var update_arr: Array[Callable] = [_update_player, _update_enemy]
@@ -23,7 +27,7 @@ var is_targeted: bool = true
 var yokai_number: int = 0
 
 @onready var YokaiInst: Yokai
-@onready var parent: YokaiHelper = get_node("..").get_node("..")
+@onready var YokaiHelperInstance: BattleYokaiHelper = get_node("..").get_node("..")
 @onready var ui: Sprite2D = $ui
 @onready var anim_player: AnimationPlayer = $anim_player
 @onready var tick_timer: Timer = $tick
@@ -36,7 +40,7 @@ func set_target() -> void:
 	
 	if team == ENEMY:
 		selector.visible = true
-		parent.set_selected_yokai(yokai_number)
+		YokaiHelperInstance.set_selected_yokai(yokai_number)
 
 
 func set_soulimate(selected_soul_yokai: int, active: bool) -> void:
@@ -46,7 +50,9 @@ func set_soulimate(selected_soul_yokai: int, active: bool) -> void:
 		
 		if active:			
 			SoulimateSelector.frame = 1
-	
+		else:
+			SoulimateSelector.frame = 0
+
 
 func update(team_str: String) -> void:
 	if team_str == "player":
@@ -99,8 +105,6 @@ func remove() -> void:
 
 func _on_tick_timer_timeout() -> void:
 	
-	print("tick")
-	
 	if team == 0:
 		_player_tick()
 	if team == 1:
@@ -128,6 +132,7 @@ func _behavoir_barrier() -> bool:
 
 
 func _player_behavoir() -> void:
+	
 	if not loaf():
 		match YokaiInst.yokai_behavior:
 			0:
@@ -158,10 +163,13 @@ func loaf() -> bool:
 
 func _player_grouchy_behavoir() -> void:
 	
-	#if parent.pick_alive() == -1:
-		#return
-	anim_player.play("flash")
-	global.on_yokai_action.emit(0, 0, "attack")
+	var enemy_arr: Array[int] = YokaiHelperInstance.get_enemy_arr()
+	
+	for i in range(len(enemy_arr)):
+		if enemy_arr[i] >= 0:
+			anim_player.play("flash")
+			global.on_yokai_action.emit(0, i, "attack")
+			return
 
 
 func health_update(_damage: int) -> void:
@@ -171,7 +179,9 @@ func health_update(_damage: int) -> void:
 	YokaiInst.yokai_hp -= _damage
 	
 	if YokaiInst.yokai_hp <= 0:
-		visible = false
+		texture = DEAD_YOKAI
+	
+	YokaiHelperInstance.update()
 
 
 func disable_tick() -> void:

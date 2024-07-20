@@ -5,6 +5,15 @@ signal win_animation_finished
 signal ui_hidden
 signal ui_shown
 
+enum SUB_GAME_STATES {
+	PURIFY = 0, 
+	SOULIMATE = 1, 
+	TARGET = 2, 
+	ITEM = 3, 
+	NONE = 4,
+}
+
+var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
 
 @onready var MainMenueButtons: Array[Sprite2D] = [
 	$main_menue/buttons/purify,
@@ -26,17 +35,6 @@ signal ui_shown
 @onready var AllButtons: Node2D = $main_menue/buttons
 
 
-enum SUB_GAME_STATES {
-	PURIFY = 0, 
-	SOULIMATE = 1, 
-	TARGET = 2, 
-	ITEM = 3, 
-	NONE = 4,
-}
-
-var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
-
-
 func set_state(new_state: SUB_GAME_STATES) -> void:
 	current_state = new_state
 	
@@ -45,7 +43,6 @@ func set_state(new_state: SUB_GAME_STATES) -> void:
 	
 	SubUis[new_state].visible = true
 	SubUis[new_state].process_mode = Node.PROCESS_MODE_INHERIT
-
 
 func set_main_menue_input(current_button: int) -> void:
 	
@@ -64,14 +61,12 @@ func set_main_menue_input(current_button: int) -> void:
 		3: 
 			MainMenueButtons[3].frame = 1
 
-
 func set_sub_ui_input(event: InputEvent, sub_ui: int) -> void:
 	
 	if event.is_action_pressed("shift"):
 		SubUis[sub_ui].visible = false
 		SubUis[sub_ui].process_mode = Node.PROCESS_MODE_DISABLED
 		_show_ui()
-
 
 func play_win_animation() -> void:
 
@@ -84,7 +79,6 @@ func _ready() -> void:
 
 	AnimPlayer.play("start")
 
-
 func _hide_ui() -> void:
 
 	TweenInstance = create_tween()
@@ -92,7 +86,6 @@ func _hide_ui() -> void:
 	await TweenInstance.finished
 	await get_tree().create_timer(.125).timeout
 	ui_hidden.emit()
-
 
 func _show_ui() -> void:
 	

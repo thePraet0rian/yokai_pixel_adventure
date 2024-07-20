@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7k2h62jlwjwd"]
+[gd_scene load_steps=4 format=3 uid="uid://c7k2h62jlwjwd"]
 
 [ext_resource type="Script" path="res://src/battle/sub/soulimate.gd" id="1_brw2v"]
+[ext_resource type="Texture2D" uid="uid://dhocv8ekjq12a" path="res://res/battle/ui/soulimate/soulimate_rect.png" id="2_ljhhp"]
+[ext_resource type="Texture2D" uid="uid://bmk3lrhlwnfle" path="res://res/battle/ui/soulimate/arrow.png" id="3_fxs5b"]
 
 [node name="soulimate" type="Node2D"]
 script = ExtResource("1_brw2v")
@@ -11,3 +13,30 @@ offset_bottom = 135.0
 color = Color(0, 0, 0, 0.156863)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="soulimate_rect" type="Sprite2D" parent="."]
+position = Vector2(120, 64)
+texture = ExtResource("2_ljhhp")
+
+[node name="ArrowUp" type="Sprite2D" parent="soulimate_rect"]
+visible = false
+position = Vector2(0, -13)
+texture = ExtResource("3_fxs5b")
+
+[node name="ArrowDown" type="Sprite2D" parent="soulimate_rect"]
+visible = false
+position = Vector2(0, 13)
+rotation = 3.14159
+texture = ExtResource("3_fxs5b")
+
+[node name="ArrowLeft" type="Sprite2D" parent="soulimate_rect"]
+visible = false
+position = Vector2(-13, 0)
+rotation = -1.5708
+texture = ExtResource("3_fxs5b")
+
+[node name="ArrowRight" type="Sprite2D" parent="soulimate_rect"]
+visible = false
+position = Vector2(13, 0)
+rotation = 1.5708
+texture = ExtResource("3_fxs5b")
