@@ -7,8 +7,6 @@ var item: Item
 
 
 func _ready() -> void:
-	print("wai")
-	print(item)
 	texture = item.item_texture
 	count.text = str(item.item_count)
 	
@@ -17,3 +15,11 @@ func _ready() -> void:
 			frame = 0
 		"Mighty Medicine": 
 			frame = 11
+		"Other Medicine":
+			frame = 12
+		"Other Other Medicine":
+			frame = 13
+		"Y-Cola": 
+			frame = 10
+		"Spiritzer":
+			frame = 9

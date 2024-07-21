@@ -1,29 +1,20 @@
-# --------------------------------------------------------------------------------------------------
-## MAIN GAME CLASS
 class_name Main extends Node2D
 
 
 const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
 const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
-
-
 const SAVE_FILE_ARR: Array[String] = [
 	"user://savefile_one.save", 
 	"user://savefile_two.save", 
 	"user://savefile_three.save",
 ]
 
-
 @onready var UiHelperInstance: Ui = $ui
 
 @onready var Rooms: Node2D = $rooms
 @onready var PlayerInstance: Player = PLAYER_SCENE.instantiate()
 
-
 var save_file_int: int 
-
-
-# Private Methods # --------------------------------------------------------------------------------
 
 
 func _on_game_loaded(_save_file: int) -> void:
@@ -33,16 +24,27 @@ func _on_game_loaded(_save_file: int) -> void:
 	var string = load_file.get_as_text()
 	var data: Dictionary = JSON.parse_string(string)
 
-	# Instance Room
+	print(data)
+
+	# Load Room
 	var new_room: Node2D = global.rooms[data["room"]].instantiate()
 	Rooms.add_child(new_room)
 
-	# Instance Player
+	# Load Player
 	Rooms.get_child(0).get_node("ysort").add_child(PlayerInstance)
+	
 	# Set Player Position
 	PlayerInstance.position.x = data["Player"]["posX"]
 	PlayerInstance.position.y = data["Player"]["posY"]
 	
+	var inventory: Array[Array] = [[], [], [], [], []]
+	
+	# Load Inventory
+	for i in range(len(data["Inventory"])):
+		for j in range(len(data["Inventory"][i])):
+			inventory[i].append(Item.new(data["Inventory"][i][j]))
+
+	global.player_inventory = inventory
 	
 	load_file.close()
 	
@@ -93,13 +95,24 @@ func _on_game_saved() -> void:
 
 	var save_file = FileAccess.open(SAVE_FILE_ARR[save_file_int], FileAccess.WRITE)
 	
+	var inventory_names: Array[Array] = [[], [], [], [], []]
+	
+	for i in range(len(global.player_inventory)):
+		for j in range(len(global.player_inventory[i])):
+			inventory_names[i].append(global.player_inventory[i][j].item_name)
+	
+	print(inventory_names)
+	
 	var data: Dictionary = {
 		"Player": {
 			"posX": int(PlayerInstance.position.x),
 			"posY": int(PlayerInstance.position.y),
 		}, 
 		"room": global.current_room,
+		"Inventory": inventory_names,
 	}	
+	
+	print(data)
 	
 	var string = JSON.stringify(data)
 	save_file.store_string(string)	

@@ -44,10 +44,4 @@ var current_time: int = 0
 var current_money: int = 1240
 var current_room: int
 
-var player_inventory: Array[Array] = [
-	[Item.new("Onigiri")],
-	[Item.new("Onigiri")],
-	[Item.new("Onigiri")],
-	[Item.new("Onigiri")],
-	[Item.new("Onigiri")],
-]
+var player_inventory: Array[Array]

@@ -1,13 +1,9 @@
-# --------------------------------------------------------------------------------------------------
-## GLOBAL MENUE CLASS
 extends Node2D
 
 
 signal inventory_close
 
-
 const ITEM_ICONS_SCENE: PackedScene = preload("res://scn/ui/inventory/item_icons.tscn")
-
 
 @onready var Select: Sprite2D = $select
 @onready var SelectTwo: Sprite2D = $select2
@@ -29,7 +25,6 @@ const ITEM_ICONS_SCENE: PackedScene = preload("res://scn/ui/inventory/item_icons
 	$sub_inventories/key/select,
 ]
 
-
 var inventory_page: int = 0
 
 var indices: Array[Vector2] = [
@@ -41,10 +36,9 @@ var indices: Array[Vector2] = [
 ]
 
 
-# Methods # ---------------------------------------------------------------------------------------
-
-
 func _ready() -> void:
+	
+	print(global.player_inventory)
 	
 	InventoryAnimPlayer.play("start")
 	
@@ -103,5 +97,3 @@ func _input(event: InputEvent) -> void:
 		inventory_close.emit(0)
 		queue_free()
 
-
-# -------------------------------------------------------------------------------------------------

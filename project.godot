@@ -18,10 +18,10 @@ config/icon="res://res/yokai/jibanyan/icon_export.png"
 
 [autoload]
 
+global_item="*res://src/global/global_item.gd"
 yokai_stats="*res://res/yokai/stats/yokai_stats.gd"
 global="*res://src/global/global.gd"
 global_npc="*res://src/global/global_npc.gd"
-global_item="*res://src/global/global_item.gd"
 
 [display]
 

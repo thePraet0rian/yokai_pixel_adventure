@@ -33,5 +33,3 @@ func _ready() -> void:
 		
 		npcs[data[i]["Name"]] = {"Points": points, "Velocities": velocities, "Times": times, "Sprite": sprite}
 	
-	print(npcs)
-	

@@ -23,8 +23,6 @@ func _ready() -> void:
 	_load_moving_npcs()
 	_load_talking_npcs()
 	_load_npc_dialogue_expressions()
-	
-	print(talking_npcs)
 
 
 func _load_npc_sprites() -> void:
@@ -65,9 +63,6 @@ func _load_moving_npcs() -> void:
 		
 		
 		moving_npcs[data[i]["Name"]] = {"Points": points, "Velocities": velocities, "Times": times, "Sprite": sprite}
-		
-	print_rich("[color=blue]pain[/color]")
-	print(moving_npcs)
 		
 	file.close()
 	

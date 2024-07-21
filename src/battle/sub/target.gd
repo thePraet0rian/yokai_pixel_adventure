@@ -38,7 +38,6 @@ func _input(event: InputEvent) -> void:
 			hovering = false
 	else:
 		if event.is_action_pressed("space"):
-			print("wat")
 			BattleInstance.BattleYokaiHelper.set_selected_yokai(-1)
 
 

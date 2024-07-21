@@ -17,9 +17,10 @@ var item_texture: Texture = preload("res://res/items/items.png")
 var item_big_texture: Texture
 
 var item_buy_price: int = 0
-var item_sell_price
+var item_sell_price: int
+var item_priority: int
 
 
 func _init(_item_name: String) -> void:
-	
 	self.item_name = _item_name
+	self.item_priority = global_item.items["Onigiri"]["Priority"]

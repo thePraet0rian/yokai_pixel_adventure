@@ -20,19 +20,14 @@ var transition_target
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("space"):
-		
-		print(npc_met)
-		
+	
 		if npc_met:
 			npc_type = NpcInstance.get_type()
-			_npc()
-		
+			_npc()	
 		if yokai_met:
 			_yokai()
-		
 		if can_transition:
 			_transition()
-		
 		if is_tracking_hotspot:
 			pass
 
