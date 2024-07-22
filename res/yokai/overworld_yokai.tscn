@@ -17,3 +17,6 @@ polygon = PackedVector2Array(-15, 7, -15, 24, 15, 24, 15, 0, -15, 0)
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_ql6jl")
+
+[connection signal="area_entered" from="yokai" to="." method="_on_yokai_area_entered"]
+[connection signal="area_exited" from="yokai" to="." method="_on_yokai_area_exited"]

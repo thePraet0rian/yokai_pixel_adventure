@@ -43,7 +43,7 @@ func set_target() -> void:
 		YokaiHelperInstance.set_selected_yokai(yokai_number)
 
 
-func set_soulimate(selected_soul_yokai: int, active: bool) -> void:
+func set_soulimate(_selected_soul_yokai: int, active: bool) -> void:
 	
 	if team == PLAYER: 
 		SoulimateSelector.visible = true

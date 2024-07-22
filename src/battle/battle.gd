@@ -1,5 +1,3 @@
-# --------------------------------------------------------------------------------------------------
-## GLOBAL BATTLE CLASS 
 class_name Battle extends CanvasLayer
 
 
@@ -51,19 +49,12 @@ var selected_yokai: int
 var soulimate_selected_yokai: int
 
 
-# METHODS # ----------------------------------------------------------------------------------------
-
-
 func _ready() -> void:	
 	
 	YokaiHelperInstance.set_player_yokai_arr(player_yokai_arr)
 	YokaiHelperInstance.set_enemy_yokai_arr(enemy_yokai_arr)
 	YokaiHelperInstance.setup_yokai()
 	
-
-
-# INPUT # ------------------------------------------------------------------------------------------
-
 
 func _input(event: InputEvent) -> void:
 		

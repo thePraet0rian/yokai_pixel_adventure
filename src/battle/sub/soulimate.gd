@@ -81,7 +81,7 @@ func _soulimate_input(event: InputEvent) -> void:
 		SoulimateRect.visible = false
 		current_state = States.Selecting
 
-func _attacking_input(event: InputEvent) -> void:
+func _attacking_input(_event: InputEvent) -> void:
 	pass
 
 func start_soulimate(yokai: int) -> void:

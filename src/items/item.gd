@@ -23,4 +23,5 @@ var item_priority: int
 
 func _init(_item_name: String) -> void:
 	self.item_name = _item_name
-	self.item_priority = global_item.items["Onigiri"]["Priority"]
+	self.item_priority = global_item.items[_item_name]["Priority"]
+	print(item_priority)

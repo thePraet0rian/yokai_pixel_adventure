@@ -1,5 +1,3 @@
-# --------------------------------------------------------------------------------------------------
-## GLOBAL PLAYER CLASS 
 class_name Player extends CharacterBody2D
 
 
@@ -16,13 +14,10 @@ const ACCELERATION: int = 10
 @onready var Hurtbox: Area2D = $collision_helper/hurtbox
 @onready var UiAnimPlayer: AnimationPlayer = $ui/player_ui/ui_anim_player
 @onready var SprintBar: Sprite2D = $ui/sprint_bar
-#@onready var sprint_timer: Timer = $sprint_bar/sprint_timer
 
 @onready var AnimPlayer: AnimationPlayer = $anim_player
 @onready var AnimTree: AnimationTree = $anim_tree
 @onready var anim_propteries = $anim_tree.get("parameters/playback")
-
-#@onready var confirm_button: Sprite2D = $accept_button
 
 
 var input_vec: Vector2 = Vector2.ZERO
@@ -47,27 +42,19 @@ var YokaiInstance: OverworldYokai
 var yokai_met: bool = false
 
 
-# METHODS # ----------------------------------------------------------------------------------------
-# Private:
-
-
 func _input(event: InputEvent) -> void:
-	
 	if event.is_action_pressed("esc"): 
 		get_parent().add_child(DEBUG_SCENE.instantiate())
 		get_tree().paused = true
-		
-	if event.is_action_pressed("inventory"):
+	elif event.is_action_pressed("inventory"):
 		get_tree().paused = true
 		get_parent().add_child(INVENTORY_SCENE.instantiate())
-	
-	if event.is_action_pressed("map"):
+	elif event.is_action_pressed("map"):
 		get_parent().add_child(MAP_SCENE.instantiate())
 		get_tree().paused = true
 
 
 func _process(delta: float) -> void:
-	
 	sprint()
 	move(delta)
 	
@@ -76,21 +63,10 @@ func _process(delta: float) -> void:
 	
 
 func sprint() -> void:
-	#
-	#if Input.is_action_pressed("shift"):
-		#if can_sprint:
-			#is_sprinting = true
-			#speed = 200
-			#if input_vec != Vector2.ZERO:
-				#SprintBar.visible = true
-	#else:
-		#speed = 70
-		#SprintBar.visible = false
-		pass
+	pass
 
 
 func move(delta: float) -> void:
-	
 	previous_input_vec = input_vec
 	
 	input_vec.x = Input.get_axis("move_left", "move_right")
@@ -123,14 +99,11 @@ func move(delta: float) -> void:
 
 
 func hotspot_tracking() -> void:
-	
 	print(position.distance_to(hotspot_target.position))
 
 
 func _animate() -> void:
-	
 	if input_vec != Vector2.ZERO:
-		
 		AnimTree.set("parameters/idle/blend_position", input_vec)
 		AnimTree.set("parameters/run/blend_position", input_vec)
 		
@@ -140,7 +113,6 @@ func _animate() -> void:
 
 
 func show_objective() -> void:
-	
 	await get_tree().create_timer(2).timeout
 	
 	if input_vec == Vector2.ZERO:
@@ -149,13 +121,6 @@ func show_objective() -> void:
 			is_hidden = false
 
 
-# Public:
-
-
-func set_orientation(new_orientation: Vector2) -> void:
-	
+func set_orientation(new_orientation: Vector2) -> void:	
 	input_vec = new_orientation
 	_animate()
-
-
-# --------------------------------------------------------------------------------------------------
