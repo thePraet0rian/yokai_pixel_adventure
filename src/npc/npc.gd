@@ -8,18 +8,22 @@ enum Behavoirs {
 	SHOPKEEPING = 3,
 }
 
-@onready var Sprite: Sprite2D = $sprite
-@export var current_behavior: Behavoirs = Behavoirs.SHOPKEEPING
-@export var npc_name: String = "NPC_01"
-@export var repeating: bool = false
-@onready var tween: Tween
-@onready var icon: Sprite2D = $icon 
 
 var current_index: int = 0
 var npc_int: int = 0
+
 var points: Array[Vector2]
 var times: Array[int]
 var velocities: Array[Vector2]
+
+
+@export var current_behavior: Behavoirs = Behavoirs.SHOPKEEPING
+@export var npc_name: String = "NPC_01"
+@export var repeating: bool = false
+
+@onready var Sprite: Sprite2D = $sprite
+@onready var icon: Sprite2D = $icon 
+@onready var tween: Tween
 
 
 func _ready() -> void:	
@@ -28,8 +32,10 @@ func _ready() -> void:
 	if current_behavior == Behavoirs.MOVING:
 		_load_move()
 
+
 func _load_npc() -> void:
 	Sprite.texture = load(global_npc.npc_sprites[npc_name])
+
 
 func _load_move() -> void: 	
 	velocities.append_array(global_npc.moving_npcs[npc_name]["Velocities"])
@@ -38,6 +44,7 @@ func _load_move() -> void:
 	
 	position = points[0]
 	_move()
+
 
 func _move() -> void:	
 	while true:
@@ -59,6 +66,7 @@ func _move() -> void:
 			if not repeating:
 				return
 
+
 func _on_hurtbox_area_entered(_area: Area2D) -> void:	
 	if current_behavior == Behavoirs.MOVING:
 		current_behavior = Behavoirs.WAITING
@@ -66,6 +74,7 @@ func _on_hurtbox_area_entered(_area: Area2D) -> void:
 	
 	icon.visible = true
 	
+
 func _on_hurtbox_area_exited(_area: Area2D) -> void:
 	if current_behavior == Behavoirs.WAITING: 	
 		await get_tree().create_timer(1).timeout
@@ -75,6 +84,7 @@ func _on_hurtbox_area_exited(_area: Area2D) -> void:
 			tween.play()
 	
 	icon.visible = false
+
 
 func get_type() -> int:
 	return current_behavior

@@ -2,7 +2,10 @@ class_name BattleYokaiHelper extends Node
 
 
 const BATTLE_YOKAI_SCENE: PackedScene = preload("res://scn/battle/battle_yokai.tscn")
-const DIRECTION_MOVE: Array[Vector2] = [Vector2.LEFT, Vector2.RIGHT]
+const DIRECTION_MOVE: PackedVector2Array = [
+	Vector2.LEFT, 
+	Vector2.RIGHT,
+]
 
 var player_yokai_arr: Array[Yokai]
 var enemy_yokai_arr: Array[Yokai]
@@ -30,7 +33,7 @@ func set_enemy_yokai_arr(arr: Array) -> void:
 	enemy_yokai_arr = arr 
 
 
-func start_soulimate(yokai: int) -> void:
+func start_soulimate(_yokai: int) -> void:
 	for i in range(len(enemy_team_inst_front)):
 		enemy_team_inst_front[i].health_update(100)
 
@@ -39,7 +42,7 @@ func setup_yokai() -> void:
 	_setup_enemies()
 
 func get_enemy_arr() -> Array[int]:	
-	var enemy_arr: Array[int] 
+	var enemy_arr: Array[int] = []
 	
 	for i in range(len(enemy_team_inst_front)):
 		enemy_arr.append(enemy_team_inst_front[i].YokaiInst.yokai_hp)
