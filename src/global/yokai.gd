@@ -38,6 +38,8 @@ var yokai_spr: int
 var yokai_def: int
 var yokai_spd: int
 
+var yokai_max_hp: int
+
 var loafer: bool = true
 
 var front_sprite: Texture
@@ -56,6 +58,8 @@ func _init(_yokai_name: String, _front_sprite: Resource, _yokai_medall) -> void:
 	yokai_spr = yokai_stats.data[_yokai_name][0]["BS_A_Spr"]
 	yokai_def = yokai_stats.data[_yokai_name][0]["BS_A_Def"]
 	yokai_spd = yokai_stats.data[_yokai_name][0]["BS_A_Spd"]
+	
+	yokai_max_hp = yokai_hp
 	
 	front_sprite = _front_sprite
 	yokai_medall_sprite = _yokai_medall

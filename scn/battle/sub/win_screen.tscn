@@ -73,7 +73,7 @@ offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="enter_button" type="Sprite2D" parent="."]
 position = Vector2(36, 127)
 texture = ExtResource("1_1pxk1")
 hframes = 2

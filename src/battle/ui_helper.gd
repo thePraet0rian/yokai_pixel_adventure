@@ -33,6 +33,7 @@ var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
 @onready var AnimPlayer: AnimationPlayer = $anim_player
 @onready var TweenInstance: Tween
 @onready var AllButtons: Node2D = $main_menue/buttons
+@onready var SpeedUp: Sprite2D = $main_menue/speed_up
 
 
 func set_state(new_state: SUB_GAME_STATES) -> void:
@@ -67,6 +68,11 @@ func set_sub_ui_input(event: InputEvent, sub_ui: int) -> void:
 		SubUis[sub_ui].visible = false
 		SubUis[sub_ui].process_mode = Node.PROCESS_MODE_DISABLED
 		_show_ui()
+
+
+func set_speed_up() -> void:
+	SpeedUp.visible = !SpeedUp.visible
+
 
 func play_win_animation() -> void:
 

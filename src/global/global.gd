@@ -7,22 +7,24 @@ const rooms: Array[PackedScene] = [
 ]
 
 
-signal on_battle_started()
-signal on_battle_ended()
+signal on_yokai_return_action
 
-signal on_room_transitioned()
+signal on_battle_started
+signal on_battle_ended
 
-signal on_game_saved()
-signal on_game_loaded()
+signal on_room_transitioned
 
-signal on_dialogue_started()
-signal on_dialogue_ended()
+signal on_game_saved
+signal on_game_loaded
 
-signal on_menue_closed()
+signal on_dialogue_started
+signal on_dialogue_ended
 
-signal on_yokai_action() 
+signal on_menue_closed
 
-signal on_shopkeeper_met()
+signal on_yokai_action 
+
+signal on_shopkeeper_met
 signal on_test_start
 
 signal disable_main

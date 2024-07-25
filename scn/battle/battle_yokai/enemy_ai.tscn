@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca05y8o4ejp6c"]
+
+[ext_resource type="Script" path="res://src/battle/battle_yokai/enemy_ai.gd" id="1_16rf6"]
+
+[node name="enemy_ai" type="Node"]
+script = ExtResource("1_16rf6")
