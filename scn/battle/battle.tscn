@@ -330,6 +330,7 @@ visible = false
 
 [node name="win_screen" parent="ui_helper/ui/sub_ui" instance=ExtResource("16_2w66e")]
 process_mode = 4
+visible = false
 
 [node name="overlay" type="Node" parent="ui_helper/ui"]
 

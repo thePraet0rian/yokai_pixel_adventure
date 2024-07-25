@@ -19,7 +19,7 @@ enum {
 }
 
 
-const direction_move: Array[Vector2] = [
+const direction_move: PackedVector2Array = [
 	Vector2.LEFT,
 	Vector2.RIGHT,
 ]
@@ -150,7 +150,7 @@ func _item_input(event: InputEvent) -> void:
 
 func _win_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):
-		_end()
+		pass
 
 
 func _physics_process(_delta: float) -> void:
@@ -179,7 +179,7 @@ func update_medalls() -> void:
 	pass
 
 
-func upsdate_battle_conditions() -> void:
+func update_battle_conditions() -> void:
 	var count: int = 0
 
 	for i in range(len(YokaiHelperInstance.enemy_team_inst_front)):
@@ -194,12 +194,4 @@ func upsdate_battle_conditions() -> void:
 		YokaiHelperInstance.disable_yokai()
 		current_game_state = GAME_STATES.ACTION
 		current_sub_game_state = SUB_GAME_STATES.WIN
-
-
-func _end() -> void:
-	get_parent().process_mode = Node.PROCESS_MODE_INHERIT
-
-	await get_tree().physics_frame
-	global.on_battle_ended.emit()
-	queue_free()
 

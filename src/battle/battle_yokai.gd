@@ -3,14 +3,17 @@ class_name BattleYokai extends Sprite2D
 
 signal action
 
+
 enum {
 	PLAYER = 0, 
 	ENEMY = 1,
 }
 
+
 const walk_speed: int = 5
 const TILE_SIZE: Vector2 = Vector2(72, 0)
 const DEAD_YOKAI: Texture = preload("res://res/yokai/general/dead_yokai.png")
+
 
 var team: int = PLAYER
 var update_arr: Array[Callable] = [_update_player, _update_enemy]
@@ -23,8 +26,10 @@ var last_position: Vector2
 var is_loafing: bool = false
 var is_ticking: bool = true
 var is_targeted: bool = true
+var is_dead: bool = false
 
 var yokai_number: int = 0
+
 
 @onready var YokaiInst: Yokai
 @onready var YokaiHelperInstance: BattleYokaiHelper = get_node("..").get_node("..")
@@ -37,14 +42,12 @@ var yokai_number: int = 0
 
 
 func set_target() -> void:
-	
 	if team == ENEMY:
 		selector.visible = true
 		YokaiHelperInstance.set_selected_yokai(yokai_number)
 
 
 func set_soulimate(_selected_soul_yokai: int, active: bool) -> void:
-	
 	if team == PLAYER: 
 		SoulimateSelector.visible = true
 		
@@ -86,7 +89,6 @@ func move_direction(direction: Vector2) -> void:
 func _process(delta: float) -> void:
 	_move(delta) 
 
-
 func _move(delta: float) -> void:
 	progress += delta * walk_speed 
 	
@@ -99,27 +101,16 @@ func _move(delta: float) -> void:
 			position = last_position + (TILE_SIZE * input_direction * progress)
 
 
-func remove() -> void:
-	await get_tree().create_timer(.5).timeout
-	queue_free()
-
 func _on_tick_timer_timeout() -> void:
-	
-	if team == 0:
-		_player_tick()
-	if team == 1:
-		_enemy_tick()
+	if not is_dead:
+		if team == 0: _player_tick()
+		if team == 1: _enemy_tick()
 
 
 func _player_tick() -> void: 
-	
-	if _behavoir_barrier():
-		_player_behavoir()
-
-
+	if _behavoir_barrier(): _player_behavoir()
 func _enemy_tick() -> void:
-	if _behavoir_barrier():
-		pass	
+	if _behavoir_barrier(): _enemy_behavoir()
 
 
 func _behavoir_barrier() -> bool: 
@@ -132,11 +123,14 @@ func _behavoir_barrier() -> bool:
 
 
 func _player_behavoir() -> void:
-	
-	if not loaf():
-		match YokaiInst.yokai_behavior:
-			0:
-				_player_grouchy_behavoir()
+	#if not loaf():
+		#match YokaiInst.yokai_behavior:
+			#0:
+	_player_grouchy_behavoir()
+
+
+func _enemy_behavoir() -> void:
+	_enemy_grouchy_behavoir()
 
 
 func loaf() -> bool:
@@ -162,7 +156,6 @@ func loaf() -> bool:
 
 
 func _player_grouchy_behavoir() -> void:
-	
 	var enemy_arr: Array[int] = YokaiHelperInstance.get_enemy_arr()
 	
 	for i in range(len(enemy_arr)):
@@ -172,25 +165,28 @@ func _player_grouchy_behavoir() -> void:
 			return
 
 
-func health_update(_damage: int) -> void:
+func _enemy_grouchy_behavoir() -> void:
+	anim_player.play("flash")
+	global.on_yokai_action.emit(1, 0, "attack")
+
+
+
+func health_update(damage_int: int) -> void:
 	
-	damage.visible = true
-	
-	YokaiInst.yokai_hp -= _damage
+	YokaiInst.yokai_hp -= damage_int
 	
 	if YokaiInst.yokai_hp <= 0:
 		texture = DEAD_YOKAI
+		is_dead = true
 	
 	YokaiHelperInstance.update()
 
 
 func disable_tick() -> void:
-
 	tick_timer.stop()
 	is_ticking = false
 
 func enable_tick() -> void:
-
 	tick_timer.start()
 	is_ticking = true
 

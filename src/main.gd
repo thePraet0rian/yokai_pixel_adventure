@@ -68,6 +68,7 @@ func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
 		
 func _on_battle_ended() -> void:
 	get_tree().paused = false
+	get_node("battle").queue_free()
 
 
 func _on_room_transitioned(room: int) -> void:

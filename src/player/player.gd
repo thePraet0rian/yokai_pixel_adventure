@@ -55,15 +55,10 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	sprint()
 	move(delta)
 	
-	if is_tracking_hostop:
-		hotspot_tracking()
-	
-
-func sprint() -> void:
-	pass
+	#if is_tracking_hostop:
+		#hotspot_tracking()
 
 
 func move(delta: float) -> void:

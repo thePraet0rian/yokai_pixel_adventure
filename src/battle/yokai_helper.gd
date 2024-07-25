@@ -50,6 +50,15 @@ func get_enemy_arr() -> Array[int]:
 	return enemy_arr
 
 
+func get_player_arr() -> Array[int]:
+	var player_arr: Array[int] = []
+	
+	for i in range(len(player_team_inst_front)):
+		player_arr.append(player_team_inst_front[i].YokaiInst.yokai_hp)
+	
+	return player_arr
+
+
 func _ready() -> void:	
 	global.on_yokai_action.connect(on_yokai_action)
 
@@ -167,7 +176,7 @@ func attack(team: int, yokai: int) -> void:
 		0:
 			enemy_team_inst_front[yokai].health_update(100)
 		1:
-			pass
+			player_team_inst_front[yokai].health_update(100)
 	
 	BattleInstance.update_battle_conditions()
 

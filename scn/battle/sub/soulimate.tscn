@@ -15,6 +15,7 @@ color = Color(0, 0, 0, 0.156863)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="soulimate_rect" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(120, 64)
 texture = ExtResource("2_ljhhp")
 
