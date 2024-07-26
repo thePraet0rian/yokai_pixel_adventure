@@ -182,11 +182,11 @@ func on_yokai_action(team: int, yokai: int, action: String) -> void:
 func attack(team: int, yokai: int) -> void:
 	match team:
 		0:
-			enemy_team_inst_front[yokai].activate_target_arrow()
+			enemy_team_inst_front[yokai].set_target_arrow()
 			global.on_yokai_return_action.emit()
 			enemy_team_inst_front[yokai].health_update(5)
 		1:
-			player_team_inst_front[yokai].activate_target_arrow()
+			player_team_inst_front[yokai].set_target_arrow()
 			global.on_yokai_return_action.emit()
 			player_team_inst_front[yokai].health_update(5)
 	

@@ -68,7 +68,7 @@ func set_team(team_str: String) -> void:
 	update_arr[team].call()
 
 
-func activate_target_arrow() -> void:
+func set_target_arrow() -> void:
 	TargetArrow.visible = true
 	await get_tree().create_timer(.5).timeout
 	TargetArrow.visible = false
