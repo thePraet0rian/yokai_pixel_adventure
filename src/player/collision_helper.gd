@@ -1,4 +1,3 @@
-# --------------------------------------------------------------------------------------------------
 class_name CollisionHelper extends Node2D
 
 
@@ -12,9 +11,6 @@ var is_tracking_hotspot: bool
 
 var npc_type: int 
 var transition_target
-
-
-# METHODS # ----------------------------------------------------------------------------------------
 
 
 func _input(event: InputEvent) -> void:
@@ -91,6 +87,3 @@ func _yokai() -> void:
 
 func _on_player_area_entered(_area: Area2D) -> void:
 	pass # Replace with function body.
-
-
-# --------------------------------------------------------------------------------------------------

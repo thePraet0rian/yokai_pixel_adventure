@@ -1,5 +1,3 @@
-# --------------------------------------------------------------------------------------------------
-## GLOBAL UI CLASS
 class_name Ui extends CanvasLayer
 
 
@@ -11,10 +9,6 @@ const SHOP_SCENE: PackedScene = preload("res://scn/ui/shop/shop.tscn")
 @onready var UiOverlay: ColorRect = $overlay
 
 
-# METHODS # ----------------------------------------------------------------------------------------
-# Private: 
-
-
 func _ready() -> void:
 	
 	global.on_dialogue_started.connect(start_dialogue)
@@ -23,9 +17,6 @@ func _ready() -> void:
 	global.on_menue_closed.connect(close_menue)
 	
 	global.on_shopkeeper_met.connect(open_shop)
-
-
-# Public:
 
 
 func start_dialogue(npc_name: String, dialogue_int: int) -> void:
@@ -57,5 +48,3 @@ func close_menue() -> void:
 	
 	UiAnimPlayer.play("RESET")
 
-
-# --------------------------------------------------------------------------------------------------

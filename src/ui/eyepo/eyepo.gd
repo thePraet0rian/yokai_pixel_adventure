@@ -1,4 +1,3 @@
-# --------------------------------------------------------------------------------------------------
 class_name Eyepo extends CanvasLayer
 
 
@@ -10,9 +9,6 @@ class_name Eyepo extends CanvasLayer
 
 
 var button_index: int = 0
-
-
-# METHODS # ----------------------------------------------------------------------------------------
 
 
 func _input(event: InputEvent) -> void:
@@ -37,6 +33,3 @@ func _input(event: InputEvent) -> void:
 
 func _close() -> void:
 	pass
-
-
-# --------------------------------------------------------------------------------------------------

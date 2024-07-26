@@ -1,5 +1,3 @@
-# --------------------------------------------------------------------------------------------------
-## GLOBAL AUTOLOAD NPC SINGELTON
 class_name GlobalNpc extends Node
 
 
@@ -12,9 +10,6 @@ var npc_sprites: Dictionary
 var moving_npcs: Dictionary
 var talking_npcs: Dictionary
 var npc_expressions: Dictionary
-
-
-# Methods # ----------------------------------------------------------------------------------------
 
 
 func _ready() -> void:
@@ -83,6 +78,3 @@ func _load_npc_dialogue_expressions() -> void:
 	
 	npc_expressions = data
 	file.close()
-
-
-# --------------------------------------------------------------------------------------------------

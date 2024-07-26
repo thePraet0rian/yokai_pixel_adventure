@@ -1,5 +1,3 @@
-# --------------------------------------------------------------------------------------------------
-## GLOBAL INVENTORY CLASS 
 class_name Inventory extends CanvasLayer
 
 
@@ -36,15 +34,9 @@ var cur_pos: Vector2 = Vector2.ZERO
 var current_state: STATES = STATES.MAIN
 
 
-# Public Methods # ---------------------------------------------------------------------------------
-
-
 func set_current_state(state: int) -> void:
 	
 	current_state = state as STATES
-
-
-# Private # ----------------------------------------------------------------------------------------
 
 
 func _ready() -> void:
@@ -150,6 +142,3 @@ func _end() -> void:
 	global.on_menue_closed.emit()
 	get_tree().paused = false
 	queue_free()
-
-
-# -------------------------------------------------------------------------------------------------

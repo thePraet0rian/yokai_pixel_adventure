@@ -1,4 +1,3 @@
-# --------------------------------------------------------------------------------------------------
 class_name Dialogue extends CanvasLayer
 
 
@@ -9,9 +8,6 @@ class_name Dialogue extends CanvasLayer
 var writing: bool = false
 var text: Array
 var dialouge_line: int = 0
-
-
-# METHODS # ----------------------------------------------------------------------------------------
 
 
 func set_dialogue(npc_name: String, npc: String) -> void:
@@ -46,5 +42,3 @@ func _input(event: InputEvent) -> void:
 		if not writing:
 			write_text()
 
-
-# --------------------------------------------------------------------------------------------------
