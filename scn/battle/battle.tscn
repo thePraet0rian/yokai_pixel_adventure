@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=34 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
@@ -9,10 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://res/battle/buttons/soulimate_button.png" id="5_n70qx"]
 [ext_resource type="Texture2D" uid="uid://xwp6084y0l66" path="res://res/battle/buttons/purify_button.png" id="6_4vrvv"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="10_u3foe"]
-[ext_resource type="Texture2D" uid="uid://b8qpu5nvv8c4t" path="res://res/battle/battle_yokai/ff.png" id="11_aay4k"]
+[ext_resource type="Texture2D" uid="uid://b8nxdap56fkw1" path="res://res/battle/battle_yokai/ff_1.png" id="11_gem68"]
 [ext_resource type="PackedScene" uid="uid://b3v3yrawn71wv" path="res://scn/battle/sub/items.tscn" id="11_kis0f"]
 [ext_resource type="PackedScene" uid="uid://byuu60sehf7ok" path="res://scn/battle/sub/target.tscn" id="12_bmpme"]
+[ext_resource type="Texture2D" uid="uid://dmf7lgww6h662" path="res://res/battle/battle_yokai/ff_2.png" id="12_o6usf"]
 [ext_resource type="PackedScene" uid="uid://c7k2h62jlwjwd" path="res://scn/battle/sub/soulimate.tscn" id="13_clbgi"]
+[ext_resource type="Texture2D" uid="uid://du6e8g4b7c8xs" path="res://res/battle/battle_yokai/ff_3.png" id="13_myqaq"]
 [ext_resource type="PackedScene" uid="uid://nwiqhsqjtw60" path="res://scn/battle/sub/purify.tscn" id="14_eeg27"]
 [ext_resource type="Texture2D" uid="uid://d1e7nrdftl8pc" path="res://res/battle/ui/q_sign.png" id="14_hoddt"]
 [ext_resource type="Texture2D" uid="uid://8in5h2wwviwf" path="res://res/yokai/cadin/cadin_medall.png" id="15_cdgot"]
@@ -73,6 +75,23 @@ _data = {
 "buttons_hide": SubResource("Animation_3n7bn"),
 "buttons_show": SubResource("Animation_sk2o5")
 }
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pjpc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_gem68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_o6usf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_myqaq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_qigjb"]
 length = 0.001
@@ -286,13 +305,12 @@ libraries = {
 "": SubResource("AnimationLibrary_l10kg")
 }
 
-[node name="speed_up" type="Sprite2D" parent="ui_helper/main_menue"]
+[node name="speed_up" type="AnimatedSprite2D" parent="ui_helper/main_menue"]
 visible = false
 position = Vector2(16, 8)
-texture = ExtResource("11_aay4k")
-region_enabled = true
-region_rect = Rect2(0, 0, 24, 8)
-region_filter_clip_enabled = true
+sprite_frames = SubResource("SpriteFrames_pjpc4")
+autoplay = "default"
+frame_progress = 0.964751
 
 [node name="ui" type="Node2D" parent="ui_helper"]
 position = Vector2(0, -7)

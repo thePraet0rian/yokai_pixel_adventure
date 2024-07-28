@@ -33,7 +33,7 @@ var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
 @onready var AnimPlayer: AnimationPlayer = $anim_player
 @onready var TweenInstance: Tween
 @onready var AllButtons: Node2D = $main_menue/buttons
-@onready var SpeedUp: Sprite2D = $main_menue/speed_up
+@onready var SpeedUp: AnimatedSprite2D = $main_menue/speed_up
 
 
 func set_state(new_state: SUB_GAME_STATES) -> void:

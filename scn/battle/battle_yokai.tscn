@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0arumlvmxady"]
+[gd_scene load_steps=13 format=3 uid="uid://d0arumlvmxady"]
 
 [ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://src/battle/battle_yokai.gd" id="1_n8hpv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://res/battle/ui/health_bar.png" id="4_d7a0h"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="6_il4qv"]
 [ext_resource type="Texture2D" uid="uid://ddvqlly0ee1kw" path="res://res/battle/ui/soulimate/soulimate_select.png" id="7_mga13"]
+[ext_resource type="Texture2D" uid="uid://medt236xexnu" path="res://res/battle/battle_yokai/enemy_healthbar.png" id="7_oekgx"]
 [ext_resource type="Texture2D" uid="uid://bkcrt4b80xvj6" path="res://res/battle/battle_yokai/target_arrow.png" id="7_v1tts"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubimd"]
@@ -87,6 +88,17 @@ visible = false
 position = Vector2(0, -22)
 texture = ExtResource("6_il4qv")
 
+[node name="ui" type="Sprite2D" parent="enemy_ui"]
+position = Vector2(0, -24)
+texture = ExtResource("7_oekgx")
+
+[node name="HealthBar" type="ColorRect" parent="enemy_ui/ui"]
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 1.0
+color = Color(0.843137, 0.482353, 0.729412, 1)
+
 [node name="tick" type="Timer" parent="."]
 wait_time = 2.0
 autostart = true
@@ -95,8 +107,6 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_py8ro")
 }
-
-[node name="ai" type="Node" parent="."]
 
 [node name="target_arrow" type="Sprite2D" parent="."]
 visible = false
