@@ -60,8 +60,8 @@ func _connect_signals() -> void:
 func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
 	var BattleInstance: Battle = BATTLE_SCENE.instantiate()
 	
-	BattleInstance.player_yokai_arr = global.player_yokai
-	BattleInstance.enemy_yokai_arr = enemy_yokai_arr
+	BattleInstance.set_player_yokai(global.player_yokai)
+	BattleInstance.set_enemy_yokai(enemy_yokai_arr)
 	
 	add_child(BattleInstance)
 		

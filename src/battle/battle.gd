@@ -1,6 +1,7 @@
 class_name Battle extends CanvasLayer
 
 
+
 enum GAME_STATES {
 	SELECTING = 0,
 	ACTION = 1,
@@ -32,9 +33,7 @@ var player_yokai_arr: Array[Yokai]
 var enemy_yokai_arr: Array[Yokai]
 
 var buttons_index: int = 0
-
 var input_direction: Vector2 = Vector2.ZERO
-
 var is_moving: bool = false
 
 var can_soulimate: bool = true
@@ -42,9 +41,9 @@ var can_item: bool = true
 var can_purfy: bool = true
 var can_target: bool = true
 
-
 @onready var YokaiHelperInstance: BattleYokaiHelper = $yokai_helper
 @onready var UiHelperInstance: UiHelper = $ui_helper
+
 
 
 func _ready() -> void:
@@ -175,6 +174,14 @@ func _player_input() -> void:
 
 	else:
 		is_moving = false
+
+
+func set_player_yokai(player_yokais: Array) -> void:
+	player_yokai_arr = player_yokais
+
+
+func set_enemy_yokai(enemy_yokais: Array) -> void:
+	enemy_yokai_arr = enemy_yokais
 
 
 func update_medalls() -> void:

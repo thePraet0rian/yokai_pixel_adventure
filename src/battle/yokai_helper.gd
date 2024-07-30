@@ -1,6 +1,7 @@
 class_name BattleYokaiHelper extends Node
 
 
+
 const BATTLE_YOKAI_SCENE: PackedScene = preload("res://scn/battle/battle_yokai.tscn")
 const DIRECTION_MOVE: PackedVector2Array = [
 	Vector2.LEFT, 
@@ -24,12 +25,11 @@ var yokai_finished_moving: bool = true
 @onready var BattleInstance: Battle = get_parent()
 
 
+
 func set_player_yokai_arr(arr: Array) -> void:
 	player_yokai_arr = arr
-
-
 func set_enemy_yokai_arr(arr: Array) -> void:
-	enemy_yokai_arr = arr 
+	enemy_yokai_arr = arr
 
 
 # TODO: SET SPEED
@@ -43,7 +43,7 @@ func set_selected_yokai(yokai_number: int) -> void:
 			enemy_team_inst_front[i].Selector.visible = false
 
 
-# TODO: IMPLEMENT SOULIMATE
+# TODO: IMPLEMENT SOULIMATE WARNING: DO NOT READ THIS SHIT
 func set_soulimate_selected_yokai(yokai_number: int) -> void:		
 	for i in range(FRONT_YOKAI_ARRAY_LENGHT):
 		if i == yokai_number:
@@ -79,7 +79,6 @@ func get_player_arr() -> Array[int]:
 func setup_yokai() -> void:
 	_setup_players()
 	_setup_enemies()
-	
 	_update_yokais()
 
 
@@ -153,39 +152,48 @@ func _ready() -> void:
 
 func _setup_players() -> void:
 	for i in range(FRONT_YOKAI_ARRAY_LENGHT):
-		var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
-		
-		BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
-		BattleYokaiInst.YokaiInst = player_yokai_arr[i]
-		BattleYokaiInst.set_team("player")
-		
-		player_team_inst_front.append(BattleYokaiInst)
-		Players.add_child(BattleYokaiInst)
+		if player_yokai_arr[i] != null:
+			var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
+			
+			BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
+			BattleYokaiInst.YokaiInst = player_yokai_arr[i]
+			BattleYokaiInst.set_team("player")
+			
+			player_team_inst_front.append(BattleYokaiInst)
+			Players.add_child(BattleYokaiInst)
 	
-	for i in range(3, 6):		
-		var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
-		
-		BattleYokaiInst.position = Vector2(-200, -200)
-		BattleYokaiInst.YokaiInst = player_yokai_arr[i]
-		BattleYokaiInst.set_team("player")
-		
-		player_team_inst_back.append(BattleYokaiInst)
-		Players.add_child(BattleYokaiInst)
-		
-		BattleYokaiInst.disable_tick()
+	for i in range(3, 6):	
+		if player_yokai_arr[i] != null:
+			var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
+			
+			BattleYokaiInst.position = Vector2(-200, -200)
+			BattleYokaiInst.YokaiInst = player_yokai_arr[i]
+			BattleYokaiInst.set_team("player")
+			
+			player_team_inst_back.append(BattleYokaiInst)
+			Players.add_child(BattleYokaiInst)
+			
+			BattleYokaiInst.disable_tick()
+
 
 
 func _setup_enemies() -> void:	
 	for i in range(FRONT_YOKAI_ARRAY_LENGHT):
-		var BattleYokaiInst: Sprite2D = BATTLE_YOKAI_SCENE.instantiate()
-		
-		BattleYokaiInst.position = Vector2(48, 40) + Vector2(72, 0) * i
-		BattleYokaiInst.YokaiInst = enemy_yokai_arr[i]
-		BattleYokaiInst.yokai_number = i
-		BattleYokaiInst.set_team("enemy")
+		if enemy_yokai_arr[i] != null:
+			var BattleYokaiInst: Sprite2D = BATTLE_YOKAI_SCENE.instantiate()
+			
+			BattleYokaiInst.position = Vector2(48, 40) + Vector2(72, 0) * i
+			BattleYokaiInst.YokaiInst = enemy_yokai_arr[i]
+			BattleYokaiInst.yokai_number = i
+			BattleYokaiInst.set_team("enemy")
 
-		enemy_team_inst_front.append(BattleYokaiInst)
-		Enemies.add_child(BattleYokaiInst)
+			enemy_team_inst_front.append(BattleYokaiInst)
+			Enemies.add_child(BattleYokaiInst)
+
+
+# TODO: IMPLEMENT BIG CUSTOM BOSS YOKAI
+func _setup_boss() -> void:
+	pass
 
 
 func _move_left() -> void:
@@ -215,7 +223,8 @@ func _move_right() -> void:
 
 
 func _update_yokais() -> void:
-	for i in range(3):
+	for i in range(len(player_team_inst_front)):
 		player_team_inst_front[i].update_opponents(enemy_team_inst_front)
+	for i in range(len(enemy_team_inst_front)):
 		enemy_team_inst_front[i].update_opponents(player_team_inst_front)
 		
