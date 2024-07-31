@@ -1,7 +1,7 @@
 class_name GlobalItem extends Node
 
 
-var items: Dictionary = {
+const items: Dictionary = {
 	
 	"Onigiri": 
 		{
@@ -45,4 +45,12 @@ var items: Dictionary = {
 			"Category": 0,
 			"Priority": 5,
 		},
+}
+
+
+const HEALING_ITEMS: Dictionary = {
+	"Onigiri": 
+		{
+			"health": 200
+		}
 }

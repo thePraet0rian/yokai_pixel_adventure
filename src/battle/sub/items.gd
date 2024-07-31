@@ -1,4 +1,7 @@
-extends Node2D
+class_name Items extends Node2D
+
+
+signal heal_yokai
 
 
 const ITEM_ICON_SCN: PackedScene = preload("res://scn/ui/inventory/item_icons.tscn")
@@ -44,3 +47,14 @@ func _input(event: InputEvent) -> void:
 		
 	Selector.position = Vector2(32, 32) + indices * Vector2(16, 16)
 
+	if event.is_action_pressed("space"):
+		var item_index: int = 5 * indices.x + indices.y
+		_use_item(item_index) 
+
+
+func _use_item(item_index: int) -> void:
+	var ItemInstance: Item = global.player_inventory[0][item_index]
+	var healing: int = global_item.HEALING_ITEMS[ItemInstance.item_name]["health"]
+	print(healing)
+	heal_yokai.emit(healing)
+	

@@ -143,6 +143,11 @@ func update() -> void:
 	BattleInstance.update_battle_conditions()
 
 
+func heal_yokai(regenerated_health: int) -> void:
+	for i in range(len(player_team_inst_front)):
+		player_team_inst_front[i].heal_yokai(200)
+
+
 # PRIVATE
 
 

@@ -87,7 +87,7 @@ clip_children = 1
 position = Vector2(-20, 26)
 texture = ExtResource("6_bi4pn")
 
-[node name="ColorRect" type="ColorRect" parent="player_ui/soul_meter"]
+[node name="soul" type="ColorRect" parent="player_ui/soul_meter"]
 offset_left = -4.0
 offset_top = 5.0
 offset_right = 4.0

@@ -1,6 +1,7 @@
 class_name BattleYokai extends Sprite2D
 
 
+
 signal action
 
 enum {
@@ -45,10 +46,11 @@ var yokai_number: int = 0
 @onready var EnemyHealthBar: ColorRect = $enemy_ui/ui/HealthBar
 
 @onready var TargetArrow: Sprite2D = $target_arrow
-@onready var SoulMeter: ColorRect = $player_ui/soul_meter
+@onready var SoulMeter: ColorRect = $player_ui/soul_meter/soul
 
 @onready var PlayerAiInstance: PlayerAi
 @onready var EnemyAiInstance: EnemyAi
+
 
 
 func set_team(team_str: String) -> void:
@@ -84,7 +86,11 @@ func set_target() -> void:
 func set_soulimate(_selected_soul_yokai: int, active: bool) -> void:
 	if team == PLAYER: 
 		SoulimateSelector.visible = true
-		SoulimateSelector.frame = active if 1 else 0
+		
+		if active:
+			SoulimateSelector.frame = 1
+		else:
+			SoulimateSelector.frame = 0
 
 
 func update_opponents(opponents: Array[BattleYokai]) -> void:
@@ -107,13 +113,19 @@ func _update_enemy() -> void:
 func _ready() -> void:
 	set_process(false)
 	
-	if YokaiInst.active == false:
+	if not YokaiInst.active:
 		active = false
 		visible = false
 		TickTimer.stop()
-		
-		SoulMeter.scale.y = -(YokaiInst.yokai_soul)
-	
+	else:
+		SoulMeter.scale.y = -(YokaiInst.yokai_soul / 1)
+
+
+func heal_yokai(health: int) -> void:
+	YokaiInst.yokai_hp += health
+	var TweenInst: Tween = get_tree().create_tween()
+	TweenInst.tween_property(HealthBar, "scale", Vector2(float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp), 1), 0.5)
+
 
 func move_direction(direction: Vector2) -> void:
 	last_position = position

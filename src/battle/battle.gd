@@ -50,6 +50,16 @@ func _ready() -> void:
 	YokaiHelperInstance.set_player_yokai_arr(player_yokai_arr)
 	YokaiHelperInstance.set_enemy_yokai_arr(enemy_yokai_arr)
 	YokaiHelperInstance.setup_yokai()
+	
+	_connect_signals()
+
+
+func _connect_signals() -> void:
+	UiHelperInstance.heal_yokai.connect(_heal_yokai)
+
+
+func _heal_yokai(_heal: int) -> void:
+	YokaiHelperInstance.heal_yokai(_heal)
 
 
 func _input(event: InputEvent) -> void:

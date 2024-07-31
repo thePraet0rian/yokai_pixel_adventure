@@ -4,6 +4,7 @@ class_name UiHelper extends Node
 signal win_animation_finished
 signal ui_hidden
 signal ui_shown
+signal heal_yokai
 
 enum SUB_GAME_STATES {
 	PURIFY = 0, 
@@ -35,6 +36,35 @@ var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
 @onready var AllButtons: Node2D = $main_menue/buttons
 @onready var SpeedUp: AnimatedSprite2D = $main_menue/speed_up
 
+@onready var BattleInst: Battle = get_parent()
+@onready var BattleYokaiHelperInstance: BattleYokaiHelper = BattleInst.YokaiHelperInstance
+
+
+func _ready() -> void:
+	AnimPlayer.play("start")
+	_connect_signals()
+
+
+func _connect_signals() -> void:
+	SubUis[3].heal_yokai.connect(_heal_yokai)
+
+
+func _heal_yokai(regenerated_health: int) -> void:
+	heal_yokai.emit(regenerated_health)
+
+
+func _hide_ui() -> void:
+	TweenInstance = create_tween()
+	TweenInstance.tween_property(AllButtons, "position", Vector2(0, 14), .15)
+	await TweenInstance.finished
+	await get_tree().create_timer(.125).timeout
+	ui_hidden.emit()
+
+
+func _show_ui() -> void:	
+	TweenInstance = create_tween()
+	TweenInstance.tween_property(AllButtons, "position", Vector2(0, 0), 0.15)
+
 
 func set_state(new_state: SUB_GAME_STATES) -> void:
 	current_state = new_state
@@ -45,8 +75,8 @@ func set_state(new_state: SUB_GAME_STATES) -> void:
 	SubUis[new_state].visible = true
 	SubUis[new_state].process_mode = Node.PROCESS_MODE_INHERIT
 
+
 func set_main_menue_input(current_button: int) -> void:
-	
 	MainMenueButtons[0].frame = 0
 	MainMenueButtons[1].frame = 0
 	MainMenueButtons[2].frame = 0
@@ -62,8 +92,8 @@ func set_main_menue_input(current_button: int) -> void:
 		3: 
 			MainMenueButtons[3].frame = 1
 
+
 func set_sub_ui_input(event: InputEvent, sub_ui: int) -> void:
-	
 	if event.is_action_pressed("shift"):
 		SubUis[sub_ui].visible = false
 		SubUis[sub_ui].process_mode = Node.PROCESS_MODE_DISABLED
@@ -75,25 +105,7 @@ func set_speed_up() -> void:
 
 
 func play_win_animation() -> void:
+	AnimPlayer.play_backwards("start")
+	await AnimPlayer.animation_finished
+	win_animation_finished.emit()
 
-		AnimPlayer.play_backwards("start")
-		await AnimPlayer.animation_finished
-		win_animation_finished.emit()
-
-
-func _ready() -> void:
-
-	AnimPlayer.play("start")
-
-func _hide_ui() -> void:
-
-	TweenInstance = create_tween()
-	TweenInstance.tween_property(AllButtons, "position", Vector2(0, 14), .15)
-	await TweenInstance.finished
-	await get_tree().create_timer(.125).timeout
-	ui_hidden.emit()
-
-func _show_ui() -> void:
-	
-	TweenInstance = create_tween()
-	TweenInstance.tween_property(AllButtons, "position", Vector2(0, 0), 0.15)
