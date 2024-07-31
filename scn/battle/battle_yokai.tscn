@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0arumlvmxady"]
+[gd_scene load_steps=14 format=3 uid="uid://d0arumlvmxady"]
 
 [ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://src/battle/battle_yokai.gd" id="1_n8hpv"]
 [ext_resource type="Texture2D" uid="uid://dta1eum8edodb" path="res://res/test/battle_yokai_test.png" id="2_m28nf"]
 [ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://res/battle/ui/health_bar.png" id="4_d7a0h"]
+[ext_resource type="Texture2D" uid="uid://b14y54kt08mml" path="res://res/battle/ui/soul.png" id="6_bi4pn"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="6_il4qv"]
 [ext_resource type="Texture2D" uid="uid://ddvqlly0ee1kw" path="res://res/battle/ui/soulimate/soulimate_select.png" id="7_mga13"]
 [ext_resource type="Texture2D" uid="uid://medt236xexnu" path="res://res/battle/battle_yokai/enemy_healthbar.png" id="7_oekgx"]
@@ -80,6 +81,19 @@ polygon = PackedVector2Array(-16, 16, -16, -16, 16, -16, 16, 16)
 visible = false
 texture = ExtResource("7_mga13")
 hframes = 2
+
+[node name="soul_meter" type="Sprite2D" parent="player_ui"]
+clip_children = 1
+position = Vector2(-20, 26)
+texture = ExtResource("6_bi4pn")
+
+[node name="ColorRect" type="ColorRect" parent="player_ui/soul_meter"]
+offset_left = -4.0
+offset_top = 5.0
+offset_right = 4.0
+offset_bottom = 15.0
+scale = Vector2(1, -1)
+color = Color(0.388235, 0.607843, 1, 1)
 
 [node name="enemy_ui" type="Node2D" parent="."]
 

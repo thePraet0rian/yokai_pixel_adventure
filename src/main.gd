@@ -39,6 +39,9 @@ func _on_game_loaded(_save_file: int) -> void:
 	for i in range(len(data["Inventory"])):
 		for j in range(len(data["Inventory"][i])):
 			inventory[i].append(Item.new(data["Inventory"][i][j]))
+	
+	for i in range(len(data["Team"])):
+		global.player_yokai.append(Yokai.new(data["Team"][i]))
 
 	global.player_inventory = inventory
 	

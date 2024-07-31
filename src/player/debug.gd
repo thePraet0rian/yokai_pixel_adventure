@@ -2,9 +2,9 @@ class_name Debug extends CanvasLayer
 
 
 @onready var enemy_arr: Array[Yokai] = [
- 	null, 
-	Yokai.new("Zerberker", preload("res://res/yokai/zerberker/zerberker_back.png"), load("res://res/yokai/cadin/cadin_medall.png")), 
-	null,
+ 	Yokai.new("na"),
+ 	Yokai.new("Zerberker"), 
+	Yokai.new("na"),
 ]
 
 

@@ -12,6 +12,8 @@ const DEAD_YOKAI: Texture = preload("res://res/yokai/general/dead_yokai.png")
 const WALK_SPEED: int = 5
 const TILE_SIZE: Vector2 = Vector2(72, 0)
 
+var active: bool = true
+
 var team: int = PLAYER
 var update_arr: Array[Callable] = [_update_player, _update_enemy]
 var dirty: bool = false
@@ -43,6 +45,7 @@ var yokai_number: int = 0
 @onready var EnemyHealthBar: ColorRect = $enemy_ui/ui/HealthBar
 
 @onready var TargetArrow: Sprite2D = $target_arrow
+@onready var SoulMeter: ColorRect = $player_ui/soul_meter
 
 @onready var PlayerAiInstance: PlayerAi
 @onready var EnemyAiInstance: EnemyAi
@@ -103,6 +106,13 @@ func _update_enemy() -> void:
 
 func _ready() -> void:
 	set_process(false)
+	
+	if YokaiInst.active == false:
+		active = false
+		visible = false
+		TickTimer.stop()
+		
+		SoulMeter.scale.y = -(YokaiInst.yokai_soul)
 	
 
 func move_direction(direction: Vector2) -> void:

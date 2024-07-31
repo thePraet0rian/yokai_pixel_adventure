@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
-[ext_resource type="Texture2D" uid="uid://c6wg0blukpgdw" path="res://res/battle/buttons/item_button.png" id="3_5sywo"]
 [ext_resource type="Script" path="res://src/battle/yokai_helper.gd" id="3_yiroh"]
 [ext_resource type="Script" path="res://src/battle/ui_helper.gd" id="4_2n2qt"]
-[ext_resource type="Texture2D" uid="uid://2u2skkt4v80i" path="res://res/battle/buttons/target_button.png" id="4_8w6uo"]
-[ext_resource type="Texture2D" uid="uid://dvleb0gb3oipa" path="res://res/battle/buttons/soulimate_button.png" id="5_n70qx"]
-[ext_resource type="Texture2D" uid="uid://xwp6084y0l66" path="res://res/battle/buttons/purify_button.png" id="6_4vrvv"]
+[ext_resource type="Texture2D" uid="uid://cv2rcesby7pil" path="res://res/battle/buttons/item_buttont_two.png" id="6_737io"]
+[ext_resource type="Texture2D" uid="uid://dvf5upa2ndx03" path="res://res/battle/buttons/target_button_two.png" id="7_0cdhu"]
+[ext_resource type="Texture2D" uid="uid://d2dq6fvjpsycn" path="res://res/battle/buttons/soulimate_two.png" id="8_qwbhq"]
+[ext_resource type="Texture2D" uid="uid://dr1sc0yy5d0rx" path="res://res/battle/buttons/purify_button_two.png" id="9_imt5t"]
 [ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="10_u3foe"]
 [ext_resource type="Texture2D" uid="uid://b8nxdap56fkw1" path="res://res/battle/battle_yokai/ff_1.png" id="11_gem68"]
 [ext_resource type="PackedScene" uid="uid://b3v3yrawn71wv" path="res://scn/battle/sub/items.tscn" id="11_kis0f"]
@@ -242,6 +242,7 @@ script = ExtResource("1_28vn4")
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
+metadata/_edit_lock_ = true
 
 [node name="yokai_helper" type="Node" parent="."]
 script = ExtResource("3_yiroh")
@@ -277,23 +278,23 @@ texture = ExtResource("15_cdgot")
 [node name="buttons" type="Node2D" parent="ui_helper/main_menue"]
 
 [node name="item" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
-position = Vector2(211, 127)
-texture = ExtResource("3_5sywo")
+position = Vector2(211, 128)
+texture = ExtResource("6_737io")
 hframes = 2
 
 [node name="target" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
-position = Vector2(151, 127)
-texture = ExtResource("4_8w6uo")
+position = Vector2(151, 128)
+texture = ExtResource("7_0cdhu")
 hframes = 2
 
 [node name="soulimate" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
-position = Vector2(90, 127)
-texture = ExtResource("5_n70qx")
-hframes = 4
+position = Vector2(92, 128)
+texture = ExtResource("8_qwbhq")
+hframes = 2
 
 [node name="purify" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
-position = Vector2(30, 127)
-texture = ExtResource("6_4vrvv")
+position = Vector2(32, 128)
+texture = ExtResource("9_imt5t")
 hframes = 2
 
 [node name="wheel" type="Sprite2D" parent="ui_helper/main_menue"]

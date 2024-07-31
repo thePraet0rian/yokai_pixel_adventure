@@ -152,28 +152,26 @@ func _ready() -> void:
 
 func _setup_players() -> void:
 	for i in range(FRONT_YOKAI_ARRAY_LENGHT):
-		if player_yokai_arr[i] != null:
-			var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
+		var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
 			
-			BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
-			BattleYokaiInst.YokaiInst = player_yokai_arr[i]
-			BattleYokaiInst.set_team("player")
+		BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
+		BattleYokaiInst.YokaiInst = player_yokai_arr[i]
+		BattleYokaiInst.set_team("player")
 			
-			player_team_inst_front.append(BattleYokaiInst)
-			Players.add_child(BattleYokaiInst)
+		player_team_inst_front.append(BattleYokaiInst)
+		Players.add_child(BattleYokaiInst)
 	
 	for i in range(3, 6):	
-		if player_yokai_arr[i] != null:
-			var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
+		var BattleYokaiInst: BattleYokai = BATTLE_YOKAI_SCENE.instantiate()
+		
+		BattleYokaiInst.position = Vector2(-200, -200)
+		BattleYokaiInst.YokaiInst = player_yokai_arr[i]
+		BattleYokaiInst.set_team("player")
 			
-			BattleYokaiInst.position = Vector2(-200, -200)
-			BattleYokaiInst.YokaiInst = player_yokai_arr[i]
-			BattleYokaiInst.set_team("player")
+		player_team_inst_back.append(BattleYokaiInst)
+		Players.add_child(BattleYokaiInst)
 			
-			player_team_inst_back.append(BattleYokaiInst)
-			Players.add_child(BattleYokaiInst)
-			
-			BattleYokaiInst.disable_tick()
+		BattleYokaiInst.disable_tick()
 
 
 

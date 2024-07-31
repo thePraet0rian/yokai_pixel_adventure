@@ -42,7 +42,7 @@ var can_purfy: bool = true
 var can_target: bool = true
 
 @onready var YokaiHelperInstance: BattleYokaiHelper = $yokai_helper
-@onready var UiHelperInstance: UiHelper = $ui_helper
+@onready var UiHelperInstance: UiHelper = $ui_helper 
 
 
 

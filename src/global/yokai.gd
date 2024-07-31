@@ -30,7 +30,7 @@ var yokai_xp: int
 var yokai_rank: String = ""
 var yokai_league: String = ""
 
-var yokai_soul: float = 1.0
+var yokai_soul: float = 0.0
 var yokai_name: String
 var yokai_hp: int
 var yokai_str: int
@@ -40,6 +40,7 @@ var yokai_spd: int
 
 var yokai_max_hp: int
 
+var active: bool = true
 var loafer: bool = true
 
 var front_sprite: Texture
@@ -50,19 +51,21 @@ var yokai_behavior: BEHAVIORS = BEHAVIORS.GROUCHY
 var yokai_loafing: LOAFING = LOAFING.SERIOUS
 
 
-func _init(_yokai_name: String, _front_sprite: Resource, _yokai_medall) -> void:
-	
-	yokai_name = _yokai_name
-	yokai_hp = yokai_stats.data[_yokai_name][0]["BS_A_HP"]
-	yokai_str = yokai_stats.data[_yokai_name][0]["BS_A_Str"]
-	yokai_spr = yokai_stats.data[_yokai_name][0]["BS_A_Spr"]
-	yokai_def = yokai_stats.data[_yokai_name][0]["BS_A_Def"]
-	yokai_spd = yokai_stats.data[_yokai_name][0]["BS_A_Spd"]
-	
-	yokai_max_hp = yokai_hp
-	
-	front_sprite = _front_sprite
-	yokai_medall_sprite = _yokai_medall
+func _init(_yokai_name: String) -> void:
+	if _yokai_name == "na":
+		active = false
+		return
+	else:
+		yokai_name = _yokai_name
+		yokai_hp = yokai_stats.data[_yokai_name][0]["BS_A_HP"]
+		yokai_str = yokai_stats.data[_yokai_name][0]["BS_A_Str"]
+		yokai_spr = yokai_stats.data[_yokai_name][0]["BS_A_Spr"]
+		yokai_def = yokai_stats.data[_yokai_name][0]["BS_A_Def"]
+		yokai_spd = yokai_stats.data[_yokai_name][0]["BS_A_Spd"]
+
+		yokai_max_hp = yokai_hp
+
+		front_sprite = global_yokai.YOKAI_FRONT_SPRITES[_yokai_name]
 
 
 func check_health() -> bool:
