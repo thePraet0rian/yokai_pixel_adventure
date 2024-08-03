@@ -57,9 +57,8 @@ func _ready() -> void:
 func _connect_signals() -> void:
 	UiHelperInstance.heal_yokai.connect(_heal_yokai)
 
-
-func _heal_yokai(_heal: int) -> void:
-	YokaiHelperInstance.heal_yokai(_heal)
+func _heal_yokai(health: int) -> void:
+	YokaiHelperInstance.heal_yokai(health)
 
 
 func _input(event: InputEvent) -> void:
@@ -168,7 +167,9 @@ func _win_input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if YokaiHelperInstance.player_team_inst_front[2].progress == 0.0:
-		_player_input()
+		if YokaiHelperInstance.yokai_finished_moving:
+			if current_game_state == GAME_STATES.SELECTING:
+				_player_input()
 
 
 func _player_input() -> void:
@@ -176,14 +177,13 @@ func _player_input() -> void:
 
 	if input_direction != Vector2.ZERO:
 		is_moving = true
-
 		if input_direction == Vector2.LEFT:
 			YokaiHelperInstance.move_yokai(0)
 		elif input_direction == Vector2.RIGHT:
 			YokaiHelperInstance.move_yokai(1)
-
 	else:
 		is_moving = false
+
 
 
 func set_player_yokai(player_yokais: Array) -> void:

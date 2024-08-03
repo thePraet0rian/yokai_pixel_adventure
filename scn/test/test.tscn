@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt1ynq3r78we0"]
+[gd_scene load_steps=3 format=3 uid="uid://dt1ynq3r78we0"]
 
 [ext_resource type="PackedScene" uid="uid://byw2vrqxq0slp" path="res://scn/player/player.tscn" id="1_67bwh"]
+[ext_resource type="PackedScene" uid="uid://d3lp1cv1ffnqs" path="res://scn/battle/misc/damage.tscn" id="2_ji8oa"]
 
 [node name="test" type="Node2D"]
 
@@ -11,3 +12,5 @@ offset_right = 64.0
 offset_bottom = 48.0
 
 [node name="player" parent="." instance=ExtResource("1_67bwh")]
+
+[node name="Damage" parent="." instance=ExtResource("2_ji8oa")]

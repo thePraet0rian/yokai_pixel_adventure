@@ -49,8 +49,8 @@ func _connect_signals() -> void:
 	SubUis[3].heal_yokai.connect(_heal_yokai)
 
 
-func _heal_yokai(regenerated_health: int) -> void:
-	heal_yokai.emit(regenerated_health)
+func _heal_yokai(_health: int) -> void:
+	heal_yokai.emit(_health)
 
 
 func _hide_ui() -> void:

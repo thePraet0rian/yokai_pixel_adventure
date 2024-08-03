@@ -7,7 +7,8 @@ const rooms: Array[PackedScene] = [
 ]
 
 
-signal on_yokai_return_action
+signal on_player_return_action
+signal on_enemy_return_action
 
 signal on_battle_started
 signal on_battle_ended

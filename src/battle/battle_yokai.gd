@@ -2,6 +2,7 @@ class_name BattleYokai extends Sprite2D
 
 
 
+
 signal action
 
 enum {
@@ -10,6 +11,7 @@ enum {
 }
 
 const DEAD_YOKAI: Texture = preload("res://res/yokai/general/dead_yokai.png")
+const DAMAGE_SCENE: PackedScene = preload("res://scn/battle/misc/damage.tscn")
 const WALK_SPEED: int = 5
 const TILE_SIZE: Vector2 = Vector2(72, 0)
 
@@ -29,6 +31,7 @@ var is_targeted: bool = true
 var is_dead: bool = false
 
 var yokai_number: int = 0
+
 
 
 @onready var YokaiInst: Yokai
@@ -53,62 +56,6 @@ var yokai_number: int = 0
 
 
 
-func set_team(team_str: String) -> void:
-	await ready
-	
-	match team_str:
-		"player":	
-			team = PLAYER
-			PlayerAiInstance = PlayerAi.new()
-			PlayerAiInstance.player_animation.connect(player_animation)
-			EnemyUi.visible = false
-		"enemy":
-			team = ENEMY
-			EnemyAiInstance = EnemyAi.new()
-			EnemyAiInstance.enemy_animation.connect(enemy_animation)
-			PlayerUi.visible = false
-			
-	update_arr[team].call()
-
-
-func set_target_arrow() -> void:
-	TargetArrow.visible = true
-	await get_tree().create_timer(.5).timeout
-	TargetArrow.visible = false
-
-
-func set_target() -> void:
-	if team == ENEMY:
-		Selector.visible = true
-		YokaiHelperInstance.set_selected_yokai(yokai_number)
-
-
-func set_soulimate(_selected_soul_yokai: int, active: bool) -> void:
-	if team == PLAYER: 
-		SoulimateSelector.visible = true
-		
-		if active:
-			SoulimateSelector.frame = 1
-		else:
-			SoulimateSelector.frame = 0
-
-
-func update_opponents(opponents: Array[BattleYokai]) -> void:
-	match team:
-		PLAYER:
-			_update_player_opponents(opponents.duplicate())
-		ENEMY:
-			_update_enemy_opponents(opponents.duplicate())
-
-
-func _update_player() -> void:
-	texture = YokaiInst.front_sprite
-	PlayerUi.visible = true
-	
-	
-func _update_enemy() -> void:
-	texture = YokaiInst.front_sprite
-
 
 func _ready() -> void:
 	set_process(false)
@@ -121,10 +68,12 @@ func _ready() -> void:
 		SoulMeter.scale.y = -(YokaiInst.yokai_soul / 1)
 
 
-func heal_yokai(health: int) -> void:
-	YokaiInst.yokai_hp += health
-	var TweenInst: Tween = get_tree().create_tween()
-	TweenInst.tween_property(HealthBar, "scale", Vector2(float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp), 1), 0.5)
+func _update_player() -> void:
+	texture = YokaiInst.front_sprite
+	
+func _update_enemy() -> void:
+	texture = YokaiInst.front_sprite
+
 
 
 func move_direction(direction: Vector2) -> void:
@@ -132,10 +81,8 @@ func move_direction(direction: Vector2) -> void:
 	input_direction = direction
 	set_process(true)
 
-
 func _process(delta: float) -> void:
 	_move(delta) 
-
 
 func _move(delta: float) -> void:
 	progress += delta * WALK_SPEED 
@@ -147,6 +94,16 @@ func _move(delta: float) -> void:
 			set_process(false)
 		else:
 			position = last_position + (TILE_SIZE * input_direction * progress)
+
+
+
+# TODO: heal yokai
+func heal_yokai(health: int) -> void:
+	if YokaiInst.active:
+		YokaiInst.yokai_hp += health
+		var TweenInst: Tween = get_tree().create_tween()
+		HealthBar.scale = Vector2((YokaiInst.yokai_hp / YokaiInst.yokai_max_hp), 1)
+
 
 
 func _on_tick_timer_timeout() -> void:
@@ -170,7 +127,21 @@ func health_update(damage_int: int) -> void:
 		1:
 			TweenInst.tween_property(EnemyHealthBar, "scale", Vector2(float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp), 1), 0.5)
 	
+	_damage(damage_int)
+	
 	YokaiHelperInstance.update()
+
+
+func _damage(_damage: int) -> void:
+	print("damage")
+	randomize()
+	var x: int = randi_range(0, 16)
+	var y: int = -randi_range(0, 16)
+	
+	var DamageInstance: Damage = DAMAGE_SCENE.instantiate()
+	DamageInstance.position = Vector2(x, y)
+	add_child(DamageInstance)
+	DamageInstance.set_damage(_damage)
 
 
 func disable_tick() -> void:
@@ -196,4 +167,62 @@ func _update_player_opponents(opponents: Array[BattleYokai]) -> void:
 
 
 func _update_enemy_opponents(opponents: Array[BattleYokai]) -> void:
-	EnemyAiInstance.set_enemys(opponents)
+	EnemyAiInstance.set_players(opponents)
+
+
+
+# PUBLIC
+func set_team(team_str: String) -> void:
+	await ready
+	
+	match team_str:
+		"player":	
+			team = PLAYER
+			PlayerAiInstance = PlayerAi.new()
+			PlayerAiInstance.player_animation.connect(player_animation)
+			PlayerAiInstance.set_current_yokai(YokaiInst)
+			EnemyUi.visible = false
+		"enemy":
+			team = ENEMY
+			EnemyAiInstance = EnemyAi.new()
+			EnemyAiInstance.enemy_animation.connect(enemy_animation)
+			EnemyAiInstance.set_current_yokai(YokaiInst)
+			PlayerUi.visible = false
+			
+	update_arr[team].call()
+
+
+func set_target_arrow() -> void:
+	TargetArrow.visible = true
+	await get_tree().create_timer(.5).timeout
+	TargetArrow.visible = false
+
+
+func set_target() -> void:
+	if team == ENEMY:
+		Selector.visible = true
+		YokaiHelperInstance.set_selected_yokai(yokai_number)
+
+func set_soulimate(_selected_soul_yokai: int, active: bool) -> void:
+	if team == PLAYER: 
+		SoulimateSelector.visible = true
+		
+		if active:
+			SoulimateSelector.frame = 1
+		else:
+			SoulimateSelector.frame = 0
+
+
+func update_opponents(opponents: Array[BattleYokai]) -> void:
+	match team:
+		PLAYER:
+			_update_player_opponents(opponents.duplicate())
+		ENEMY:
+			_update_enemy_opponents(opponents.duplicate())
+
+
+func attack_animation() -> void:
+	if team == PLAYER:
+		player_animation()
+	else:
+		enemy_animation()	

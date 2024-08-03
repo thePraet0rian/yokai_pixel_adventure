@@ -1,7 +1,6 @@
 class_name BattleYokaiHelper extends Node
 
 
-
 const BATTLE_YOKAI_SCENE: PackedScene = preload("res://scn/battle/battle_yokai.tscn")
 const DIRECTION_MOVE: PackedVector2Array = [
 	Vector2.LEFT, 
@@ -25,9 +24,10 @@ var yokai_finished_moving: bool = true
 @onready var BattleInstance: Battle = get_parent()
 
 
-
 func set_player_yokai_arr(arr: Array) -> void:
 	player_yokai_arr = arr
+
+
 func set_enemy_yokai_arr(arr: Array) -> void:
 	enemy_yokai_arr = arr
 
@@ -103,21 +103,23 @@ func move_yokai(dir: int) -> void:
 	BattleInstance.update_medalls()
 
 
-func on_yokai_action(team: int, yokai: int, action: String) -> void:
+func on_yokai_action(team: int, acting_yokai: int, yokai: int, action: String) -> void:
+	print("yokai action")
+	
 	match action: 
 		"attack":
-			attack(team, yokai)
+			attack(team, yokai, acting_yokai)
 
 
-func attack(team: int, yokai: int) -> void:
+func attack(team: int, yokai: int, acting_yokai: int) -> void:
 	match team:
 		0:
+			player_team_inst_front[acting_yokai].player_animation()
 			enemy_team_inst_front[yokai].set_target_arrow()
-			global.on_yokai_return_action.emit()
 			enemy_team_inst_front[yokai].health_update(5)
 		1:
+			enemy_team_inst_front[acting_yokai].enemy_animation()
 			player_team_inst_front[yokai].set_target_arrow()
-			global.on_yokai_return_action.emit()
 			player_team_inst_front[yokai].health_update(5)
 	
 	BattleInstance.update_battle_conditions()
@@ -143,9 +145,9 @@ func update() -> void:
 	BattleInstance.update_battle_conditions()
 
 
-func heal_yokai(regenerated_health: int) -> void:
+func heal_yokai(health: int) -> void:
 	for i in range(len(player_team_inst_front)):
-		player_team_inst_front[i].heal_yokai(200)
+		player_team_inst_front[i].heal_yokai(health)
 
 
 # PRIVATE
@@ -162,6 +164,7 @@ func _setup_players() -> void:
 		BattleYokaiInst.position = Vector2(48, 91) + Vector2(72, 0) * i
 		BattleYokaiInst.YokaiInst = player_yokai_arr[i]
 		BattleYokaiInst.set_team("player")
+		BattleYokaiInst.YokaiInst.yokai_number = i
 			
 		player_team_inst_front.append(BattleYokaiInst)
 		Players.add_child(BattleYokaiInst)
@@ -180,15 +183,17 @@ func _setup_players() -> void:
 
 
 
-func _setup_enemies() -> void:	
+func _setup_enemies() -> void:
 	for i in range(FRONT_YOKAI_ARRAY_LENGHT):
 		if enemy_yokai_arr[i] != null:
+			
 			var BattleYokaiInst: Sprite2D = BATTLE_YOKAI_SCENE.instantiate()
 			
 			BattleYokaiInst.position = Vector2(48, 40) + Vector2(72, 0) * i
 			BattleYokaiInst.YokaiInst = enemy_yokai_arr[i]
 			BattleYokaiInst.yokai_number = i
 			BattleYokaiInst.set_team("enemy")
+			BattleYokaiInst.YokaiInst.yokai_number = i
 
 			enemy_team_inst_front.append(BattleYokaiInst)
 			Enemies.add_child(BattleYokaiInst)
@@ -210,6 +215,7 @@ func _move_left() -> void:
 	player_team_inst_back[0].disable_tick()
 
 	new_yokai.set_team("player")
+	yokai_finished_moving = true
 
 
 func _move_right() -> void:
@@ -223,6 +229,7 @@ func _move_right() -> void:
 	player_team_inst_back[3].disable_tick()
 
 	new_yokai.set_team("player")
+	yokai_finished_moving = true
 
 
 func _update_yokais() -> void:

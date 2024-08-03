@@ -50,6 +50,7 @@ var yokai_medall_sprite: Texture
 var yokai_behavior: BEHAVIORS = BEHAVIORS.GROUCHY
 var yokai_loafing: LOAFING = LOAFING.SERIOUS
 
+var yokai_number: int
 
 func _init(_yokai_name: String) -> void:
 	if _yokai_name == "na":

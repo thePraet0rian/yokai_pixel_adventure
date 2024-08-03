@@ -52,9 +52,8 @@ func _input(event: InputEvent) -> void:
 		_use_item(item_index) 
 
 
-func _use_item(item_index: int) -> void:
-	var ItemInstance: Item = global.player_inventory[0][item_index]
-	var healing: int = global_item.HEALING_ITEMS[ItemInstance.item_name]["health"]
-	print(healing)
-	heal_yokai.emit(healing)
+func _use_item(_item_index: int) -> void:
+	var ItemInstance: Item = global.player_inventory[0][_item_index]
+	var _health: int = global_item.HEALING_ITEMS[ItemInstance.item_name]["health"]
+	heal_yokai.emit(_health)
 	

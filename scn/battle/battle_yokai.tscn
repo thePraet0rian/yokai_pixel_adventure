@@ -66,9 +66,9 @@ position = Vector2(0, 26)
 texture = ExtResource("4_d7a0h")
 
 [node name="health_bar" type="ColorRect" parent="player_ui/ui"]
-offset_left = -14.0
+offset_left = -16.0
 offset_top = 2.0
-offset_right = 23.0
+offset_right = 26.0
 offset_bottom = 4.0
 color = Color(0.843137, 0.482353, 0.729412, 1)
 
@@ -84,15 +84,16 @@ hframes = 2
 
 [node name="soul_meter" type="Sprite2D" parent="player_ui"]
 clip_children = 1
-position = Vector2(-20, 26)
+position = Vector2(-22, 26)
+scale = Vector2(-1, 1)
 texture = ExtResource("6_bi4pn")
 
 [node name="soul" type="ColorRect" parent="player_ui/soul_meter"]
-offset_left = -4.0
+offset_left = 4.0
 offset_top = 5.0
-offset_right = 4.0
+offset_right = 12.0
 offset_bottom = 15.0
-scale = Vector2(1, -1)
+scale = Vector2(-1, -1)
 color = Color(0.388235, 0.607843, 1, 1)
 
 [node name="enemy_ui" type="Node2D" parent="."]
@@ -103,6 +104,7 @@ position = Vector2(0, -22)
 texture = ExtResource("6_il4qv")
 
 [node name="ui" type="Sprite2D" parent="enemy_ui"]
+visible = false
 position = Vector2(0, -24)
 texture = ExtResource("7_oekgx")
 

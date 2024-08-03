@@ -264,14 +264,17 @@ script = ExtResource("4_2n2qt")
 [node name="medalls" type="Node" parent="ui_helper/main_menue"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
+visible = false
 position = Vector2(103, 115)
 texture = ExtResource("15_cdgot")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
+visible = false
 position = Vector2(120, 115)
 texture = ExtResource("15_cdgot")
 
 [node name="Sprite2D3" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
+visible = false
 position = Vector2(137, 115)
 texture = ExtResource("15_cdgot")
 
@@ -298,6 +301,7 @@ texture = ExtResource("9_imt5t")
 hframes = 2
 
 [node name="wheel" type="Sprite2D" parent="ui_helper/main_menue"]
+visible = false
 position = Vector2(120, 115)
 texture = ExtResource("16_uj23c")
 

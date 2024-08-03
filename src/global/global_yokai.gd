@@ -7,6 +7,8 @@ const YOKAI_FRONT_SPRITES: Dictionary = {
 	"Dragon Lord": preload("res://res/yokai/dargon_lord/dargon_lord_back.png"),
 	"Cadin": preload("res://res/yokai/cadin/cadin.png"),
 	"Peckpocket": preload("res://res/yokai/peckpocket/peckpocket.png"),
+	"Snartle": preload("res://res/yokai/snartle/snartle.png"), 
+	"Dimmy": preload("res://res/yokai/dimmy/dimmy.png"),
 }
 
 

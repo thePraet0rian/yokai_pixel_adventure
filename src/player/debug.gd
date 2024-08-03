@@ -2,8 +2,8 @@ class_name Debug extends CanvasLayer
 
 
 @onready var enemy_arr: Array[Yokai] = [
- 	Yokai.new("na"),
- 	Yokai.new("Zerberker"), 
+ 	Yokai.new("Dimmy"),
+ 	Yokai.new("Snartle"), 
 	Yokai.new("na"),
 ]
 
