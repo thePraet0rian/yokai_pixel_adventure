@@ -142,6 +142,8 @@ func _damage(_damage: int) -> void:
 	DamageInstance.position = Vector2(x, y)
 	add_child(DamageInstance)
 	DamageInstance.set_damage(_damage)
+	
+	print("damage")
 
 
 func disable_tick() -> void:

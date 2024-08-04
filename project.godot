@@ -13,7 +13,6 @@ config_version=5
 config/name="yokai_watch_pixel"
 run/main_scene="res://src/titlescreen/titlescreen.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-run/max_fps=144
 config/icon="res://res/yokai/jibanyan/icon_export.png"
 
 [autoload]
@@ -152,3 +151,5 @@ speed_up={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
