@@ -2,7 +2,6 @@ class_name BattleYokai extends Sprite2D
 
 
 
-
 signal action
 
 enum {

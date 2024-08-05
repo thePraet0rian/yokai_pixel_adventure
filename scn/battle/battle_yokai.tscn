@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0arumlvmxady"]
+[gd_scene load_steps=15 format=3 uid="uid://d0arumlvmxady"]
 
 [ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://src/battle/battle_yokai.gd" id="1_n8hpv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ddvqlly0ee1kw" path="res://res/battle/ui/soulimate/soulimate_select.png" id="7_mga13"]
 [ext_resource type="Texture2D" uid="uid://medt236xexnu" path="res://res/battle/battle_yokai/enemy_healthbar.png" id="7_oekgx"]
 [ext_resource type="Texture2D" uid="uid://bkcrt4b80xvj6" path="res://res/battle/battle_yokai/target_arrow.png" id="7_v1tts"]
+[ext_resource type="AudioStream" uid="uid://dnorb3hh0eg1l" path="res://res/sfx/hit.wav" id="10_77fup"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubimd"]
 resource_local_to_scene = true
@@ -128,5 +129,8 @@ libraries = {
 visible = false
 position = Vector2(0, -20)
 texture = ExtResource("7_v1tts")
+
+[node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_77fup")
 
 [connection signal="timeout" from="tick" to="." method="_on_tick_timer_timeout"]
