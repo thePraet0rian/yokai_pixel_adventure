@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dalo32xsuccq1"]
+[gd_scene load_steps=3 format=3 uid="uid://dalo32xsuccq1"]
 
 [ext_resource type="Script" path="res://src/ui/eyepo/eyepo.gd" id="1_3nm8y"]
+[ext_resource type="Texture2D" uid="uid://cyg3qgiiqrkw7" path="res://res/ui/eyepo/button.png" id="2_fqyrk"]
 
 [node name="eyepo" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_3nm8y")
 
 [node name="background" type="ColorRect" parent="."]
@@ -11,7 +13,17 @@ offset_bottom = 135.0
 color = Color(0, 0, 0, 0.509804)
 
 [node name="heal_button" type="Sprite2D" parent="."]
+position = Vector2(128, 56)
+texture = ExtResource("2_fqyrk")
+hframes = 2
+frame = 1
 
 [node name="switch_button" type="Sprite2D" parent="."]
+position = Vector2(128, 80)
+texture = ExtResource("2_fqyrk")
+hframes = 2
 
-[node name="close_button" type="Sprite2D" parent="."]
+[node name="back_button" type="Sprite2D" parent="."]
+position = Vector2(128, 104)
+texture = ExtResource("2_fqyrk")
+hframes = 2

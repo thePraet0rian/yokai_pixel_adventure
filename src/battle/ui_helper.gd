@@ -66,7 +66,7 @@ func _show_ui() -> void:
 	TweenInstance.tween_property(AllButtons, "position", Vector2(0, 0), 0.15)
 
 
-func set_state(new_state: SUB_GAME_STATES) -> void:
+func set_state(new_state: int) -> void:
 	current_state = new_state
 	
 	_hide_ui()

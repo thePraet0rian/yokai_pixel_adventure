@@ -177,8 +177,12 @@ func set_enemy_yokai_arr(arr: Array) -> void:
 
 
 # TODO: SET SPEED
-func set_speed_up() -> void:
-	pass
+func set_speed() -> void:
+	for i in range(len(player_team_inst_front)):
+		player_team_inst_front[i].set_speed()
+	
+	for i in range(len(enemy_team_inst_front)):
+		enemy_team_inst_front[i].set_speed()
 
 
 

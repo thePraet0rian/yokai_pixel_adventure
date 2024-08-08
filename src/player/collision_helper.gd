@@ -10,6 +10,7 @@ var yokai_met: bool
 var can_transition: bool
 var is_tracking_hotspot: bool
 var can_start_battle: bool
+var can_use_eyepo: bool = false
 
 var npc_type: int 
 var transition_target
@@ -30,6 +31,8 @@ func _input(event: InputEvent) -> void:
 			_transition()
 		if is_tracking_hotspot and can_start_battle:
 			_battle()
+		if can_use_eyepo:
+			_eyepo()
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
@@ -47,10 +50,12 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			transition_target = area.connected_transition_area
 		
 		"yokai_hotspot":
-			print("waiiiiiiiii")
 			is_tracking_hotspot = true
 			YokaiSpotInstance = area
 			set_process(true)
+		
+		"yokai_hitbox":
+			can_use_eyepo = true
 
 
 func _on_hurtbox_area_exited(area: Area2D) -> void:
@@ -64,6 +69,9 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 		"yokai_hotspot":
 			is_tracking_hotspot = false
 			set_process(false)
+		
+		"yokai_hitbox":
+			can_use_eyepo = false
 
 
 func _npc() -> void:
@@ -93,6 +101,10 @@ func _on_player_area_entered(_area: Area2D) -> void:
 
 func _battle() -> void:
 	pass
+
+
+func _eyepo() -> void:
+	global.on_start_eyepo.emit()
 
 
 func _process(_delta: float) -> void:

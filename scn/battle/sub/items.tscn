@@ -18,7 +18,7 @@ offset_right = 240.0
 offset_bottom = 112.0
 color = Color(0.856067, 0.856067, 0.856067, 1)
 
-[node name="items" type="Node" parent="."]
+[node name="items" type="Node2D" parent="."]
 
 [node name="selector" type="Sprite2D" parent="."]
 position = Vector2(32, 32)

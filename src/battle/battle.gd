@@ -80,7 +80,7 @@ func _selecting_input(event: InputEvent) -> void:
 			buttons_index += 1
 		else:
 			buttons_index = 0
-
+	
 	UiHelperInstance.set_main_menue_input(buttons_index)
 
 	if event.is_action_pressed("space"):
@@ -88,7 +88,7 @@ func _selecting_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("speed_up"):
 		UiHelperInstance.set_speed_up()
-		YokaiHelperInstance.set_speed_up()
+		YokaiHelperInstance.set_speed()
 
 
 func _change_sub_game_state(sub_buttons_index: int) -> void:

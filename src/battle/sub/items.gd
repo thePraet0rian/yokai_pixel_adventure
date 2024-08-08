@@ -10,7 +10,7 @@ const ITEM_ICON_SCN: PackedScene = preload("res://scn/ui/inventory/item_icons.ts
 var indices: Vector2 = Vector2.ZERO
 
 
-@onready var Items: Node = $items
+@onready var ItemSorter: Node = $items
 @onready var Selector: Sprite2D = $selector
 
 
@@ -28,7 +28,7 @@ func _ready() -> void:
 		var y_direction_offset: Vector2 = Vector2(18, 0) * (y_index - 1)
 		
 		ItemIconInstance.position = Vector2(32, 32) + x_direction_offset + y_direction_offset
-		add_child(ItemIconInstance)
+		ItemSorter.add_child(ItemIconInstance)
 
 
 func _input(event: InputEvent) -> void:
