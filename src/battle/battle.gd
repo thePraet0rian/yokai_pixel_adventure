@@ -58,7 +58,7 @@ func _connect_signals() -> void:
 	UiHelperInstance.heal_yokai.connect(_heal_yokai)
 
 func _heal_yokai(health: int) -> void:
-	YokaiHelperInstance.heal_yokai(health)
+	YokaiHelperInstance.set_heal(health)
 
 
 func _input(event: InputEvent) -> void:
@@ -92,7 +92,7 @@ func _selecting_input(event: InputEvent) -> void:
 
 
 func _change_sub_game_state(sub_buttons_index: int) -> void:
-	YokaiHelperInstance.disable_yokai()
+	YokaiHelperInstance.set_yokai_tick(false)
 	current_game_state = GAME_STATES.ACTION
 
 	UiHelperInstance.set_state(sub_buttons_index)
@@ -132,7 +132,7 @@ func _purify_input(event: InputEvent) ->  void:
 		current_game_state = GAME_STATES.SELECTING
 
 		UiHelperInstance.set_sub_ui_input(event, 0)
-		YokaiHelperInstance.enable_yokai()
+		YokaiHelperInstance.set_yokai_tick(true)
 
 
 func _soulimate_input(event: InputEvent) -> void:
@@ -140,7 +140,7 @@ func _soulimate_input(event: InputEvent) -> void:
 		current_game_state = GAME_STATES.SELECTING
 
 		UiHelperInstance.set_sub_ui_input(event, 1)
-		YokaiHelperInstance.enable_yokai()
+		YokaiHelperInstance.set_yokai_tick(true)
 		YokaiHelperInstance.disable_soulimate_ui()
 
 
@@ -149,7 +149,7 @@ func _target_input(event: InputEvent) -> void:
 		current_game_state = GAME_STATES.SELECTING
 
 		UiHelperInstance.set_sub_ui_input(event, 2)
-		YokaiHelperInstance.enable_yokai()
+		YokaiHelperInstance.set_yokai_tick(true)
 
 
 func _item_input(event: InputEvent) -> void:
@@ -157,7 +157,7 @@ func _item_input(event: InputEvent) -> void:
 		current_game_state = GAME_STATES.SELECTING
 
 		UiHelperInstance.set_sub_ui_input(event, 3)
-		YokaiHelperInstance.enable_yokai()
+		YokaiHelperInstance.set_yokai_tick(true)
 
 
 func _win_input(event: InputEvent) -> void:
@@ -212,7 +212,7 @@ func update_battle_conditions() -> void:
 		UiHelperInstance.set_state(4)
 
 		await UiHelperInstance.win_animation_finished
-		YokaiHelperInstance.disable_yokai()
+		YokaiHelperInstance.set_yokai_tick(false)
 		current_game_state = GAME_STATES.ACTION
 		current_sub_game_state = SUB_GAME_STATES.WIN
 

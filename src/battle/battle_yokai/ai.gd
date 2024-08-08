@@ -7,14 +7,6 @@ class_name Ai extends Node
 var is_loafing: bool = false
 
 
-func _ready() -> void:
-	global.on_enemy_return_action.connect(_test)
-
-
-func _test() -> void:
-	print("on enemy return action")
-
-
 func behavoir_barrier() -> bool: 
 	randomize()
 	var random_float: float = randf()

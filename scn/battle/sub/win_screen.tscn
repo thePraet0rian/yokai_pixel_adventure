@@ -165,27 +165,6 @@ _data = {
 [node name="win_screen" type="Node2D"]
 script = ExtResource("1_d1wyc")
 
-[node name="win" type="Node2D" parent="."]
-visible = false
-
-[node name="background" type="ColorRect" parent="win"]
-visible = false
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(1, 1, 0, 1)
-
-[node name="anim_player" type="AnimationPlayer" parent="win"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_qhtm6")
-}
-
-[node name="enter_button" type="Sprite2D" parent="win"]
-visible = false
-position = Vector2(36, 127)
-texture = ExtResource("1_1pxk1")
-hframes = 2
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(128, 64)
 texture = ExtResource("3_5gqwr")
@@ -231,3 +210,22 @@ offset_left = 200.0
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0.412153, 0.412152, 0.412153, 1)
+
+[node name="win" type="Node2D" parent="."]
+visible = false
+
+[node name="background" type="ColorRect" parent="win"]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(1, 1, 0, 1)
+
+[node name="anim_player" type="AnimationPlayer" parent="win"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_qhtm6")
+}
+
+[node name="enter_button" type="Sprite2D" parent="win"]
+position = Vector2(36, 127)
+texture = ExtResource("1_1pxk1")
+hframes = 2

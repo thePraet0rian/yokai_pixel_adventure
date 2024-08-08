@@ -5,7 +5,7 @@ const DEBUG_SCENE: PackedScene = preload("res://src/player/debug.tscn")
 const INVENTORY_SCENE: PackedScene = preload("res://src/player/menue.tscn")
 const MAP_SCENE: PackedScene = preload("res://src/ui/map/map.tscn")
 
-const  SPEED: int = 125
+const SPEED: int = 125
 const ACCELERATION: int = 10
 
 
@@ -55,13 +55,13 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	move(delta)
+	_move(delta)
 	
 	#if is_tracking_hostop:
 		#hotspot_tracking()
 
 
-func move(delta: float) -> void:
+func _move(delta: float) -> void:
 	previous_input_vec = input_vec
 	
 	input_vec.x = Input.get_axis("move_left", "move_right")
@@ -94,7 +94,7 @@ func move(delta: float) -> void:
 
 
 func hotspot_tracking() -> void:
-	print(position.distance_to(hotspot_target.position))
+	pass
 
 
 func _animate() -> void:
@@ -114,6 +114,7 @@ func show_objective() -> void:
 		if is_hidden:
 			UiAnimPlayer.play("show_objective")
 			is_hidden = false
+
 
 
 func set_orientation(new_orientation: Vector2) -> void:	

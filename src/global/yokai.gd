@@ -70,14 +70,12 @@ func _init(_yokai_name: String) -> void:
 
 
 func check_health() -> bool:
-	
 	if yokai_hp <= 0:
 		return true
 	return false
 
 
 func loafing_bound() -> float:
-	
 	match yokai_loafing:
 		
 		0:
@@ -90,3 +88,10 @@ func loafing_bound() -> float:
 			pass
 	
 	return 1.0
+
+
+func set_soul(soul: float) -> void:
+	if (soul + yokai_soul > 1.0):
+		return
+	else:
+		yokai_soul += soul

@@ -25,8 +25,6 @@ func player_tick() -> void:
 func _player_grouchy_behavoir() -> void:
 	for i in range(len(EnemyYokais)):
 		if EnemyYokais[i].active and EnemyYokais[i].yokai_hp >= 0:
-			
-			print("attack enemy by: " + str(CurrentYokaiInst.yokai_number))
 				
 			global.on_yokai_action.emit(0, CurrentYokaiInst.yokai_number, i, "attack")
 			player_animation.emit()
