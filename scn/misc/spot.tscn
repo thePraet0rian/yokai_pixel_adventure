@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfg4tte8nqmrj"]
+
+[ext_resource type="Script" path="res://src/misc/spot.gd" id="1_6csev"]
+
+[node name="Spot" type="Node2D"]
+
+[node name="spot_hitbox" type="Area2D" parent="."]
+script = ExtResource("1_6csev")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="spot_hitbox"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

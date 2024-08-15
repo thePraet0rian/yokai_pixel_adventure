@@ -9,7 +9,7 @@ const SPEED: int = 125
 const ACCELERATION: int = 10
 
 
-@onready var CollisionHelperInstance: Node = $collision_helper
+@onready var CollisionHelperInstance: CollisionHelper = $collision_helper
 
 @onready var Hurtbox: Area2D = $collision_helper/hurtbox
 @onready var UiAnimPlayer: AnimationPlayer = $ui/player_ui/ui_anim_player
@@ -18,6 +18,8 @@ const ACCELERATION: int = 10
 @onready var AnimPlayer: AnimationPlayer = $anim_player
 @onready var AnimTree: AnimationTree = $anim_tree
 @onready var anim_propteries = $anim_tree.get("parameters/playback")
+
+@onready var SpaceButton: Sprite2D = $ui/space_button
 
 
 var input_vec: Vector2 = Vector2.ZERO
@@ -41,6 +43,10 @@ var npc_type: int = 0
 var YokaiInstance: OverworldYokai
 var yokai_met: bool = false
 
+
+func _ready() -> void:
+	CollisionHelperInstance.can_action_space.connect(_can_action_space)
+	
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"): 
@@ -105,6 +111,13 @@ func _animate() -> void:
 		anim_propteries.travel("run")
 	else:         
 		anim_propteries.travel("idle")
+
+
+func _can_action_space(active: bool) -> void:
+	if active:
+		SpaceButton.visible = true
+	else:
+		SpaceButton.visible = false
 
 
 func show_objective() -> void:

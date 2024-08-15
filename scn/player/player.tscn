@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://byw2vrqxq0slp"]
+[gd_scene load_steps=39 format=3 uid="uid://byw2vrqxq0slp"]
 
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_8rkdc"]
 [ext_resource type="Texture2D" uid="uid://ctcmdal2htaqh" path="res://res/player/tmp_femal_player_sprite.png" id="2_cx5i1"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dkljmhd55cuf7" path="res://src/ui/assets/yokai_watch/watch_background.png" id="3_vg27x"]
 [ext_resource type="Texture2D" uid="uid://du8uv32dgooga" path="res://src/ui/assets/objective/objective_background.png" id="4_iykhr"]
 [ext_resource type="Texture2D" uid="uid://lub0ohg3px0j" path="res://res/player/ui_button.png" id="5_k5ow7"]
+[ext_resource type="Texture2D" uid="uid://c3756j3mw414p" path="res://res/player/interaction/standart.png" id="5_xhpu7"]
 [ext_resource type="Texture2D" uid="uid://bcfi1oo3fw0ps" path="res://res/player/sprint_bar.png" id="6_8lpum"]
 
 [sub_resource type="Animation" id="Animation_1ulla"]
@@ -21,6 +22,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(120, 127)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../space_button:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
 }
 
 [sub_resource type="Animation" id="Animation_3w5pr"]
@@ -60,6 +73,44 @@ _data = {
 "RESET": SubResource("Animation_1ulla"),
 "hide_objective": SubResource("Animation_3w5pr"),
 "show_objective": SubResource("Animation_fl0r0")
+}
+
+[sub_resource type="Animation" id="Animation_tmslx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_button:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.75, 0.75)]
+}
+
+[sub_resource type="Animation" id="Animation_lbmlm"]
+resource_name = "constant"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("space_button:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.75, 0.75), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0rs1"]
+_data = {
+"RESET": SubResource("Animation_tmslx"),
+"constant": SubResource("Animation_lbmlm")
 }
 
 [sub_resource type="Animation" id="Animation_o56ql"]
@@ -326,6 +377,18 @@ hframes = 4
 [node name="sprint_timer" type="Timer" parent="ui/sprint_bar"]
 wait_time = 2.0
 
+[node name="space_button" type="Sprite2D" parent="ui"]
+visible = false
+position = Vector2(1, -39)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_xhpu7")
+
+[node name="space_button2" type="Sprite2D" parent="ui"]
+visible = false
+position = Vector2(1, -39)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("5_xhpu7")
+
 [node name="player_ui" type="CanvasLayer" parent="ui"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ui/player_ui"]
@@ -340,6 +403,12 @@ texture = ExtResource("4_iykhr")
 libraries = {
 "": SubResource("AnimationLibrary_7c0ks")
 }
+
+[node name="button_ui" type="AnimationPlayer" parent="ui"]
+libraries = {
+"": SubResource("AnimationLibrary_y0rs1")
+}
+autoplay = "constant"
 
 [node name="player_sprite" type="Sprite2D" parent="."]
 position = Vector2(1, -16)

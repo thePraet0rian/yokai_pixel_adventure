@@ -3,16 +3,21 @@ class_name SaveSelectScreen extends Node2D
 
 const main_scn: PackedScene = preload("res://scn/main.tscn")
 
+
 var index: int = 0
 var disabled: bool = false
 
+
 @onready var title_screen_scn: PackedScene = load("res://src/titlescreen/titlescreen.tscn")
 @onready var anim_player: AnimationPlayer = $anim_player
-@onready var selector: Sprite2D = $save_files/selector
+@onready var SaveButtons: Array[Sprite2D] = [
+	$save_files/SaveButton,
+	$save_files/SaveButton2,
+	$save_files/SaveButton3
+]
 
  
-func _input(event: InputEvent) -> void:
-	
+func _input(event: InputEvent) -> void:	
 	if not disabled:
 		if event.is_action_pressed("space"):
 			disabled = true
@@ -22,8 +27,7 @@ func _input(event: InputEvent) -> void:
 			get_parent().add_child(main_scn.instantiate())
 			global.on_game_loaded.emit(0)
 			global.on_menue_closed .emit()
-			
-			
+						
 			queue_free()
 		
 		if event.is_action_pressed("shift"):
@@ -37,4 +41,8 @@ func _input(event: InputEvent) -> void:
 			if index > 0:
 				index -= 1
 		
-		selector.position = Vector2(120, 38) + index * Vector2(0, 22)
+		for i in range(len(SaveButtons)):
+			if i == index:
+				SaveButtons[i].frame = 1
+			else:
+				SaveButtons[i].frame = 0

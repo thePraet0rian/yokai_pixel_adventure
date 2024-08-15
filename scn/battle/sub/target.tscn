@@ -44,5 +44,6 @@ polygon = PackedVector2Array(65, 32, 71, 32, 71, 33, 73, 33, 73, 34, 75, 34, 75,
 [node name="selector2" type="Sprite2D" parent="selector"]
 position = Vector2(68, 44)
 texture = ExtResource("6_axyj8")
+hframes = 2
 
 [connection signal="area_entered" from="selector" to="." method="_on_selector_area_entered"]

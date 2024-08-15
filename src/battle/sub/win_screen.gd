@@ -29,5 +29,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _end() -> void:
+	await get_tree().physics_frame
+	await get_tree().process_frame
 	global.on_battle_ended.emit()
 	queue_free()

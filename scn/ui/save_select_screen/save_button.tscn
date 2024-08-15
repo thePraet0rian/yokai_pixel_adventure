@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsctofrtmeo7w"]
+
+[ext_resource type="Texture2D" uid="uid://cxd3rf2uoelch" path="res://res/ui/save_select_screen/select_slot.png" id="1_jxt1k"]
+[ext_resource type="Script" path="res://src/ui/save_select_screen/save_button.gd" id="2_yr4nm"]
+
+[node name="SaveButton" type="Sprite2D"]
+texture = ExtResource("1_jxt1k")
+hframes = 2
+script = ExtResource("2_yr4nm")

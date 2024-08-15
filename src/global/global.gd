@@ -29,6 +29,7 @@ signal on_yokai
 
 signal on_start_eyepo
 
+signal on_spot_started
 
 
 const rooms: Array[PackedScene] = [
@@ -44,5 +45,3 @@ var current_room: int
 
 var player_inventory: Array[Array]
 var player_yokai: Array[Yokai]
-
-

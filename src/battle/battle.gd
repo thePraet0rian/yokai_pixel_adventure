@@ -6,6 +6,7 @@ enum GAME_STATES {
 	SELECTING = 0,
 	ACTION = 1,
 }
+
 enum SUB_GAME_STATES {
 	PURIFY = 0,
 	SOULIMATE = 1,
@@ -14,8 +15,9 @@ enum SUB_GAME_STATES {
 	NONE = 4,
 	WIN = 5,
 }
+
 enum {
-	LEFT = 0,
+	LEFT = 0, 	
 	RIGHT = 1,
 }
 
@@ -40,6 +42,7 @@ var can_soulimate: bool = true
 var can_item: bool = true
 var can_purfy: bool = true
 var can_target: bool = true
+
 
 @onready var YokaiHelperInstance: BattleYokaiHelper = $yokai_helper
 @onready var UiHelperInstance: UiHelper = $ui_helper 
@@ -160,6 +163,10 @@ func _item_input(event: InputEvent) -> void:
 		YokaiHelperInstance.set_yokai_tick(true)
 
 
+func _calculate_win_xp() -> int:
+	return 36
+
+
 func _win_input(event: InputEvent) -> void:
 	if event.is_action_pressed("space"):
 		pass
@@ -195,9 +202,9 @@ func set_enemy_yokai(enemy_yokais: Array) -> void:
 
 
 func update_medalls() -> void:
+	pass
 	#for i in range(len(Medalls)):
 		#Medalls[i].texture = BattleYokaiHelper.player_team_inst_back[i].YokaiInst.yokai_medall_spriteas asdf asdf
-	pass
 
 
 func update_battle_conditions() -> void:
@@ -215,4 +222,3 @@ func update_battle_conditions() -> void:
 		YokaiHelperInstance.set_yokai_tick(false)
 		current_game_state = GAME_STATES.ACTION
 		current_sub_game_state = SUB_GAME_STATES.WIN
-
