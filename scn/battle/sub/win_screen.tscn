@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bn0spooqowien"]
+[gd_scene load_steps=10 format=3 uid="uid://bn0spooqowien"]
 
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://src/ui/assets/menue/button_select.png" id="1_1pxk1"]
 [ext_resource type="Script" path="res://src/battle/sub/win_screen.gd" id="1_d1wyc"]
 [ext_resource type="Texture2D" uid="uid://couo7t7xhm0vn" path="res://res/battle/ui/win/win-export.png" id="3_5gqwr"]
+[ext_resource type="Texture2D" uid="uid://or5uo2hwbv7o" path="res://res/items/medall_background.png" id="4_6s6br"]
+[ext_resource type="Texture2D" uid="uid://cgmx3dbb5h2k1" path="res://res/items/medalls.png" id="5_t6ekj"]
+[ext_resource type="Texture2D" uid="uid://d36ul5deuqtj1" path="res://res/items/bar.png" id="6_twlg4"]
 
 [sub_resource type="Animation" id="Animation_bnhii"]
 length = 0.001
@@ -170,7 +173,6 @@ position = Vector2(128, 64)
 texture = ExtResource("3_5gqwr")
 
 [node name="overlay" type="Node2D" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="overlay"]
 offset_left = 40.0
@@ -212,7 +214,6 @@ offset_bottom = 135.0
 color = Color(0.412153, 0.412152, 0.412153, 1)
 
 [node name="win" type="Node2D" parent="."]
-visible = false
 
 [node name="background" type="ColorRect" parent="win"]
 offset_right = 240.0
@@ -229,3 +230,36 @@ libraries = {
 position = Vector2(36, 127)
 texture = ExtResource("1_1pxk1")
 hframes = 2
+
+[node name="Label" type="Label" parent="win"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D7" type="Sprite2D" parent="win"]
+position = Vector2(101, 41)
+texture = ExtResource("4_6s6br")
+
+[node name="Sprite2D" type="Sprite2D" parent="win/Sprite2D7"]
+position = Vector2(-16, 0)
+texture = ExtResource("5_t6ekj")
+
+[node name="Sprite2D" type="Sprite2D" parent="win/Sprite2D7/Sprite2D"]
+position = Vector2(27, 8)
+texture = ExtResource("6_twlg4")
+
+[node name="Label" type="Label" parent="win/Sprite2D7"]
+offset_left = -2.0
+offset_top = -10.0
+offset_right = 38.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "lv"
+
+[node name="ColorRect" type="ColorRect" parent="win/Sprite2D7"]
+offset_left = -28.0
+offset_top = 14.0
+offset_right = 27.0
+offset_bottom = 17.0
+scale = Vector2(1e-05, 1)

@@ -3,7 +3,19 @@ extends Node2D
 
 signal inventory_close
 
+
 const ITEM_ICONS_SCENE: PackedScene = preload("res://scn/ui/inventory/item_icons.tscn")
+
+
+var inventory_page: int = 0
+var indices: Array[Vector2] = [
+	Vector2.ZERO,
+	Vector2.ZERO,
+	Vector2.ZERO,
+	Vector2.ZERO,
+	Vector2.ZERO,
+]
+
 
 @onready var Select: Sprite2D = $select
 @onready var SelectTwo: Sprite2D = $select2
@@ -25,21 +37,8 @@ const ITEM_ICONS_SCENE: PackedScene = preload("res://scn/ui/inventory/item_icons
 	$sub_inventories/key/select,
 ]
 
-var inventory_page: int = 0
-
-var indices: Array[Vector2] = [
-	Vector2.ZERO,
-	Vector2.ZERO,
-	Vector2.ZERO,
-	Vector2.ZERO,
-	Vector2.ZERO,
-]
-
 
 func _ready() -> void:
-	
-	print(global.player_inventory)
-	
 	InventoryAnimPlayer.play("start")
 	
 	var y_index: int = 0
@@ -58,7 +57,6 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	
 	if event.is_action_pressed("move_wheel_left"):
 		if inventory_page > 0:
 			Select.position.x -= 22
@@ -96,4 +94,3 @@ func _input(event: InputEvent) -> void:
 		await InventoryAnimPlayer.animation_finished
 		inventory_close.emit(0)
 		queue_free()
-

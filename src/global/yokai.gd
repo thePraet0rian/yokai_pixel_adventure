@@ -1,6 +1,6 @@
 class_name Yokai extends Node
-	
-	
+
+
 enum BEHAVIORS {
 	GROUCHY = 0, 
 	ROUGH = 1, 
@@ -25,18 +25,18 @@ enum LOAFING {
 }
 
 
-var yokia_level: int
-var yokai_xp: int
+var yokai_level: int = 1
+var yokai_xp: int = 0
 var yokai_rank: String = ""
 var yokai_league: String = ""
 
 var yokai_soul: float = 0.0
-var yokai_name: String
-var yokai_hp: int
-var yokai_str: int
-var yokai_spr: int
-var yokai_def: int
-var yokai_spd: int
+var yokai_name: String = ""
+var yokai_hp: int = 0
+var yokai_str: int = 0
+var yokai_spr: int = 0
+var yokai_def: int = 0
+var yokai_spd: int = 0
 
 var yokai_max_hp: int
 
@@ -51,6 +51,7 @@ var yokai_behavior: BEHAVIORS = BEHAVIORS.GROUCHY
 var yokai_loafing: LOAFING = LOAFING.SERIOUS
 
 var yokai_number: int
+
 
 func _init(_yokai_name: String) -> void:
 	if _yokai_name == "na":
@@ -95,3 +96,26 @@ func set_soul(soul: float) -> void:
 		return
 	else:
 		yokai_soul += soul
+
+
+func set_xp(experience: int) -> void:
+	yokai_xp += experience
+	yokai_level = get_new_level(experience)
+	
+	_update_stats()
+
+
+func get_new_level(xp: int) -> int:
+	for i in range(100, 0, -1):
+		if (yokai_xp + xp) > _cubed(i):
+			return i
+	
+	return -1
+
+
+func _cubed(number: int) -> int:
+	return (number * number * number)
+
+
+func _update_stats() -> void:
+	pass

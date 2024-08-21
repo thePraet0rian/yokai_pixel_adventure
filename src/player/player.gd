@@ -9,19 +9,6 @@ const SPEED: int = 125
 const ACCELERATION: int = 10
 
 
-@onready var CollisionHelperInstance: CollisionHelper = $collision_helper
-
-@onready var Hurtbox: Area2D = $collision_helper/hurtbox
-@onready var UiAnimPlayer: AnimationPlayer = $ui/player_ui/ui_anim_player
-@onready var SprintBar: Sprite2D = $ui/sprint_bar
-
-@onready var AnimPlayer: AnimationPlayer = $anim_player
-@onready var AnimTree: AnimationTree = $anim_tree
-@onready var anim_propteries = $anim_tree.get("parameters/playback")
-
-@onready var SpaceButton: Sprite2D = $ui/space_button
-
-
 var input_vec: Vector2 = Vector2.ZERO
 var is_moving: bool = false
 var state_change: bool = false
@@ -44,6 +31,19 @@ var YokaiInstance: OverworldYokai
 var yokai_met: bool = false
 
 
+@onready var CollisionHelperInstance: CollisionHelper = $collision_helper
+
+@onready var Hurtbox: Area2D = $collision_helper/hurtbox
+@onready var UiAnimPlayer: AnimationPlayer = $ui/player_ui/ui_anim_player
+@onready var SprintBar: Sprite2D = $ui/sprint_bar
+
+@onready var AnimPlayer: AnimationPlayer = $anim_player
+@onready var AnimTree: AnimationTree = $anim_tree
+@onready var anim_propteries = $anim_tree.get("parameters/playback")
+
+@onready var SpaceButton: Sprite2D = $ui/space_button
+
+
 func _ready() -> void:
 	CollisionHelperInstance.can_action_space.connect(_can_action_space)
 	
@@ -61,8 +61,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	_move(delta)
-	
+	_move(delta)	
 	#if is_tracking_hostop:
 		#hotspot_tracking()
 
@@ -105,11 +104,11 @@ func hotspot_tracking() -> void:
 
 func _animate() -> void:
 	if input_vec != Vector2.ZERO:
+		AnimTree.set("parameters/walk/blend_position", input_vec)
 		AnimTree.set("parameters/idle/blend_position", input_vec)
-		AnimTree.set("parameters/run/blend_position", input_vec)
 		
-		anim_propteries.travel("run")
-	else:         
+		anim_propteries.travel("walk")
+	else:
 		anim_propteries.travel("idle")
 
 
@@ -127,7 +126,6 @@ func show_objective() -> void:
 		if is_hidden:
 			UiAnimPlayer.play("show_objective")
 			is_hidden = false
-
 
 
 func set_orientation(new_orientation: Vector2) -> void:	

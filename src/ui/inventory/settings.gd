@@ -2,7 +2,7 @@
 extends Node2D
 
 
-@onready var Parent: Inventory = get_parent().get_parent()
+@onready var Parent: Menue = get_parent().get_parent()
 
 
 # METHODS # ----------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-class_name Inventory extends CanvasLayer
+class_name Menue extends CanvasLayer
 
 
 const INVENTORY_SCENE: PackedScene = preload("res://scn/menue/inventory.tscn")
@@ -35,24 +35,20 @@ var current_state: STATES = STATES.MAIN
 
 
 func set_current_state(state: int) -> void:
-	
 	current_state = state as STATES
 
 
 func _ready() -> void:
-	
 	MoneyLabel.text = str(global.current_money)
 
 
 func _input(event: InputEvent) -> void:
-	
 	match current_state:
 		0:
 			_main_menue_input(event)
 
 
 func _main_menue_input(event: InputEvent) -> void:
-
 	if event.is_action_pressed("move_up"):
 		if cur_pos.y == 0:
 			pass
@@ -97,7 +93,6 @@ func _main_menue_input(event: InputEvent) -> void:
 
 
 func _match_main_input() -> void:
-	
 	if cur_pos.x == 0 and cur_pos.y == 0:
 		
 		var InventoryInst: Node2D = INVENTORY_SCENE.instantiate()

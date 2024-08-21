@@ -48,7 +48,7 @@ func _input(event: InputEvent) -> void:
 	Selector.position = Vector2(32, 32) + indices * Vector2(16, 16)
 
 	if event.is_action_pressed("space"):
-		var item_index: int = 5 * indices.x + indices.y
+		var item_index: int = 5 * int(indices.x) + int(indices.y)
 		_use_item(item_index) 
 
 

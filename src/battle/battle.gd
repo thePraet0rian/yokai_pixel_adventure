@@ -16,12 +16,9 @@ enum SUB_GAME_STATES {
 	WIN = 5,
 }
 
-enum {
-	LEFT = 0, 	
-	RIGHT = 1,
-}
 
-
+const LEFT: int = 0
+const RIGHT: int = 1
 const direction_move: PackedVector2Array = [
 	Vector2.LEFT,
 	Vector2.RIGHT,
@@ -53,6 +50,8 @@ func _ready() -> void:
 	YokaiHelperInstance.set_player_yokai_arr(player_yokai_arr)
 	YokaiHelperInstance.set_enemy_yokai_arr(enemy_yokai_arr)
 	YokaiHelperInstance.setup_yokai()
+	
+	UiHelperInstance.set_player_yokai_arr(player_yokai_arr)
 	
 	_connect_signals()
 
@@ -164,7 +163,7 @@ func _item_input(event: InputEvent) -> void:
 
 
 func _calculate_win_xp() -> int:
-	return 36
+	return 100
 
 
 func _win_input(event: InputEvent) -> void:
@@ -214,9 +213,11 @@ func update_battle_conditions() -> void:
 		if YokaiHelperInstance.enemy_team_inst_front[i].YokaiInst.yokai_hp <= 0:
 			count += 1
 
+	# Player Team wins battle
 	if count == 3:
 		UiHelperInstance.play_win_animation()
 		UiHelperInstance.set_state(4)
+		UiHelperInstance.set_win_xp(_calculate_win_xp())
 
 		await UiHelperInstance.win_animation_finished
 		YokaiHelperInstance.set_yokai_tick(false)

@@ -6,6 +6,7 @@ const BATTLE_YOKAI_SCENE: PackedScene = preload("res://scn/battle/battle_yokai.t
 const DIRECTION_MOVE: PackedVector2Array = [Vector2.LEFT, Vector2.RIGHT]
 const FRONT_YOKAI_ARRAY_LENGHT: int = 3
 
+
 var player_yokai_arr: Array[Yokai]
 var enemy_yokai_arr: Array[Yokai]
 var player_team_inst_front: Array[BattleYokai]
@@ -16,6 +17,7 @@ var enemy_team_inst_front: Array[BattleYokai]
 var input_direction: Vector2 = Vector2.ZERO
 var is_moving: bool = false
 var yokai_finished_moving: bool = true
+
 
 @onready var Players: Node2D = $players
 @onready var Enemies: Node2D = $enemies

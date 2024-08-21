@@ -6,6 +6,7 @@ signal ui_hidden
 signal ui_shown
 signal heal_yokai
 
+
 enum SUB_GAME_STATES {
 	PURIFY = 0, 
 	SOULIMATE = 1, 
@@ -14,7 +15,10 @@ enum SUB_GAME_STATES {
 	NONE = 4,
 }
 
+
 var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
+var player_yokais: Array[Yokai] 
+
 
 @onready var MainMenueButtons: Array[Sprite2D] = [
 	$main_menue/buttons/purify,
@@ -104,8 +108,16 @@ func set_speed_up() -> void:
 	SpeedUp.visible = !SpeedUp.visible
 
 
+func set_win_xp(xp: int) -> void:
+	SubUis[4].set_win_xp(xp)
+
+
+func set_player_yokai_arr(_player_yokais: Array[Yokai]) -> void:
+	player_yokais = _player_yokais
+	
+
+
 func play_win_animation() -> void:
 	AnimPlayer.play_backwards("start")
 	await AnimPlayer.animation_finished
 	win_animation_finished.emit()
-

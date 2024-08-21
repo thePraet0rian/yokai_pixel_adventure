@@ -67,23 +67,25 @@ func _move() -> void:
 				return
 
 
-func _on_hurtbox_area_entered(_area: Area2D) -> void:	
-	if current_behavior == Behavoirs.MOVING:
-		current_behavior = Behavoirs.WAITING
-		tween.pause()
+func _on_hurtbox_area_entered(area: Area2D) -> void:	
+	if area.name == "hurtbox":
+		if current_behavior == Behavoirs.MOVING:
+			current_behavior = Behavoirs.WAITING
+			tween.pause()
 	
-	icon.visible = true
+		icon.visible = true
 	
 
-func _on_hurtbox_area_exited(_area: Area2D) -> void:
-	if current_behavior == Behavoirs.WAITING: 	
-		await get_tree().create_timer(1).timeout
+func _on_hurtbox_area_exited(area: Area2D) -> void:
+	if area.name == "hurtbox":
+		if current_behavior == Behavoirs.WAITING: 	
+			await get_tree().create_timer(1).timeout
 
-		current_behavior = Behavoirs.MOVING
-		if tween.is_valid():
-			tween.play()
-	
-	icon.visible = false
+			current_behavior = Behavoirs.MOVING
+			if tween.is_valid():
+				tween.play()
+		
+		icon.visible = false
 
 
 func get_type() -> int:
