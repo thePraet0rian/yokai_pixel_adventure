@@ -13,7 +13,6 @@ var npc_expressions: Dictionary
 
 
 func _ready() -> void:
-	
 	_load_npc_sprites()
 	_load_moving_npcs()
 	_load_talking_npcs()
@@ -21,7 +20,6 @@ func _ready() -> void:
 
 
 func _load_npc_sprites() -> void:
-	
 	var file = FileAccess.open(NPC_SPRITES_PATH, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	
@@ -31,7 +29,6 @@ func _load_npc_sprites() -> void:
 
 
 func _load_moving_npcs() -> void:
-	
 	var file = FileAccess.open(MOVING_NPC_PATH, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	
@@ -63,7 +60,6 @@ func _load_moving_npcs() -> void:
 	
 
 func _load_talking_npcs() -> void:
-	
 	var file = FileAccess.open(TALKING_NPC_PATH, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	
@@ -72,9 +68,13 @@ func _load_talking_npcs() -> void:
 
 
 func _load_npc_dialogue_expressions() -> void:
-	
 	var file = FileAccess.open("res://src/npc/data/npc_expressions.json", FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	
 	npc_expressions = data
 	file.close()
+
+
+func get_npc(npc_name: String) -> Dictionary:
+	
+	return {}

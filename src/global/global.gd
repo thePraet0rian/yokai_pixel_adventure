@@ -31,6 +31,9 @@ signal on_start_eyepo
 
 signal on_spot_started
 
+signal on_quest_started
+
+
 
 const rooms: Array[PackedScene] = [
 	preload("res://scn/rooms/room_01.tscn"),

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfdl8pokk8rk7"]
+[gd_scene load_steps=5 format=3 uid="uid://bfdl8pokk8rk7"]
 
 [ext_resource type="Texture2D" uid="uid://by7fybvor2s8o" path="res://res/npc/mom.png" id="2_7fk7t"]
 [ext_resource type="Script" path="res://src/npc/npc.gd" id="2_7lkj6"]
 [ext_resource type="Texture2D" uid="uid://wnggpxxwsqlj" path="res://res/interaction_icons/shop.png" id="3_xtth1"]
+[ext_resource type="Texture2D" uid="uid://ps4vmaplhtqi" path="res://res/player/interaction/quest.png" id="4_kvome"]
 
 [node name="npc" type="CharacterBody2D"]
 script = ExtResource("2_7lkj6")
@@ -23,6 +24,11 @@ polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)
 visible = false
 position = Vector2(0, -26)
 texture = ExtResource("3_xtth1")
+
+[node name="quest" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -28)
+texture = ExtResource("4_kvome")
 
 [connection signal="area_entered" from="npc_hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_exited" from="npc_hurtbox" to="." method="_on_hurtbox_area_exited"]

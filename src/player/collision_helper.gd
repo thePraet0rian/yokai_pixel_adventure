@@ -3,6 +3,7 @@ class_name CollisionHelper extends Node2D
 
 signal can_action_space
 
+
 var NpcInstance: Npc
 var OverworldYokaiInstance: OverworldYokai
 var YokaiSpotInstance: YokaiSpot
@@ -107,6 +108,11 @@ func _npc() -> void:
 		
 		3:
 			global.on_shopkeeper_met.emit(NpcInstance.npc_name)
+			npc_met = false
+			get_tree().paused = true
+		
+		4:
+			GlobalQuests.quest_interaction.emit(NpcInstance.current_quest)
 			npc_met = false
 			get_tree().paused = true
 
