@@ -112,7 +112,7 @@ func _npc() -> void:
 			get_tree().paused = true
 		
 		4:
-			GlobalQuests.quest_interaction.emit(NpcInstance.current_quest)
+			GlobalQuests.quest_interaction.emit(NpcInstance.quest_name, NpcInstance.quest_progress)
 			npc_met = false
 			get_tree().paused = true
 

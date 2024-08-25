@@ -1,10 +1,16 @@
-class_name GlobalNpc extends Node
+extends Node
 
 
 const NPC_SPRITES_PATH: String = "res://src/npc/data/npc_sprites.json"
 const MOVING_NPC_PATH: String = "res://src/npc/npcs.json"
 const TALKING_NPC_PATH: String = "res://src/npc/test.json"
-
+# CONSTANT IS TEMPORARY TBD
+var npc_quests: Dictionary = {
+	"Test": {
+		"start": true,
+		"Second": false,
+	},
+}
 
 var npc_sprites: Dictionary
 var moving_npcs: Dictionary
@@ -76,5 +82,6 @@ func _load_npc_dialogue_expressions() -> void:
 
 
 func get_npc(npc_name: String) -> Dictionary:
-	
-	return {}
+	return {
+		"Sprite": npc_sprites[npc_name],
+	}

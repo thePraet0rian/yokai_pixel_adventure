@@ -31,7 +31,7 @@ func _connect_signals() -> void:
 	global.on_room_transitioned.connect(_on_room_transitioned)
 	global.on_start_eyepo.connect(_start_eyepo)
 	global.on_spot_started.connect(_start_spot)
-	global.on_quest_started.connect(_start_quest)
+	#global.on_quest_started.connect(_start_quest)   
 
 
 func _on_game_loaded(_save_file: int) -> void:
@@ -132,11 +132,4 @@ func _start_spot(current_yokai: Array[Yokai], has_yokai: bool, area: int) -> voi
 	var SpotInstance: Spot = SPOT_SCENE.instantiate() as Spot
 	SpotInstance.set_enemy_arr(current_yokai)
 	add_child(SPOT_SCENE.instantiate())
-
-
-func _start_quest(quest: String) -> void:
-	match quest:
-		"":
-			GlobalQuests.key_story_quests[quest]["Active"] = true
-			GlobalQuests.set_quest_activity("Test")
 			

@@ -5,6 +5,10 @@ signal quest_update
 signal quest_interaction
 
 
+const QUEST_ACCEPT_SCREEN: PackedScene = preload("res://scn/ui/quest/quest_accept_screen.tscn")
+const QUEST_FINISH_SCREEN: int = 0
+
+
 enum QuestStates {
 	QUEST_OFF = 0,
 	QUEST_STARTED = 1,
@@ -21,27 +25,33 @@ var quests: Dictionary = {
 }
 
 
-func set_quest_activity(quest_name: String, activity: QuestStates) -> void:
-	quests[quest_name]["Active"] = activity
+func set_quest_activity(_quest_name: String) -> void:
+	quests[_quest_name]["Activity"] = QuestStates.QUEST_STARTED
+	quest_update.emit()
 
 
 func _ready() -> void:
 	quest_interaction.connect(_quest_interaction)
 
 
-func _quest_interaction(quest_name: String, quest_step: int) -> void:
-	match quest_name:
+func _quest_interaction(_quest_name: String, _quest_progress: String) -> void:
+	match _quest_name:
 		"Test":
-			_quest_test(quest_step)
+			_test_quest(_quest_progress) 
 
 
-func _quest_test(quest_step: int) -> void:
-	quests["QuestStep"] = quest_step
-	
-	match quest_step:
-		0:
-			quests["Activity"] = QuestStates.QUEST_STARTED
-		1:
-			pass
+func _test_quest(_quest_progress: String) -> void:
+	match _quest_progress:
+		"start":
+			print("quest test started")
+			
+			var QuestAcceptScreenInstance: CanvasLayer = QUEST_ACCEPT_SCREEN.instantiate()
+			QuestAcceptScreenInstance.set_quest_name("Test")
+			add_sibling(QuestAcceptScreenInstance)
+			global_npc.npc_quests["Test"]["Second"] = true
+			global_npc.npc_quests["Test"]["start"] = false
+		"Second":
+			print("ehhhhhhhhhhhh")
 	
 	quest_update.emit()
+			
