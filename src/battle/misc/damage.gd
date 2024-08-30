@@ -6,10 +6,10 @@ func set_damage(_damage: int) -> void:
 	text = str(_damage)
 	
 	var Tween1: Tween = create_tween()
-	Tween1.tween_property(self, "modulate", Color8(255, 255, 255, 0), 2)
+	Tween1.tween_property(self, "modulate", Color8(255, 255, 255, 0), 3)
 	
 	var Tween2: Tween = create_tween()
-	Tween2.tween_property(self, "position", position - Vector2(0, 32), 2)
+	Tween2.tween_property(self, "position", position - Vector2(0, 32), 3)
 	await Tween2.finished
 	
 	queue_free()

@@ -10,7 +10,6 @@ const SHOP_SCENE: PackedScene = preload("res://scn/ui/shop/shop.tscn")
 
 
 func _ready() -> void:
-	
 	global.on_dialogue_started.connect(start_dialogue)
 	global.on_dialogue_ended.connect(end_dialogue)
 	
@@ -20,7 +19,6 @@ func _ready() -> void:
 
 
 func start_dialogue(npc_name: String, dialogue_int: int) -> void:
-	
 	var DialogueInstance: Dialogue = DIALOGUE_SCENE.instantiate()
 	DialogueInstance.set_dialogue(npc_name, str(dialogue_int))
 	add_child(DialogueInstance)
@@ -47,4 +45,3 @@ func close_menue() -> void:
 	UiOverlay.visible = false
 	
 	UiAnimPlayer.play("RESET")
-

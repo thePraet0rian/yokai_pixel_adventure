@@ -18,6 +18,7 @@ enum SUB_GAME_STATES {
 
 var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
 var player_yokais: Array[Yokai] 
+var player_back_arr: Array[BattleYokai]
 
 
 @onready var MainMenueButtons: Array[Sprite2D] = [
@@ -35,6 +36,12 @@ var player_yokais: Array[Yokai]
 	$ui/sub_ui/win_screen,
 ]
 
+@onready var Medalls: Array[Sprite2D] = [
+	$main_menue/medalls/Sprite2D,
+	$main_menue/medalls/Sprite2D2,
+	$main_menue/medalls/Sprite2D3,
+]
+
 @onready var AnimPlayer: AnimationPlayer = $anim_player
 @onready var TweenInstance: Tween
 @onready var AllButtons: Node2D = $main_menue/buttons
@@ -47,10 +54,15 @@ var player_yokais: Array[Yokai]
 func _ready() -> void:
 	AnimPlayer.play("start")
 	_connect_signals()
+	
 
 
 func _connect_signals() -> void:
 	SubUis[3].heal_yokai.connect(_heal_yokai)
+	global.on_yokai_action_finished.connect(_on_yokai_action_finished)
+	
+	await get_parent().ready
+	BattleYokaiHelperInstance = BattleInst.YokaiHelperInstance
 
 
 func _heal_yokai(_health: int) -> void:
@@ -70,8 +82,17 @@ func _show_ui() -> void:
 	TweenInstance.tween_property(AllButtons, "position", Vector2(0, 0), 0.15)
 
 
+func _update_ui() -> void:
+	for i in range(len(player_back_arr)):
+		if player_back_arr[i].YokaiInst.inspirited == true:
+			Medalls[i].texture = load("res://res/yokai/jibanyan/jibanyan_medall.png")
+		else:
+			Medalls[i].texture = load("res://res/yokai/cadin/cadin_medall.png")
+ 			
+
+
 func set_state(new_state: int) -> void:
-	current_state = new_state
+	current_state = new_state as SUB_GAME_STATES
 	
 	_hide_ui()
 	await ui_hidden
@@ -116,8 +137,13 @@ func set_player_yokai_arr(_player_yokais: Array[Yokai]) -> void:
 	player_yokais = _player_yokais
 	
 
-
 func play_win_animation() -> void:
 	AnimPlayer.play_backwards("start")
 	await AnimPlayer.animation_finished
 	win_animation_finished.emit()
+
+
+func _on_yokai_action_finished() -> void:
+	BattleYokaiHelperInstance.name
+	player_back_arr = BattleYokaiHelperInstance.get_player_back()
+	_update_ui()

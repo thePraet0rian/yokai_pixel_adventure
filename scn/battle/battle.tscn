@@ -240,9 +240,15 @@ process_mode = 3
 script = ExtResource("1_28vn4")
 
 [node name="background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(120, 67.5)
 texture = ExtResource("2_h2niy")
 metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0.301961, 0.301961, 0.301961, 1)
 
 [node name="yokai_helper" type="Node" parent="."]
 script = ExtResource("3_yiroh")
@@ -256,6 +262,15 @@ position = Vector2(0, -17)
 
 [node name="player_yokai_anim_player" type="AnimationPlayer" parent="yokai_helper/players"]
 
+[node name="debuglabel" type="Label" parent="yokai_helper"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 8
+
+[node name="Timer" type="Timer" parent="yokai_helper"]
+wait_time = 0.2
+autostart = true
+
 [node name="ui_helper" type="Node" parent="."]
 script = ExtResource("4_2n2qt")
 
@@ -264,17 +279,14 @@ script = ExtResource("4_2n2qt")
 [node name="medalls" type="Node" parent="ui_helper/main_menue"]
 
 [node name="Sprite2D" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
-visible = false
 position = Vector2(103, 115)
 texture = ExtResource("15_cdgot")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
-visible = false
 position = Vector2(120, 115)
 texture = ExtResource("15_cdgot")
 
 [node name="Sprite2D3" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
-visible = false
 position = Vector2(137, 115)
 texture = ExtResource("15_cdgot")
 
@@ -301,7 +313,6 @@ texture = ExtResource("9_imt5t")
 hframes = 2
 
 [node name="wheel" type="Sprite2D" parent="ui_helper/main_menue"]
-visible = false
 position = Vector2(120, 115)
 texture = ExtResource("16_uj23c")
 
@@ -388,3 +399,5 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_6w7eq")
 }
+
+[connection signal="timeout" from="yokai_helper/Timer" to="yokai_helper" method="_on_timer_timeout"]

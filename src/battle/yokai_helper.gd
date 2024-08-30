@@ -2,6 +2,9 @@ class_name BattleYokaiHelper extends Node
 
 
 
+const PLAYER_TEAM: int = 0
+const ENEMY_TEAM: int = 1
+
 const BATTLE_YOKAI_SCENE: PackedScene = preload("res://scn/battle/battle_yokai.tscn")
 const DIRECTION_MOVE: PackedVector2Array = [Vector2.LEFT, Vector2.RIGHT]
 const FRONT_YOKAI_ARRAY_LENGHT: int = 3
@@ -23,12 +26,21 @@ var yokai_finished_moving: bool = true
 @onready var Enemies: Node2D = $enemies
 @onready var BattleInstance: Battle = get_parent()
 
+@onready var DebugLabel: Label = $debuglabel 
+
 
 
 func setup_yokai() -> void:
 	_setup_players()
 	_setup_enemies()
 	_update_yokais()
+
+
+func _update_yokais() -> void:
+	for i in range(len(player_team_inst_front)):
+		player_team_inst_front[i].set_opponents(enemy_team_inst_front)
+	for i in range(len(enemy_team_inst_front)):
+		enemy_team_inst_front[i].set_opponents(player_team_inst_front)
 
 
 func move_yokai(dir: int) -> void:
@@ -40,7 +52,7 @@ func move_yokai(dir: int) -> void:
 		_move_right()
 	
 	for i in range(len(player_team_inst_front)):
-		player_team_inst_front[i].set_move_direction(DIRECTION_MOVE[dir])
+		player_team_inst_front[i].set_move_direction(DIRECTION_MOVE[dir], i)
 	
 	if dir == 0:
 		player_team_inst_front.remove_at(0)
@@ -50,26 +62,47 @@ func move_yokai(dir: int) -> void:
 		player_team_inst_back.remove_at(0)
 	
 	BattleInstance.update_medalls()
+	_update_yokais()
+	
 
 
-func on_yokai_action(team: int, acting_yokai: int, yokai: int, action: String) -> void:	
+func on_yokai_action(team: int, acting_yokai: int, yokai: int, action: String, attack_type: int = 0) -> void:	  
 	match action: 
 		"attack":
-			attack(team, yokai, acting_yokai)
+			attack(team, yokai, acting_yokai, attack_type)
+		"inspirit":
+			inspirit(team, yokai, acting_yokai)
 
 
-func attack(team: int, yokai: int, acting_yokai: int) -> void:
+func attack(team: int, yokai: int, acting_yokai: int, attack_type: int) -> void:
 	match team:
 		0:
-			player_team_inst_front[acting_yokai].set_animation(true)
+			player_team_inst_front[acting_yokai].set_animation("attack")
+			await get_tree().create_timer(0.5).timeout
 			enemy_team_inst_front[yokai].set_target_arrow()
-			enemy_team_inst_front[yokai].set_damage(5)
+			enemy_team_inst_front[yokai].set_damage(5 + 10 * attack_type)
 		1:
-			enemy_team_inst_front[acting_yokai].set_animation(true)
+			enemy_team_inst_front[acting_yokai].set_animation("attack")
+			await get_tree().create_timer(0.5).timeout
 			player_team_inst_front[yokai].set_target_arrow()
-			player_team_inst_front[yokai].set_damage(5)
+			player_team_inst_front[yokai].set_damage(5 + 10 * attack_type)
 	
 	BattleInstance.update_battle_conditions()
+	global.on_yokai_action_finished.emit()
+
+
+func inspirit(team: int, yokai: int, acting_yokai: int) -> void:
+	match team:
+		0:
+			player_team_inst_front[acting_yokai].set_animation("inspirit")
+			await get_tree().create_timer(0.5).timeout
+			enemy_team_inst_front[yokai].set_inspirited()
+		1:
+			enemy_team_inst_front[acting_yokai].set_animation("inspirit")
+			await get_tree().create_timer(0.5).timeout  
+			player_team_inst_front[yokai].set_inspirited()
+	
+	global.on_yokai_action_finished.emit()
 
 
 func update() -> void:
@@ -135,6 +168,7 @@ func _move_left() -> void:
 	
 	new_yokai.position = Vector2(264, 91)
 	new_yokai.set_tick(true)
+	new_yokai.visible = true
 
 	player_team_inst_front.append(new_yokai)
 	player_team_inst_back.insert(0, player_team_inst_front[0])
@@ -149,6 +183,7 @@ func _move_right() -> void:
 	
 	new_yokai.position = Vector2(-24, 91)
 	new_yokai.set_tick(true)
+	new_yokai.visible = true
 
 	player_team_inst_front.insert(0, new_yokai)
 	player_team_inst_back.append(player_team_inst_front[3])
@@ -156,14 +191,6 @@ func _move_right() -> void:
 
 	new_yokai.set_team("player")
 	yokai_finished_moving = true
-
-
-func _update_yokais() -> void:
-	for i in range(len(player_team_inst_front)):
-		player_team_inst_front[i].set_opponents(enemy_team_inst_front)
-	for i in range(len(enemy_team_inst_front)):
-		enemy_team_inst_front[i].set_opponents(player_team_inst_front)
-		
 
 
 # --- PUBLIC --- #
@@ -179,12 +206,12 @@ func set_enemy_yokai_arr(arr: Array) -> void:
 
 
 # TODO: SET SPEED
-func set_speed() -> void:
+func set_speed(_speed: float) -> void:
 	for i in range(len(player_team_inst_front)):
-		player_team_inst_front[i].set_speed()
+		player_team_inst_front[i].set_speed(_speed)
 	
 	for i in range(len(enemy_team_inst_front)):
-		enemy_team_inst_front[i].set_speed()
+		enemy_team_inst_front[i].set_speed(_speed)
 
 
 
@@ -228,7 +255,14 @@ func set_yokai_tick(tick: bool) -> void:
 			enemy_team_inst_front[i].set_tick(false)
 	
 
+func get_player_back() -> Array[BattleYokai]:
+	return player_team_inst_back
+
 
 func set_heal(health: int) -> void:
 	for i in range(len(player_team_inst_front)):
 		player_team_inst_front[i].heal_yokai(health)
+
+
+func _on_timer_timeout() -> void:
+	DebugLabel.text = player_team_inst_front[0].YokaiInst.yokai_name + "," + player_team_inst_front[1].YokaiInst.yokai_name + "," + player_team_inst_front[2].YokaiInst.yokai_name

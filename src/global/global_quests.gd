@@ -51,7 +51,9 @@ func _test_quest(_quest_progress: String) -> void:
 			global_npc.npc_quests["Test"]["Second"] = true
 			global_npc.npc_quests["Test"]["start"] = false
 		"Second":
-			print("ehhhhhhhhhhhh")
+			global.on_dialogue_started.emit("NPC_01", 0)
+			await global.on_dialogue_ended
+			global_npc.npc_quests["Test"]["Second"] = false
 	
 	quest_update.emit()
 			

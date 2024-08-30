@@ -42,6 +42,9 @@ var yokai_max_hp: int
 
 var active: bool = true
 var loafer: bool = true
+var targeted: bool = false
+var inspirited: bool = false
+var ticking: bool = false
 
 var front_sprite: Texture
 var back_sprite: Texture

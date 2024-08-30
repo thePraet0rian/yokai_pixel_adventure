@@ -1,10 +1,8 @@
 class_name BattleYokai extends Sprite2D
 
 
-
-signal action
-
-enum {PLAYER = 0, ENEMY = 1}
+const PLAYER: int = 0
+const ENEMY: int = 1
 
 const DEAD_YOKAI: Texture = preload("res://res/yokai/general/dead_yokai.png")
 const DAMAGE_SCENE: PackedScene = preload("res://scn/battle/misc/damage.tscn")
@@ -14,28 +12,31 @@ const TILE_SIZE: Vector2 = Vector2(72, 0)
 
 var active: bool = true
 
-var team: int = PLAYER
+var team: int
 var dirty: bool = false
 
 var progress: float = 0.0
 var input_direction: Vector2
 var last_position: Vector2
 
-var is_loafing: bool = false
 var is_ticking: bool = true
 var is_targeted: bool = true
 var is_dead: bool = false
 
+var move_number: int
 var yokai_number: int = 0
 
+var YokaiInst: Yokai
 
-@onready var YokaiInst: Yokai
+
+#TBD PARENT REFERENCES SHOULD BE REMOVED
 @onready var YokaiHelperInstance: BattleYokaiHelper = get_node("..").get_node("..")
 
-@onready var AnimPlayer: AnimationPlayer = $anim_player
-@onready var TickTimer: Timer = $tick
-@onready var Selector: Sprite2D = $enemy_ui/selector
+@onready var AnimPlayer: AnimationPlayer = $AnimPlayer
+@onready var TickTimer: Timer = $TickTimer
+
 @onready var SoulimateSelector: Sprite2D = $player_ui/soulimate_selector
+@onready var Selector: Sprite2D = $enemy_ui/selector
 
 @onready var PlayerUi: Node2D = $player_ui
 @onready var EnemyUi: Node2D = $enemy_ui
@@ -43,13 +44,17 @@ var yokai_number: int = 0
 @onready var HealthBar: ColorRect = $player_ui/ui/health_bar
 @onready var EnemyHealthBar: ColorRect = $enemy_ui/ui/HealthBar
 
-@onready var TargetArrow: Sprite2D = $target_arrow
+@onready var TargetArrow: Sprite2D = $TargetArrow
 @onready var SoulMeter: ColorRect = $player_ui/soul_meter/soul
 
 @onready var PlayerAiInstance: PlayerAi
 @onready var EnemyAiInstance: EnemyAi
 
 @onready var HitSoundEffect: AudioStreamPlayer2D = $HitSoundEffect
+@onready var InspiritedSprite: Sprite2D = $Inspirited
+
+
+@onready var DebugUiTickRect: ColorRect = $debug_ui/ColorRect
 
 
 func _ready() -> void:
@@ -105,6 +110,12 @@ func set_target() -> void:
 	if team == ENEMY:
 		Selector.visible = true
 		YokaiHelperInstance.set_selected_yokai(yokai_number)
+		YokaiInst.targeted = true
+
+
+func set_inspirited() -> void:
+	InspiritedSprite.visible = true
+	YokaiInst.inspirited = true
 
 
 func set_soulimate(_selected_soul_yokai: int, _active: bool) -> void:
@@ -131,24 +142,27 @@ func set_damage(_damage_int: int) -> void:
 	_update_health_bar()
 
 
-func set_move_direction(direction: Vector2) -> void:
+func set_move_direction(direction: Vector2, number: int) -> void:
 	last_position = position
 	input_direction = direction
 	set_process(true)
+	move_number = number
 
 
 # TBD: MUTLIPLE DIFFERENT ANIMATIONS
-func set_animation(_animation: bool) -> void:
-	if team == PLAYER:
-		_player_attack_animation()
-	else:
-		_enemy_attack_animation()	
+func set_animation(_animation: String = "attack") -> void:
+	match _animation:
+		"attack":
+			if team == PLAYER:
+				_player_attack_animation()
+			else:
+				_enemy_attack_animation()	
+		"inspirit":
+			_inpspirit_animation()
 
 
-func set_speed() -> void:
-	TickTimer.wait_time = TickTimer.wait_time / 10
-
-
+func set_speed(_speed: float) -> void:
+	TickTimer.wait_time = TickTimer.wait_time * _speed
 
 
 func _update_player() -> void:
@@ -169,6 +183,13 @@ func _move(delta: float) -> void:
 			position = last_position + (TILE_SIZE * input_direction)
 			progress = 0.0
 			set_process(false)
+			if input_direction == Vector2.LEFT:
+				if move_number == 0:
+					visible = false
+			else:
+				if move_number == 3:
+					visible = false
+			global.on_yokai_action_finished.emit()
 		else:
 			position = last_position + (TILE_SIZE * input_direction * progress)
 
@@ -188,6 +209,10 @@ func _on_tick_timer_timeout() -> void:
 			_soul_update(0.25)
 		if team == 1: 
 			EnemyAiInstance.enemy_tick()
+	
+	DebugUiTickRect.color = Color8(255, 0, 0)
+	await get_tree().create_timer(.2).timeout
+	DebugUiTickRect.color = Color8(255, 255, 255)
 
 
 func _soul_update(soul: float) -> void:
@@ -199,6 +224,10 @@ func _death_check() -> void:
 	if YokaiInst.yokai_hp <= 0:
 		texture = DEAD_YOKAI
 		is_dead = true
+		YokaiInst.active = false
+		TickTimer.stop()
+		InspiritedSprite.visible = false  
+
 
 func _update_health_bar() -> void:
 	var TweenInst: Tween = create_tween()
@@ -213,6 +242,7 @@ func _update_health_bar() -> void:
 	await TweenInst.finished
 	YokaiHelperInstance.update()
 	
+	
 func _damage(_damage_int: int) -> void:
 	randomize()
 	var x: int = randi_range(0, 16)
@@ -222,6 +252,7 @@ func _damage(_damage_int: int) -> void:
 	DamageInstance.position = Vector2(x, y)
 	add_child(DamageInstance)
 	DamageInstance.set_damage(_damage_int)
+	print("ahhhhhhhhhhhhh")
 	HitSoundEffect.play()
 
 
@@ -231,4 +262,5 @@ func _player_attack_animation() -> void:
 func _enemy_attack_animation() -> void:
 	AnimPlayer.play("flash")
 
-
+func _inpspirit_animation() -> void:
+	AnimPlayer.play("flash2")

@@ -2,7 +2,7 @@ class_name Npc extends CharacterBody2D
 
 
 enum Behavoirs {
-	STANDING = 0, # defualt
+	STANDING = 0,
 	MOVING = 1,
 	WAITING = 2,
 	SHOPKEEPING = 3,  
@@ -10,12 +10,13 @@ enum Behavoirs {
 }
 
 
-var points: Array[Vector2]
-var times: Array[int]
-var velocities: Array[Vector2]
 var npc_data: Dictionary
 
 var has_quest: bool = false
+
+var points: Array[Vector2]
+var times: Array[int]
+var velocities: Array[Vector2]
 
 
 @export var current_behavior: Behavoirs = Behavoirs.STANDING

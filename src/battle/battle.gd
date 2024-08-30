@@ -40,6 +40,8 @@ var can_item: bool = true
 var can_purfy: bool = true
 var can_target: bool = true
 
+var is_sped_up: bool = false
+
 
 @onready var YokaiHelperInstance: BattleYokaiHelper = $yokai_helper
 @onready var UiHelperInstance: UiHelper = $ui_helper 
@@ -90,7 +92,12 @@ func _selecting_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("speed_up"):
 		UiHelperInstance.set_speed_up()
-		YokaiHelperInstance.set_speed()
+		if not is_sped_up:
+			YokaiHelperInstance.set_speed(.5)
+			is_sped_up = true
+		else:
+			YokaiHelperInstance.set_speed(2)
+			is_sped_up = false
 
 
 func _change_sub_game_state(sub_buttons_index: int) -> void:

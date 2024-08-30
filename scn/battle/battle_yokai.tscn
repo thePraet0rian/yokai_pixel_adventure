@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0arumlvmxady"]
+[gd_scene load_steps=17 format=3 uid="uid://d0arumlvmxady"]
 
 [ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://src/battle/battle_yokai.gd" id="1_n8hpv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://medt236xexnu" path="res://res/battle/battle_yokai/enemy_healthbar.png" id="7_oekgx"]
 [ext_resource type="Texture2D" uid="uid://bkcrt4b80xvj6" path="res://res/battle/battle_yokai/target_arrow.png" id="7_v1tts"]
 [ext_resource type="AudioStream" uid="uid://dnorb3hh0eg1l" path="res://res/sfx/hit.wav" id="10_77fup"]
+[ext_resource type="Texture2D" uid="uid://bw0h2y5vq2gpj" path="res://res/battle/fx/inspirited.png" id="11_f61ik"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubimd"]
 resource_local_to_scene = true
@@ -31,6 +32,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector4(1, 1, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_wgubg"]
 resource_name = "flash"
@@ -48,11 +61,53 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 1.0, 0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector4(1, 1, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_52ki6"]
+resource_name = "flash2"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector4(0, 0, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/mx")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_py8ro"]
 _data = {
 "RESET": SubResource("Animation_6rak4"),
-"flash": SubResource("Animation_wgubg")
+"flash": SubResource("Animation_wgubg"),
+"flash2": SubResource("Animation_52ki6")
 }
 
 [node name="BattleYokai" type="Sprite2D"]
@@ -116,16 +171,25 @@ offset_right = 15.0
 offset_bottom = 1.0
 color = Color(0.843137, 0.482353, 0.729412, 1)
 
-[node name="tick" type="Timer" parent="."]
-wait_time = 2.0
+[node name="debug_ui" type="Node2D" parent="."]
+position = Vector2(0, -1)
+
+[node name="ColorRect" type="ColorRect" parent="debug_ui"]
+offset_left = -24.0
+offset_top = -13.0
+offset_right = -19.0
+offset_bottom = -8.0
+
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 4.0
 autostart = true
 
-[node name="anim_player" type="AnimationPlayer" parent="."]
+[node name="AnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_py8ro")
 }
 
-[node name="target_arrow" type="Sprite2D" parent="."]
+[node name="TargetArrow" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(0, -20)
 texture = ExtResource("7_v1tts")
@@ -133,4 +197,11 @@ texture = ExtResource("7_v1tts")
 [node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_77fup")
 
-[connection signal="timeout" from="tick" to="." method="_on_tick_timer_timeout"]
+[node name="Inspirited" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.521569)
+position = Vector2(0, -2.5)
+scale = Vector2(1.33333, 1.10417)
+texture = ExtResource("11_f61ik")
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

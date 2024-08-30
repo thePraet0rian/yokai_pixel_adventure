@@ -5,11 +5,13 @@ const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
 const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
 const EYEPO_SCENE: PackedScene = preload("res://scn/ui/eyepo/eyepo.tscn")
 const SPOT_SCENE: PackedScene = preload("res://scn/ui/spot/spot.tscn")
+
 const SAVE_FILE_ARR: PackedStringArray = [
 	"user://savefile_one.save",
 	"user://savefile_two.save",
 	"user://savefile_three.save",
 ]
+
 
 @onready var UiHelperInstance: Ui = $ui
 @onready var Rooms: Node2D = $rooms
