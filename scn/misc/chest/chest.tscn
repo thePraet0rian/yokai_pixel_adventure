@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl3jhtelhj2ih"]
+
+[ext_resource type="Script" path="res://src/misc/chest/chest.gd" id="1_0a0p8"]
+[ext_resource type="Texture2D" uid="uid://cl5nkagfmkqcs" path="res://res/misc/interactables/purple_chest.png" id="2_k7ca3"]
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource("1_0a0p8")
+
+[node name="ChestSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_k7ca3")
+hframes = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[node name="ChestHitbox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ChestHitbox"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)

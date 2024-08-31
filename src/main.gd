@@ -5,6 +5,7 @@ const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
 const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
 const EYEPO_SCENE: PackedScene = preload("res://scn/ui/eyepo/eyepo.tscn")
 const SPOT_SCENE: PackedScene = preload("res://scn/ui/spot/spot.tscn")
+const ITEM_OBTAINED_SCENE: PackedScene = preload("res://scn/misc/item/item_obtained.tscn")
 
 const SAVE_FILE_ARR: PackedStringArray = [
 	"user://savefile_one.save",
@@ -28,12 +29,18 @@ func _ready() -> void:
 func _connect_signals() -> void:
 	global.on_game_loaded.connect(_on_game_loaded)
 	global.on_game_saved.connect(_on_game_saved)
+	
 	global.on_battle_started.connect(_on_battle_started)
 	global.on_battle_ended.connect(_on_battle_ended)
+	
 	global.on_room_transitioned.connect(_on_room_transitioned)
+	
 	global.on_start_eyepo.connect(_start_eyepo)
+	
 	global.on_spot_started.connect(_start_spot)
-	#global.on_quest_started.connect(_start_quest)   
+	
+	global.on_open_chest.connect(_open_chest)
+	
 
 
 func _on_game_loaded(_save_file: int) -> void:
@@ -135,3 +142,8 @@ func _start_spot(current_yokai: Array[Yokai], has_yokai: bool, area: int) -> voi
 	SpotInstance.set_enemy_arr(current_yokai)
 	add_child(SPOT_SCENE.instantiate())
 			
+
+func _open_chest(item: String) -> void:
+	var ItemObtainedInstance: ItemObtained = ITEM_OBTAINED_SCENE.instantiate()
+	add_child(ItemObtainedInstance)
+	ItemObtainedInstance.set_item(item)

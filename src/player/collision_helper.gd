@@ -8,6 +8,7 @@ var NpcInstance: Npc
 var OverworldYokaiInstance: OverworldYokai
 var YokaiSpotInstance: YokaiSpot
 var SpotColliderInstance: SpotCollider
+var OverworldChest: Chest
 
 var npc_met: bool = false
 var yokai_met: bool = false
@@ -16,6 +17,7 @@ var is_tracking_hotspot: bool = false
 var can_start_battle: bool = false
 var can_use_eyepo: bool = false
 var can_open_spot: bool = false
+var can_open_chest: bool = false
 
 var npc_type: int 
 var transition_target
@@ -40,6 +42,8 @@ func _input(event: InputEvent) -> void:
 			_eyepo()
 		if can_open_spot:
 			_spot()
+		if can_open_chest:
+			_chest()
 
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
@@ -73,6 +77,11 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 			can_open_spot = true
 			SpotColliderInstance = area
 			can_action_space.emit(true)
+		
+		"ChestHitbox":
+			OverworldChest = area.get_parent()
+			if OverworldChest.is_enabled():
+				can_open_chest = true
 
 
 func _on_hurtbox_area_exited(area: Area2D) -> void:
@@ -97,6 +106,9 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 		"spot_hitbox":
 			can_open_spot = false
 			can_action_space.emit(false)
+		
+		"ChestHitbox":
+			can_open_chest = false
 
 
 func _npc() -> void:
@@ -146,6 +158,11 @@ func _spot() -> void:
 func _process(_delta: float) -> void:
 	if is_tracking_hotspot:
 		var distance: float = int(get_parent().position.distance_to(YokaiSpotInstance.position))
+		get_parent().set_clock_percent(1 - (distance / 100.0))
 		if distance < 5:
 			can_start_battle = true
 			
+
+func _chest() -> void:
+	get_tree().paused = true
+	global.on_open_chest.emit(OverworldChest.get_chest_content())

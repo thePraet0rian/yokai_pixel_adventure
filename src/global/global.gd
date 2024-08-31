@@ -34,6 +34,8 @@ signal on_spot_started
 
 signal on_quest_started
 
+signal on_open_chest
+
 
 
 const rooms: Array[PackedScene] = [

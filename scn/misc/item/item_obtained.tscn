@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://chl008ot0qmrm"]
+
+[ext_resource type="Script" path="res://src/ui/item/item_obtained.gd" id="1_d2grr"]
+[ext_resource type="Texture2D" uid="uid://c7w7aowkxwfmw" path="res://res/dialogue_assets/background.png" id="2_1mnob"]
+
+[node name="ItemObtained" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_d2grr")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 0.133333)
+
+[node name="Item" type="Sprite2D" parent="."]
+position = Vector2(120, 56)
+
+[node name="TextBox" type="Sprite2D" parent="."]
+position = Vector2(120, 111)
+texture = ExtResource("2_1mnob")
+
+[node name="Label" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "test"

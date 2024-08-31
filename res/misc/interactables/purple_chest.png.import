@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnxcb4y70qbgd"
-path="res://.godot/imported/item_selector.png-1cbdd002d163fb1633e29bc804560d65.ctex"
+uid="uid://cl5nkagfmkqcs"
+path="res://.godot/imported/purple_chest.png-36cf40cdbe5be126bffd0836c03ca68f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/ui/item_selector.png"
-dest_files=["res://.godot/imported/item_selector.png-1cbdd002d163fb1633e29bc804560d65.ctex"]
+source_file="res://res/misc/interactables/purple_chest.png"
+dest_files=["res://.godot/imported/purple_chest.png-36cf40cdbe5be126bffd0836c03ca68f.ctex"]
 
 [params]
 

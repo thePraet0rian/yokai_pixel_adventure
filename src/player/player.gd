@@ -42,6 +42,7 @@ var yokai_met: bool = false
 @onready var anim_propteries = $anim_tree.get("parameters/playback")
 
 @onready var SpaceButton: Sprite2D = $ui/space_button
+@onready var WatchHandle: Sprite2D = $ui/player_ui/WatchBackground/WatchHandle
 
 
 func _ready() -> void:
@@ -131,3 +132,8 @@ func show_objective() -> void:
 func set_orientation(new_orientation: Vector2) -> void:	
 	input_vec = new_orientation
 	_animate()
+
+
+func set_clock_percent(percent: float) -> void:
+	print(percent)
+	WatchHandle.rotation_degrees = -100 + percent * 258.5
