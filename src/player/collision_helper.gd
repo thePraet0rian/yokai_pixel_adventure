@@ -81,6 +81,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		"ChestHitbox":
 			OverworldChest = area.get_parent()
 			if OverworldChest.is_enabled():
+				can_action_space.emit(true)
 				can_open_chest = true
 
 
@@ -109,6 +110,11 @@ func _on_hurtbox_area_exited(area: Area2D) -> void:
 		
 		"ChestHitbox":
 			can_open_chest = false
+			can_action_space.emit(false)
+		
+		"transition":
+			can_transition = false
+			can_action_space.emit(false)
 
 
 func _npc() -> void:
@@ -164,5 +170,6 @@ func _process(_delta: float) -> void:
 			
 
 func _chest() -> void:
+	OverworldChest.set_chest_used(true)
 	get_tree().paused = true
 	global.on_open_chest.emit(OverworldChest.get_chest_content())

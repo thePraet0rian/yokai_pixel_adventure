@@ -22,7 +22,6 @@ func _input(event: InputEvent) -> void:
 		Target.frame = 1
 		
 		if can_start_battle:
-			print("start battle")
 			global.on_battle_started.emit(yokai_arr)
 			queue_free()	
 	else:

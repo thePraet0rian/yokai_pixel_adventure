@@ -36,11 +36,12 @@ signal on_quest_started
 
 signal on_open_chest
 
+signal on_heal_yokai
 
 
 const rooms: Array[PackedScene] = [
 	preload("res://scn/rooms/room_01.tscn"),
-	preload("res://scn/rooms/room_02.scn"),
+	preload("res://room_03.tscn"),
 ]
 
 

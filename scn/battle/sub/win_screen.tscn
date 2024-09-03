@@ -231,13 +231,8 @@ position = Vector2(36, 127)
 texture = ExtResource("1_1pxk1")
 hframes = 2
 
-[node name="Label" type="Label" parent="win"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-
 [node name="Sprite2D7" type="Sprite2D" parent="win"]
-position = Vector2(101, 41)
+position = Vector2(40, 24)
 texture = ExtResource("4_6s6br")
 
 [node name="Sprite2D" type="Sprite2D" parent="win/Sprite2D7"]

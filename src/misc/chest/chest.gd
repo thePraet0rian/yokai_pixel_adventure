@@ -7,8 +7,17 @@ class_name Chest extends StaticBody2D
 var _is_enabled: bool = true
 
 
+@onready var ChestSprite: Sprite2D = $ChestSprite
+
+
 func set_chest_content(content: String) -> void:
 	pass
+
+
+func set_chest_used(use: bool) -> void:
+	if use:
+		_is_enabled = false
+		ChestSprite.frame = 1
 
 
 func get_chest_content() -> String:

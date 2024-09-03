@@ -43,8 +43,6 @@ func _quest_interaction(_quest_name: String, _quest_progress: String) -> void:
 func _test_quest(_quest_progress: String) -> void:
 	match _quest_progress:
 		"start":
-			print("quest test started")
-			
 			var QuestAcceptScreenInstance: CanvasLayer = QUEST_ACCEPT_SCREEN.instantiate()
 			QuestAcceptScreenInstance.set_quest_name("Test")
 			add_sibling(QuestAcceptScreenInstance)

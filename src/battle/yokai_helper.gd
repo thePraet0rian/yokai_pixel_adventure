@@ -1,7 +1,6 @@
 class_name BattleYokaiHelper extends Node
 
 
-
 const PLAYER_TEAM: int = 0
 const ENEMY_TEAM: int = 1
 
@@ -66,15 +65,19 @@ func move_yokai(dir: int) -> void:
 	
 
 
-func on_yokai_action(team: int, acting_yokai: int, yokai: int, action: String, attack_type: int = 0) -> void:	  
+func on_yokai_action(action: String, team: int, acting_yokai: int, yokai: int, attack_type: int = 0) -> void:
 	match action: 
 		"attack":
-			attack(team, yokai, acting_yokai, attack_type)
+			_attack(team, yokai, acting_yokai, attack_type)
 		"inspirit":
-			inspirit(team, yokai, acting_yokai)
+			_inspirit(team, yokai, acting_yokai)
+		"heal":
+			_heal(team, acting_yokai)
+		"give":
+			pass
 
 
-func attack(team: int, yokai: int, acting_yokai: int, attack_type: int) -> void:
+func _attack(team: int, yokai: int, acting_yokai: int, attack_type: int) -> void:
 	match team:
 		0:
 			player_team_inst_front[acting_yokai].set_animation("attack")
@@ -91,7 +94,7 @@ func attack(team: int, yokai: int, acting_yokai: int, attack_type: int) -> void:
 	global.on_yokai_action_finished.emit()
 
 
-func inspirit(team: int, yokai: int, acting_yokai: int) -> void:
+func _inspirit(team: int, yokai: int, acting_yokai: int) -> void:
 	match team:
 		0:
 			player_team_inst_front[acting_yokai].set_animation("inspirit")
@@ -103,6 +106,15 @@ func inspirit(team: int, yokai: int, acting_yokai: int) -> void:
 			player_team_inst_front[yokai].set_inspirited()
 	
 	global.on_yokai_action_finished.emit()
+
+
+func _heal(team: int, yokai: int) -> void:
+	print(yokai)
+	match team:
+		0:
+			player_team_inst_front[yokai].set_heal(100)
+		1:
+			pass
 
 
 func update() -> void:

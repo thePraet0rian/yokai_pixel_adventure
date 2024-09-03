@@ -121,6 +121,7 @@ func _on_game_saved() -> void:
 		},
 		"room": global.current_room,
 		"Inventory": inventory_names,
+		"Team": ["Jibanyan", "Zerberker", "Dragon Lord", "Jibanyan", "Peckpocket", "Jibanyan"],
 	}
 
 	var string = JSON.stringify(data)

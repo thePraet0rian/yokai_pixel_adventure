@@ -165,6 +165,16 @@ func set_speed(_speed: float) -> void:
 	TickTimer.wait_time = TickTimer.wait_time * _speed
 
 
+func set_heal(_health: int) -> void:
+	print(YokaiInst.yokai_hp)
+	if YokaiInst.yokai_hp + _health <= YokaiInst.yokai_max_hp:
+		YokaiInst.yokai_hp += _health
+	else:
+		YokaiInst.yokai_hp = YokaiInst.yokai_max_hp
+	print(YokaiInst.yokai_hp)
+	HealthBar.scale.x = (float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp))
+
+
 func _update_player() -> void:
 	texture = YokaiInst.front_sprite
 	
@@ -252,7 +262,6 @@ func _damage(_damage_int: int) -> void:
 	DamageInstance.position = Vector2(x, y)
 	add_child(DamageInstance)
 	DamageInstance.set_damage(_damage_int)
-	print("ahhhhhhhhhhhhh")
 	HitSoundEffect.play()
 
 

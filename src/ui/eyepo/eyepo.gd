@@ -58,5 +58,3 @@ func _check() -> void:
 func _heal() -> void:
 	for i in range(6):
 		global.player_yokai[i].yokai_hp = global.player_yokai[i].yokai_max_hp
-
-

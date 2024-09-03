@@ -32,8 +32,7 @@ func _player_behavoir(attack_type: int) -> void:
 	
 		for i in range(len(EnemyYokais)):
 			if EnemyYokais[i].active and EnemyYokais[i].yokai_hp >= 0 and not EnemyYokais[i].inspirited:
-				print("inspirit")
-				global.on_yokai_action.emit(BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i, "inspirit")
+				global.on_yokai_action.emit("inspirit", BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i)
 				return
 	
 	elif attack_type == 1 or attack_type == 2:
@@ -41,12 +40,11 @@ func _player_behavoir(attack_type: int) -> void:
 		#targeted
 		for i in range(len(EnemyYokais)):
 			if EnemyYokais[i].targeted and EnemyYokais[i].yokai_hp >= 0:
-				global.on_yokai_action.emit(BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i, "attack", attack_type)
+				global.on_yokai_action.emit("attack", BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i, attack_type)
 				return
 		
 		#not targted
 		for i in range(len(EnemyYokais)):
 			if EnemyYokais[i].active and EnemyYokais[i].yokai_hp >= 0:
-				print("attack")
-				global.on_yokai_action.emit(BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i, "attack", attack_type)
+				global.on_yokai_action.emit("attack", BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i, attack_type)
 				return

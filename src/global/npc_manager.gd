@@ -1,6 +1,16 @@
 extends Node
 
 
+enum NPCS {
+	NPC_01 = 0,
+	NPC_02 = 1,
+	NPC_03 = 2,
+}
+
+
+const npc_conversion_arr: PackedStringArray = ["NPC_01", "NPC_02", "NPC_03"]
+
+
 var npcs: Dictionary
 
 

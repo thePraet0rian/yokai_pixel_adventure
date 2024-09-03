@@ -135,5 +135,4 @@ func set_orientation(new_orientation: Vector2) -> void:
 
 
 func set_clock_percent(percent: float) -> void:
-	print(percent)
 	WatchHandle.rotation_degrees = -100 + percent * 258.5

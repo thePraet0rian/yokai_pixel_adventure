@@ -24,7 +24,6 @@ func behavoir_barrier() -> bool:
 func action() -> int:
 	randomize()
 	var random_float: float = randf()
-	print(random_float)
 	
 	if random_float < 0.05 :
 		return INSPIRITING

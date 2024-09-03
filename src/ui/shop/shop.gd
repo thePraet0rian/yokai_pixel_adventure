@@ -78,11 +78,9 @@ func _npc_01() -> void:
 	for i in range(len(player_inventory[item_category])):
 		
 		if player_inventory[item_category][i].item_priority > item_priority:
-			print("insert item")
 			global.player_inventory[item_category].insert(i, Item.new(tmp_items[index]))
 			return
 		elif (i+1) == len(global.player_inventory[item_category]):
-			print("append at end")
 			global.player_inventory[item_category].append(Item.new(tmp_items[index]))
 			return
 

@@ -1,6 +1,14 @@
 extends Node
 
 
+enum NPCS {
+	NPC_01 = 0,
+	NPC_02 = 1,
+	NPC_03 = 2,
+}
+
+
+const npc_conversion_arr: PackedStringArray = ["NPC_01", "NPC_02", "NPC_03"]
 const NPC_SPRITES_PATH: String = "res://src/npc/data/npc_sprites.json"
 const MOVING_NPC_PATH: String = "res://src/npc/npcs.json"
 const TALKING_NPC_PATH: String = "res://src/npc/test.json"

@@ -11,6 +11,7 @@ enum Behavoirs {
 
 
 var npc_data: Dictionary
+var npc_name: String = "NPC_01"
 
 var has_quest: bool = false
 
@@ -19,8 +20,8 @@ var times: Array[int]
 var velocities: Array[Vector2]
 
 
+@export var npc: global_npc.NPCS = global_npc.NPCS.NPC_01
 @export var current_behavior: Behavoirs = Behavoirs.STANDING
-@export var npc_name: String = "NPC_01"
 @export var repeating: bool = false
 @export var quest_name: String = ""
 @export var quest_progress: String = "start"
@@ -32,6 +33,7 @@ var velocities: Array[Vector2]
 
 
 func _ready() -> void:	
+	npc_name = global_npc.npc_conversion_arr[npc  ]
 	_load()
 	GlobalQuests.quest_update.connect(_load)
 

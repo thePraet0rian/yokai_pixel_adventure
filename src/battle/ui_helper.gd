@@ -58,15 +58,14 @@ func _ready() -> void:
 
 
 func _connect_signals() -> void:
-	SubUis[3].heal_yokai.connect(_heal_yokai)
 	global.on_yokai_action_finished.connect(_on_yokai_action_finished)
 	
 	await get_parent().ready
 	BattleYokaiHelperInstance = BattleInst.YokaiHelperInstance
 
 
-func _heal_yokai(_health: int) -> void:
-	heal_yokai.emit(_health)
+#func _heal_yokai(_health: int) -> void:
+	#heal_yokai.emit(_health)
 
 
 func _hide_ui() -> void:
