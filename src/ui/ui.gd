@@ -16,6 +16,7 @@ func _ready() -> void:
 	global.on_menue_closed.connect(close_menue)
 	
 	global.on_shopkeeper_met.connect(open_shop)
+	global.on_battle_ended.connect(_start_battle)
 
 
 func start_dialogue(npc_name: String, dialogue_int: int) -> void:
@@ -25,19 +26,16 @@ func start_dialogue(npc_name: String, dialogue_int: int) -> void:
 
 
 func end_dialogue() -> void:
-	
 	get_tree().paused = false
 
 
 func open_shop(shop_name: String) -> void:
-	
 	var ShopInstance: Shop = SHOP_SCENE.instantiate()
 	ShopInstance.shop_name = shop_name
 	add_child(ShopInstance)
 
 
 func close_menue() -> void:
-	
 	UiOverlay.visible = true
 	UiAnimPlayer.play("fade_in")
 	
@@ -45,3 +43,10 @@ func close_menue() -> void:
 	UiOverlay.visible = false
 	
 	UiAnimPlayer.play("RESET")
+
+
+func _start_battle() -> void:
+	UiOverlay.visible = true
+	UiAnimPlayer.play("fade_out")
+	await UiAnimPlayer.animation_finished
+	UiOverlay.visible = false

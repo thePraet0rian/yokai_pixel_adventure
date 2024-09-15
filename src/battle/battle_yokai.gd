@@ -232,11 +232,18 @@ func _soul_update(soul: float) -> void:
 
 func _death_check() -> void:
 	if YokaiInst.yokai_hp <= 0:
-		texture = DEAD_YOKAI
-		is_dead = true
-		YokaiInst.active = false
-		TickTimer.stop()
-		InspiritedSprite.visible = false  
+		match team:
+			0:	
+				texture = DEAD_YOKAI
+				is_dead = true
+				YokaiInst.active = false
+				TickTimer.stop()
+				InspiritedSprite.visible = false  
+			1:
+				is_dead = true
+				YokaiInst.active = false
+				TickTimer.stop()
+				visible = false
 
 
 func _update_health_bar() -> void:

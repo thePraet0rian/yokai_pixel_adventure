@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba68x4ursv5uv"]
+
+[ext_resource type="Texture2D" uid="uid://2wyxly5lx1ka" path="res://res/ui/inventory/menue/medalls/quest.png" id="1_kufi4"]
+
+[node name="QuestButton" type="Sprite2D"]
+texture = ExtResource("1_kufi4")
+hframes = 2

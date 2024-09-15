@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xwp6084y0l66"
-path="res://.godot/imported/purify_button.png-3e8b56a9084bef38075a2f08c068e0a6.ctex"
+uid="uid://2wyxly5lx1ka"
+path="res://.godot/imported/quest.png-624428032a59498f875cb141fe653c1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/buttons/purify_button.png"
-dest_files=["res://.godot/imported/purify_button.png-3e8b56a9084bef38075a2f08c068e0a6.ctex"]
+source_file="res://res/ui/inventory/menue/medalls/quest.png"
+dest_files=["res://.godot/imported/quest.png-624428032a59498f875cb141fe653c1f.ctex"]
 
 [params]
 

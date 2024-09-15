@@ -41,7 +41,7 @@ signal on_heal_yokai
 
 const rooms: Array[PackedScene] = [
 	preload("res://scn/rooms/room_01.tscn"),
-	preload("res://room_03.tscn"),
+	preload("res://scn/rooms/room_03.tscn")
 ]
 
 

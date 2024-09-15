@@ -10,8 +10,8 @@ enum NPCS {
 
 const npc_conversion_arr: PackedStringArray = ["NPC_01", "NPC_02", "NPC_03"]
 const NPC_SPRITES_PATH: String = "res://src/npc/data/npc_sprites.json"
-const MOVING_NPC_PATH: String = "res://src/npc/npcs.json"
-const TALKING_NPC_PATH: String = "res://src/npc/test.json"
+const MOVING_NPC_PATH: String = "res://src/npc/data/npcs.json"
+const TALKING_NPC_PATH: String = "res://src/npc/data/test.json"
 # CONSTANT IS TEMPORARY TBD
 var npc_quests: Dictionary = {
 	"Test": {

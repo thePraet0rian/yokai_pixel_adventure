@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6wg0blukpgdw"
-path="res://.godot/imported/item_button.png-4026049b72af3f6ea09bc5ed07290ba8.ctex"
+uid="uid://cc56xx4tkiuv4"
+path="res://.godot/imported/top_bar.png-c9e2e174864b609d37b5c9fa5dbcd8f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/buttons/item_button.png"
-dest_files=["res://.godot/imported/item_button.png-4026049b72af3f6ea09bc5ed07290ba8.ctex"]
+source_file="res://res/ui/inventory/menue/top_bar.png"
+dest_files=["res://.godot/imported/top_bar.png-c9e2e174864b609d37b5c9fa5dbcd8f4.ctex"]
 
 [params]
 

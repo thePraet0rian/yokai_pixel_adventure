@@ -6,6 +6,7 @@ const SAVE_SCREEN_SCENE: PackedScene = preload("res://scn/ui/inventory/save_scre
 const TEAM_SCENE: PackedScene = preload("res://scn/ui/inventory/team.tscn")
 const SETTINGS_SCENE: PackedScene = preload("res://scn/ui/inventory/settings.tscn")
 const MEDALLS_SCENE: PackedScene = preload("res://scn/ui/inventory/medalls.tscn")
+const QUEST_SCENE: PackedScene = preload("res://scn/ui/inventory/quests.tscn")
 
 
 enum STATES {
@@ -14,14 +15,14 @@ enum STATES {
 	SAVE = 2, 
 	MEDALLS = 3, 
 	TEAM = 4,
-	SETTINGS = 5
+	SETTINGS = 5,
+	QUEST = 6,
 }
 
 
 @onready var MoneyLabel: Label = $main/top_bar/money
 @onready var AnimPlayer: AnimationPlayer = $main/anim_player
 @onready var SubInventory: Node2D = $sub_ui
-
 @onready var Buttons: Array[Array] = [
 	[$main/buttons/button_0, $main/buttons/button_3], 
 	[$main/buttons/button_1, $main/buttons/button_4], 
@@ -55,7 +56,6 @@ func _main_menue_input(event: InputEvent) -> void:
 		else:
 			cur_pos.y -= 1
 	if event.is_action_pressed("move_down"):
-
 		if cur_pos.y == 1:
 			pass
 		else:
@@ -94,7 +94,6 @@ func _main_menue_input(event: InputEvent) -> void:
 
 func _match_main_input() -> void:
 	if cur_pos.x == 0 and cur_pos.y == 0:
-		
 		var InventoryInst: Node2D = INVENTORY_SCENE.instantiate()
 		InventoryInst.inventory_close.connect(set_current_state)
 		
@@ -102,7 +101,6 @@ func _match_main_input() -> void:
 		current_state = STATES.INVENTORY
 	
 	if cur_pos.x == 1 and cur_pos.y == 0:
-		
 		var SaveScreenInst: Node2D = SAVE_SCREEN_SCENE.instantiate()
 		SaveScreenInst.save_screen_close.connect(set_current_state)
 		
@@ -110,21 +108,27 @@ func _match_main_input() -> void:
 		current_state = STATES.SAVE
 	
 	if cur_pos.x == 2 and cur_pos.y == 1:
-		
 		var SettingsInstance: Node2D = SETTINGS_SCENE.instantiate()
 		
 		SubInventory.add_child(SettingsInstance)
 		current_state = STATES.SETTINGS
 	
 	if cur_pos.x == 2 and cur_pos.y == 0:
-		
 		var MedallsInstance: Node2D = MEDALLS_SCENE.instantiate()
 		
 		SubInventory.add_child(MedallsInstance)
 		current_state = STATES.MEDALLS
+		MedallsInstance.medalls_close.connect(set_current_state)
+	
+	if cur_pos.x == 0 and cur_pos.y == 1:
+		var QuestInstance: Quests = QUEST_SCENE.instantiate()
+		
+		SubInventory.add_child(QuestInstance)
+		current_state = STATES.QUEST
+		QuestInstance.quest_close.connect(set_current_state)
+	
 	
 	if cur_pos.x == 3:
-		
 		var TeamInst: Team = TEAM_SCENE.instantiate()
 		TeamInst.team_close.connect(set_current_state)
 		
@@ -133,7 +137,6 @@ func _match_main_input() -> void:
 
 
 func _end() -> void:	
-	
 	global.on_menue_closed.emit()
 	get_tree().paused = false
 	queue_free()

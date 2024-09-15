@@ -1,7 +1,6 @@
 extends Node2D
 
 
-signal soulimate()
 signal _left
 signal _right
 signal _up

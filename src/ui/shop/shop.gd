@@ -3,7 +3,9 @@ class_name Shop extends CanvasLayer
 
 @export var tmp_items: Array[String] = []
 
+
 const ItemScene: PackedScene = preload("res://scn/ui/shop/item.tscn")
+
 
 var shop_name: String = ""
 var player_items: Array[Array] = global.player_inventory
@@ -11,6 +13,7 @@ var player_items: Array[Array] = global.player_inventory
 var index: int = 0
 var container_index: int = 0
 var player_money: int = global.current_money
+
 
 @onready var container: Node2D = $container
 @onready var item_selector: Sprite2D = $container/selector

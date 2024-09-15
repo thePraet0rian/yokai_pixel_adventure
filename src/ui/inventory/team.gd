@@ -8,7 +8,7 @@ signal team_close
 @onready var SpaceButton: Sprite2D = $buttons/Sprite2D2
 
 # WARNING: THIS IS TMP DO NOT USE
-@onready var LevelLabel: Label = $Sprite2D7/Label
+@onready var LevelLabel: Label = $yokais/Sprite2D7/Label
 
 
 func _ready() -> void:
@@ -31,4 +31,4 @@ func _end() -> void:
 
 
 func _load_levels() -> void:
-	LevelLabel.text = "Lv." + str(global.player_yokai[0].yokai_level)
+	LevelLabel.text = str(global.player_yokai[0].yokai_level)

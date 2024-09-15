@@ -182,7 +182,6 @@ offset_bottom = -8.0
 
 [node name="TickTimer" type="Timer" parent="."]
 wait_time = 4.0
-autostart = true
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {

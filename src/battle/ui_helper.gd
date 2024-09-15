@@ -1,10 +1,13 @@
 class_name UiHelper extends Node
 
 
+signal start_battle
 signal win_animation_finished
-signal ui_hidden
-signal ui_shown
+signal hide_ui
+@warning_ignore("unused_signal")
 signal heal_yokai
+@warning_ignore("unused_signal")
+signal ui_shown
 
 
 enum SUB_GAME_STATES {
@@ -17,8 +20,10 @@ enum SUB_GAME_STATES {
 
 
 var current_state: SUB_GAME_STATES = SUB_GAME_STATES.NONE
-var player_yokais: Array[Yokai] 
+var player_yokais: Array[Yokai]
 var player_back_arr: Array[BattleYokai]
+var ui_hidden: bool = false
+var is_started: bool = false
 
 
 @onready var MainMenueButtons: Array[Sprite2D] = [
@@ -42,7 +47,7 @@ var player_back_arr: Array[BattleYokai]
 	$main_menue/medalls/Sprite2D3,
 ]
 
-@onready var AnimPlayer: AnimationPlayer = $anim_player
+@onready var UiAnimPlayer: AnimationPlayer = $AnimPlayer
 @onready var TweenInstance: Tween
 @onready var AllButtons: Node2D = $main_menue/buttons
 @onready var SpeedUp: AnimatedSprite2D = $main_menue/speed_up
@@ -50,12 +55,22 @@ var player_back_arr: Array[BattleYokai]
 @onready var BattleInst: Battle = get_parent()
 @onready var BattleYokaiHelperInstance: BattleYokaiHelper = BattleInst.YokaiHelperInstance
 
+@onready var Start: Node2D = $Start
+
 
 func _ready() -> void:
-	AnimPlayer.play("start")
 	_connect_signals()
-	
 
+
+func _input(event: InputEvent) -> void:
+	if not is_started:
+		if event.is_action_pressed("space"):
+			start_battle.emit()
+			UiAnimPlayer.play("start")
+			is_started = true
+			await UiAnimPlayer.animation_finished
+			Start.visible = false
+	
 
 func _connect_signals() -> void:
 	global.on_yokai_action_finished.connect(_on_yokai_action_finished)
@@ -73,7 +88,7 @@ func _hide_ui() -> void:
 	TweenInstance.tween_property(AllButtons, "position", Vector2(0, 14), .15)
 	await TweenInstance.finished
 	await get_tree().create_timer(.125).timeout
-	ui_hidden.emit()
+	hide_ui.emit()
 
 
 func _show_ui() -> void:	
@@ -94,7 +109,7 @@ func set_state(new_state: int) -> void:
 	current_state = new_state as SUB_GAME_STATES
 	
 	_hide_ui()
-	await ui_hidden
+	await hide_ui
 	
 	SubUis[new_state].visible = true
 	SubUis[new_state].process_mode = Node.PROCESS_MODE_INHERIT
@@ -137,12 +152,11 @@ func set_player_yokai_arr(_player_yokais: Array[Yokai]) -> void:
 	
 
 func play_win_animation() -> void:
-	AnimPlayer.play_backwards("start")
-	await AnimPlayer.animation_finished
+	UiAnimPlayer.play_backwards("start")
+	await UiAnimPlayer.animation_finished
 	win_animation_finished.emit()
 
 
 func _on_yokai_action_finished() -> void:
-	BattleYokaiHelperInstance.name
 	player_back_arr = BattleYokaiHelperInstance.get_player_back()
 	_update_ui()

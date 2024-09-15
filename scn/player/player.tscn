@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://src/player/collision_helper.gd" id="2_nugat"]
 [ext_resource type="Texture2D" uid="uid://dkljmhd55cuf7" path="res://src/ui/assets/yokai_watch/watch_background.png" id="3_vg27x"]
 [ext_resource type="Texture2D" uid="uid://du8uv32dgooga" path="res://src/ui/assets/objective/objective_background.png" id="4_iykhr"]
-[ext_resource type="Texture2D" uid="uid://c3756j3mw414p" path="res://res/player/interaction/standart.png" id="5_xhpu7"]
+[ext_resource type="Texture2D" uid="uid://c3756j3mw414p" path="res://res/interaction_icons/standart.png" id="5_xhpu7"]
 [ext_resource type="Texture2D" uid="uid://bmjy5b8irtbc2" path="res://src/ui/assets/yokai_watch/watch_handle.png" id="6_0bvqj"]
 [ext_resource type="Texture2D" uid="uid://bcfi1oo3fw0ps" path="res://res/player/sprint_bar.png" id="6_8lpum"]
 [ext_resource type="Texture2D" uid="uid://dhljdg0vrtbbc" path="res://res/player/player_spirte.png" id="7_aji27"]

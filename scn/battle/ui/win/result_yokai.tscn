@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://uq5yin8hhhr"]
+
+[ext_resource type="Texture2D" uid="uid://or5uo2hwbv7o" path="res://res/items/medall_background.png" id="1_4d3db"]
+[ext_resource type="Texture2D" uid="uid://cgmx3dbb5h2k1" path="res://res/items/medalls.png" id="2_1vrrn"]
+[ext_resource type="Script" path="res://src/battle/ui/win/result_yokai.gd" id="2_o1gmw"]
+[ext_resource type="Texture2D" uid="uid://boiile6td5bn0" path="res://res/yokai/mics/medall_background.png" id="4_re5f8"]
+
+[node name="ResultYokai" type="Sprite2D"]
+position = Vector2(0.5, 0)
+scale = Vector2(1.01724, 1)
+texture = ExtResource("1_4d3db")
+script = ExtResource("2_o1gmw")
+
+[node name="Medall" type="Sprite2D" parent="."]
+position = Vector2(-16, 0)
+texture = ExtResource("2_1vrrn")
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_top = -16.0
+offset_right = 40.0
+offset_bottom = 7.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "lv"
+
+[node name="XpBar" type="ColorRect" parent="."]
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 27.0
+offset_bottom = 8.0
+scale = Vector2(1e-05, 1)
+color = Color(0, 1, 1, 1)
+
+[node name="medall" type="Sprite2D" parent="."]
+position = Vector2(-16, 0)
+texture = ExtResource("4_re5f8")

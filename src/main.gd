@@ -75,7 +75,7 @@ func _on_game_loaded(_save_file: int) -> void:
 
 
 func _on_battle_started(enemy_yokai_arr: Array[Yokai]) -> void:
-	print(enemy_yokai_arr)
+	UiHelperInstance._start_battle()
 	var BattleInstance: Battle = BATTLE_SCENE.instantiate()
 	
 	BattleInstance.set_player_yokai(global.player_yokai)
@@ -138,7 +138,7 @@ func _start_eyepo() -> void:
 	add_child(EYEPO_SCENE.instantiate())
 
 
-func _start_spot(current_yokai: Array[Yokai], has_yokai: bool, area: int) -> void:
+func _start_spot(current_yokai: Array[Yokai], _has_yokai: bool, _area: int) -> void:
 	var SpotInstance: Spot = SPOT_SCENE.instantiate() as Spot
 	SpotInstance.set_enemy_arr(current_yokai)
 	add_child(SPOT_SCENE.instantiate())

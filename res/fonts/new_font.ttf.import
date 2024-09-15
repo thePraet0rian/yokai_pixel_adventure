@@ -3,18 +3,19 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dr2fylr683c1"
-path="res://.godot/imported/new_font.ttf-d0bf2bc62d26d4e3f624ddc50e0ccf2a.fontdata"
+path="res://.godot/imported/new_font.ttf-a60a570d253ecce245aae3e877a96018.fontdata"
 
 [deps]
 
-source_file="res://res/dialogue_assets/new_font.ttf"
-dest_files=["res://.godot/imported/new_font.ttf-d0bf2bc62d26d4e3f624ddc50e0ccf2a.fontdata"]
+source_file="res://res/fonts/new_font.ttf"
+dest_files=["res://.godot/imported/new_font.ttf-a60a570d253ecce245aae3e877a96018.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
+disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48

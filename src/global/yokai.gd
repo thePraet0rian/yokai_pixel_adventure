@@ -27,7 +27,7 @@ enum LOAFING {
 
 var yokai_level: int = 1
 var yokai_total_exp: int = 0
-var yokai_exp_to_level: int = 6
+var yokai_exp_to_level: int = 1
 var yokai_rank: String = ""
 var yokai_league: String = ""
 
@@ -102,6 +102,7 @@ func set_soul(soul: float) -> void:
 		yokai_soul += soul
 
 
+@warning_ignore("shadowed_global_identifier")
 func experience(exp: int) -> Array:
 	var level: int = 0
 	var difference: int = yokai_exp_to_level - exp
@@ -109,12 +110,13 @@ func experience(exp: int) -> Array:
 	while difference < 0:
 		exp -= yokai_exp_to_level
 		level += 1
-		_level_up()
+		yokai_level += 1
 		yokai_total_exp += yokai_exp_to_level
 		
 		yokai_exp_to_level = _calc_new_xp_to_level()
 		difference = yokai_exp_to_level - exp
 	
+	yokai_exp_to_level -= exp
 	return [level, exp]
 
 

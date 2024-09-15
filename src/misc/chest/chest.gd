@@ -10,7 +10,7 @@ var _is_enabled: bool = true
 @onready var ChestSprite: Sprite2D = $ChestSprite
 
 
-func set_chest_content(content: String) -> void:
+func set_chest_content(_content: String) -> void:
 	pass
 
 

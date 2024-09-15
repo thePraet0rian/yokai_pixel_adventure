@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://diw125fhxqa4" path="res://res/npc/family/mom.png" id="2_iyud8"]
 [ext_resource type="Texture2D" uid="uid://c7w7aowkxwfmw" path="res://res/dialogue_assets/background.png" id="2_uqhs5"]
 [ext_resource type="Texture2D" uid="uid://do2bpyyli3idp" path="res://res/dialogue_assets/continue.png" id="3_64615"]
-[ext_resource type="FontFile" uid="uid://dr2fylr683c1" path="res://res/dialogue_assets/new_font.ttf" id="3_wqf1j"]
+[ext_resource type="FontFile" uid="uid://dr2fylr683c1" path="res://res/fonts/new_font.ttf" id="3_wqf1j"]
 
 [sub_resource type="Animation" id="Animation_22hqe"]
 length = 0.001

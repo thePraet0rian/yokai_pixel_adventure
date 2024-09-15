@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ps4vmaplhtqi"
-path="res://.godot/imported/quest.png-a558da225097bccf2796a34b68084fb4.ctex"
+uid="uid://boiile6td5bn0"
+path="res://.godot/imported/medall_background.png-8ed69ab47bda1db8fe29cdcfc57d9368.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/player/interaction/quest.png"
-dest_files=["res://.godot/imported/quest.png-a558da225097bccf2796a34b68084fb4.ctex"]
+source_file="res://res/yokai/mics/medall_background.png"
+dest_files=["res://.godot/imported/medall_background.png-8ed69ab47bda1db8fe29cdcfc57d9368.ctex"]
 
 [params]
 

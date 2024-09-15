@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3756j3mw414p"
-path="res://.godot/imported/standart.png-e388a6b5db8027ac4b8b77f42b4bd20d.ctex"
+uid="uid://ps4vmaplhtqi"
+path="res://.godot/imported/quest.png-04b05a4916e7da447614230cedfa621f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/player/interaction/standart.png"
-dest_files=["res://.godot/imported/standart.png-e388a6b5db8027ac4b8b77f42b4bd20d.ctex"]
+source_file="res://res/interaction_icons/quest.png"
+dest_files=["res://.godot/imported/quest.png-04b05a4916e7da447614230cedfa621f.ctex"]
 
 [params]
 

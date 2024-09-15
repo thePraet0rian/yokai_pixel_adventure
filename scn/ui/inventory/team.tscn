@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://de1pj2koiqvh1"]
+[gd_scene load_steps=8 format=3 uid="uid://de1pj2koiqvh1"]
 
 [ext_resource type="Texture2D" uid="uid://or5uo2hwbv7o" path="res://res/items/medall_background.png" id="1_4trcr"]
 [ext_resource type="Script" path="res://src/ui/inventory/team.gd" id="1_5ostn"]
 [ext_resource type="Texture2D" uid="uid://cgmx3dbb5h2k1" path="res://res/items/medalls.png" id="1_db2mt"]
+[ext_resource type="Texture2D" uid="uid://caoffx3vh0j17" path="res://res/yokai/mics/yokai_team_slot.png" id="2_0ghqg"]
 [ext_resource type="Texture2D" uid="uid://d36ul5deuqtj1" path="res://res/items/bar.png" id="3_x0jhe"]
 [ext_resource type="Texture2D" uid="uid://contq0l4mwx13" path="res://src/ui/assets/menue/button_back.png" id="4_v3max"]
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://src/ui/assets/menue/button_select.png" id="5_a2aop"]
@@ -10,96 +11,78 @@
 [node name="team" type="Node2D"]
 script = ExtResource("1_5ostn")
 
-[node name="background" type="ColorRect" parent="."]
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0.332881, 0.332881, 0.332881, 1)
-metadata/_edit_group_ = true
+[node name="yokais" type="Node2D" parent="."]
 
-[node name="Sprite2D7" type="Sprite2D" parent="."]
+[node name="Sprite2D7" type="Sprite2D" parent="yokais"]
 position = Vector2(37, 23)
-texture = ExtResource("1_4trcr")
+texture = ExtResource("2_0ghqg")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D7"]
-position = Vector2(-16, 0)
-texture = ExtResource("1_db2mt")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D7/Sprite2D"]
-position = Vector2(27, 8)
-texture = ExtResource("3_x0jhe")
-
-[node name="Label" type="Label" parent="Sprite2D7"]
-offset_left = -2.0
-offset_top = -10.0
-offset_right = 38.0
-offset_bottom = 13.0
+[node name="Label" type="Label" parent="yokais/Sprite2D7"]
+offset_left = 4.0
+offset_top = -6.0
+offset_right = 44.0
+offset_bottom = 17.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
 text = "lv"
 
-[node name="ColorRect" type="ColorRect" parent="Sprite2D7"]
-offset_left = -28.0
-offset_top = 14.0
-offset_right = 27.0
-offset_bottom = 17.0
-
-[node name="Sprite2D8" type="Sprite2D" parent="."]
+[node name="Sprite2D8" type="Sprite2D" parent="yokais"]
 position = Vector2(101, 23)
 texture = ExtResource("1_4trcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D8"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D8"]
 position = Vector2(-16, 0)
 texture = ExtResource("1_db2mt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D8/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D8/Sprite2D"]
 position = Vector2(27, 8)
 texture = ExtResource("3_x0jhe")
 
-[node name="Sprite2D9" type="Sprite2D" parent="."]
+[node name="Sprite2D9" type="Sprite2D" parent="yokais"]
 position = Vector2(165, 23)
 texture = ExtResource("1_4trcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D9"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D9"]
 position = Vector2(-16, 0)
 texture = ExtResource("1_db2mt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D9/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D9/Sprite2D"]
 position = Vector2(27, 8)
 texture = ExtResource("3_x0jhe")
 
-[node name="Sprite2D10" type="Sprite2D" parent="."]
+[node name="Sprite2D10" type="Sprite2D" parent="yokais"]
 position = Vector2(37, 63)
 texture = ExtResource("1_4trcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D10"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D10"]
 position = Vector2(-16, 0)
 texture = ExtResource("1_db2mt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D10/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D10/Sprite2D"]
 position = Vector2(27, 8)
 texture = ExtResource("3_x0jhe")
 
-[node name="Sprite2D11" type="Sprite2D" parent="."]
+[node name="Sprite2D11" type="Sprite2D" parent="yokais"]
 position = Vector2(101, 63)
 texture = ExtResource("1_4trcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D11"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D11"]
 position = Vector2(-16, 0)
 texture = ExtResource("1_db2mt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D11/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D11/Sprite2D"]
 position = Vector2(27, 8)
 texture = ExtResource("3_x0jhe")
 
-[node name="Sprite2D12" type="Sprite2D" parent="."]
+[node name="Sprite2D12" type="Sprite2D" parent="yokais"]
 position = Vector2(165, 63)
 texture = ExtResource("1_4trcr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D12"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D12"]
 position = Vector2(-16, 0)
 texture = ExtResource("1_db2mt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite2D12/Sprite2D"]
+[node name="Sprite2D" type="Sprite2D" parent="yokais/Sprite2D12/Sprite2D"]
 position = Vector2(27, 8)
 texture = ExtResource("3_x0jhe")
 

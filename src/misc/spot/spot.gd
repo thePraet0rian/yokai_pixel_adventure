@@ -42,4 +42,3 @@ func _generate_generall() -> void:
 		
 		Spots.TREE_SPOT:
 			pass
-

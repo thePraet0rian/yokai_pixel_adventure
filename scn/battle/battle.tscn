@@ -1,7 +1,6 @@
-[gd_scene load_steps=34 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=35 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
-[ext_resource type="Texture2D" uid="uid://hlhqmh85fm0i" path="res://res/battle/backgrounds/background_test_01.png" id="2_h2niy"]
 [ext_resource type="Script" path="res://src/battle/yokai_helper.gd" id="3_yiroh"]
 [ext_resource type="Script" path="res://src/battle/ui_helper.gd" id="4_2n2qt"]
 [ext_resource type="Texture2D" uid="uid://cv2rcesby7pil" path="res://res/battle/buttons/item_buttont_two.png" id="6_737io"]
@@ -21,6 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://bdoxxvscku02" path="res://res/battle/ui/e_sign.png" id="15_co87e"]
 [ext_resource type="PackedScene" uid="uid://bn0spooqowien" path="res://scn/battle/sub/win_screen.tscn" id="16_2w66e"]
 [ext_resource type="Texture2D" uid="uid://cryqic7d88ff4" path="res://res/battle/ui/wheel.png" id="16_uj23c"]
+[ext_resource type="Texture2D" uid="uid://dpu6nnf1qw8hg" path="res://res/battle/ui/start/overlay.png" id="21_bdhw5"]
+[ext_resource type="Texture2D" uid="uid://1d7hlxknpmp6" path="res://res/battle/ui/start/overlay_2.png" id="22_8eopg"]
 
 [sub_resource type="Animation" id="Animation_kdyfp"]
 length = 0.001
@@ -179,26 +180,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ui_helper/overlay/ColorRect:scale")
+tracks/0/path = NodePath("ui_helper/Start:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_helper/overlay/ColorRect2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, -1)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_nj4c5"]
@@ -207,26 +196,14 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ui_helper/overlay/ColorRect:scale")
+tracks/0/path = NodePath("ui_helper/Start:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1e-05)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ui_helper/overlay/ColorRect2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, -1), Vector2(1, 1e-05)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6w7eq"]
@@ -239,13 +216,7 @@ _data = {
 process_mode = 3
 script = ExtResource("1_28vn4")
 
-[node name="background" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(120, 67.5)
-texture = ExtResource("2_h2niy")
-metadata/_edit_lock_ = true
-
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="background" type="ColorRect" parent="."]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0.301961, 0.301961, 0.301961, 1)
@@ -379,22 +350,18 @@ visible = false
 
 [node name="ui_anim_player" type="AnimationPlayer" parent="ui_helper/ui"]
 
-[node name="overlay" type="Node2D" parent="ui_helper"]
-visible = false
+[node name="Start" type="Node2D" parent="ui_helper"]
 
-[node name="ColorRect" type="ColorRect" parent="ui_helper/overlay"]
-offset_right = 240.0
-offset_bottom = 67.0
-color = Color(0, 0, 0, 1)
+[node name="Overlay" type="Sprite2D" parent="ui_helper/Start"]
+modulate = Color(1, 1, 1, 0.392157)
+position = Vector2(120, 67.5)
+texture = ExtResource("21_bdhw5")
 
-[node name="ColorRect2" type="ColorRect" parent="ui_helper/overlay"]
-offset_top = 135.0
-offset_right = 240.0
-offset_bottom = 203.0
-scale = Vector2(1, -1)
-color = Color(0, 0, 0, 1)
+[node name="Overlay2" type="Sprite2D" parent="ui_helper/Start"]
+position = Vector2(120, 67.5)
+texture = ExtResource("22_8eopg")
 
-[node name="anim_player" type="AnimationPlayer" parent="ui_helper"]
+[node name="AnimPlayer" type="AnimationPlayer" parent="ui_helper"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_6w7eq")

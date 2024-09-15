@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8gcfmii16co"
-path="res://.godot/imported/selector_01.png-ae7dfb4800ae58bb71894770581983a9.ctex"
+uid="uid://m1pwvwsqqgld"
+path="res://.godot/imported/top_bar.png-e26e7a32cabedc405c13f6f115c9eac7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/target/selector_01.png"
-dest_files=["res://.godot/imported/selector_01.png-ae7dfb4800ae58bb71894770581983a9.ctex"]
+source_file="res://res/ui/inventory/medalls/top_bar.png"
+dest_files=["res://.godot/imported/top_bar.png-e26e7a32cabedc405c13f6f115c9eac7.ctex"]
 
 [params]
 

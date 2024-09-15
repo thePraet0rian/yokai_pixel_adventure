@@ -92,8 +92,12 @@ func _yokai_input(event: InputEvent) -> void:
 		var item_index: int = 5 * int(indices.x) + int(indices.y)
 		_use_item(item_index)
 
-  
+
 func _use_item(_item_index: int) -> void:
+	current_state = States.INVENTORY
+	Inventory.visible = true
+	YokaiSelector.visible = false
+	
 	var ItemInstance: Item = global.player_inventory[0][_item_index]
 	var _health: int = global_item.HEALING_ITEMS[ItemInstance.item_name]["health"]
 	global.on_yokai_action.emit("heal", 0, yokai_selected, -1)

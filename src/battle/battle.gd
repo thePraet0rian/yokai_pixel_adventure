@@ -1,10 +1,10 @@
 class_name Battle extends CanvasLayer
 
 
-
 enum GAME_STATES {
 	SELECTING = 0,
 	ACTION = 1,
+	NONE = 2,
 }
 
 enum SUB_GAME_STATES {
@@ -25,7 +25,7 @@ const direction_move: PackedVector2Array = [
 ]
 
 
-var current_game_state: GAME_STATES = GAME_STATES.SELECTING
+var current_game_state: GAME_STATES = GAME_STATES.NONE
 var current_sub_game_state: SUB_GAME_STATES = SUB_GAME_STATES.TARGET
 
 var player_yokai_arr: Array[Yokai]
@@ -47,7 +47,6 @@ var is_sped_up: bool = false
 @onready var UiHelperInstance: UiHelper = $ui_helper 
 
 
-
 func _ready() -> void:
 	YokaiHelperInstance.set_player_yokai_arr(player_yokai_arr)
 	YokaiHelperInstance.set_enemy_yokai_arr(enemy_yokai_arr)
@@ -59,10 +58,17 @@ func _ready() -> void:
 
 
 func _connect_signals() -> void:
+	UiHelperInstance.start_battle.connect(_start_battle)
 	UiHelperInstance.heal_yokai.connect(_heal_yokai)
+	
 
 func _heal_yokai(health: int) -> void:
 	YokaiHelperInstance.set_heal(health)
+
+
+func _start_battle() -> void:
+	await get_tree().physics_frame
+	current_game_state = GAME_STATES.SELECTING
 
 
 func _input(event: InputEvent) -> void:

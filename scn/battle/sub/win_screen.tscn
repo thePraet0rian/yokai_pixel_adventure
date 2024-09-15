@@ -1,163 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://bn0spooqowien"]
+[gd_scene load_steps=9 format=3 uid="uid://bn0spooqowien"]
 
 [ext_resource type="Texture2D" uid="uid://bpvlbgtfj4dh7" path="res://src/ui/assets/menue/button_select.png" id="1_1pxk1"]
 [ext_resource type="Script" path="res://src/battle/sub/win_screen.gd" id="1_d1wyc"]
 [ext_resource type="Texture2D" uid="uid://couo7t7xhm0vn" path="res://res/battle/ui/win/win-export.png" id="3_5gqwr"]
-[ext_resource type="Texture2D" uid="uid://or5uo2hwbv7o" path="res://res/items/medall_background.png" id="4_6s6br"]
-[ext_resource type="Texture2D" uid="uid://cgmx3dbb5h2k1" path="res://res/items/medalls.png" id="5_t6ekj"]
-[ext_resource type="Texture2D" uid="uid://d36ul5deuqtj1" path="res://res/items/bar.png" id="6_twlg4"]
+[ext_resource type="Texture2D" uid="uid://bka0qud1xmxqa" path="res://res/battle/ui/win/win_sign.png" id="3_iblnn"]
+[ext_resource type="PackedScene" uid="uid://uq5yin8hhhr" path="res://scn/battle/ui/win/result_yokai.tscn" id="5_5ylhy"]
 
 [sub_resource type="Animation" id="Animation_bnhii"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("overlay/ColorRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("overlay/ColorRect2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("overlay/ColorRect3:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("overlay/ColorRect4:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("overlay/ColorRect5:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("overlay/ColorRect6:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_rm8fg"]
 resource_name = "fade"
 length = 0.25
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("overlay/ColorRect:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1), Vector2(-1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("overlay/ColorRect2:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1), Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("overlay/ColorRect3:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1), Vector2(-1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("overlay/ColorRect4:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1), Vector2(1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("overlay/ColorRect5:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1), Vector2(-1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("overlay/ColorRect6:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1e-05, 1), Vector2(1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qhtm6"]
 _data = {
@@ -168,93 +23,49 @@ _data = {
 [node name="win_screen" type="Node2D"]
 script = ExtResource("1_d1wyc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="YouWinSprite" type="Sprite2D" parent="."]
 position = Vector2(128, 64)
 texture = ExtResource("3_5gqwr")
 
-[node name="overlay" type="Node2D" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="overlay"]
-offset_left = 40.0
-offset_right = 80.0
-offset_bottom = 135.0
-scale = Vector2(-1, 1)
-color = Color(0.412153, 0.412152, 0.412153, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="overlay"]
-offset_left = 40.0
-offset_right = 80.0
-offset_bottom = 135.0
-color = Color(0.412153, 0.412152, 0.412153, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="overlay"]
-offset_left = 120.0
-offset_right = 160.0
-offset_bottom = 135.0
-scale = Vector2(-1, 1)
-color = Color(0.412153, 0.412152, 0.412153, 1)
-
-[node name="ColorRect4" type="ColorRect" parent="overlay"]
-offset_left = 120.0
-offset_right = 160.0
-offset_bottom = 135.0
-color = Color(0.412153, 0.412152, 0.412153, 1)
-
-[node name="ColorRect5" type="ColorRect" parent="overlay"]
-offset_left = 200.0
-offset_right = 240.0
-offset_bottom = 135.0
-scale = Vector2(-1, 1)
-color = Color(0.412153, 0.412152, 0.412153, 1)
-
-[node name="ColorRect6" type="ColorRect" parent="overlay"]
-offset_left = 200.0
-offset_right = 240.0
-offset_bottom = 135.0
-color = Color(0.412153, 0.412152, 0.412153, 1)
-
 [node name="win" type="Node2D" parent="."]
+visible = false
 
-[node name="background" type="ColorRect" parent="win"]
+[node name="Background" type="ColorRect" parent="win"]
 offset_right = 240.0
 offset_bottom = 135.0
-color = Color(1, 1, 0, 1)
+color = Color(0, 0.63, 0.126, 1)
 
-[node name="anim_player" type="AnimationPlayer" parent="win"]
+[node name="Sprite2D" type="Sprite2D" parent="win"]
+position = Vector2(120, 8)
+texture = ExtResource("3_iblnn")
+
+[node name="AnimPlayer" type="AnimationPlayer" parent="win"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_qhtm6")
 }
 
-[node name="enter_button" type="Sprite2D" parent="win"]
+[node name="EnterButton" type="Sprite2D" parent="win"]
 position = Vector2(36, 127)
 texture = ExtResource("1_1pxk1")
 hframes = 2
 
-[node name="Sprite2D7" type="Sprite2D" parent="win"]
-position = Vector2(40, 24)
-texture = ExtResource("4_6s6br")
+[node name="Yokais" type="Node2D" parent="win"]
 
-[node name="Sprite2D" type="Sprite2D" parent="win/Sprite2D7"]
-position = Vector2(-16, 0)
-texture = ExtResource("5_t6ekj")
+[node name="ResultYokai" parent="win/Yokais" instance=ExtResource("5_5ylhy")]
+position = Vector2(38.5, 34)
 
-[node name="Sprite2D" type="Sprite2D" parent="win/Sprite2D7/Sprite2D"]
-position = Vector2(27, 8)
-texture = ExtResource("6_twlg4")
+[node name="ResultYokai2" parent="win/Yokais" instance=ExtResource("5_5ylhy")]
+position = Vector2(38.5, 65)
 
-[node name="Label" type="Label" parent="win/Sprite2D7"]
-offset_left = -2.0
-offset_top = -10.0
-offset_right = 38.0
-offset_bottom = 13.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 8
-text = "lv"
+[node name="ResultYokai3" parent="win/Yokais" instance=ExtResource("5_5ylhy")]
+position = Vector2(38.5, 96)
 
-[node name="ColorRect" type="ColorRect" parent="win/Sprite2D7"]
-offset_left = -28.0
-offset_top = 14.0
-offset_right = 27.0
-offset_bottom = 17.0
-scale = Vector2(1e-05, 1)
+[node name="ResultYokai4" parent="win/Yokais" instance=ExtResource("5_5ylhy")]
+position = Vector2(98.5, 34)
+
+[node name="ResultYokai5" parent="win/Yokais" instance=ExtResource("5_5ylhy")]
+position = Vector2(98.5, 65)
+
+[node name="ResultYokai6" parent="win/Yokais" instance=ExtResource("5_5ylhy")]
+position = Vector2(98.5, 96)

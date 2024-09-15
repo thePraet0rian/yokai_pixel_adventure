@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8qpu5nvv8c4t"
-path="res://.godot/imported/ff.png-471a997af61f4794bea777537cb77c1e.ctex"
+uid="uid://caoffx3vh0j17"
+path="res://.godot/imported/yokai_team_slot.png-21ea1b4cdb6878075a36440b5e472d89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/battle_yokai/ff.png"
-dest_files=["res://.godot/imported/ff.png-471a997af61f4794bea777537cb77c1e.ctex"]
+source_file="res://res/yokai/mics/yokai_team_slot.png"
+dest_files=["res://.godot/imported/yokai_team_slot.png-21ea1b4cdb6878075a36440b5e472d89.ctex"]
 
 [params]
 

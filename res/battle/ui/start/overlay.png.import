@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvleb0gb3oipa"
-path="res://.godot/imported/soulimate_button.png-e9691ed4fe40ec984a3479635205b9e2.ctex"
+uid="uid://dpu6nnf1qw8hg"
+path="res://.godot/imported/overlay.png-84d376f92949028a9822feabb3cbb4c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/buttons/soulimate_button.png"
-dest_files=["res://.godot/imported/soulimate_button.png-e9691ed4fe40ec984a3479635205b9e2.ctex"]
+source_file="res://res/battle/ui/start/overlay.png"
+dest_files=["res://.godot/imported/overlay.png-84d376f92949028a9822feabb3cbb4c5.ctex"]
 
 [params]
 
