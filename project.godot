@@ -23,6 +23,7 @@ global="*res://src/global/global.gd"
 global_npc="*res://src/global/global_npc.gd"
 global_yokai="*res://src/global/global_yokai.gd"
 GlobalQuests="*res://src/global/global_quests.gd"
+GlobalBattle="*res://src/global/global_battle.gd"
 
 [display]
 

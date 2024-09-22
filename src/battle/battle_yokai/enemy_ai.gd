@@ -1,18 +1,6 @@
 class_name EnemyAi extends Ai
 
 
-var CurrentYokaiInst: Yokai
-var PlayerYokais: Array[Yokai] = [null, null, null]
-
-
-func set_current_yokai(crr_yokai: Yokai) -> void:
-	self.CurrentYokaiInst = crr_yokai
-
-
-func set_players(player_arr: Array[BattleYokai]) -> void:
-	for i in range(len(player_arr)):
-		PlayerYokais[i] = player_arr[i].YokaiInst
-
 
 func enemy_tick() -> void:
 	if behavoir_barrier():
@@ -25,17 +13,22 @@ func enemy_tick() -> void:
 				_enemy_grouchy_behavoir(NORMAL_ATTACK)
 
 
-func _enemy_grouchy_behavoir(attack_type: int) -> void:
-	
-	if attack_type == INSPIRITING:
-		for i in range(len(PlayerYokais)):
-			if PlayerYokais[i].active and PlayerYokais[i].yokai_hp >= 0 and not PlayerYokais[i].inspirited:
-				global.on_yokai_action.emit("inspirit", 1, CurrentYokaiInst.yokai_number, i, attack_type)
-				return
+func _enemy_grouchy_behavoir(attack_type: int) -> void:	
+	match attack_type:
+		INSPIRITING:
+			for i in OpponentYokais.size():
+				if OpponentYokais[i].active and not OpponentYokais[i].inspirited:
+					global.on_yokai_action.emit("inspirit", 1, CurrentYokaiInst.yokai_number, i, attack_type)
+					return
 
-	elif attack_type == ELEMENTAL_ATTACK or attack_type == NORMAL_ATTACK:
-		for i in range(len(PlayerYokais)):
-			if PlayerYokais[i].active and PlayerYokais[i].yokai_hp >= 0:
-				global.on_yokai_action.emit("attack", 1, CurrentYokaiInst.yokai_number, i, attack_type)
-				return
+		NORMAL_ATTACK:
+			for i in OpponentYokais.size():
+				if OpponentYokais[i].active:
+					global.on_yokai_action.emit("attack", 1, CurrentYokaiInst.yokai_number, i, attack_type)
+					return
 	
+		ELEMENTAL_ATTACK:
+			for i in OpponentYokais.size():
+				if OpponentYokais[i].active:
+					global.on_yokai_action.emit("attack", 1, CurrentYokaiInst.yokai_number, i, attack_type)
+					return 

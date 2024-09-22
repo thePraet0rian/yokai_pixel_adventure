@@ -1,18 +1,6 @@
 class_name PlayerAi extends Ai
 
 
-var CurrentYokaiInst: Yokai
-var EnemyYokais: Array[Yokai] = [null, null, null]
-
-
-func set_current_yokai(crr_yokai: Yokai) -> void:
-	self.CurrentYokaiInst = crr_yokai
-
-
-func set_enemys(enemy_arr: Array[BattleYokai]) -> void:
-	for i in range(len(enemy_arr)):
-		EnemyYokais[i] = enemy_arr[i].YokaiInst
-
 
 func player_tick() -> void:
 	if behavoir_barrier():
@@ -23,28 +11,24 @@ func player_tick() -> void:
 				_player_behavoir(ELEMENTAL_ATTACK)
 			NORMAL_ATTACK:
 				_player_behavoir(NORMAL_ATTACK)
-			_:
-				push_error("ACTION() GENERATED AN INVALID RESULT")
 
 
 func _player_behavoir(attack_type: int) -> void:	
-	if attack_type == 0:
+	match attack_type:
+		INSPIRITING:
+			for i in OpponentYokais.size():
+				if OpponentYokais[i].active and not OpponentYokais[i].inspirited:
+					global.on_yokai_action.emit("inspirit", 0, CurrentYokaiInst.yokai_number, i, attack_type)
+					return
+
+		NORMAL_ATTACK:
+			for i in OpponentYokais.size():
+				if OpponentYokais[i].active:
+					global.on_yokai_action.emit("attack", 0, CurrentYokaiInst.yokai_number, i, attack_type)
+					return
 	
-		for i in range(len(EnemyYokais)):
-			if EnemyYokais[i].active and EnemyYokais[i].yokai_hp >= 0 and not EnemyYokais[i].inspirited:
-				global.on_yokai_action.emit("inspirit", BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i)
-				return
-	
-	elif attack_type == 1 or attack_type == 2:
-	
-		#targeted
-		for i in range(len(EnemyYokais)):
-			if EnemyYokais[i].targeted and EnemyYokais[i].yokai_hp >= 0:
-				global.on_yokai_action.emit("attack", BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i, attack_type)
-				return
-		
-		#not targted
-		for i in range(len(EnemyYokais)):
-			if EnemyYokais[i].active and EnemyYokais[i].yokai_hp >= 0:
-				global.on_yokai_action.emit("attack", BattleYokaiHelper.PLAYER_TEAM, CurrentYokaiInst.yokai_number, i, attack_type)
-				return
+		ELEMENTAL_ATTACK:
+			for i in OpponentYokais.size():
+				if OpponentYokais[i].active:
+					global.on_yokai_action.emit("attack", 0, CurrentYokaiInst.yokai_number, i, attack_type)
+					return 

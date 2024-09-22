@@ -1,6 +1,7 @@
 class_name Battle extends CanvasLayer
 
 
+
 enum GAME_STATES {
 	SELECTING = 0,
 	ACTION = 1,
@@ -17,8 +18,8 @@ enum SUB_GAME_STATES {
 }
 
 
-var current_game_state: GAME_STATES = GAME_STATES.NONE
-var current_sub_game_state: SUB_GAME_STATES = SUB_GAME_STATES.TARGET
+static var current_game_state: GAME_STATES = GAME_STATES.NONE
+static var current_sub_game_state: SUB_GAME_STATES = SUB_GAME_STATES.TARGET
 
 var player_yokai_arr: Array[Yokai]
 var enemy_yokai_arr: Array[Yokai]
@@ -35,8 +36,10 @@ var can_target: bool = true
 var is_sped_up: bool = false
 
 
-@onready var YokaiHelperInstance: BattleYokaiHelper = $yokai_helper
-@onready var UiHelperInstance: UiHelper = $ui_helper 
+@onready var YokaiHelperInstance: YokaiHelper = $YokaiHelper
+@onready var UiHelperInstance: UiHelper = $UiHelper 
+
+
 
 
 func _ready() -> void:
@@ -56,8 +59,8 @@ func _setup_ui_helper() -> void:
 
 
 func _connect_signals() -> void:
-	UiHelperInstance.start_battle.connect(_start_battle)
-	UiHelperInstance.heal_yokai.connect(_heal_yokai)
+	GlobalBattle.start_battle.connect(_start_battle)
+	GlobalBattle.disable_ui.connect(disable_sub_ui)
 
 
 func _start_battle() -> void:
@@ -66,16 +69,10 @@ func _start_battle() -> void:
 	YokaiHelperInstance.set_yokai_tick(true)
 
 
-func _heal_yokai(health: int) -> void:
-	YokaiHelperInstance.set_heal(health)
-
-
 func _input(event: InputEvent) -> void:
 	match current_game_state:
 		GAME_STATES.SELECTING:
 			_selecting_input(event)
-		GAME_STATES.ACTION:
-			_action_input(event)
 
 
 func _selecting_input(event: InputEvent) -> void:
@@ -123,67 +120,22 @@ func _change_sub_game_state(sub_buttons_index: int) -> void:
 			current_sub_game_state = SUB_GAME_STATES.ITEM
 
 
-func _action_input(event: InputEvent) -> void:
-	match current_sub_game_state:
-		SUB_GAME_STATES.PURIFY:
-			_purify_input(event)
-		SUB_GAME_STATES.SOULIMATE:
-			_soulimate_input(event)
-		SUB_GAME_STATES.TARGET:
-			_target_input(event)
-		SUB_GAME_STATES.ITEM:
-			_item_input(event)
-		SUB_GAME_STATES.WIN:
-			_win_input(event)
-
-
-func _purify_input(event: InputEvent) ->  void:
-	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.SELECTING
-
-		UiHelperInstance.set_sub_ui_input(event, 0)
-		YokaiHelperInstance.set_yokai_tick(true)
-
-
-func _soulimate_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.SELECTING
-
-		UiHelperInstance.set_sub_ui_input(event, 1)
-		YokaiHelperInstance.set_yokai_tick(true)
+func disable_sub_ui(_ui: int) -> void:
+	current_game_state = GAME_STATES.SELECTING
+	YokaiHelperInstance.set_yokai_tick(true)
+	
+	if _ui == 1:
 		YokaiHelperInstance.disable_soulimate_ui()
-
-
-func _target_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.SELECTING
-
-		UiHelperInstance.set_sub_ui_input(event, 2)
-		YokaiHelperInstance.set_yokai_tick(true)
-
-
-func _item_input(event: InputEvent) -> void:
-	if event.is_action_pressed("shift"):
-		current_game_state = GAME_STATES.SELECTING
-
-		UiHelperInstance.set_sub_ui_input(event, 3)
-		YokaiHelperInstance.set_yokai_tick(true)
 
 
 func _calculate_win_xp() -> int:
 	return 100
 
 
-func _win_input(event: InputEvent) -> void:
-	if event.is_action_pressed("space"):
-		pass
-
-
 func _physics_process(_delta: float) -> void:
 	if YokaiHelperInstance.player_team_inst_front[2].progress == 0.0:
-		if YokaiHelperInstance.yokai_finished_moving:
-			if current_game_state == GAME_STATES.SELECTING:
-				_player_input()
+		if current_game_state == GAME_STATES.SELECTING:
+			_player_input()
 
 
 func _player_input() -> void:
@@ -197,7 +149,6 @@ func _player_input() -> void:
 			YokaiHelperInstance.move_yokai(1)
 	else:
 		is_moving = false
-
 
 
 func set_player_yokai(player_yokais: Array) -> void:

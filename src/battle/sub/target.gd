@@ -8,14 +8,7 @@ enum STATE {
 
 
 @onready var Selector: Area2D = $selector
-@onready var BattleInstance: Battle = get_parent().get_parent().get_parent().get_parent()
-
-@onready var Buttons: Array[Sprite2D] = [
-	$buttons/back_button,
-	$buttons/normal_selector,
-	$buttons/back_button3,
-	$buttons/back_button4,
-]
+@onready var BattleInstance: Battle = get_parent().get_parent().get_parent()
 
 
 var input_vector: Vector2 = Vector2.ZERO
@@ -33,7 +26,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift"):
-		pass
+		_end()
 	
 	if hovering:
 		if event.is_action_pressed("space"):
@@ -57,3 +50,9 @@ func _on_selector_area_entered(area: Area2D) -> void:
 		if area.get_parent().get_parent().team == 1:
 			hovering = true
 			yokai = area
+
+
+func _end() -> void:
+	visible = false
+	GlobalBattle.disable_ui.emit(2)
+	process_mode = Node.PROCESS_MODE_DISABLED

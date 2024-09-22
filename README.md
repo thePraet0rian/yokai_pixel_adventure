@@ -5,18 +5,5 @@
 
 ## Features
 ### Implemented
-- [x] .json save system;
-- [x] General menue and work battle system;
-- [x] Yokai stats from YKW 2;
 
 ### ToDo:
-- [ ] Full save system;
-- [ ] Sprites (Animations);
-- [ ] Targeting system With lerp() acceleration; 
-- [ ] Any custom story at all;
-- [ ] Custom yokai (sprites and stats);
-- [ ] Everything else;
-- [ ] ...
-
-
-Zis has things 

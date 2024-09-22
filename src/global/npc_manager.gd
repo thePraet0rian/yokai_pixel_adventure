@@ -8,7 +8,7 @@ enum NPCS {
 }
 
 
-const npc_conversion_arr: PackedStringArray = ["NPC_01", "NPC_02", "NPC_03"]
+const npc_conversion_arr: Array[String] = ["NPC_01", "NPC_02", "NPC_03"]
 
 
 var npcs: Dictionary

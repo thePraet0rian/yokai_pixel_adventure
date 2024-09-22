@@ -15,8 +15,8 @@ enum States {
 var current_state: States
 var soulimate_selected_yokai: int = 0
 
-@onready var BattleInstance: Battle = get_node("../../../..")
-@onready var YokaiHelperInstance: BattleYokaiHelper
+@onready var BattleInstance: Battle = get_node("../../..")
+@onready var YokaiHelperInstance: YokaiHelper
 @onready var SoulimateRect: Sprite2D = $soulimate_rect
 
 @onready var Arrows: Array[Sprite2D] = [
@@ -33,6 +33,7 @@ func _ready() -> void:
 	YokaiHelperInstance.set_soulimate_selected_yokai(soulimate_selected_yokai)
 	YokaiHelperInstance.disable_soulimate_ui()
 
+
 func _input(event: InputEvent) -> void:	
 	match current_state:
 		0:
@@ -41,6 +42,7 @@ func _input(event: InputEvent) -> void:
 			_soulimate_input(event)
 		2:
 			pass
+
 
 func _selecting_input(event: InputEvent) -> void:	
 	if event.is_action_pressed("move_left"):
@@ -64,6 +66,8 @@ func _selecting_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("shift"):
 		SoulimateRect.visible = false
+		_end()
+
 
 func _soulimate_input(event: InputEvent) -> void:
 	
@@ -79,9 +83,11 @@ func _soulimate_input(event: InputEvent) -> void:
 	if event.is_action_pressed("shift"):
 		SoulimateRect.visible = false
 		current_state = States.Selecting
+		
 
 func _attacking_input(_event: InputEvent) -> void:
 	pass
+
 
 func start_soulimate(yokai: int) -> void:
 	Arrows[0].visible = true
@@ -93,3 +99,9 @@ func start_soulimate(yokai: int) -> void:
 	Arrows[1].visible = false
 	
 	YokaiHelperInstance.start_soulimate(yokai)
+
+
+func _end() -> void:
+	visible = false
+	GlobalBattle.disable_ui.emit(1)
+	process_mode = Node.PROCESS_MODE_DISABLED

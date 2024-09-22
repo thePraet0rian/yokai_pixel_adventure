@@ -29,9 +29,6 @@ var yokai_number: int = 0
 var YokaiInst: Yokai
 
 
-#TBD PARENT REFERENCES SHOULD BE REMOVED
-@onready var YokaiHelperInstance: BattleYokaiHelper = get_node("..").get_node("..")
-
 @onready var AnimPlayer: AnimationPlayer = $AnimPlayer
 @onready var TickTimer: Timer = $TickTimer
 
@@ -53,8 +50,11 @@ var YokaiInst: Yokai
 @onready var HitSoundEffect: AudioStreamPlayer2D = $HitSoundEffect
 @onready var InspiritedSprite: Sprite2D = $Inspirited
 
-
 @onready var DebugUiTickRect: ColorRect = $debug_ui/ColorRect
+
+@onready var InspiritEffect: Sprite2D = $InspiritEffect
+
+
 
 
 func _ready() -> void:
@@ -63,10 +63,11 @@ func _ready() -> void:
 	if not YokaiInst.active:
 		active = false
 		visible = false
-		TickTimer.stop()
+		
 	else:
 		SoulMeter.scale.y = -(YokaiInst.yokai_soul / 1)
 		HealthBar.scale.x = (float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp))
+		
 
 
 func set_tick(ticking: bool) -> void:
@@ -101,15 +102,15 @@ func set_team(team_str: String) -> void:
 func set_opponents(opponents: Array[BattleYokai]) -> void:
 	match team:
 		PLAYER:
-			PlayerAiInstance.set_enemys(opponents)	
+			PlayerAiInstance.set_opponents(opponents)	
 		ENEMY:
-			EnemyAiInstance.set_players(opponents)
+			EnemyAiInstance.set_opponents(opponents)
 
 
 func set_target() -> void:
 	if team == ENEMY:
 		Selector.visible = true
-		YokaiHelperInstance.set_selected_yokai(yokai_number)
+		GlobalBattle.set_selected_yokai.emit(yokai_number)
 		YokaiInst.targeted = true
 
 
@@ -213,13 +214,13 @@ func heal_yokai(health: int) -> void:
 
 
 func _on_tick_timer_timeout() -> void:
-	if not is_dead:
-		if team == 0: 
+	match team:
+		PLAYER when not is_dead:
 			PlayerAiInstance.player_tick()
-			_soul_update(0.25)
-		if team == 1: 
+		ENEMY when not is_dead:
 			EnemyAiInstance.enemy_tick()
 	
+	#WARNING: Is going to be removed. 
 	DebugUiTickRect.color = Color8(255, 0, 0)
 	await get_tree().create_timer(.2).timeout
 	DebugUiTickRect.color = Color8(255, 255, 255)
@@ -257,7 +258,7 @@ func _update_health_bar() -> void:
 			TweenInst.tween_property(EnemyHealthBar, "scale", Vector2(updated_hp, 1), 0.5)
 	
 	await TweenInst.finished
-	YokaiHelperInstance.update()
+	GlobalBattle.update.emit()
 	
 	
 func _damage(_damage_int: int) -> void:
@@ -274,9 +275,48 @@ func _damage(_damage_int: int) -> void:
 
 func _player_attack_animation() -> void:
 	AnimPlayer.play("flash")
+	
+	var TweenOne: Tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
+	var TweenTwo: Tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
+	
+	TweenOne.set_parallel()
+	TweenTwo.set_parallel()
+	
+	TweenOne.tween_property(self, "position", position - Vector2(0, 8), 0.2)
+	TweenTwo.tween_property(self, "scale", scale + Vector2(0, 0.5), 0.2)
+	await TweenOne.finished
+	
+	var TweenThree: Tween = create_tween()
+	var TweenFour: Tween = create_tween()
+	
+	TweenThree.tween_property(self, "position", position + Vector2(0, 8), 0.2)
+	TweenFour.tween_property(self, "scale", scale - Vector2(0, 0.5), 0.2)
+	
+	
 
+  
 func _enemy_attack_animation() -> void:
 	AnimPlayer.play("flash")
+	
+	var TweenOne: Tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
+	var TweenTwo: Tween = create_tween().set_trans(Tween.TRANS_BOUNCE)
+	
+	TweenOne.set_parallel()
+	TweenTwo.set_parallel()
+	
+	TweenOne.tween_property(self, "position", position - Vector2(0, 8), 0.2)
+	TweenTwo.tween_property(self, "scale", scale + Vector2(0, 0.5), 0.2)
+	await TweenOne.finished
+	
+	var TweenThree: Tween = create_tween()
+	var TweenFour: Tween = create_tween()
+	
+	TweenThree.tween_property(self, "position", position + Vector2(0, 8), 0.2)
+	TweenFour.tween_property(self, "scale", scale - Vector2(0, 0.5), 0.2)
+
 
 func _inpspirit_animation() -> void:
 	AnimPlayer.play("flash2")
+	InspiritEffect.visible = true
+	await get_tree().create_timer(.25).timeout
+	InspiritEffect.visible = false

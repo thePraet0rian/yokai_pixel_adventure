@@ -5,7 +5,7 @@ signal medalls_close
 
 
 const YOKAI_SLOT_SCENE: PackedScene = preload("res://scn/ui/inventory/medalls/yokai_slot.tscn")
-const tmp_quest_arr: PackedStringArray = [
+const tmp_quest_arr: Array[String] = [
 	"test",
 	"test",
 	"test",

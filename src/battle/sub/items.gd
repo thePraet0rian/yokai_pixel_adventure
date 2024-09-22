@@ -8,7 +8,7 @@ enum States {
 
 
 const ITEM_ICON_SCN: PackedScene = preload("res://scn/ui/inventory/item_icons.tscn")
-const SELECTOR_POSITIONS: PackedVector2Array = [
+const SELECTOR_POSITIONS: Array[Vector2] = [
 	Vector2(24, 72), 
 	Vector2(88, 72),
 	Vector2(152, 72),
@@ -25,6 +25,8 @@ var indices: Vector2 = Vector2.ZERO
 @onready var Inventory: Node2D = $Inventory
 @onready var YokaiSelector: Node2D = $YokaiSelector
 @onready var SelectorRect: ColorRect = $YokaiSelector/Selector
+
+
 
 
 func _ready() -> void:
@@ -72,6 +74,8 @@ func _inventory_input(event: InputEvent) -> void:
 		Inventory.visible = false
 		YokaiSelector.visible = true
 		current_state = States.YOKAI_SELECTOR
+	elif event.is_action_pressed("shift"):
+		_end()
 
 
 func _yokai_input(event: InputEvent) -> void:
@@ -102,3 +106,8 @@ func _use_item(_item_index: int) -> void:
 	var _health: int = global_item.HEALING_ITEMS[ItemInstance.item_name]["health"]
 	global.on_yokai_action.emit("heal", 0, yokai_selected, -1)
 	
+
+func _end() -> void:
+	visible = false
+	GlobalBattle.disable_ui.emit(2)
+	process_mode = Node.PROCESS_MODE_DISABLED

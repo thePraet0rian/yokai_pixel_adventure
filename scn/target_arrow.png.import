@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c72xw3du4t1tg"
-path="res://.godot/imported/back_button.png-99cd0faca3e10d9a8132228f338bbbd9.ctex"
+uid="uid://bkcrt4b80xvj6"
+path="res://.godot/imported/target_arrow.png-f8c31f4591429b6be963ea7525559265.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/target/back_button.png"
-dest_files=["res://.godot/imported/back_button.png-99cd0faca3e10d9a8132228f338bbbd9.ctex"]
+source_file="res://scn/target_arrow.png"
+dest_files=["res://.godot/imported/target_arrow.png-f8c31f4591429b6be963ea7525559265.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkcrt4b80xvj6"
-path="res://.godot/imported/target_arrow.png-3014bff9326f996f5aa7fdeaee3c1b8d.ctex"
+uid="uid://bcvyd8mxvu4td"
+path="res://.godot/imported/inspirit_fx.png-70744eba64183c1e8c42f7e74f411acc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res/battle/battle_yokai/target_arrow.png"
-dest_files=["res://.godot/imported/target_arrow.png-3014bff9326f996f5aa7fdeaee3c1b8d.ctex"]
+source_file="res://res/battle/fx/inspirit_fx.png"
+dest_files=["res://.godot/imported/inspirit_fx.png-70744eba64183c1e8c42f7e74f411acc.ctex"]
 
 [params]
 

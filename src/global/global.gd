@@ -18,7 +18,7 @@ signal on_dialogue_ended
 
 signal on_menue_closed
 
-signal on_yokai_action 
+signal on_yokai_action(_action: String, _team: int, _yokai_number: int)
 signal on_yokai_action_finished
 
 signal on_shopkeeper_met

@@ -5,7 +5,7 @@ signal quest_close
 
 
 const QUEST_SCENE: PackedScene = preload("res://scn/player/menue/quests/quest_button.tscn")
-const tmp_quest_arr: PackedStringArray = [
+const tmp_quest_arr: Array[String] = [
 	"Test", 
 	"test", 
 	"test",

@@ -7,7 +7,7 @@ const EYEPO_SCENE: PackedScene = preload("res://scn/ui/eyepo/eyepo.tscn")
 const SPOT_SCENE: PackedScene = preload("res://scn/ui/spot/spot.tscn")
 const ITEM_OBTAINED_SCENE: PackedScene = preload("res://scn/misc/item/item_obtained.tscn")
 
-const SAVE_FILE_ARR: PackedStringArray = [
+const SAVE_FILE_ARR: Array[String] = [
 	"user://savefile_one.save",
 	"user://savefile_two.save",
 	"user://savefile_three.save",

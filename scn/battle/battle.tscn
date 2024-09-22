@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dqixelu104c0r"]
+[gd_scene load_steps=36 format=3 uid="uid://dqixelu104c0r"]
 
 [ext_resource type="Script" path="res://src/battle/battle.gd" id="1_28vn4"]
 [ext_resource type="Script" path="res://src/battle/yokai_helper.gd" id="3_yiroh"]
@@ -7,23 +7,75 @@
 [ext_resource type="Texture2D" uid="uid://dvf5upa2ndx03" path="res://res/battle/buttons/target_button_two.png" id="7_0cdhu"]
 [ext_resource type="Texture2D" uid="uid://d2dq6fvjpsycn" path="res://res/battle/buttons/soulimate_two.png" id="8_qwbhq"]
 [ext_resource type="Texture2D" uid="uid://dr1sc0yy5d0rx" path="res://res/battle/buttons/purify_button_two.png" id="9_imt5t"]
-[ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="10_u3foe"]
 [ext_resource type="Texture2D" uid="uid://b8nxdap56fkw1" path="res://res/battle/battle_yokai/ff_1.png" id="11_gem68"]
-[ext_resource type="PackedScene" uid="uid://b3v3yrawn71wv" path="res://scn/battle/sub/items.tscn" id="11_kis0f"]
-[ext_resource type="PackedScene" uid="uid://byuu60sehf7ok" path="res://scn/battle/sub/target.tscn" id="12_bmpme"]
+[ext_resource type="PackedScene" uid="uid://b3v3yrawn71wv" path="res://src/battle/misc/sub/items.tscn" id="11_kis0f"]
+[ext_resource type="PackedScene" uid="uid://byuu60sehf7ok" path="res://src/battle/misc/sub/target.tscn" id="12_bmpme"]
 [ext_resource type="Texture2D" uid="uid://dmf7lgww6h662" path="res://res/battle/battle_yokai/ff_2.png" id="12_o6usf"]
-[ext_resource type="PackedScene" uid="uid://c7k2h62jlwjwd" path="res://scn/battle/sub/soulimate.tscn" id="13_clbgi"]
+[ext_resource type="PackedScene" uid="uid://c7k2h62jlwjwd" path="res://src/battle/misc/sub/soulimate.tscn" id="13_clbgi"]
 [ext_resource type="Texture2D" uid="uid://du6e8g4b7c8xs" path="res://res/battle/battle_yokai/ff_3.png" id="13_myqaq"]
-[ext_resource type="PackedScene" uid="uid://nwiqhsqjtw60" path="res://scn/battle/sub/purify.tscn" id="14_eeg27"]
+[ext_resource type="PackedScene" uid="uid://nwiqhsqjtw60" path="res://src/battle/misc/sub/purify.tscn" id="14_eeg27"]
 [ext_resource type="Texture2D" uid="uid://d1e7nrdftl8pc" path="res://res/battle/ui/q_sign.png" id="14_hoddt"]
 [ext_resource type="Texture2D" uid="uid://8in5h2wwviwf" path="res://res/yokai/cadin/cadin_medall.png" id="15_cdgot"]
 [ext_resource type="Texture2D" uid="uid://bdoxxvscku02" path="res://res/battle/ui/e_sign.png" id="15_co87e"]
-[ext_resource type="PackedScene" uid="uid://bn0spooqowien" path="res://scn/battle/sub/win_screen.tscn" id="16_2w66e"]
+[ext_resource type="PackedScene" uid="uid://bn0spooqowien" path="res://src/battle/misc/sub/win_screen.tscn" id="16_2w66e"]
 [ext_resource type="Texture2D" uid="uid://cryqic7d88ff4" path="res://res/battle/ui/wheel.png" id="16_uj23c"]
 [ext_resource type="Texture2D" uid="uid://dpu6nnf1qw8hg" path="res://res/battle/ui/start/overlay.png" id="21_bdhw5"]
 [ext_resource type="Texture2D" uid="uid://1d7hlxknpmp6" path="res://res/battle/ui/start/overlay_2.png" id="22_8eopg"]
 
-[sub_resource type="Animation" id="Animation_kdyfp"]
+[sub_resource type="Animation" id="Animation_vo7gh"]
+resource_name = "show_player_yokai"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Players:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 93), Vector2(0, -17)]
+}
+
+[sub_resource type="Animation" id="Animation_vi4s6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Players:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 93)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vglyt"]
+_data = {
+"RESET": SubResource("Animation_vi4s6"),
+"show_player_yokai": SubResource("Animation_vo7gh")
+}
+
+[sub_resource type="Animation" id="Animation_khg6q"]
+resource_name = "show_menue_buttons"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.733333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 16), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_kuxil"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -35,46 +87,13 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 16)]
 }
 
-[sub_resource type="Animation" id="Animation_3n7bn"]
-resource_name = "buttons_hide"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 16)]
-}
-
-[sub_resource type="Animation" id="Animation_sk2o5"]
-resource_name = "buttons_show"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 16), Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l10kg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sun73"]
 _data = {
-"RESET": SubResource("Animation_kdyfp"),
-"buttons_hide": SubResource("Animation_3n7bn"),
-"buttons_show": SubResource("Animation_sk2o5")
+"RESET": SubResource("Animation_kuxil"),
+"show_menue_buttons": SubResource("Animation_khg6q")
 }
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pjpc4"]
@@ -94,12 +113,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_qigjb"]
+[sub_resource type="Animation" id="Animation_3qh0q"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("main_ui/left_sign:position")
+tracks/0/path = NodePath("MoveButtons/left_sign:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -111,7 +130,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("main_ui/right_sign:position")
+tracks/1/path = NodePath("MoveButtons/right_sign:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -121,66 +140,46 @@ tracks/1/keys = {
 "values": [Vector2(230, 86)]
 }
 
-[sub_resource type="Animation" id="Animation_0l5i2"]
-resource_name = "fade_in"
-length = 0.75
-step = 0.01
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("..")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.75),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"_end"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_qfu8t"]
-resource_name = "q_e_anim"
+[sub_resource type="Animation" id="Animation_sxe4q"]
+resource_name = "constant"
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("main_ui/left_sign:position")
+tracks/0/path = NodePath("MoveButtons/left_sign:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(10, 86), Vector2(8, 86)]
+"values": [Vector2(10, 86), Vector2(6, 86)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("main_ui/right_sign:position")
+tracks/1/path = NodePath("MoveButtons/right_sign:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(230, 86), Vector2(232, 86)]
+"values": [Vector2(230, 86), Vector2(234, 86)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7eoag"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d5h3s"]
 _data = {
-"RESET": SubResource("Animation_qigjb"),
-"fade_in": SubResource("Animation_0l5i2"),
-"q_e_anim": SubResource("Animation_qfu8t")
+"RESET": SubResource("Animation_3qh0q"),
+"constant": SubResource("Animation_sxe4q")
 }
 
-[sub_resource type="Animation" id="Animation_w77cg"]
+[sub_resource type="Animation" id="Animation_5acoi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ui_helper/Start:modulate")
+tracks/0/path = NodePath("BlackOverlay:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -189,182 +188,200 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Overlays:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="Animation" id="Animation_nj4c5"]
-resource_name = "start"
-length = 0.5
+[sub_resource type="Animation" id="Animation_y03n6"]
+resource_name = "autoplay_start"
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ui_helper/Start:modulate")
+tracks/0/path = NodePath("BlackOverlay:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6w7eq"]
+[sub_resource type="Animation" id="Animation_ycv0c"]
+resource_name = "start"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Overlays:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_grxgr"]
 _data = {
-"RESET": SubResource("Animation_w77cg"),
-"start": SubResource("Animation_nj4c5")
+"RESET": SubResource("Animation_5acoi"),
+"autoplay_start": SubResource("Animation_y03n6"),
+"start": SubResource("Animation_ycv0c")
 }
 
 [node name="battle" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_28vn4")
 
-[node name="background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0.301961, 0.301961, 0.301961, 1)
+metadata/_edit_lock_ = true
 
-[node name="yokai_helper" type="Node" parent="."]
+[node name="YokaiHelper" type="Node" parent="."]
 script = ExtResource("3_yiroh")
 
-[node name="enemies" type="Node2D" parent="yokai_helper"]
+[node name="Enemies" type="Node2D" parent="YokaiHelper"]
+metadata/_edit_lock_ = true
 
-[node name="enemy_yokai_anim_player" type="AnimationPlayer" parent="yokai_helper/enemies"]
+[node name="Players" type="Node2D" parent="YokaiHelper"]
+position = Vector2(0, 93)
+metadata/_edit_lock_ = true
 
-[node name="players" type="Node2D" parent="yokai_helper"]
-position = Vector2(0, -17)
+[node name="YokaiHelperAnimationPlayer" type="AnimationPlayer" parent="YokaiHelper"]
+libraries = {
+"": SubResource("AnimationLibrary_vglyt")
+}
 
-[node name="player_yokai_anim_player" type="AnimationPlayer" parent="yokai_helper/players"]
-
-[node name="debuglabel" type="Label" parent="yokai_helper"]
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 8
-
-[node name="Timer" type="Timer" parent="yokai_helper"]
-wait_time = 0.2
-autostart = true
-
-[node name="ui_helper" type="Node" parent="."]
+[node name="UiHelper" type="Node" parent="."]
 script = ExtResource("4_2n2qt")
 
-[node name="main_menue" type="Node2D" parent="ui_helper"]
+[node name="HeadsUpDisplay" type="Node2D" parent="UiHelper"]
 
-[node name="medalls" type="Node" parent="ui_helper/main_menue"]
+[node name="MenueButtons" type="Node2D" parent="UiHelper/HeadsUpDisplay"]
+position = Vector2(0, 16)
 
-[node name="Sprite2D" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
-position = Vector2(103, 115)
-texture = ExtResource("15_cdgot")
-
-[node name="Sprite2D2" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
-position = Vector2(120, 115)
-texture = ExtResource("15_cdgot")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ui_helper/main_menue/medalls"]
-position = Vector2(137, 115)
-texture = ExtResource("15_cdgot")
-
-[node name="buttons" type="Node2D" parent="ui_helper/main_menue"]
-
-[node name="item" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
-position = Vector2(211, 128)
-texture = ExtResource("6_737io")
-hframes = 2
-
-[node name="target" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
-position = Vector2(151, 128)
-texture = ExtResource("7_0cdhu")
-hframes = 2
-
-[node name="soulimate" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
-position = Vector2(92, 128)
-texture = ExtResource("8_qwbhq")
-hframes = 2
-
-[node name="purify" type="Sprite2D" parent="ui_helper/main_menue/buttons"]
+[node name="PurifyButton" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/MenueButtons"]
 position = Vector2(32, 128)
 texture = ExtResource("9_imt5t")
 hframes = 2
 
-[node name="wheel" type="Sprite2D" parent="ui_helper/main_menue"]
+[node name="SoulimateButton" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/MenueButtons"]
+position = Vector2(92, 128)
+texture = ExtResource("8_qwbhq")
+hframes = 2
+
+[node name="TargetButton" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/MenueButtons"]
+position = Vector2(151, 128)
+texture = ExtResource("7_0cdhu")
+hframes = 2
+
+[node name="ItemButton" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/MenueButtons"]
+position = Vector2(211, 128)
+texture = ExtResource("6_737io")
+hframes = 2
+
+[node name="ButtonAnimPlayer" type="AnimationPlayer" parent="UiHelper/HeadsUpDisplay/MenueButtons"]
+libraries = {
+"": SubResource("AnimationLibrary_sun73")
+}
+
+[node name="MoveButtons" type="Node2D" parent="UiHelper/HeadsUpDisplay"]
+
+[node name="left_sign" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/MoveButtons"]
+position = Vector2(10, 86)
+texture = ExtResource("14_hoddt")
+
+[node name="right_sign" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/MoveButtons"]
+position = Vector2(230, 86)
+texture = ExtResource("15_co87e")
+
+[node name="Medalls" type="Node2D" parent="UiHelper/HeadsUpDisplay"]
+
+[node name="MedallBackground" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/Medalls"]
 position = Vector2(120, 115)
 texture = ExtResource("16_uj23c")
 
-[node name="buttons_anim_player" type="AnimationPlayer" parent="ui_helper/main_menue"]
-libraries = {
-"": SubResource("AnimationLibrary_l10kg")
-}
+[node name="FirstMedall" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/Medalls"]
+position = Vector2(103, 115)
+texture = ExtResource("15_cdgot")
 
-[node name="speed_up" type="AnimatedSprite2D" parent="ui_helper/main_menue"]
+[node name="SecondMedall" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/Medalls"]
+position = Vector2(120, 115)
+texture = ExtResource("15_cdgot")
+
+[node name="ThirdMedall" type="Sprite2D" parent="UiHelper/HeadsUpDisplay/Medalls"]
+position = Vector2(137, 115)
+texture = ExtResource("15_cdgot")
+
+[node name="SpeedUp" type="AnimatedSprite2D" parent="UiHelper/HeadsUpDisplay"]
 visible = false
 position = Vector2(16, 8)
 sprite_frames = SubResource("SpriteFrames_pjpc4")
 autoplay = "default"
 frame_progress = 0.964751
 
-[node name="ui" type="Node2D" parent="ui_helper"]
-position = Vector2(0, -7)
-
-[node name="main_ui" type="Node2D" parent="ui_helper/ui"]
-
-[node name="left_sign" type="Sprite2D" parent="ui_helper/ui/main_ui"]
-position = Vector2(10, 86)
-texture = ExtResource("14_hoddt")
-
-[node name="right_sign" type="Sprite2D" parent="ui_helper/ui/main_ui"]
-position = Vector2(230, 86)
-texture = ExtResource("15_co87e")
-
-[node name="ui_anim_player" type="AnimationPlayer" parent="ui_helper/ui/main_ui"]
-root_node = NodePath("../..")
+[node name="HudAnimationPlayer" type="AnimationPlayer" parent="UiHelper/HeadsUpDisplay"]
 libraries = {
-"": SubResource("AnimationLibrary_7eoag")
+"": SubResource("AnimationLibrary_d5h3s")
 }
-autoplay = "q_e_anim"
 
-[node name="target" type="Sprite2D" parent="ui_helper/ui/main_ui"]
-visible = false
-position = Vector2(47, 48)
-texture = ExtResource("10_u3foe")
+[node name="SubUserInterfaces" type="Node2D" parent="UiHelper"]
 
-[node name="sub_ui" type="Node" parent="ui_helper/ui"]
-
-[node name="items" parent="ui_helper/ui/sub_ui" instance=ExtResource("11_kis0f")]
+[node name="Purify" parent="UiHelper/SubUserInterfaces" instance=ExtResource("14_eeg27")]
 process_mode = 4
 visible = false
 
-[node name="target" parent="ui_helper/ui/sub_ui" instance=ExtResource("12_bmpme")]
+[node name="Soulimate" parent="UiHelper/SubUserInterfaces" instance=ExtResource("13_clbgi")]
 process_mode = 4
 visible = false
 
-[node name="soulimate" parent="ui_helper/ui/sub_ui" instance=ExtResource("13_clbgi")]
+[node name="Target" parent="UiHelper/SubUserInterfaces" instance=ExtResource("12_bmpme")]
 process_mode = 4
 visible = false
 
-[node name="purify" parent="ui_helper/ui/sub_ui" instance=ExtResource("14_eeg27")]
+[node name="Items" parent="UiHelper/SubUserInterfaces" instance=ExtResource("11_kis0f")]
 process_mode = 4
 visible = false
 
-[node name="win_screen" parent="ui_helper/ui/sub_ui" instance=ExtResource("16_2w66e")]
+[node name="WinScreen" parent="UiHelper/SubUserInterfaces" instance=ExtResource("16_2w66e")]
 process_mode = 4
 visible = false
 
-[node name="overlay" type="Node" parent="ui_helper/ui"]
+[node name="Start" type="Node2D" parent="UiHelper"]
 
-[node name="ui_anim_player" type="AnimationPlayer" parent="ui_helper/ui"]
+[node name="Overlays" type="Node2D" parent="UiHelper/Start"]
 
-[node name="Start" type="Node2D" parent="ui_helper"]
-
-[node name="Overlay" type="Sprite2D" parent="ui_helper/Start"]
+[node name="Overlay" type="Sprite2D" parent="UiHelper/Start/Overlays"]
 modulate = Color(1, 1, 1, 0.392157)
 position = Vector2(120, 67.5)
 texture = ExtResource("21_bdhw5")
 
-[node name="Overlay2" type="Sprite2D" parent="ui_helper/Start"]
+[node name="Overlay2" type="Sprite2D" parent="UiHelper/Start/Overlays"]
 position = Vector2(120, 67.5)
 texture = ExtResource("22_8eopg")
 
-[node name="AnimPlayer" type="AnimationPlayer" parent="ui_helper"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_6w7eq")
-}
+[node name="BlackOverlay" type="ColorRect" parent="UiHelper/Start"]
+offset_right = 240.0
+offset_bottom = 135.0
+color = Color(0, 0, 0, 1)
 
-[connection signal="timeout" from="yokai_helper/Timer" to="yokai_helper" method="_on_timer_timeout"]
+[node name="StartAnimationPLayer" type="AnimationPlayer" parent="UiHelper/Start"]
+libraries = {
+"": SubResource("AnimationLibrary_grxgr")
+}
+autoplay = "autoplay_start"
+
+[connection signal="animation_finished" from="UiHelper/Start/StartAnimationPLayer" to="UiHelper" method="_on_start_animation_player_animation_finished"]

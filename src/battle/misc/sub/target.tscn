@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://byuu60sehf7ok"]
+[gd_scene load_steps=3 format=3 uid="uid://byuu60sehf7ok"]
 
 [ext_resource type="Script" path="res://src/battle/sub/target.gd" id="1_muyoo"]
-[ext_resource type="Texture2D" uid="uid://c72xw3du4t1tg" path="res://res/battle/target/back_button.png" id="1_qiwi2"]
 [ext_resource type="Texture2D" uid="uid://dudkwk0a1cq8" path="res://res/battle/ui/target/target.png" id="6_axyj8"]
 
 [node name="target" type="Node2D"]
@@ -12,28 +11,6 @@ script = ExtResource("1_muyoo")
 offset_right = 240.0
 offset_bottom = 135.0
 color = Color(0, 0, 0, 0.392157)
-
-[node name="buttons" type="Node2D" parent="."]
-
-[node name="back_button" type="Sprite2D" parent="buttons"]
-position = Vector2(38, 127.5)
-texture = ExtResource("1_qiwi2")
-hframes = 2
-
-[node name="normal_selector" type="Sprite2D" parent="buttons"]
-position = Vector2(94, 127.5)
-texture = ExtResource("1_qiwi2")
-hframes = 2
-
-[node name="back_button3" type="Sprite2D" parent="buttons"]
-position = Vector2(146, 127.5)
-texture = ExtResource("1_qiwi2")
-hframes = 2
-
-[node name="back_button4" type="Sprite2D" parent="buttons"]
-position = Vector2(202, 127.5)
-texture = ExtResource("1_qiwi2")
-hframes = 2
 
 [node name="selector" type="Area2D" parent="."]
 position = Vector2(52, 40)
