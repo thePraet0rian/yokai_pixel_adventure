@@ -11,128 +11,70 @@ const TILE_SIZE: Vector2 = Vector2(72, 0)
 
 
 var active: bool = true
-
 var team: int
 var dirty: bool = false
-
 var progress: float = 0.0
 var input_direction: Vector2
 var last_position: Vector2
-
 var is_ticking: bool = true
 var is_targeted: bool = true
 var is_dead: bool = false
-
 var move_number: int
 var yokai_number: int = 0
-
 var YokaiInst: Yokai
 
 
-@onready var AnimPlayer: AnimationPlayer = $AnimPlayer
-@onready var TickTimer: Timer = $TickTimer
-
-@onready var SoulimateSelector: Sprite2D = $player_ui/soulimate_selector
-@onready var Selector: Sprite2D = $enemy_ui/selector
-
-@onready var PlayerUi: Node2D = $player_ui
-@onready var EnemyUi: Node2D = $enemy_ui
-
-@onready var HealthBar: ColorRect = $player_ui/ui/health_bar
-@onready var EnemyHealthBar: ColorRect = $enemy_ui/ui/HealthBar
-
-@onready var TargetArrow: Sprite2D = $TargetArrow
-@onready var SoulMeter: ColorRect = $player_ui/soul_meter/soul
-
+@onready var UiOrganizerInstance: UiOrganizer = $UiOrganizer
 @onready var PlayerAiInstance: PlayerAi
 @onready var EnemyAiInstance: EnemyAi
 
+@onready var DebugUiTickRect: ColorRect = $DebugUi/ColorRect
 @onready var HitSoundEffect: AudioStreamPlayer2D = $HitSoundEffect
-@onready var InspiritedSprite: Sprite2D = $Inspirited
+@onready var AnimPlayer: AnimationPlayer = $AnimPlayer
 
-@onready var DebugUiTickRect: ColorRect = $debug_ui/ColorRect
-
-@onready var InspiritEffect: Sprite2D = $InspiritEffect
-
-
-
-
-func _ready() -> void:
-	set_process(false)
-	
-	if not YokaiInst.active:
-		active = false
-		visible = false
-		
-	else:
-		SoulMeter.scale.y = -(YokaiInst.yokai_soul / 1)
-		HealthBar.scale.x = (float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp))
-		
+#@onready var SoulimateSelector: Sprite2D = $player_ui/soulimate_selector
+#@onready var Selector: Sprite2D = $enemy_ui/selector
+#@onready var HealthBar: ColorRect = $player_ui/ui/health_bar
+#@onready var EnemyHealthBar: ColorRect = $enemy_ui/ui/HealthBar
+#@onready var TargetArrow: Sprite2D = $TargetArrow
+#@onready var SoulMeter: ColorRect = $player_ui/soul_meter/soul
+#@onready var InspiritedSprite: Sprite2D = $Inspirited
+#@onready var InspiritEffect: Sprite2D = $InspiritEffect
 
 
-func set_tick(ticking: bool) -> void:
-	is_ticking = ticking
-	
-	if ticking:
-		TickTimer.start()
-	else:
-		TickTimer.stop()
+
+func set_tick(_ticking: bool) -> void:
+	is_ticking = _ticking
 
 
-func set_team(team_str: String) -> void:
-	await ready
-	
-	match team_str:
-		"player":	
-			team = PLAYER
-			PlayerAiInstance = PlayerAi.new()
-			PlayerAiInstance.set_current_yokai(YokaiInst)
-			EnemyUi.visible = false
-			
-			_update_player()
-		"enemy":
-			team = ENEMY
-			EnemyAiInstance = EnemyAi.new()
-			EnemyAiInstance.set_current_yokai(YokaiInst)
-			PlayerUi.visible = false
-			
-			_update_enemy()
+func set_team(_team: int) -> void:
+	team = _team
 
 
-func set_opponents(opponents: Array[BattleYokai]) -> void:
+func set_opponents(_opponents: Array[BattleYokai]) -> void:
 	match team:
 		PLAYER:
-			PlayerAiInstance.set_opponents(opponents)	
+			PlayerAiInstance.set_opponents(_opponents)
 		ENEMY:
-			EnemyAiInstance.set_opponents(opponents)
+			EnemyAiInstance.set_opponents(_opponents)
 
 
-func set_target() -> void:
-	if team == ENEMY:
-		Selector.visible = true
-		GlobalBattle.set_selected_yokai.emit(yokai_number)
-		YokaiInst.targeted = true
+func set_target(_active: bool = true) -> void:
+	UiOrganizerInstance.set_targeted(_active)
 
 
 func set_inspirited() -> void:
-	InspiritedSprite.visible = true
+	UiOrganizerInstance.set_inspirited()
 	YokaiInst.inspirited = true
 
 
-func set_soulimate(_selected_soul_yokai: int, _active: bool) -> void:
+func set_soulimate(_active: bool) -> void:
 	if team == PLAYER: 
-		SoulimateSelector.visible = true
-		
-		if _active:
-			SoulimateSelector.frame = 1
-		else:
-			SoulimateSelector.frame = 0
+		UiOrganizerInstance.set_soulimate(_active)
 
 
 func set_target_arrow() -> void:
-	TargetArrow.visible = true
-	await get_tree().create_timer(.5).timeout
-	TargetArrow.visible = false
+	UiOrganizerInstance.set_target()
 
 
 func set_damage(_damage_int: int) -> void:
@@ -150,7 +92,6 @@ func set_move_direction(direction: Vector2, number: int) -> void:
 	move_number = number
 
 
-# TBD: MUTLIPLE DIFFERENT ANIMATIONS
 func set_animation(_animation: String = "attack") -> void:
 	match _animation:
 		"attack":
@@ -162,18 +103,42 @@ func set_animation(_animation: String = "attack") -> void:
 			_inpspirit_animation()
 
 
-func set_speed(_speed: float) -> void:
-	TickTimer.wait_time = TickTimer.wait_time * _speed
-
-
 func set_heal(_health: int) -> void:
-	print(YokaiInst.yokai_hp)
 	if YokaiInst.yokai_hp + _health <= YokaiInst.yokai_max_hp:
 		YokaiInst.yokai_hp += _health
 	else:
 		YokaiInst.yokai_hp = YokaiInst.yokai_max_hp
-	print(YokaiInst.yokai_hp)
-	HealthBar.scale.x = (float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp))
+
+
+func _ready() -> void:
+	_setup_yokai() 
+	_setup_movement()
+	_setup_ui_organizer()
+
+
+func _setup_yokai() -> void:
+	if not YokaiInst.active:
+		active = false
+		visible = false
+	
+	match team:
+		0:	
+			PlayerAiInstance = PlayerAi.new()
+			PlayerAiInstance.set_current_yokai(YokaiInst)
+			_update_player()
+			
+		1:
+			EnemyAiInstance = EnemyAi.new()
+			EnemyAiInstance.set_current_yokai(YokaiInst)
+			_update_enemy()
+
+
+func _setup_movement() -> void:
+	set_process(false)
+
+
+func _setup_ui_organizer() -> void:
+	UiOrganizerInstance.set_yokai_instance(YokaiInst)
 
 
 func _update_player() -> void:
@@ -209,11 +174,10 @@ func _move(delta: float) -> void:
 func heal_yokai(health: int) -> void:
 	if YokaiInst.active:
 		YokaiInst.yokai_hp += health
-		#var TweenInst: Tween = get_tree().create_tween()
-		HealthBar.scale = Vector2((float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp)), 1)
+		UiOrganizerInstance.set_health(health)
 
 
-func _on_tick_timer_timeout() -> void:
+func tick() -> void:
 	match team:
 		PLAYER when not is_dead:
 			PlayerAiInstance.player_tick()
@@ -226,9 +190,9 @@ func _on_tick_timer_timeout() -> void:
 	DebugUiTickRect.color = Color8(255, 255, 255)
 
 
-func _soul_update(soul: float) -> void:
-	YokaiInst.set_soul(soul)
-	SoulMeter.scale.y = -(YokaiInst.yokai_soul / 1.0)
+func _soul_update(_soul: float) -> void:
+	YokaiInst.set_soul(_soul)
+	UiOrganizerInstance.set_soul()
 
 
 func _death_check() -> void:
@@ -238,27 +202,15 @@ func _death_check() -> void:
 				texture = DEAD_YOKAI
 				is_dead = true
 				YokaiInst.active = false
-				TickTimer.stop()
-				InspiritedSprite.visible = false  
+				UiOrganizerInstance.set_inspirited(false)
 			1:
 				is_dead = true
 				YokaiInst.active = false
-				TickTimer.stop()
 				visible = false
 
 
 func _update_health_bar() -> void:
-	var TweenInst: Tween = create_tween()
-	var updated_hp: float = float(YokaiInst.yokai_hp) / float(YokaiInst.yokai_max_hp)
-	
-	match team:
-		0:
-			TweenInst.tween_property(HealthBar, "scale", Vector2(updated_hp, 1), 0.5)
-		1:
-			TweenInst.tween_property(EnemyHealthBar, "scale", Vector2(updated_hp, 1), 0.5)
-	
-	await TweenInst.finished
-	GlobalBattle.update.emit()
+	UiOrganizerInstance.update_health_bar()
 	
 	
 func _damage(_damage_int: int) -> void:
@@ -317,6 +269,6 @@ func _enemy_attack_animation() -> void:
 
 func _inpspirit_animation() -> void:
 	AnimPlayer.play("flash2")
-	InspiritEffect.visible = true
-	await get_tree().create_timer(.25).timeout
-	InspiritEffect.visible = false
+	#InspiritEffect.visible = true
+	#await get_tree().create_timer(.25).timeout
+	#InspiritEffect.visible = false

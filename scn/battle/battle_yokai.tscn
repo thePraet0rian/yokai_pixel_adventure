@@ -3,14 +3,14 @@
 [ext_resource type="Shader" path="res://src/titlescreen/overlay.gdshader" id="1_17ihm"]
 [ext_resource type="Script" path="res://src/battle/battle_yokai.gd" id="1_n8hpv"]
 [ext_resource type="Texture2D" uid="uid://dta1eum8edodb" path="res://res/test/battle_yokai_test.png" id="2_m28nf"]
-[ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://res/battle/ui/health_bar.png" id="4_d7a0h"]
-[ext_resource type="Texture2D" uid="uid://b14y54kt08mml" path="res://res/battle/ui/soul.png" id="6_bi4pn"]
-[ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="6_il4qv"]
-[ext_resource type="Texture2D" uid="uid://ddvqlly0ee1kw" path="res://res/battle/ui/soulimate/soulimate_select.png" id="7_mga13"]
-[ext_resource type="Texture2D" uid="uid://medt236xexnu" path="res://res/battle/battle_yokai/enemy_healthbar.png" id="7_oekgx"]
+[ext_resource type="Script" path="res://src/battle/battle_yokai/ui_organizer.gd" id="4_1ae8p"]
+[ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://res/battle/ui/health_bar.png" id="5_vg7sc"]
+[ext_resource type="Texture2D" uid="uid://b14y54kt08mml" path="res://res/battle/ui/soul.png" id="6_che6j"]
+[ext_resource type="Texture2D" uid="uid://ddvqlly0ee1kw" path="res://res/battle/ui/soulimate/soulimate_select.png" id="7_4d5yt"]
 [ext_resource type="Texture2D" uid="uid://bkcrt4b80xvj6" path="res://scn/target_arrow.png" id="7_v1tts"]
+[ext_resource type="Texture2D" uid="uid://medt236xexnu" path="res://res/battle/battle_yokai/enemy_healthbar.png" id="8_s6sxs"]
+[ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="9_aatwb"]
 [ext_resource type="AudioStream" uid="uid://dnorb3hh0eg1l" path="res://res/sfx/hit.wav" id="10_77fup"]
-[ext_resource type="Texture2D" uid="uid://bw0h2y5vq2gpj" path="res://res/battle/fx/inspirited.png" id="11_f61ik"]
 [ext_resource type="Texture2D" uid="uid://bcvyd8mxvu4td" path="res://res/battle/fx/inspirit_fx.png" id="12_lypll"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ubimd"]
@@ -116,36 +116,31 @@ material = SubResource("ShaderMaterial_ubimd")
 texture = ExtResource("2_m28nf")
 script = ExtResource("1_n8hpv")
 
-[node name="player_ui" type="Node2D" parent="."]
+[node name="UiOrganizer" type="Node2D" parent="."]
+script = ExtResource("4_1ae8p")
 
-[node name="ui" type="Sprite2D" parent="player_ui"]
+[node name="PlayerUi" type="Node2D" parent="UiOrganizer"]
+visible = false
+
+[node name="Ui" type="Sprite2D" parent="UiOrganizer/PlayerUi"]
 position = Vector2(0, 26)
-texture = ExtResource("4_d7a0h")
+texture = ExtResource("5_vg7sc")
 
-[node name="health_bar" type="ColorRect" parent="player_ui/ui"]
+[node name="HealthBar" type="ColorRect" parent="UiOrganizer/PlayerUi/Ui"]
 offset_left = -16.0
 offset_top = 2.0
 offset_right = 26.0
 offset_bottom = 4.0
 color = Color(0.843137, 0.482353, 0.729412, 1)
 
-[node name="battle_yokai" type="Area2D" parent="player_ui"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="player_ui/battle_yokai"]
-polygon = PackedVector2Array(-16, 16, -16, -16, 16, -16, 16, 16)
-
-[node name="soulimate_selector" type="Sprite2D" parent="player_ui"]
-visible = false
-texture = ExtResource("7_mga13")
-hframes = 2
-
-[node name="soul_meter" type="Sprite2D" parent="player_ui"]
+[node name="SoulMeter" type="Sprite2D" parent="UiOrganizer/PlayerUi/Ui"]
 clip_children = 1
-position = Vector2(-22, 26)
-scale = Vector2(-1, 1)
-texture = ExtResource("6_bi4pn")
+position = Vector2(-22, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("6_che6j")
 
-[node name="soul" type="ColorRect" parent="player_ui/soul_meter"]
+[node name="Soul" type="ColorRect" parent="UiOrganizer/PlayerUi/Ui/SoulMeter"]
 offset_left = 4.0
 offset_top = 5.0
 offset_right = 12.0
@@ -153,60 +148,54 @@ offset_bottom = 15.0
 scale = Vector2(-1, -1)
 color = Color(0.388235, 0.607843, 1, 1)
 
-[node name="enemy_ui" type="Node2D" parent="."]
-
-[node name="selector" type="Sprite2D" parent="enemy_ui"]
+[node name="SoulimateSelector" type="Sprite2D" parent="UiOrganizer/PlayerUi"]
 visible = false
-position = Vector2(0, -22)
-texture = ExtResource("6_il4qv")
+texture = ExtResource("7_4d5yt")
+hframes = 2
 
-[node name="ui" type="Sprite2D" parent="enemy_ui"]
+[node name="EnemyUi" type="Node2D" parent="UiOrganizer"]
+visible = false
+
+[node name="Ui" type="Sprite2D" parent="UiOrganizer/EnemyUi"]
 position = Vector2(0, -24)
-texture = ExtResource("7_oekgx")
+texture = ExtResource("8_s6sxs")
 
-[node name="HealthBar" type="ColorRect" parent="enemy_ui/ui"]
+[node name="HealthBar" type="ColorRect" parent="UiOrganizer/EnemyUi/Ui"]
 offset_left = -15.0
 offset_top = -1.0
 offset_right = 15.0
 offset_bottom = 1.0
 color = Color(0.843137, 0.482353, 0.729412, 1)
 
-[node name="debug_ui" type="Node2D" parent="."]
+[node name="Selector" type="Sprite2D" parent="UiOrganizer/EnemyUi"]
+visible = false
+position = Vector2(0, -22)
+texture = ExtResource("9_aatwb")
+
+[node name="InspiritEffect" type="Sprite2D" parent="UiOrganizer"]
+visible = false
+position = Vector2(0, -4)
+texture = ExtResource("12_lypll")
+
+[node name="TargetArrow" type="Sprite2D" parent="UiOrganizer"]
+visible = false
+position = Vector2(0, -20)
+texture = ExtResource("7_v1tts")
+
+[node name="DebugUi" type="Node2D" parent="."]
 position = Vector2(0, -1)
 
-[node name="ColorRect" type="ColorRect" parent="debug_ui"]
+[node name="ColorRect" type="ColorRect" parent="DebugUi"]
 offset_left = -24.0
 offset_top = -13.0
 offset_right = -19.0
 offset_bottom = -8.0
 
-[node name="TickTimer" type="Timer" parent="."]
-wait_time = 4.0
+[node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_77fup")
+playback_type = 1
 
 [node name="AnimPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_py8ro")
 }
-
-[node name="TargetArrow" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -20)
-texture = ExtResource("7_v1tts")
-
-[node name="HitSoundEffect" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_77fup")
-playback_type = 1
-
-[node name="Inspirited" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.521569)
-position = Vector2(0, -2.5)
-scale = Vector2(1.33333, 1.10417)
-texture = ExtResource("11_f61ik")
-
-[node name="InspiritEffect" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -4)
-texture = ExtResource("12_lypll")
-
-[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

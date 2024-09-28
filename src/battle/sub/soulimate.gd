@@ -30,7 +30,7 @@ var soulimate_selected_yokai: int = 0
 func _ready() -> void:	
 	await BattleInstance.ready
 	YokaiHelperInstance = BattleInstance.YokaiHelperInstance
-	YokaiHelperInstance.set_soulimate_selected_yokai(soulimate_selected_yokai)
+	#YokaiHelperInstance.set_soulimate_selected_yokai(soulimate_selected_yokai)
 	YokaiHelperInstance.disable_soulimate_ui()
 
 

@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxj7lqx42tebk"]
+
+[ext_resource type="Texture2D" uid="uid://dkmmblycfom3x" path="res://res/battle/ui/target/target_02.png" id="1_32d0p"]
+[ext_resource type="Texture2D" uid="uid://medt236xexnu" path="res://res/battle/battle_yokai/enemy_healthbar.png" id="2_h6dpu"]
+[ext_resource type="Texture2D" uid="uid://bw0h2y5vq2gpj" path="res://res/battle/fx/inspirited.png" id="3_5p65y"]
+
+[node name="enemy_ui" type="Node2D"]
+
+[node name="selector" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -22)
+texture = ExtResource("1_32d0p")
+
+[node name="ui" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("2_h6dpu")
+
+[node name="HealthBar" type="ColorRect" parent="ui"]
+offset_left = -15.0
+offset_top = -1.0
+offset_right = 15.0
+offset_bottom = 1.0
+color = Color(0.843137, 0.482353, 0.729412, 1)
+
+[node name="Inspirited" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.521569)
+position = Vector2(0, -2.5)
+scale = Vector2(1.33333, 1.10417)
+texture = ExtResource("3_5p65y")

@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg6lqisy8t3q5"]
+
+[ext_resource type="Texture2D" uid="uid://te4uwhom7kcu" path="res://res/battle/ui/health_bar.png" id="1_8byff"]
+[ext_resource type="Texture2D" uid="uid://ddvqlly0ee1kw" path="res://res/battle/ui/soulimate/soulimate_select.png" id="2_nm7af"]
+[ext_resource type="Texture2D" uid="uid://b14y54kt08mml" path="res://res/battle/ui/soul.png" id="3_bm053"]
+[ext_resource type="Texture2D" uid="uid://bw0h2y5vq2gpj" path="res://res/battle/fx/inspirited.png" id="4_6w0lk"]
+
+[node name="player_ui" type="Node2D"]
+
+[node name="ui" type="Sprite2D" parent="."]
+position = Vector2(0, 26)
+texture = ExtResource("1_8byff")
+
+[node name="health_bar" type="ColorRect" parent="ui"]
+offset_left = -16.0
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 4.0
+color = Color(0.843137, 0.482353, 0.729412, 1)
+
+[node name="soul_meter" type="Sprite2D" parent="ui"]
+clip_children = 1
+position = Vector2(-22, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("3_bm053")
+
+[node name="soul" type="ColorRect" parent="ui/soul_meter"]
+offset_left = 4.0
+offset_top = 5.0
+offset_right = 12.0
+offset_bottom = 15.0
+scale = Vector2(-1, -1)
+color = Color(0.388235, 0.607843, 1, 1)
+
+[node name="battle_yokai" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="battle_yokai"]
+polygon = PackedVector2Array(-16, 16, -16, -16, 16, -16, 16, 16)
+
+[node name="soulimate_selector" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_nm7af")
+hframes = 2
+
+[node name="Inspirited" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.521569)
+position = Vector2(0, -2.5)
+scale = Vector2(1.33333, 1.10417)
+texture = ExtResource("4_6w0lk")
