@@ -1,6 +1,7 @@
 extends Node2D
 
 
+
 enum STATE {
 	ONE = 1, 
 	TWO = 2,
@@ -30,11 +31,12 @@ func _input(event: InputEvent) -> void:
 	
 	if hovering:
 		if event.is_action_pressed("space"):
-			yokai.get_parent().get_parent().set_target()
+			global.on_yokai_action.emit("target", 0, yokai.get_parent().yokai_number)
 			hovering = false
 	else:
 		if event.is_action_pressed("space"):
-			BattleInstance.YokaiHelperInstance.set_selected_yokai(-1)
+			global.on_yokai_action.emit("target", 0, 0, 0, [-1])
+			
 
 
 func _physics_process(delta: float) -> void:
@@ -47,7 +49,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_selector_area_entered(area: Area2D) -> void:
 	if "battle_yokai" in area.name:
-		if area.get_parent().get_parent().team == 1:
+		if area.get_parent().team == 1:
 			hovering = true
 			yokai = area
 

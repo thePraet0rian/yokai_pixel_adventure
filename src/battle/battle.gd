@@ -41,7 +41,6 @@ var is_sped_up: bool = false
 
 
 
-
 func _ready() -> void:
 	_setup_yokai_helper()
 	_setup_ui_helper()	
@@ -51,7 +50,7 @@ func _ready() -> void:
 func _setup_yokai_helper() -> void:
 	YokaiHelperInstance.set_player_yokai_arr(player_yokai_arr)
 	YokaiHelperInstance.set_enemy_yokai_arr(enemy_yokai_arr)
-	YokaiHelperInstance.setup_yokai()
+	YokaiHelperInstance.setup()
 
 
 func _setup_ui_helper() -> void:
@@ -66,7 +65,6 @@ func _connect_signals() -> void:
 func _start_battle() -> void:
 	await get_tree().physics_frame
 	current_game_state = GAME_STATES.SELECTING
-	YokaiHelperInstance.set_yokai_tick(true)
 
 
 func _input(event: InputEvent) -> void:
@@ -103,7 +101,6 @@ func _selecting_input(event: InputEvent) -> void:
 
 
 func _change_sub_game_state(sub_buttons_index: int) -> void:
-	YokaiHelperInstance.set_yokai_tick(false)
 	current_game_state = GAME_STATES.ACTION
 
 	UiHelperInstance.set_state(sub_buttons_index)
@@ -122,7 +119,6 @@ func _change_sub_game_state(sub_buttons_index: int) -> void:
 
 func disable_sub_ui(_ui: int) -> void:
 	current_game_state = GAME_STATES.SELECTING
-	YokaiHelperInstance.set_yokai_tick(true)
 	
 	if _ui == 1:
 		YokaiHelperInstance.disable_soulimate_ui()
@@ -144,9 +140,9 @@ func _player_input() -> void:
 	if input_direction != Vector2.ZERO:
 		is_moving = true
 		if input_direction == Vector2.LEFT:
-			YokaiHelperInstance.move_yokai(0)
+			YokaiHelperInstance.set_move(0)
 		elif input_direction == Vector2.RIGHT:
-			YokaiHelperInstance.move_yokai(1)
+			YokaiHelperInstance.set_move(1)
 	else:
 		is_moving = false
 
@@ -172,6 +168,5 @@ func update_battle_conditions() -> void:
 		UiHelperInstance.set_win_xp(_calculate_win_xp())
 
 		await UiHelperInstance.win_animation_finished
-		YokaiHelperInstance.set_yokai_tick(false)
 		current_game_state = GAME_STATES.ACTION
 		current_sub_game_state = SUB_GAME_STATES.WIN

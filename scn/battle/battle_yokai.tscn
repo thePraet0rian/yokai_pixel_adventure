@@ -120,7 +120,6 @@ script = ExtResource("1_n8hpv")
 script = ExtResource("4_1ae8p")
 
 [node name="PlayerUi" type="Node2D" parent="UiOrganizer"]
-visible = false
 
 [node name="Ui" type="Sprite2D" parent="UiOrganizer/PlayerUi"]
 position = Vector2(0, 26)
@@ -154,7 +153,6 @@ texture = ExtResource("7_4d5yt")
 hframes = 2
 
 [node name="EnemyUi" type="Node2D" parent="UiOrganizer"]
-visible = false
 
 [node name="Ui" type="Sprite2D" parent="UiOrganizer/EnemyUi"]
 position = Vector2(0, -24)
@@ -199,3 +197,8 @@ playback_type = 1
 libraries = {
 "": SubResource("AnimationLibrary_py8ro")
 }
+
+[node name="battle_yokai" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="battle_yokai"]
+polygon = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -16)

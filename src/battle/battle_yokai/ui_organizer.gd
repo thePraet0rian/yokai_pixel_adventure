@@ -16,12 +16,19 @@ var YokaiInstance: Yokai
 @onready var TargetArrow: Sprite2D = $TargetArrow
 @onready var HealthBar: ColorRect = $PlayerUi/Ui/HealthBar
 @onready var EnemyHealthBar: ColorRect = $EnemyUi/Ui/HealthBar
+@onready var EnemySelector: Sprite2D = $EnemyUi/Selector
 @onready var SoulMeter: ColorRect = $PlayerUi/Ui/SoulMeter/Soul
 @onready var InspiritEffect: Sprite2D = $InspiritEffect
 
 
 func set_team(_team: int) -> void:
 	current_team = _team
+	
+	match current_team:
+		PLAYER:
+			EnemyUi.visible = false
+		ENEMY: 
+			PlayerUi.visible = false
 
 
 func set_yokai_instance(_YokaiInstance) -> void:
@@ -61,6 +68,10 @@ func set_soul() -> void:
 	SoulMeter.scale.y = -(YokaiInstance.yokai_soul / 1.0)
 
 
+func set_selector(_active: bool = true) -> void:
+	EnemySelector.visible = _active
+
+
 func update_health_bar() -> void:
 	var TweenInst: Tween = create_tween()
 	var updated_hp: float = float(YokaiInstance.yokai_hp) / float(YokaiInstance.yokai_max_hp)
@@ -76,11 +87,5 @@ func update_health_bar() -> void:
 
 
 func _ready() -> void:
-	match current_team:
-		PLAYER:
-			EnemyUi.visible = false
-			PlayerUi.visible = true
-		ENEMY: 
-			PlayerUi.visible = false
-			EnemyUi.visible = true
+	pass
 		
