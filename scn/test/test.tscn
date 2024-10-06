@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dt1ynq3r78we0"]
+[gd_scene load_steps=16 format=3 uid="uid://dt1ynq3r78we0"]
 
 [ext_resource type="PackedScene" uid="uid://byw2vrqxq0slp" path="res://scn/player/player.tscn" id="1_67bwh"]
 [ext_resource type="Script" path="res://scn/test/test.gd" id="1_i6dot"]
@@ -49,6 +49,86 @@ blend_mode = 1
 states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_ww5ys")
 states/BlendSpace2D/position = Vector2(413, 103)
 
+[sub_resource type="Animation" id="Animation_5ryhp"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(249, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-136, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-0.7, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_tgrk0"]
+resource_name = "jump"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(249, -0.25, 0, 0.25, 0, 249, -0.25, 0, 0.25, 0, 249, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.7, 1.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-136, -0.25, 0, 0.233333, 34.5, -168, -0.25, 0, 0.25, 0, -136, -0.233333, 33.5, 0.25, 0),
+"times": PackedFloat32Array(0.2, 0.7, 1.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(8.5, -0.25, 0, 0.233333, 76, -13.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.166667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hctc3"]
+_data = {
+"RESET": SubResource("Animation_5ryhp"),
+"jump": SubResource("Animation_tgrk0")
+}
+
 [node name="test" type="Node2D"]
 script = ExtResource("1_i6dot")
 
@@ -78,3 +158,18 @@ script = ExtResource("5_7odvc")
 [node name="ColorRect" type="ColorRect" parent="test2"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="test" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="test"]
+offset_left = 249.0
+offset_top = -136.0
+offset_right = 289.0
+offset_bottom = -96.0
+scale = Vector2(1, -0.7)
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="test"]
+libraries = {
+"": SubResource("AnimationLibrary_hctc3")
+}

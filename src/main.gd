@@ -1,6 +1,8 @@
 class_name Main extends Node2D
 
 
+# This is a test Comment. 
+
 const PLAYER_SCENE: PackedScene = preload("res://scn/player/player.tscn")
 const BATTLE_SCENE: PackedScene = preload("res://scn/battle/battle.tscn")
 const EYEPO_SCENE: PackedScene = preload("res://scn/ui/eyepo/eyepo.tscn")
